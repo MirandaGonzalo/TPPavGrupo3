@@ -1,0 +1,17 @@
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\TPG3.exe
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\TPG3.deps.json
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\TPG3.runtimeconfig.json
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\TPG3.dll
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\TPG3.pdb
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.csproj.AssemblyReference.cache
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Form1.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.csproj.GenerateResource.cache
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.AssemblyInfoInputs.cache
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.AssemblyInfo.cs
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.csproj.CoreCompileInputs.cache
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.dll
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\refint\TPG3.dll
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.pdb
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.genruntimeconfig.cache
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\ref\TPG3.dll

@@ -1,4 +1,4 @@
-﻿namespace TPG3
+﻿namespace TPG3.Formularios.Promocion
 {
     partial class AltaPromocion
     {
@@ -46,7 +46,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNombre.Location = new System.Drawing.Point(54, 84);
+            this.lblNombre.Location = new System.Drawing.Point(103, 185);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(77, 21);
             this.lblNombre.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDescripcion.Location = new System.Drawing.Point(54, 126);
+            this.lblDescripcion.Location = new System.Drawing.Point(103, 227);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(104, 21);
             this.lblDescripcion.TabIndex = 1;
@@ -65,7 +65,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNombre.Location = new System.Drawing.Point(166, 76);
+            this.txtNombre.Location = new System.Drawing.Point(215, 177);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(131, 29);
             this.txtNombre.TabIndex = 2;
@@ -73,7 +73,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDescripcion.Location = new System.Drawing.Point(166, 118);
+            this.txtDescripcion.Location = new System.Drawing.Point(215, 219);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(131, 29);
             this.txtDescripcion.TabIndex = 3;
@@ -82,7 +82,7 @@
             // 
             this.lblValor.AutoSize = true;
             this.lblValor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblValor.Location = new System.Drawing.Point(54, 172);
+            this.lblValor.Location = new System.Drawing.Point(103, 273);
             this.lblValor.Name = "lblValor";
             this.lblValor.Size = new System.Drawing.Size(55, 21);
             this.lblValor.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(235, 170);
+            this.maskedTextBox1.Location = new System.Drawing.Point(284, 271);
             this.maskedTextBox1.Mask = "99999";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(62, 23);
@@ -102,7 +102,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(54, 215);
+            this.label1.Location = new System.Drawing.Point(103, 316);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 21);
             this.label1.TabIndex = 6;
@@ -110,7 +110,7 @@
             // 
             // mtbInicio
             // 
-            this.mtbInicio.Location = new System.Drawing.Point(235, 213);
+            this.mtbInicio.Location = new System.Drawing.Point(284, 314);
             this.mtbInicio.Mask = "00/00/0000";
             this.mtbInicio.Name = "mtbInicio";
             this.mtbInicio.Size = new System.Drawing.Size(62, 23);
@@ -121,7 +121,7 @@
             // 
             this.lblFin.AutoSize = true;
             this.lblFin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFin.Location = new System.Drawing.Point(54, 252);
+            this.lblFin.Location = new System.Drawing.Point(103, 353);
             this.lblFin.Name = "lblFin";
             this.lblFin.Size = new System.Drawing.Size(85, 21);
             this.lblFin.TabIndex = 8;
@@ -129,7 +129,7 @@
             // 
             // mtbFin
             // 
-            this.mtbFin.Location = new System.Drawing.Point(235, 250);
+            this.mtbFin.Location = new System.Drawing.Point(284, 351);
             this.mtbFin.Mask = "00/00/0000";
             this.mtbFin.Name = "mtbFin";
             this.mtbFin.Size = new System.Drawing.Size(62, 23);
@@ -138,7 +138,7 @@
             // 
             // btnCargarPromocion
             // 
-            this.btnCargarPromocion.Location = new System.Drawing.Point(205, 297);
+            this.btnCargarPromocion.Location = new System.Drawing.Point(254, 398);
             this.btnCargarPromocion.Name = "btnCargarPromocion";
             this.btnCargarPromocion.Size = new System.Drawing.Size(92, 37);
             this.btnCargarPromocion.TabIndex = 10;
@@ -151,7 +151,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.lblTitulo.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblTitulo.Location = new System.Drawing.Point(54, 22);
+            this.lblTitulo.Location = new System.Drawing.Point(103, 123);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(167, 30);
             this.lblTitulo.TabIndex = 11;
@@ -161,7 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 373);
+            this.ClientSize = new System.Drawing.Size(980, 586);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnCargarPromocion);
             this.Controls.Add(this.mtbFin);

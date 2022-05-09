@@ -72,9 +72,9 @@
             this.btnSubOrigen = new System.Windows.Forms.Button();
             this.btnMenuPelicula = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelBot = new System.Windows.Forms.Panel();
+            this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuUsuario.SuspendLayout();
             this.panelSubMenuMedioPago.SuspendLayout();
@@ -474,6 +474,7 @@
             this.btnSubPromocion.Text = "Promoción";
             this.btnSubPromocion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubPromocion.UseVisualStyleBackColor = true;
+            this.btnSubPromocion.Click += new System.EventHandler(this.btnSubPromocion_Click);
             // 
             // btnMenuEntrada
             // 
@@ -742,16 +743,9 @@
             this.panelLogo.Size = new System.Drawing.Size(233, 100);
             this.panelLogo.TabIndex = 1;
             // 
-            // panelChildForm
-            // 
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(250, 0);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(996, 825);
-            this.panelChildForm.TabIndex = 1;
-            // 
             // panelTop
             // 
+            this.panelTop.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(250, 0);
             this.panelTop.Name = "panelTop";
@@ -760,20 +754,29 @@
             // 
             // panelBot
             // 
+            this.panelBot.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panelBot.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBot.Location = new System.Drawing.Point(250, 725);
             this.panelBot.Name = "panelBot";
             this.panelBot.Size = new System.Drawing.Size(996, 100);
             this.panelBot.TabIndex = 3;
             // 
+            // panelChildForm
+            // 
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(250, 100);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(996, 625);
+            this.panelChildForm.TabIndex = 4;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1246, 825);
+            this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelBot);
             this.Controls.Add(this.panelTop);
-            this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelMenuLateral);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "Main";
@@ -805,7 +808,6 @@
         private Button btnSubOrigen;
         private Button btnMenuPelicula;
         private Panel panelLogo;
-        private Panel panelChildForm;
         private Panel panelTop;
         private Panel panelBot;
         private Panel panelSubMenuFuncion;
@@ -841,5 +843,6 @@
         private Button btnSubCliente;
         private Button btnSubTipoDocumento;
         private Button btnMenuUsuario;
+        private Panel panelChildForm;
     }
 }

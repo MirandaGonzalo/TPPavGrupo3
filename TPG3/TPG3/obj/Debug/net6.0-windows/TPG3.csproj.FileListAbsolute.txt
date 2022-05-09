@@ -15,7 +15,6 @@ D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.pdb
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.genruntimeconfig.cache
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\ref\TPG3.dll
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Main.resources
-D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.AltaPromocion.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\TPG3.dll.config
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.LogIn.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
@@ -25,3 +24,5 @@ D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\runtimes\win-x86\n
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.csproj.CopyComplete
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Promocion.ListaPromocion.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Promocion.AltaPromocion.resources

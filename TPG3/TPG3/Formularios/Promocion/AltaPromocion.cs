@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TPG3
+namespace TPG3.Formularios.Promocion
 {
     public partial class AltaPromocion : Form
     {

@@ -1,25 +1,20 @@
+using System;
+
 namespace TPG3
 {
     public partial class Main : Form
     {
-        private Form currentForm = null; 
+        private static Form currentForm = null; 
+        internal static Main main1;
         public Main()
         {
             InitializeComponent();
             hideSubMenu();
+            main1 = this;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*
-            btnMenuPelicula.Visible = false;
-            btnMenuCombo.Visible = false;
-            btnMenuEntrada.Visible = false;
-            btnMenuFunción.Visible = false;
-            btnMenuUsuario.Visible = false;
-            btnMenuCliente.Visible = false;
-            displayLogIn();
-            */
         }
 
         private void displayLogIn()
@@ -27,7 +22,6 @@ namespace TPG3
             Form logIn = new LogIn();
             logIn.ShowDialog();
         }
-
         private void openChildForm(Form childForm)
         {
             if (currentForm != null) currentForm.Close();
@@ -96,6 +90,18 @@ namespace TPG3
         private void btnMenuUsuario_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSubMenuUsuario);
+        }
+
+        public void btnSubPromocionAltaPromocion()
+        {
+            Formularios.Promocion.AltaPromocion altaPromocion = new Formularios.Promocion.AltaPromocion();
+            openChildForm(altaPromocion);
+        }
+
+        private void btnSubPromocion_Click(object sender, EventArgs e)
+        {
+            Formularios.Promocion.ListaPromocion listaPromocion = new Formularios.Promocion.ListaPromocion();
+            openChildForm(listaPromocion);
         }
     }
 }

@@ -98,7 +98,7 @@ namespace TPG3
             openChildForm(altaPromocion);
         }
 
-        private void btnSubPromocion_Click(object sender, EventArgs e)
+        public void btnSubPromocion_Click(object sender, EventArgs e)
         {
             Formularios.Promocion.ListaPromocion listaPromocion = new Formularios.Promocion.ListaPromocion();
             openChildForm(listaPromocion);

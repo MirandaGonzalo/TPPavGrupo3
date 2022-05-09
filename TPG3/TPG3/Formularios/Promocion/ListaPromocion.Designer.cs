@@ -30,11 +30,11 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvPromocion = new System.Windows.Forms.DataGridView();
+            this.btnCargarPromo = new System.Windows.Forms.Button();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCargarPromo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPromocion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,8 +61,18 @@
             this.dgvPromocion.Location = new System.Drawing.Point(52, 140);
             this.dgvPromocion.Name = "dgvPromocion";
             this.dgvPromocion.RowTemplate.Height = 25;
-            this.dgvPromocion.Size = new System.Drawing.Size(596, 206);
+            this.dgvPromocion.Size = new System.Drawing.Size(635, 206);
             this.dgvPromocion.TabIndex = 13;
+            // 
+            // btnCargarPromo
+            // 
+            this.btnCargarPromo.Location = new System.Drawing.Point(52, 96);
+            this.btnCargarPromo.Name = "btnCargarPromo";
+            this.btnCargarPromo.Size = new System.Drawing.Size(143, 23);
+            this.btnCargarPromo.TabIndex = 14;
+            this.btnCargarPromo.Text = "Cargar Promo";
+            this.btnCargarPromo.UseVisualStyleBackColor = true;
+            this.btnCargarPromo.Click += new System.EventHandler(this.btnCargarPromo_Click);
             // 
             // Nombre
             // 
@@ -83,22 +93,14 @@
             this.FechaInicio.DataPropertyName = "fechaInicio";
             this.FechaInicio.HeaderText = "Fecha Inicio";
             this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.Width = 120;
             // 
             // FechaFin
             // 
             this.FechaFin.DataPropertyName = "fechaFin";
             this.FechaFin.HeaderText = "Fecha Fin";
             this.FechaFin.Name = "FechaFin";
-            // 
-            // btnCargarPromo
-            // 
-            this.btnCargarPromo.Location = new System.Drawing.Point(52, 96);
-            this.btnCargarPromo.Name = "btnCargarPromo";
-            this.btnCargarPromo.Size = new System.Drawing.Size(143, 23);
-            this.btnCargarPromo.TabIndex = 14;
-            this.btnCargarPromo.Text = "Cargar Promo";
-            this.btnCargarPromo.UseVisualStyleBackColor = true;
-            this.btnCargarPromo.Click += new System.EventHandler(this.btnCargarPromo_Click);
+            this.FechaFin.Width = 120;
             // 
             // ListaPromocion
             // 

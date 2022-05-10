@@ -209,6 +209,7 @@
             this.btnSubMedioPago.Text = "Medio Pago";
             this.btnSubMedioPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubMedioPago.UseVisualStyleBackColor = true;
+            this.btnSubMedioPago.Click += new System.EventHandler(this.btnSubMedioPago_Click);
             // 
             // btnSubBanco
             // 

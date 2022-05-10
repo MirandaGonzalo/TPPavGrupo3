@@ -103,5 +103,19 @@ namespace TPG3
             Formularios.Promocion.ListaPromocion listaPromocion = new Formularios.Promocion.ListaPromocion();
             openChildForm(listaPromocion);
         }
+
+
+        public void btnSubMedioPagoAltaMedioPago(Entidades.MedioPago medio)
+        {
+            Formularios.MedioPago.AltaMedioPago altaMedioPago = new Formularios.MedioPago.AltaMedioPago(medio);
+            openChildForm(altaMedioPago);
+        }
+
+        public void btnSubMedioPago_Click(object sender, EventArgs e)
+        {
+            Formularios.MedioPago.ListaMedioPago listaMedioPago = new Formularios.MedioPago.ListaMedioPago();
+            openChildForm(listaMedioPago);
+        }
+
     }
 }

@@ -30,7 +30,7 @@ namespace TPG3.Formularios.Empleado
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT dni,TipoDocumento.idTipoDocumento as 'idTipoDocumento',TipoDocumento.nombre as 'tipoDocumento', Empleado.nombre, apellido, email, telefono  FROM Empleado " +
+                string consulta = "SELECT TipoDocumento.nombre as 'tipoDocumento',dni,TipoDocumento.idTipoDocumento as 'idTipoDocumento',Empleado.nombre, apellido, email, telefono  FROM Empleado " +
                 "INNER JOIN TipoDocumento ON Empleado.tipoDocumento = TipoDocumento.idTipoDocumento";
 
                 cmd.Parameters.Clear();
@@ -81,15 +81,15 @@ namespace TPG3.Formularios.Empleado
         {
             var currentRow = dgvEmpleados.CurrentCell.RowIndex;
             DataGridViewRow selectedRow = dgvEmpleados.Rows[currentRow];
-            int dni = int.Parse(dgvEmpleados.Rows[currentRow].Cells[0].Value.ToString());
-            int tipoDocumento = int.Parse(dgvEmpleados.Rows[currentRow].Cells[1].Value.ToString());
-            string nombreTipoDocumento = (dgvEmpleados.Rows[currentRow].Cells[2].Value.ToString());
+            string nombreTipoDocumento = (dgvEmpleados.Rows[currentRow].Cells[0].Value.ToString());
+            int dni = int.Parse(dgvEmpleados.Rows[currentRow].Cells[1].Value.ToString());
+            int idTipoDocumento = int.Parse(dgvEmpleados.Rows[currentRow].Cells[2].Value.ToString());
             string nombre = dgvEmpleados.Rows[currentRow].Cells[3].Value.ToString();
             string apellido = dgvEmpleados.Rows[currentRow].Cells[4].Value.ToString();
             string email = dgvEmpleados.Rows[currentRow].Cells[5].Value.ToString();
             string telefono = dgvEmpleados.Rows[currentRow].Cells[6].Value.ToString();
             
-            Entidades.Empleado empleado = new Entidades.Empleado(dni,tipoDocumento, nombreTipoDocumento, nombre,apellido,email,telefono, 2);
+            Entidades.Empleado empleado = new Entidades.Empleado(dni, idTipoDocumento, nombreTipoDocumento, nombre,apellido,email,telefono, 2);
             Main.main1.btnSubTicketAltaEmpleado(empleado);
         }
 
@@ -102,9 +102,9 @@ namespace TPG3.Formularios.Empleado
             {
                 var currentRow = dgvEmpleados.CurrentCell.RowIndex;
                 DataGridViewRow selectedRow = dgvEmpleados.Rows[currentRow];
-                int dni = int.Parse(dgvEmpleados.Rows[currentRow].Cells[0].Value.ToString());
-                int tipoDocumento = int.Parse(dgvEmpleados.Rows[currentRow].Cells[1].Value.ToString());
-                Entidades.Empleado empleado = new Entidades.Empleado(dni, tipoDocumento, "", "", "", "", "", 1);                
+                int dni = int.Parse(dgvEmpleados.Rows[currentRow].Cells[1].Value.ToString());
+                int idTipoDocumento = int.Parse(dgvEmpleados.Rows[currentRow].Cells[2].Value.ToString());
+                Entidades.Empleado empleado = new Entidades.Empleado(dni, idTipoDocumento, "", "", "", "", "", 1);                
                 AltaEmpleado altaEmp = new AltaEmpleado(empleado);
                 var result = altaEmp.cargarEmpleado(empleado);
                 if (result)

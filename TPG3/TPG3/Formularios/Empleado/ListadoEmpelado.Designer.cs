@@ -38,6 +38,13 @@
             this.btnCargarEmpleado = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.tipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idTipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBackAltaPromocion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -135,12 +142,64 @@
             // dgvEmpleados
             // 
             this.dgvEmpleados.AllowUserToAddRows = false;
+            this.dgvEmpleados.AllowUserToDeleteRows = false;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tipoDocumento,
+            this.dni,
+            this.idTipoDocumento,
+            this.nombre,
+            this.apellido,
+            this.telefono,
+            this.email});
             this.dgvEmpleados.Location = new System.Drawing.Point(53, 217);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowTemplate.Height = 25;
-            this.dgvEmpleados.Size = new System.Drawing.Size(791, 231);
+            this.dgvEmpleados.Size = new System.Drawing.Size(697, 231);
             this.dgvEmpleados.TabIndex = 26;
+            // 
+            // tipoDocumento
+            // 
+            this.tipoDocumento.DataPropertyName = "tipoDocumento";
+            this.tipoDocumento.HeaderText = "Tipo Documento";
+            this.tipoDocumento.Name = "tipoDocumento";
+            // 
+            // dni
+            // 
+            this.dni.DataPropertyName = "dni";
+            this.dni.HeaderText = "Dni";
+            this.dni.Name = "dni";
+            // 
+            // idTipoDocumento
+            // 
+            this.idTipoDocumento.DataPropertyName = "idTipoDocumento";
+            this.idTipoDocumento.HeaderText = "idTipoDoc";
+            this.idTipoDocumento.Name = "idTipoDocumento";
+            this.idTipoDocumento.Visible = false;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // apellido
+            // 
+            this.apellido.DataPropertyName = "apellido";
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            // 
+            // telefono
+            // 
+            this.telefono.DataPropertyName = "telefono";
+            this.telefono.HeaderText = "Telefono";
+            this.telefono.Name = "telefono";
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "email";
+            this.email.Name = "email";
             // 
             // ListadoEmpelado
             // 
@@ -176,5 +235,12 @@
         private DataGridView dgvEmpleados;
         private TextBox txtBuscarTipoDoc;
         private Label label2;
+        private DataGridViewTextBoxColumn tipoDocumento;
+        private DataGridViewTextBoxColumn dni;
+        private DataGridViewTextBoxColumn idTipoDocumento;
+        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn apellido;
+        private DataGridViewTextBoxColumn telefono;
+        private DataGridViewTextBoxColumn email;
     }
 }

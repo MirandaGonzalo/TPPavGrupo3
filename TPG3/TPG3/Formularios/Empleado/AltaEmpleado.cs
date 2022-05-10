@@ -21,25 +21,33 @@ namespace TPG3.Formularios.Empleado
             cargarFormulario(emp);
         }
 
-        private void cargarFormulario(Entidades.Empleado editEmpleado)
+        private void limpiarEspacios()
         {
+            mtbDni.Text = mtbDni.Text.Replace("_","");
+            mtbTelefono.Text = mtbTelefono.Text.Replace("_", "");            
+        }
+
+        private void cargarFormulario(Entidades.Empleado editEmpleado)
+        {            
             if (editEmpleado.TipoEdicion > 1)
             {
                 if (editEmpleado.TipoEdicion == 2)
                 {
-                    mtbDni.Text = editEmpleado.dni.ToString();
+                    mtbDni.Text = editEmpleado.dni.ToString().Trim();
                     Componentes.ComboboxItem item = new Componentes.ComboboxItem();
                     item.Text = editEmpleado.nombreTipoDocumento;
                     item.Value = editEmpleado.tipoDocumento;
                     cbTipoDoc.Items.Add(item);
-                    cbTipoDoc.SelectedIndex = 0;
                     mtbDni.Enabled = false;
                     cbTipoDoc.Enabled = false;
+                    cbTipoDoc.SelectedIndex = cbTipoDoc.FindString(editEmpleado.nombreTipoDocumento);
+                    cbTipoDoc.SelectedValue = editEmpleado.tipoDocumento;
                     txtNombre.Text = editEmpleado.nombre;
                     txtApellido.Text = editEmpleado.apellido;
-                    mtbTelefono.Text = editEmpleado.telefono;
+                    mtbTelefono.Text = editEmpleado.telefono.Trim();
                     txtEmail.Text = editEmpleado.email;
                     lblTitulo.Text = "Modificar Empleado";
+                    limpiarEspacios();
                 }
                 else
                 {
@@ -51,6 +59,7 @@ namespace TPG3.Formularios.Empleado
         private void btnCargarPromocion_Click(object sender, EventArgs e)
         {
             //validamos los datos
+            limpiarEspacios();
             bool valido = validarCampos();
             if (valido)
             {
@@ -163,7 +172,8 @@ namespace TPG3.Formularios.Empleado
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text);
                     cmd.Parameters.AddWithValue("@telefono", mtbTelefono.Text);
                     cmd.Parameters.AddWithValue("@dni", mtbDni.Text);
-                    cmd.Parameters.AddWithValue("@tipoDocumento", empleado.tipoDocumento);
+                    if (empleado.TipoEdicion == 2)cmd.Parameters.AddWithValue("@tipoDocumento", empleado.tipoDocumento);
+                    if (empleado.TipoEdicion == 3) cmd.Parameters.AddWithValue("@tipoDocumento", cbTipoDoc.SelectedValue);
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = consulta;
                     cn.Open();
@@ -209,6 +219,7 @@ namespace TPG3.Formularios.Empleado
         {
             Main.main1.btnSubEmpleado_Click(sender, e);
         }
+
     }
 
 }

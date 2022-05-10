@@ -166,6 +166,7 @@
             this.btnSubTipoDocumento.Text = "Tipo Documento";
             this.btnSubTipoDocumento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubTipoDocumento.UseVisualStyleBackColor = true;
+            this.btnSubTipoDocumento.Click += new System.EventHandler(this.btnSubTipoDocumento_Click);
             // 
             // btnMenuUsuario
             // 
@@ -297,6 +298,7 @@
             this.btnSubEmpleado.Text = "Empleado";
             this.btnSubEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubEmpleado.UseVisualStyleBackColor = true;
+            this.btnSubEmpleado.Click += new System.EventHandler(this.btnSubEmpleado_Click);
             // 
             // btnMenuTicket
             // 

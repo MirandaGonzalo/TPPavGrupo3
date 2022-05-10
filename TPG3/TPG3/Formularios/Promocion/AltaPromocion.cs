@@ -21,6 +21,15 @@ namespace TPG3.Formularios.Promocion
             cargarFormulario(promo);
         }
 
+        private void limpiarEspacios()
+        {
+            mtbValor.Text = mtbValor.Text.Replace("_", "");
+            mtbInicio.Text = mtbInicio.Text.Replace(" ", "0");
+            mtbInicio.Text = mtbInicio.Text.Replace("_", "0");
+            mtbFin.Text = mtbFin.Text.Replace(" ", "0");
+            mtbFin.Text = mtbFin.Text.Replace("_", "0");
+        }
+
         private void cargarFormulario(Entidades.Promocion editPromo)
         {
             if (editPromo.TipoEdicion > 1)
@@ -31,15 +40,21 @@ namespace TPG3.Formularios.Promocion
                     txtNombre.Enabled = false;
                     txtDescripcion.Text = editPromo.descripcion;
                     mtbValor.Text = editPromo.valor.ToString();
+                    
                     lblTitulo.Text = "Modificar Promoción";
+                    limpiarEspacios();
                 }
-                //mtbInicio.Text = editPromo.fechaInicio.ToString("d");
-                //mtbFin.Text = editPromo.fechaFin.ToString("d");
+                else
+                {
+                    mtbInicio.Text = "11/05/2022";
+                    mtbFin.Text = "11/05/2022";
+                }
             }
         }
 
         private void btnCargarPromocion_Click(object sender, EventArgs e)
         {
+            limpiarEspacios();
             //validamos los datos
             bool valido = validarCampos();
             if (valido)
@@ -96,12 +111,7 @@ namespace TPG3.Formularios.Promocion
                 mtbValor.Focus();
                 return false;
             }
-            if (!mtbValor.MaskCompleted)
-            {
-                lblError.Text = "El campo Valor no puede tener espacios vacios.";
-                mtbValor.Focus();
-                return false;
-            }
+            
             if (mtbInicio.Text.Trim().Equals(""))
             {
                 lblError.Text = "El campo Fecha Inicio no puede estar vacío.";
@@ -114,7 +124,28 @@ namespace TPG3.Formularios.Promocion
                 mtbFin.Focus();
                 return false;
             }
-
+            int count = 0;
+            foreach (char c in mtbInicio.Text)
+            {    
+                count++;   
+            }
+            if (count < 10)
+            {
+                lblError.Text = "La Fecha Inicio no está completa (dd/mm/yyyy).";
+                mtbInicio.Focus();
+                return false;
+            }
+            count = 0;
+            foreach (char c in mtbFin.Text)
+            {
+                count++;
+            }
+            if (count < 10)
+            {
+                lblError.Text = "La Fecha Fin no está completa (dd/mm/yyyy).";
+                mtbFin.Focus();
+                return false;
+            }
             if (!validarFormatoDate(mtbInicio.Text))
             {
                 lblError.Text = "La Fecha Inicio no está en el formato correcto (dd/mm/yyyy).";
@@ -142,7 +173,7 @@ namespace TPG3.Formularios.Promocion
                 mtbFin.Focus();
                 return false;
             }
-            if (fechaFin < fechaInicio)
+            if (fechaFin <= fechaInicio)
             {
                 lblError.Text = "La Fecha Inicio debe ser menor que la Fecha Fin.";
                 mtbInicio.Focus();

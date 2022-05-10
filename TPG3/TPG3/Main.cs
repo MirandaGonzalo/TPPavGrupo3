@@ -104,7 +104,6 @@ namespace TPG3
             openChildForm(listaPromocion);
         }
 
-
         public void btnSubMedioPagoAltaMedioPago(Entidades.MedioPago medio)
         {
             Formularios.MedioPago.AltaMedioPago altaMedioPago = new Formularios.MedioPago.AltaMedioPago(medio);
@@ -117,5 +116,22 @@ namespace TPG3
             openChildForm(listaMedioPago);
         }
 
+        private void btnSubTipoDocumento_Click(object sender, EventArgs e)
+        {
+            Formularios.TipoDocumento.ListadoTipoDocumento listaTipoDocumento = new Formularios.TipoDocumento.ListadoTipoDocumento();
+            openChildForm(listaTipoDocumento);
+        }
+
+        public void btnSubEmpleado_Click(object sender, EventArgs e)
+        {
+            Formularios.Empleado.ListadoEmpelado listaEmpleado = new Formularios.Empleado.ListadoEmpelado();
+            openChildForm(listaEmpleado);
+        }
+        public void btnSubTicketAltaEmpleado(Entidades.Empleado empleado)
+        {
+            Formularios.Empleado.AltaEmpleado altaEmpleado = new Formularios.Empleado.AltaEmpleado(empleado);
+            openChildForm(altaEmpleado);
+        }
+        
     }
 }

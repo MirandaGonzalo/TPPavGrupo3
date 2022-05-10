@@ -72,7 +72,7 @@
             this.txtNombre.Location = new System.Drawing.Point(170, 136);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(131, 29);
-            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtDescripcion
             // 
@@ -80,7 +80,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(462, 136);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(131, 29);
-            this.txtDescripcion.TabIndex = 3;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // lblValor
             // 
@@ -98,7 +98,7 @@
             this.mtbValor.Mask = "99999";
             this.mtbValor.Name = "mtbValor";
             this.mtbValor.Size = new System.Drawing.Size(92, 23);
-            this.mtbValor.TabIndex = 5;
+            this.mtbValor.TabIndex = 3;
             this.mtbValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbValor.ValidatingType = typeof(int);
             // 
@@ -118,7 +118,7 @@
             this.mtbInicio.Mask = "00/00/0000";
             this.mtbInicio.Name = "mtbInicio";
             this.mtbInicio.Size = new System.Drawing.Size(92, 23);
-            this.mtbInicio.TabIndex = 7;
+            this.mtbInicio.TabIndex = 4;
             this.mtbInicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbInicio.ValidatingType = typeof(System.DateTime);
             // 
@@ -138,7 +138,7 @@
             this.mtbFin.Mask = "00/00/0000";
             this.mtbFin.Name = "mtbFin";
             this.mtbFin.Size = new System.Drawing.Size(92, 23);
-            this.mtbFin.TabIndex = 9;
+            this.mtbFin.TabIndex = 5;
             this.mtbFin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtbFin.ValidatingType = typeof(System.DateTime);
             // 

@@ -132,6 +132,17 @@ namespace TPG3
             Formularios.Empleado.AltaEmpleado altaEmpleado = new Formularios.Empleado.AltaEmpleado(empleado);
             openChildForm(altaEmpleado);
         }
-        
+
+        private void btnSubParticipantes_Click(object sender, EventArgs e)
+        {
+            Formularios.Actores.ListaActor listaActor = new Formularios.Actores.ListaActor();
+            openChildForm(listaActor);
+        }
+
+        public void btnSubParticipantesAltaParticipante(object sender, EventArgs e)
+        {
+            Formularios.Actores.AltaActor altaActor = new Formularios.Actores.AltaActor();
+            openChildForm(altaActor);
+        }
     }
 }

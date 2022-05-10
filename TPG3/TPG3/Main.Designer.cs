@@ -627,9 +627,10 @@
             this.btnSubParticipantes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btnSubParticipantes.Size = new System.Drawing.Size(233, 45);
             this.btnSubParticipantes.TabIndex = 6;
-            this.btnSubParticipantes.Text = "Participantes";
+            this.btnSubParticipantes.Text = "Actor";
             this.btnSubParticipantes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubParticipantes.UseVisualStyleBackColor = true;
+            this.btnSubParticipantes.Click += new System.EventHandler(this.btnSubParticipantes_Click);
             // 
             // btnSubDistribuidora
             // 

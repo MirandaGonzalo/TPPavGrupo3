@@ -92,9 +92,9 @@ namespace TPG3
             showSubMenu(panelSubMenuUsuario);
         }
 
-        public void btnSubPromocionAltaPromocion()
+        public void btnSubPromocionAltaPromocion(Entidades.Promocion promo)
         {
-            Formularios.Promocion.AltaPromocion altaPromocion = new Formularios.Promocion.AltaPromocion();
+            Formularios.Promocion.AltaPromocion altaPromocion = new Formularios.Promocion.AltaPromocion(promo);
             openChildForm(altaPromocion);
         }
 

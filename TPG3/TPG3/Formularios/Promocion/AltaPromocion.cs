@@ -13,54 +13,208 @@ namespace TPG3.Formularios.Promocion
 {
     public partial class AltaPromocion : Form
     {
-        public AltaPromocion()
+        private Entidades.Promocion promo;
+        public AltaPromocion(Entidades.Promocion editPromo)
         {
+            promo = editPromo;
             InitializeComponent();
+            cargarFormulario(promo);
+        }
+
+        private void cargarFormulario(Entidades.Promocion editPromo)
+        {
+            if (editPromo.TipoEdicion > 1)
+            {
+                if (editPromo.TipoEdicion == 2)
+                {
+                    txtNombre.Text = editPromo.nombre;
+                    txtNombre.Enabled = false;
+                    txtDescripcion.Text = editPromo.descripcion;
+                    mtbValor.Text = editPromo.valor.ToString();
+                    lblTitulo.Text = "Modificar Promoción";
+                }
+                //mtbInicio.Text = editPromo.fechaInicio.ToString("d");
+                //mtbFin.Text = editPromo.fechaFin.ToString("d");
+            }
         }
 
         private void btnCargarPromocion_Click(object sender, EventArgs e)
         {
             //validamos los datos
-            bool result = cargarPromocion();
-            if (result)
+            bool valido = validarCampos();
+            if (valido)
             {
-                MessageBox.Show("Promocion cargada con éxito!");
-            }
-            else
-            {
-                MessageBox.Show("ha ocurrido un error :(");
+                bool result = cargarPromocion(promo);
+                if (result)
+                {   
+                    if (promo.TipoEdicion == 3)
+                    {
+                        MessageBox.Show("Promoción cargada con éxito!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Promoción actualizada con éxito!");
+                    }
+                    lblError.Text = "";
+                    btnListado_Click(sender, e);                    
+
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-        private bool cargarPromocion()
+        private bool validarFormatoDate(String fecha)
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "INSERT INTO Promocion (nombre,descripcion,valor, fechaInicio, fechaFin)" +
-                                  "VALUES (@nombre, @descripcion, @valor, @fechaInicio, @fechaFin)";
+            string inputString = fecha;
+            DateTime dDateInicio;
 
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
-                cmd.Parameters.AddWithValue("@valor", float.Parse(mtbValor.Text));
-                cmd.Parameters.AddWithValue("@fechaInicio", DateTime.Parse(mtbInicio.Text));
-                cmd.Parameters.AddWithValue("@fechaFin", DateTime.Parse(mtbFin.Text));
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-                cmd.ExecuteNonQuery();
+            if (DateTime.TryParse(inputString, out dDateInicio))
+            {
+                String.Format("{0:dd/MM/yyyy}", dDateInicio);
+                return true;
             }
-            catch (Exception)
+            else
             {
                 return false;
             }
-            finally
+        }
+
+        private bool validarCampos()
+        {
+            if (txtNombre.Text.Trim().Equals(""))
             {
-                cn.Close();
+                lblError.Text = "El campo Nombre no puede estar vacío.";
+                txtNombre.Focus();
+                return false;
+            }
+            if (mtbValor.Text.Trim().Equals(""))
+            {
+                lblError.Text = "El campo Valor no puede estar vacío.";
+                mtbValor.Focus();
+                return false;
+            }
+            if (!mtbValor.MaskCompleted)
+            {
+                lblError.Text = "El campo Valor no puede tener espacios vacios.";
+                mtbValor.Focus();
+                return false;
+            }
+            if (mtbInicio.Text.Trim().Equals(""))
+            {
+                lblError.Text = "El campo Fecha Inicio no puede estar vacío.";
+                mtbInicio.Focus();
+                return false;
+            }
+            if (mtbFin.Text.Trim().Equals(""))
+            {
+                lblError.Text = "El campo Fecha Fin no puede estar vacío.";
+                mtbFin.Focus();
+                return false;
+            }
+
+            if (!validarFormatoDate(mtbInicio.Text))
+            {
+                lblError.Text = "La Fecha Inicio no está en el formato correcto (dd/mm/yyyy).";
+                mtbInicio.Focus();
+                return false;
+            }
+            if (!validarFormatoDate(mtbFin.Text))
+            {
+                lblError.Text = "La Fecha Fin no está en el formato correcto (dd/mm/yyyy).";
+                mtbFin.Focus();
+                return false;
+            }
+            var date = new DateTime(1800, 1, 1);
+            DateTime fechaInicio = DateTime.ParseExact(mtbInicio.Text, "dd/MM/yyyy", null);
+            if (fechaInicio <= date)
+            {
+                lblError.Text = "La Fecha Inicio no es válida.";
+                mtbInicio.Focus();
+                return false;
+            }
+            DateTime fechaFin = DateTime.ParseExact(mtbFin.Text, "dd/MM/yyyy", null);
+            if (fechaFin <= date)
+            {
+                lblError.Text = "La Fecha Fin no es válida.";
+                mtbFin.Focus();
+                return false;
+            }
+            if (fechaFin < fechaInicio)
+            {
+                lblError.Text = "La Fecha Inicio debe ser menor que la Fecha Fin.";
+                mtbInicio.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        public bool cargarPromocion(Entidades.Promocion promo)
+        {
+            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            SqlCommand cmd = new SqlCommand();
+            string consulta = "";
+            if (promo.TipoEdicion > 1)
+            {
+                //Crear
+                if (promo.TipoEdicion == 3)
+                {
+                    consulta = "INSERT INTO Promocion (nombre,descripcion,valor, fechaInicio, fechaFin)" +
+                               "VALUES (@nombre, @descripcion, @valor, @fechaInicio, @fechaFin)";
+                }
+                //Modificar
+                else
+                {
+                    consulta = "UPDATE Promocion SET descripcion=@descripcion, valor=@valor, " +
+                               "fechaInicio=@fechaInicio, fechaFin=@fechaFin where nombre = @nombre ";
+                }
+                try
+                {
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                    cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
+                    cmd.Parameters.AddWithValue("@valor", float.Parse(mtbValor.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@fechaInicio", DateTime.Parse(mtbInicio.Text));
+                    cmd.Parameters.AddWithValue("@fechaFin", DateTime.Parse(mtbFin.Text));
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = consulta;
+                    cn.Open();
+                    cmd.Connection = cn;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }                
+            }
+            else
+            {
+                try
+                {
+                    consulta = "DELETE FROM Promocion WHERE nombre = @nombre";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@nombre", promo.nombre);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = consulta;
+                    cn.Open();
+                    cmd.Connection = cn;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                finally
+                {
+                    cn.Close();
+                }
             }
             return true;
         }

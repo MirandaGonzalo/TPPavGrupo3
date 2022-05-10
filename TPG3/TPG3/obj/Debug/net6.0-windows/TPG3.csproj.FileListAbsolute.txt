@@ -33,3 +33,7 @@ D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.E
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.TipoDocumento.ListadoTipoDocumento.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Actores.AltaActor.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Actores.ListaActor.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Combo.AltaCombo.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Combo.ListaCombo.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Producto.AltaProducto.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Producto.ListaProducto.resources

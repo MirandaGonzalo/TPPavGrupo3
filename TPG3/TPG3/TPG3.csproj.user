@@ -7,10 +7,22 @@
     <Compile Update="Formularios\Actor\ListaActor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\Combo\AltaCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Combo\ListaCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\MedioPago\AltaMedioPago.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\MedioPago\ListaMedioPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Producto\AltaProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Producto\ListaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\Promocion\AltaPromocion.cs">

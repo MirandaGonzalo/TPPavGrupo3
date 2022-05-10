@@ -521,6 +521,7 @@
             this.btnSubCombo.Text = "Combo";
             this.btnSubCombo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubCombo.UseVisualStyleBackColor = true;
+            this.btnSubCombo.Click += new System.EventHandler(this.btnSubCombo_Click);
             // 
             // btnSubTipoProducto
             // 
@@ -551,6 +552,7 @@
             this.btnSubProducto.Text = "Producto";
             this.btnSubProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubProducto.UseVisualStyleBackColor = true;
+            this.btnSubProducto.Click += new System.EventHandler(this.btnSubProducto_Click);
             // 
             // btnMenuCombo
             // 

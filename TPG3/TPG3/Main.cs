@@ -144,5 +144,29 @@ namespace TPG3
             Formularios.Actores.AltaActor altaActor = new Formularios.Actores.AltaActor();
             openChildForm(altaActor);
         }
+
+        private void btnSubProducto_Click(object sender, EventArgs e)
+        {
+            Formularios.Producto.ListaProducto listaProducto = new Formularios.Producto.ListaProducto();
+            openChildForm(listaProducto);
+        }
+        public void btnSubComboAltaProducto(object sender, EventArgs e)
+        {
+            Formularios.Producto.AltaProducto altaProducto = new Formularios.Producto.AltaProducto();
+            openChildForm(altaProducto);
+        }
+        private void btnSubCombo_Click(object sender, EventArgs e)
+        {
+            Formularios.Combo.ListaCombo listaCombo = new Formularios.Combo.ListaCombo();
+            openChildForm(listaCombo);
+        }
+        public void btnSubComboAltaCombo(object sender, EventArgs e)
+        {
+            Formularios.Combo.AltaCombo altaCombo = new Formularios.Combo.AltaCombo();
+            openChildForm(altaCombo);
+        }
     }
 }
+
+
+

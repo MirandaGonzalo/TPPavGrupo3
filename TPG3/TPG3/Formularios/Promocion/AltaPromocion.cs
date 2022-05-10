@@ -69,5 +69,10 @@ namespace TPG3.Formularios.Promocion
         {
             Main.main1.btnSubPromocion_Click(sender, e);
         }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -107,7 +107,7 @@
             this.panelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuLateral.Location = new System.Drawing.Point(0, 0);
             this.panelMenuLateral.Name = "panelMenuLateral";
-            this.panelMenuLateral.Size = new System.Drawing.Size(250, 825);
+            this.panelMenuLateral.Size = new System.Drawing.Size(250, 749);
             this.panelMenuLateral.TabIndex = 0;
             // 
             // panelSubMenuUsuario
@@ -209,6 +209,7 @@
             this.btnSubMedioPago.Text = "Medio Pago";
             this.btnSubMedioPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubMedioPago.UseVisualStyleBackColor = true;
+            this.btnSubMedioPago.Click += new System.EventHandler(this.btnSubMedioPago_Click);
             // 
             // btnSubBanco
             // 
@@ -756,7 +757,7 @@
             // 
             this.panelBot.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panelBot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBot.Location = new System.Drawing.Point(250, 725);
+            this.panelBot.Location = new System.Drawing.Point(250, 649);
             this.panelBot.Name = "panelBot";
             this.panelBot.Size = new System.Drawing.Size(996, 100);
             this.panelBot.TabIndex = 3;
@@ -766,14 +767,14 @@
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(250, 100);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(996, 625);
+            this.panelChildForm.Size = new System.Drawing.Size(996, 549);
             this.panelChildForm.TabIndex = 4;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1246, 825);
+            this.ClientSize = new System.Drawing.Size(1246, 749);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelBot);
             this.Controls.Add(this.panelTop);

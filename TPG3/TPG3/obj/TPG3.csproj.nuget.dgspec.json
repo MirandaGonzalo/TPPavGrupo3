@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitProjects\\TPPavGrupo3\\TPG3\\TPG3\\TPG3.csproj": {}
+    "C:\\Users\\Usuario\\Documents\\PAV1\\TareasRepositorios\\TPPavGrupo3\\TPG3\\TPG3\\TPG3.csproj": {}
   },
   "projects": {
-    "D:\\GitProjects\\TPPavGrupo3\\TPG3\\TPG3\\TPG3.csproj": {
+    "C:\\Users\\Usuario\\Documents\\PAV1\\TareasRepositorios\\TPPavGrupo3\\TPG3\\TPG3\\TPG3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitProjects\\TPPavGrupo3\\TPG3\\TPG3\\TPG3.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\PAV1\\TareasRepositorios\\TPPavGrupo3\\TPG3\\TPG3\\TPG3.csproj",
         "projectName": "TPG3",
-        "projectPath": "D:\\GitProjects\\TPPavGrupo3\\TPG3\\TPG3\\TPG3.csproj",
-        "packagesPath": "C:\\Users\\gonza\\.nuget\\packages\\",
-        "outputPath": "D:\\GitProjects\\TPPavGrupo3\\TPG3\\TPG3\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\PAV1\\TareasRepositorios\\TPPavGrupo3\\TPG3\\TPG3\\TPG3.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\PAV1\\TareasRepositorios\\TPPavGrupo3\\TPG3\\TPG3\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\gonza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

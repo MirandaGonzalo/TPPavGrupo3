@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace TPG3.Formularios.Promocion
 {
@@ -43,7 +44,7 @@ namespace TPG3.Formularios.Promocion
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(tabla);
                 dgvPromocion.DataSource = tabla;
-                
+
             }
             catch (Exception)
             {
@@ -59,6 +60,11 @@ namespace TPG3.Formularios.Promocion
         private void btnCargarPromo_Click(object sender, EventArgs e)
         {
             Main.main1.btnSubPromocionAltaPromocion();
+        }
+
+        private void dgvPromocion_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

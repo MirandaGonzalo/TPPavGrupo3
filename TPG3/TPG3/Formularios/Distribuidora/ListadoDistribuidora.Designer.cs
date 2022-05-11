@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.grdBuscadordistribuidora = new System.Windows.Forms.DataGridView();
-            this.IdDistribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreDistribuidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscadorDistribuidora = new System.Windows.Forms.TextBox();
             this.lblListado = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.IdDistribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreDistribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadordistribuidora)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +47,7 @@
             this.grdBuscadordistribuidora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdBuscadordistribuidora.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdDistribuidora,
-            this.NombreDistribuidor});
+            this.NombreDistribuidora});
             this.grdBuscadordistribuidora.GridColor = System.Drawing.SystemColors.Control;
             this.grdBuscadordistribuidora.Location = new System.Drawing.Point(171, 177);
             this.grdBuscadordistribuidora.Name = "grdBuscadordistribuidora";
@@ -55,22 +55,6 @@
             this.grdBuscadordistribuidora.RowTemplate.Height = 25;
             this.grdBuscadordistribuidora.Size = new System.Drawing.Size(440, 211);
             this.grdBuscadordistribuidora.TabIndex = 10;
-            // 
-            // IdDistribuidora
-            // 
-            this.IdDistribuidora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdDistribuidora.DataPropertyName = "idDistribuidora";
-            this.IdDistribuidora.HeaderText = "IdDistribuidora";
-            this.IdDistribuidora.Name = "IdDistribuidora";
-            this.IdDistribuidora.ReadOnly = true;
-            // 
-            // NombreDistribuidor
-            // 
-            this.NombreDistribuidor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombreDistribuidor.DataPropertyName = "nombreDistribuidor";
-            this.NombreDistribuidor.HeaderText = "NombreDistribuidor";
-            this.NombreDistribuidor.Name = "NombreDistribuidor";
-            this.NombreDistribuidor.ReadOnly = true;
             // 
             // txtBuscadorDistribuidora
             // 
@@ -113,6 +97,22 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Nombre:";
             // 
+            // IdDistribuidora
+            // 
+            this.IdDistribuidora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IdDistribuidora.DataPropertyName = "idDistribuidora";
+            this.IdDistribuidora.HeaderText = "IdDistribuidora";
+            this.IdDistribuidora.Name = "IdDistribuidora";
+            this.IdDistribuidora.ReadOnly = true;
+            // 
+            // NombreDistribuidora
+            // 
+            this.NombreDistribuidora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NombreDistribuidora.DataPropertyName = "nombreDistribuidora";
+            this.NombreDistribuidora.HeaderText = "NombreDistribuidora";
+            this.NombreDistribuidora.Name = "NombreDistribuidora";
+            this.NombreDistribuidora.ReadOnly = true;
+            // 
             // ListadoDistribuidora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -136,11 +136,11 @@
         #endregion
 
         private DataGridView grdBuscadordistribuidora;
-        private DataGridViewTextBoxColumn IdDistribuidora;
-        private DataGridViewTextBoxColumn NombreDistribuidor;
         private TextBox txtBuscadorDistribuidora;
         private Label lblListado;
         private Panel panel1;
         private Label label1;
+        private DataGridViewTextBoxColumn IdDistribuidora;
+        private DataGridViewTextBoxColumn NombreDistribuidora;
     }
 }

@@ -72,6 +72,9 @@ namespace TPG3.Formularios.Rol
             }
         }
 
-
+        private void txtBuscadorRoles_TextChanged(object sender, EventArgs e)
+        {
+            (grdBuscadorrol.DataSource as DataTable).DefaultView.RowFilter = "Convert(NombreRol, 'System.String') LIKE '" + txtBuscadorRoles.Text + "%' ";
+        }
     }
 }

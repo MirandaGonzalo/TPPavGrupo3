@@ -69,12 +69,12 @@ namespace TPG3.Formularios.Empleado
 
         private void txtBuscarDni_TextChanged(object sender, EventArgs e)
         {
-            (dgvEmpleados.DataSource as DataTable).DefaultView.RowFilter = "Convert(dni, 'System.String') LIKE '" + txtBuscarDni.Text + "%' and Convert(tipoDocumento, 'System.String') LIKE '" + txtBuscarTipoDoc.Text + "%'";
+            //(dgvEmpleados.DataSource as DataTable).DefaultView.RowFilter = "Convert(dni, 'System.String') LIKE '" + txtBuscarDni.Text + "%' and Convert(tipoDocumento, 'System.String') LIKE '" + txtBuscarTipoDoc.Text + "%'";
         }
 
         private void txtBuscarTipoDoc_TextChanged(object sender, EventArgs e)
         {
-            (dgvEmpleados.DataSource as DataTable).DefaultView.RowFilter = "Convert(dni, 'System.String') LIKE '" + txtBuscarDni.Text + "%' and Convert(tipoDocumento, 'System.String') LIKE '" + txtBuscarTipoDoc.Text + "%'";
+            //(dgvEmpleados.DataSource as DataTable).DefaultView.RowFilter = "Convert(dni, 'System.String') LIKE '" + txtBuscarDni.Text + "%' and Convert(tipoDocumento, 'System.String') LIKE '" + txtBuscarTipoDoc.Text + "%'";
         }
 
         private void btnEditarEmpleado_Click(object sender, EventArgs e)
@@ -118,5 +118,6 @@ namespace TPG3.Formularios.Empleado
                 }
             }
         }
+
     }
 }

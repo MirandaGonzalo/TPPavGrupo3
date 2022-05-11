@@ -30,6 +30,7 @@
         {
             this.btnRegistrarActualizarActor = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblListaActor = new System.Windows.Forms.Label();
             this.dtgListadoActor = new System.Windows.Forms.DataGridView();
             this.CodigoActor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,7 +39,7 @@
             this.txtBuscadorNombre = new System.Windows.Forms.TextBox();
             this.lblBuscadorApellido = new System.Windows.Forms.Label();
             this.lblBuscadorNombre = new System.Windows.Forms.Label();
-            this.lblListaActor = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListadoActor)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +73,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(721, 316);
             this.panel1.TabIndex = 1;
+            // 
+            // lblListaActor
+            // 
+            this.lblListaActor.AutoSize = true;
+            this.lblListaActor.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblListaActor.ForeColor = System.Drawing.Color.White;
+            this.lblListaActor.Location = new System.Drawing.Point(506, 8);
+            this.lblListaActor.Name = "lblListaActor";
+            this.lblListaActor.Size = new System.Drawing.Size(187, 28);
+            this.lblListaActor.TabIndex = 2;
+            this.lblListaActor.Text = "Listado de Actores";
             // 
             // dtgListadoActor
             // 
@@ -152,16 +164,20 @@
             this.lblBuscadorNombre.TabIndex = 0;
             this.lblBuscadorNombre.Text = "Nombre";
             // 
-            // lblListaActor
+            // button1
             // 
-            this.lblListaActor.AutoSize = true;
-            this.lblListaActor.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblListaActor.ForeColor = System.Drawing.Color.White;
-            this.lblListaActor.Location = new System.Drawing.Point(506, 8);
-            this.lblListaActor.Name = "lblListaActor";
-            this.lblListaActor.Size = new System.Drawing.Size(187, 28);
-            this.lblListaActor.TabIndex = 2;
-            this.lblListaActor.Text = "Listado de Actores";
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Location = new System.Drawing.Point(633, 35);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 51);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Eliminar Actor";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ListaActor
             // 
@@ -169,6 +185,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRegistrarActualizarActor);
             this.Name = "ListaActor";
@@ -195,5 +212,6 @@
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Apellido;
         private TextBox txtBuscadorApellido;
+        private Button button1;
     }
 }

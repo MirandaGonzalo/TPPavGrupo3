@@ -28,34 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBuscadorTipoProd = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.grdBuscadorTipoProd = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblListado = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblListado = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadorTipoProd)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtBuscadorTipoProd
-            // 
-            this.txtBuscadorTipoProd.Location = new System.Drawing.Point(171, 136);
-            this.txtBuscadorTipoProd.Name = "txtBuscadorTipoProd";
-            this.txtBuscadorTipoProd.Size = new System.Drawing.Size(192, 23);
-            this.txtBuscadorTipoProd.TabIndex = 18;
-            this.txtBuscadorTipoProd.TextChanged += new System.EventHandler(this.txtBuscadorTipoProd_TextChanged);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
             this.panel1.Controls.Add(this.grdBuscadorTipoProd);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblListado);
             this.panel1.Location = new System.Drawing.Point(99, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(603, 386);
+            this.panel1.Size = new System.Drawing.Size(550, 347);
             this.panel1.TabIndex = 19;
             // 
             // grdBuscadorTipoProd
@@ -68,35 +57,12 @@
             this.id,
             this.nombre});
             this.grdBuscadorTipoProd.GridColor = System.Drawing.SystemColors.Control;
-            this.grdBuscadorTipoProd.Location = new System.Drawing.Point(72, 146);
+            this.grdBuscadorTipoProd.Location = new System.Drawing.Point(72, 103);
             this.grdBuscadorTipoProd.Name = "grdBuscadorTipoProd";
             this.grdBuscadorTipoProd.ReadOnly = true;
             this.grdBuscadorTipoProd.RowTemplate.Height = 25;
             this.grdBuscadorTipoProd.Size = new System.Drawing.Size(440, 211);
             this.grdBuscadorTipoProd.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(72, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 21);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Nombre:";
-            // 
-            // lblListado
-            // 
-            this.lblListado.AutoSize = true;
-            this.lblListado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
-            this.lblListado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblListado.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblListado.Location = new System.Drawing.Point(72, 22);
-            this.lblListado.Name = "lblListado";
-            this.lblListado.Size = new System.Drawing.Size(296, 28);
-            this.lblListado.TabIndex = 12;
-            this.lblListado.Text = "Listado de Tipos de Productos";
             // 
             // id
             // 
@@ -114,13 +80,24 @@
             this.nombre.Name = "nombre";
             this.nombre.ReadOnly = true;
             // 
+            // lblListado
+            // 
+            this.lblListado.AutoSize = true;
+            this.lblListado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
+            this.lblListado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblListado.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblListado.Location = new System.Drawing.Point(72, 34);
+            this.lblListado.Name = "lblListado";
+            this.lblListado.Size = new System.Drawing.Size(296, 28);
+            this.lblListado.TabIndex = 12;
+            this.lblListado.Text = "Listado de Tipos de Productos";
+            // 
             // ListaTipoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 662);
-            this.Controls.Add(this.txtBuscadorTipoProd);
             this.Controls.Add(this.panel1);
             this.Name = "ListaTipoProducto";
             this.Text = "ListaTipoProducto";
@@ -129,16 +106,12 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadorTipoProd)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private TextBox txtBuscadorTipoProd;
         private Panel panel1;
         private DataGridView grdBuscadorTipoProd;
-        private Label label2;
         private Label lblListado;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn nombre;

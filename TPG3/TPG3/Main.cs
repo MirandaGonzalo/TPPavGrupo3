@@ -141,7 +141,8 @@ namespace TPG3
 
         public void btnSubParticipantesAltaParticipante(object sender, EventArgs e)
         {
-            Formularios.Actores.AltaActor altaActor = new Formularios.Actores.AltaActor();
+            Entidades.Actor actor = new Entidades.Actor(1, "", "");
+            Formularios.Actores.AltaActor altaActor = new Formularios.Actores.AltaActor(actor);
             openChildForm(altaActor);
         }
 
@@ -260,6 +261,24 @@ namespace TPG3
         {
             Formularios.Funcion.ListaFuncion listaFuncion = new Formularios.Funcion.ListaFuncion();
             openChildForm(listaFuncion);
+        }
+
+        private void btnSubTarjeta_Click_1(object sender, EventArgs e)
+        {
+            Formularios.Tarjeta.ListaTarjeta listaTarjeta = new Formularios.Tarjeta.ListaTarjeta();
+            openChildForm(listaTarjeta);
+        }
+
+        private void btnSubBanco_Click(object sender, EventArgs e)
+        {
+            Formularios.Banco.listaBanco listaBanco = new Formularios.Banco.listaBanco();
+            openChildForm(listaBanco);
+        }
+
+        private void btnSubCliente_Click(object sender, EventArgs e)
+        {
+            Formularios.Cliente.listaCliente listaCliente = new Formularios.Cliente.listaCliente();
+            openChildForm(listaCliente);
         }
     }
 }

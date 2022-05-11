@@ -82,5 +82,30 @@ namespace TPG3.Formularios.Combo
             Entidades.Producto producto = new Entidades.Producto(idProducto,nombreCombo,descripcion,1,precio,cantidadItems,2);
             Main.main1.btnSubComboAltaCombo(producto);
         }
+
+        private void btnEliminarCombo_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Desea eliminar este Combo ??",
+                                     "Confirmación!!",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                var currentRow = gdrConsultarProd.CurrentCell.RowIndex;
+                DataGridViewRow selectedRow = gdrConsultarProd.Rows[currentRow];
+                int idProducto = int.Parse(gdrConsultarProd.Rows[currentRow].Cells[1].Value.ToString());
+                Entidades.Producto producto = new Entidades.Producto(idProducto, "", "", 1, 0, 0, 1);
+                AltaCombo altaCmb = new AltaCombo(producto);
+                var result = altaCmb.cargarCombo(producto);
+                if (result)
+                {
+                    MessageBox.Show("Combo eliminado con éxito!");
+                    cargarGrilla();
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

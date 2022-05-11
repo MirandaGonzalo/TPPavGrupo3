@@ -74,7 +74,7 @@ namespace TPG3.Formularios.Distribuidora
 
         private void txtBuscadorDistribuidora_TextChanged(object sender, EventArgs e)
         {
-            (grdBuscadordistribuidora.DataSource as DataTable).DefaultView.RowFilter = "Convert(nombreDistribuidor, 'System.String') LIKE '" + txtBuscadorDistribuidora.Text + "%'";
+            (grdBuscadordistribuidora.DataSource as DataTable).DefaultView.RowFilter = "Convert(NombreDistribuidora, 'System.String') LIKE '" + txtBuscadorDistribuidora.Text + "%'";
         }
     }
 }

@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.panelBackAltaPromocion = new System.Windows.Forms.Panel();
+            this.dgvPromocion = new System.Windows.Forms.DataGridView();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEliminarPromo = new System.Windows.Forms.Button();
-            this.btnEditarPromo = new System.Windows.Forms.Button();
-            this.btnCargarTipoDoc = new System.Windows.Forms.Button();
-            this.dgvPromocion = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panelBackAltaPromocion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPromocion)).BeginInit();
@@ -42,18 +39,30 @@
             // 
             // panelBackAltaPromocion
             // 
-            this.panelBackAltaPromocion.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelBackAltaPromocion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
             this.panelBackAltaPromocion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBackAltaPromocion.Controls.Add(this.dgvPromocion);
             this.panelBackAltaPromocion.Controls.Add(this.txtBuscar);
             this.panelBackAltaPromocion.Controls.Add(this.label1);
-            this.panelBackAltaPromocion.Location = new System.Drawing.Point(53, 106);
+            this.panelBackAltaPromocion.Location = new System.Drawing.Point(33, 74);
             this.panelBackAltaPromocion.Name = "panelBackAltaPromocion";
-            this.panelBackAltaPromocion.Size = new System.Drawing.Size(292, 46);
+            this.panelBackAltaPromocion.Size = new System.Drawing.Size(378, 364);
             this.panelBackAltaPromocion.TabIndex = 26;
+            // 
+            // dgvPromocion
+            // 
+            this.dgvPromocion.AllowUserToAddRows = false;
+            this.dgvPromocion.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPromocion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPromocion.Location = new System.Drawing.Point(45, 77);
+            this.dgvPromocion.Name = "dgvPromocion";
+            this.dgvPromocion.RowTemplate.Height = 25;
+            this.dgvPromocion.Size = new System.Drawing.Size(292, 273);
+            this.dgvPromocion.TabIndex = 22;
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(120, 10);
+            this.txtBuscar.Location = new System.Drawing.Point(45, 48);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(160, 23);
             this.txtBuscar.TabIndex = 18;
@@ -62,58 +71,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(15, 12);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(45, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 21);
             this.label1.TabIndex = 17;
             this.label1.Text = "Nombre:";
             // 
-            // btnEliminarPromo
-            // 
-            this.btnEliminarPromo.Location = new System.Drawing.Point(351, 60);
-            this.btnEliminarPromo.Name = "btnEliminarPromo";
-            this.btnEliminarPromo.Size = new System.Drawing.Size(145, 23);
-            this.btnEliminarPromo.TabIndex = 25;
-            this.btnEliminarPromo.Text = "Eliminar Tipo Doc";
-            this.btnEliminarPromo.UseVisualStyleBackColor = true;
-            // 
-            // btnEditarPromo
-            // 
-            this.btnEditarPromo.Location = new System.Drawing.Point(202, 60);
-            this.btnEditarPromo.Name = "btnEditarPromo";
-            this.btnEditarPromo.Size = new System.Drawing.Size(143, 23);
-            this.btnEditarPromo.TabIndex = 24;
-            this.btnEditarPromo.Text = "Editar Tipo Doc";
-            this.btnEditarPromo.UseVisualStyleBackColor = true;
-            // 
-            // btnCargarTipoDoc
-            // 
-            this.btnCargarTipoDoc.Location = new System.Drawing.Point(53, 60);
-            this.btnCargarTipoDoc.Name = "btnCargarTipoDoc";
-            this.btnCargarTipoDoc.Size = new System.Drawing.Size(143, 23);
-            this.btnCargarTipoDoc.TabIndex = 23;
-            this.btnCargarTipoDoc.Text = "Cargar Tipo Doc";
-            this.btnCargarTipoDoc.UseVisualStyleBackColor = true;
-            // 
-            // dgvPromocion
-            // 
-            this.dgvPromocion.AllowUserToAddRows = false;
-            this.dgvPromocion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPromocion.Location = new System.Drawing.Point(53, 169);
-            this.dgvPromocion.Name = "dgvPromocion";
-            this.dgvPromocion.RowTemplate.Height = 25;
-            this.dgvPromocion.Size = new System.Drawing.Size(292, 273);
-            this.dgvPromocion.TabIndex = 22;
-            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblTitulo.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblTitulo.Location = new System.Drawing.Point(53, 8);
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Black", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(33, 19);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(307, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(310, 28);
             this.lblTitulo.TabIndex = 21;
             this.lblTitulo.Text = "Lista de Tipos de Documentos";
             // 
@@ -121,13 +95,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelBackAltaPromocion);
-            this.Controls.Add(this.btnEliminarPromo);
-            this.Controls.Add(this.btnEditarPromo);
-            this.Controls.Add(this.btnCargarTipoDoc);
-            this.Controls.Add(this.dgvPromocion);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.ClientSize = new System.Drawing.Size(437, 450);
             this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.panelBackAltaPromocion);
             this.Name = "ListadoTipoDocumento";
             this.Text = "ListadoTipoDocumento";
             this.Load += new System.EventHandler(this.ListadoTipoDocumento_Load);
@@ -144,9 +115,6 @@
         private Panel panelBackAltaPromocion;
         private TextBox txtBuscar;
         private Label label1;
-        private Button btnEliminarPromo;
-        private Button btnEditarPromo;
-        private Button btnCargarTipoDoc;
         private DataGridView dgvPromocion;
         private Label lblTitulo;
     }

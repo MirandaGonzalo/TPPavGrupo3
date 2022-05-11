@@ -155,6 +155,7 @@
             this.btnSubCliente.Text = "Cliente";
             this.btnSubCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubCliente.UseVisualStyleBackColor = false;
+            this.btnSubCliente.Click += new System.EventHandler(this.btnSubCliente_Click);
             // 
             // btnSubTipoDocumento
             // 
@@ -239,6 +240,7 @@
             this.btnSubBanco.Text = "Banco";
             this.btnSubBanco.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubBanco.UseVisualStyleBackColor = false;
+            this.btnSubBanco.Click += new System.EventHandler(this.btnSubBanco_Click);
             // 
             // btnSubTarjeta
             // 
@@ -256,6 +258,7 @@
             this.btnSubTarjeta.Text = "Tarjeta";
             this.btnSubTarjeta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubTarjeta.UseVisualStyleBackColor = false;
+            this.btnSubTarjeta.Click += new System.EventHandler(this.btnSubTarjeta_Click_1);
             // 
             // btnMenuMedioPago
             // 
@@ -289,7 +292,7 @@
             // 
             // btnSubTicket
             // 
-            this.btnSubTicket.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSubTicket.BackColor = System.Drawing.Color.Lavender;
             this.btnSubTicket.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSubTicket.FlatAppearance.BorderSize = 0;
             this.btnSubTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

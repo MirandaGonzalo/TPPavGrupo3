@@ -33,10 +33,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscarDni = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnEliminarEmpleado = new System.Windows.Forms.Button();
             this.btnEditarEmpleado = new System.Windows.Forms.Button();
             this.btnCargarEmpleado = new System.Windows.Forms.Button();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.tipoDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,20 +51,21 @@
             // 
             // panelBackAltaPromocion
             // 
-            this.panelBackAltaPromocion.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelBackAltaPromocion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
             this.panelBackAltaPromocion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBackAltaPromocion.Controls.Add(this.txtBuscarTipoDoc);
             this.panelBackAltaPromocion.Controls.Add(this.label2);
             this.panelBackAltaPromocion.Controls.Add(this.txtBuscarDni);
             this.panelBackAltaPromocion.Controls.Add(this.label1);
-            this.panelBackAltaPromocion.Location = new System.Drawing.Point(53, 135);
+            this.panelBackAltaPromocion.Controls.Add(this.lblTitulo);
+            this.panelBackAltaPromocion.Location = new System.Drawing.Point(30, 133);
             this.panelBackAltaPromocion.Name = "panelBackAltaPromocion";
-            this.panelBackAltaPromocion.Size = new System.Drawing.Size(556, 46);
+            this.panelBackAltaPromocion.Size = new System.Drawing.Size(797, 341);
             this.panelBackAltaPromocion.TabIndex = 25;
             // 
             // txtBuscarTipoDoc
             // 
-            this.txtBuscarTipoDoc.Location = new System.Drawing.Point(361, 10);
+            this.txtBuscarTipoDoc.Location = new System.Drawing.Point(234, 44);
             this.txtBuscarTipoDoc.Name = "txtBuscarTipoDoc";
             this.txtBuscarTipoDoc.Size = new System.Drawing.Size(160, 23);
             this.txtBuscarTipoDoc.TabIndex = 20;
@@ -74,7 +75,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(261, 12);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(234, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 21);
             this.label2.TabIndex = 19;
@@ -82,7 +84,7 @@
             // 
             // txtBuscarDni
             // 
-            this.txtBuscarDni.Location = new System.Drawing.Point(75, 10);
+            this.txtBuscarDni.Location = new System.Drawing.Point(40, 44);
             this.txtBuscarDni.Name = "txtBuscarDni";
             this.txtBuscarDni.Size = new System.Drawing.Size(160, 23);
             this.txtBuscarDni.TabIndex = 18;
@@ -92,52 +94,68 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(15, 12);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(40, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 21);
             this.label1.TabIndex = 17;
             this.label1.Text = "DNI:";
             // 
-            // btnEliminarEmpleado
-            // 
-            this.btnEliminarEmpleado.Location = new System.Drawing.Point(351, 89);
-            this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
-            this.btnEliminarEmpleado.Size = new System.Drawing.Size(145, 23);
-            this.btnEliminarEmpleado.TabIndex = 24;
-            this.btnEliminarEmpleado.Text = "Eliminar Empleado";
-            this.btnEliminarEmpleado.UseVisualStyleBackColor = true;
-            this.btnEliminarEmpleado.Click += new System.EventHandler(this.btnEliminarEmpleado_Click);
-            // 
-            // btnEditarEmpleado
-            // 
-            this.btnEditarEmpleado.Location = new System.Drawing.Point(202, 89);
-            this.btnEditarEmpleado.Name = "btnEditarEmpleado";
-            this.btnEditarEmpleado.Size = new System.Drawing.Size(143, 23);
-            this.btnEditarEmpleado.TabIndex = 23;
-            this.btnEditarEmpleado.Text = "Editar Empleado";
-            this.btnEditarEmpleado.UseVisualStyleBackColor = true;
-            this.btnEditarEmpleado.Click += new System.EventHandler(this.btnEditarEmpleado_Click);
-            // 
-            // btnCargarEmpleado
-            // 
-            this.btnCargarEmpleado.Location = new System.Drawing.Point(53, 89);
-            this.btnCargarEmpleado.Name = "btnCargarEmpleado";
-            this.btnCargarEmpleado.Size = new System.Drawing.Size(143, 23);
-            this.btnCargarEmpleado.TabIndex = 22;
-            this.btnCargarEmpleado.Text = "Cargar Empleado";
-            this.btnCargarEmpleado.UseVisualStyleBackColor = true;
-            this.btnCargarEmpleado.Click += new System.EventHandler(this.btnCargarEmpleado_Click);
-            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblTitulo.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblTitulo.Location = new System.Drawing.Point(53, 37);
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(519, 8);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(200, 30);
             this.lblTitulo.TabIndex = 21;
             this.lblTitulo.Text = "Lista de Empleados";
+            // 
+            // btnEliminarEmpleado
+            // 
+            this.btnEliminarEmpleado.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnEliminarEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEliminarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEliminarEmpleado.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarEmpleado.Location = new System.Drawing.Point(682, 58);
+            this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
+            this.btnEliminarEmpleado.Size = new System.Drawing.Size(145, 52);
+            this.btnEliminarEmpleado.TabIndex = 4;
+            this.btnEliminarEmpleado.Text = "Eliminar Empleado";
+            this.btnEliminarEmpleado.UseVisualStyleBackColor = false;
+            this.btnEliminarEmpleado.Click += new System.EventHandler(this.btnEliminarEmpleado_Click);
+            // 
+            // btnEditarEmpleado
+            // 
+            this.btnEditarEmpleado.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnEditarEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnEditarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEditarEmpleado.ForeColor = System.Drawing.Color.White;
+            this.btnEditarEmpleado.Location = new System.Drawing.Point(179, 58);
+            this.btnEditarEmpleado.Name = "btnEditarEmpleado";
+            this.btnEditarEmpleado.Size = new System.Drawing.Size(143, 52);
+            this.btnEditarEmpleado.TabIndex = 3;
+            this.btnEditarEmpleado.Text = "Editar Empleado";
+            this.btnEditarEmpleado.UseVisualStyleBackColor = false;
+            this.btnEditarEmpleado.Click += new System.EventHandler(this.btnEditarEmpleado_Click);
+            // 
+            // btnCargarEmpleado
+            // 
+            this.btnCargarEmpleado.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCargarEmpleado.FlatAppearance.BorderSize = 0;
+            this.btnCargarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCargarEmpleado.ForeColor = System.Drawing.Color.White;
+            this.btnCargarEmpleado.Location = new System.Drawing.Point(30, 58);
+            this.btnCargarEmpleado.Name = "btnCargarEmpleado";
+            this.btnCargarEmpleado.Size = new System.Drawing.Size(143, 52);
+            this.btnCargarEmpleado.TabIndex = 1;
+            this.btnCargarEmpleado.Text = "Cargar Empleado";
+            this.btnCargarEmpleado.UseVisualStyleBackColor = false;
+            this.btnCargarEmpleado.Click += new System.EventHandler(this.btnCargarEmpleado_Click);
             // 
             // dgvEmpleados
             // 
@@ -156,7 +174,7 @@
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowTemplate.Height = 25;
             this.dgvEmpleados.Size = new System.Drawing.Size(697, 231);
-            this.dgvEmpleados.TabIndex = 26;
+            this.dgvEmpleados.TabIndex = 2;
             // 
             // tipoDocumento
             // 
@@ -205,13 +223,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(897, 506);
             this.Controls.Add(this.dgvEmpleados);
-            this.Controls.Add(this.panelBackAltaPromocion);
             this.Controls.Add(this.btnEliminarEmpleado);
             this.Controls.Add(this.btnEditarEmpleado);
             this.Controls.Add(this.btnCargarEmpleado);
-            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.panelBackAltaPromocion);
             this.Name = "ListadoEmpelado";
             this.Text = "ListadoEmpelado";
             this.Load += new System.EventHandler(this.ListadoEmpelado_Load);
@@ -219,7 +237,6 @@
             this.panelBackAltaPromocion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

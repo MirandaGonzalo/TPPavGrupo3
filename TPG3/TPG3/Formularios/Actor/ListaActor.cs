@@ -95,5 +95,30 @@ namespace TPG3.Formularios.Actores
         {
             (dtgListadoActor.DataSource as DataTable).DefaultView.RowFilter = "Convert(nombre, 'System.String') LIKE '" + txtBuscadorNombre.Text + "%' and Convert(apellido, 'System.String') LIKE '" + txtBuscadorApellido.Text + "%'";
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Desea eliminar este Actor ??",
+                                     "Confirmación!!",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                var currentRow = dtgListadoActor.CurrentCell.RowIndex;
+                DataGridViewRow selectedRow = dtgListadoActor.Rows[currentRow];
+                int codActor = int.Parse(dtgListadoActor.Rows[currentRow].Cells[0].Value.ToString());
+                Entidades.Actor actor = new Entidades.Actor(codActor, "", ""); 
+                AltaActor altaAct = new AltaActor(actor);
+                var result = altaAct.eliminarActor(actor);
+                if (result)
+                {
+                    MessageBox.Show("Actor eliminado con éxito!");
+                    CargarGrilla();
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

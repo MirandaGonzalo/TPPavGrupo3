@@ -78,6 +78,7 @@
             this.txtBuscadorRoles.Name = "txtBuscadorRoles";
             this.txtBuscadorRoles.Size = new System.Drawing.Size(192, 23);
             this.txtBuscadorRoles.TabIndex = 13;
+            this.txtBuscadorRoles.TextChanged += new System.EventHandler(this.txtBuscadorRoles_TextChanged);
             // 
             // lblListado
             // 

@@ -41,6 +41,7 @@
             this.lblBuscadorCombo = new System.Windows.Forms.Label();
             this.btnRegistrarCombo = new System.Windows.Forms.Button();
             this.btnActualizarCombo = new System.Windows.Forms.Button();
+            this.btnEliminarCombo = new System.Windows.Forms.Button();
             this.pnlListadoProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrConsultarProd)).BeginInit();
             this.SuspendLayout();
@@ -175,7 +176,7 @@
             this.btnActualizarCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnActualizarCombo.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnActualizarCombo.Location = new System.Drawing.Point(227, 22);
+            this.btnActualizarCombo.Location = new System.Drawing.Point(233, 22);
             this.btnActualizarCombo.Margin = new System.Windows.Forms.Padding(0);
             this.btnActualizarCombo.Name = "btnActualizarCombo";
             this.btnActualizarCombo.Size = new System.Drawing.Size(194, 47);
@@ -184,12 +185,29 @@
             this.btnActualizarCombo.UseVisualStyleBackColor = false;
             this.btnActualizarCombo.Click += new System.EventHandler(this.btnActualizarCombo_Click);
             // 
+            // btnEliminarCombo
+            // 
+            this.btnEliminarCombo.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnEliminarCombo.FlatAppearance.BorderSize = 0;
+            this.btnEliminarCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEliminarCombo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEliminarCombo.Location = new System.Drawing.Point(600, 22);
+            this.btnEliminarCombo.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEliminarCombo.Name = "btnEliminarCombo";
+            this.btnEliminarCombo.Size = new System.Drawing.Size(194, 47);
+            this.btnEliminarCombo.TabIndex = 17;
+            this.btnEliminarCombo.Text = "Eliminar Combo";
+            this.btnEliminarCombo.UseVisualStyleBackColor = false;
+            this.btnEliminarCombo.Click += new System.EventHandler(this.btnEliminarCombo_Click);
+            // 
             // ListaCombo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(876, 450);
+            this.Controls.Add(this.btnEliminarCombo);
             this.Controls.Add(this.btnActualizarCombo);
             this.Controls.Add(this.pnlListadoProducto);
             this.Controls.Add(this.btnRegistrarCombo);
@@ -218,5 +236,6 @@
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn cantidadItems;
         private Button btnActualizarCombo;
+        private Button btnEliminarCombo;
     }
 }

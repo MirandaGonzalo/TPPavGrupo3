@@ -55,3 +55,5 @@ D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.T
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Sala.listadoSala.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.ProgramacionSemanal.listaProgramacionSemanal.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Estado.listaEstado.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Banco.listaBanco.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Cliente.listaCliente.resources

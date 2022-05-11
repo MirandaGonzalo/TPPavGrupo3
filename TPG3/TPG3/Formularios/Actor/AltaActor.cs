@@ -14,7 +14,7 @@ namespace TPG3.Formularios.Actores
 {
     public partial class AltaActor : Form
     {
-        public AltaActor()
+        public AltaActor(Entidades.Actor actor)
         {
             InitializeComponent();
             CargarGrilla();
@@ -183,6 +183,40 @@ namespace TPG3.Formularios.Actores
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@nombre", r.Nombre);
                 cmd.Parameters.AddWithValue("@apellido", r.Apellido);
+                cmd.Parameters.AddWithValue("@codActor", r.CodActor);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+
+                cn.Open();
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+                resultado = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return resultado;
+        }
+
+        public bool eliminarActor(Actor r)
+        {
+            bool resultado = false;
+            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                string consulta = "delete Actor where codActor = @codActor";
+                cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@codActor", r.CodActor);
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = consulta;

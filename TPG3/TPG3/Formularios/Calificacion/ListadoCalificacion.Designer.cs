@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.grdBuscadorcalificacion = new System.Windows.Forms.DataGridView();
+            this.CodigoCalificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Abreviatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscadorCalificacion = new System.Windows.Forms.TextBox();
             this.lblListadoCalificacion = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.Abreviatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoCalificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadorcalificacion)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +57,30 @@
             this.grdBuscadorcalificacion.RowTemplate.Height = 25;
             this.grdBuscadorcalificacion.Size = new System.Drawing.Size(533, 211);
             this.grdBuscadorcalificacion.TabIndex = 6;
+            // 
+            // CodigoCalificacion
+            // 
+            this.CodigoCalificacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CodigoCalificacion.DataPropertyName = "codCalificacion";
+            this.CodigoCalificacion.HeaderText = "CodigoCalificacion";
+            this.CodigoCalificacion.Name = "CodigoCalificacion";
+            this.CodigoCalificacion.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.DataPropertyName = "descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Abreviatura
+            // 
+            this.Abreviatura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Abreviatura.DataPropertyName = "abreviatura";
+            this.Abreviatura.HeaderText = "Abreviatura";
+            this.Abreviatura.Name = "Abreviatura";
+            this.Abreviatura.ReadOnly = true;
             // 
             // txtBuscadorCalificacion
             // 
@@ -95,33 +119,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(72, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 21);
+            this.label1.Size = new System.Drawing.Size(104, 21);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Nombre:";
-            // 
-            // Abreviatura
-            // 
-            this.Abreviatura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Abreviatura.DataPropertyName = "abreviatura";
-            this.Abreviatura.HeaderText = "Abreviatura";
-            this.Abreviatura.Name = "Abreviatura";
-            this.Abreviatura.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripcion.DataPropertyName = "descripcion";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // CodigoCalificacion
-            // 
-            this.CodigoCalificacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CodigoCalificacion.DataPropertyName = "codCalificacion";
-            this.CodigoCalificacion.HeaderText = "CodigoCalificacion";
-            this.CodigoCalificacion.Name = "CodigoCalificacion";
-            this.CodigoCalificacion.ReadOnly = true;
+            this.label1.Text = "Descripción:";
             // 
             // ListadoCalificacion
             // 

@@ -217,11 +217,11 @@ namespace TPG3.Formularios.Combo
             }
             var precioItems = precioActual();
             var precioCombo = float.Parse(txtPrecioCombo.Text);
-            if (precioItems < precioCombo)
-            {
-                lblError.Text = "El Precio del Combo no puede ser mayor a la suma de los precios unitarios por las cantidades.";
-                return false;
-            }
+            //if (precioItems < precioCombo)
+            //{
+            //    lblError.Text = "El Precio del Combo no puede ser mayor a la suma de los precios unitarios por las cantidades.";
+            //    return false;
+            //}
             return true;
         }
 
@@ -377,8 +377,8 @@ namespace TPG3.Formularios.Combo
                             cn.Open();
                             cmd.Connection = cn;
                             cmd.ExecuteNonQuery();
-                            cn.Close();
                         }
+                        cn.Close();
                     }
                     catch (Exception)
                     {
@@ -387,7 +387,7 @@ namespace TPG3.Formularios.Combo
                     }
                     finally
                     {
-                        ;
+                        cn.Close();
                     }
 
                 }

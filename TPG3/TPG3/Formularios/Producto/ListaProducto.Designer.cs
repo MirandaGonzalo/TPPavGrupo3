@@ -35,12 +35,12 @@
             this.lblBuscadorProducto = new System.Windows.Forms.Label();
             this.lblBuscadorTipoProducto = new System.Windows.Forms.Label();
             this.gdrConsultarProd = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.TipoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlListadoProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrConsultarProd)).BeginInit();
             this.SuspendLayout();
@@ -94,9 +94,9 @@
             this.lblBuscadorProducto.ForeColor = System.Drawing.Color.White;
             this.lblBuscadorProducto.Location = new System.Drawing.Point(300, 24);
             this.lblBuscadorProducto.Name = "lblBuscadorProducto";
-            this.lblBuscadorProducto.Size = new System.Drawing.Size(71, 19);
+            this.lblBuscadorProducto.Size = new System.Drawing.Size(65, 19);
             this.lblBuscadorProducto.TabIndex = 9;
-            this.lblBuscadorProducto.Text = "Producto";
+            this.lblBuscadorProducto.Text = "Nombre";
             // 
             // lblBuscadorTipoProducto
             // 
@@ -126,22 +126,6 @@
             this.gdrConsultarProd.RowTemplate.Height = 25;
             this.gdrConsultarProd.Size = new System.Drawing.Size(749, 214);
             this.gdrConsultarProd.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(33, 22);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(308, 47);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Registrar / Actualizar Producto";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // TipoProducto
             // 
@@ -181,6 +165,22 @@
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button1.Location = new System.Drawing.Point(33, 22);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(308, 47);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Registrar / Actualizar Producto";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // ListaProducto
             // 

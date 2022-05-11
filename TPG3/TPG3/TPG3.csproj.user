@@ -7,10 +7,16 @@
     <Compile Update="Formularios\Actor\ListaActor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\Calificacion\ListadoCalificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\Combo\AltaCombo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\Combo\ListaCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Distribuidora\ListadoDistribuidora.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\Empleado\AltaEmpleado.cs">
@@ -25,10 +31,16 @@
     <Compile Update="Formularios\Funcion\ListaFuncion.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\Genero\ListadoGenero.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\MedioPago\AltaMedioPago.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\MedioPago\ListaMedioPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Origen\ListadoOrigen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\Pelicula\AltaPelicula.cs">
@@ -47,6 +59,15 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\Promocion\ListaPromocion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Rol\ListadoRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Tarjeta\AltaTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\Tarjeta\ListaTarjeta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Formularios\TipoDocumento\ListadoTipoDocumento.cs">

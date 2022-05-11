@@ -215,9 +215,11 @@ namespace TPG3.Formularios.Combo
                 dgvMisProductos.Focus();
                 return false;
             }
-            if (precioActual() < float.Parse(txtPrecioCombo.Text))
+            var precioItems = precioActual();
+            var precioCombo = float.Parse(txtPrecioCombo.Text);
+            if (precioItems < precioCombo)
             {
-                lblError.Text = "El Precio del combo no puede ser mayor a la suma de los precios unitarios por las cantidades.";
+                lblError.Text = "El Precio del Combo no puede ser mayor a la suma de los precios unitarios por las cantidades.";
                 return false;
             }
             return true;

@@ -42,3 +42,10 @@ D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.F
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Funcion.ListaFuncion.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Pelicula.AltaPelicula.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Pelicula.ListaPelicula.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Tarjeta.AltaTarjeta.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Tarjeta.ListaTarjeta.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Calificacion.ListadoCalificacion.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Distribuidora.ListadoDistribuidora.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Genero.ListadoGenero.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Origen.ListadoOrigen.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Rol.ListadoRol.resources

@@ -448,9 +448,9 @@
             this.lblRegistrarCombo.ForeColor = System.Drawing.Color.White;
             this.lblRegistrarCombo.Location = new System.Drawing.Point(33, 30);
             this.lblRegistrarCombo.Name = "lblRegistrarCombo";
-            this.lblRegistrarCombo.Size = new System.Drawing.Size(188, 28);
+            this.lblRegistrarCombo.Size = new System.Drawing.Size(87, 28);
             this.lblRegistrarCombo.TabIndex = 15;
-            this.lblRegistrarCombo.Text = "Registrar Comboss";
+            this.lblRegistrarCombo.Text = "Combos";
             // 
             // AltaCombo
             // 

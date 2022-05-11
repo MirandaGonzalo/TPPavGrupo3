@@ -50,7 +50,7 @@
             this.btnRegistrarActualizarActor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarActualizarActor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnRegistrarActualizarActor.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegistrarActualizarActor.Location = new System.Drawing.Point(51, 37);
+            this.btnRegistrarActualizarActor.Location = new System.Drawing.Point(51, 35);
             this.btnRegistrarActualizarActor.Name = "btnRegistrarActualizarActor";
             this.btnRegistrarActualizarActor.Size = new System.Drawing.Size(283, 51);
             this.btnRegistrarActualizarActor.TabIndex = 0;
@@ -60,7 +60,9 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lblListaActor);
             this.panel1.Controls.Add(this.dtgListadoActor);
             this.panel1.Controls.Add(this.txtBuscadorApellido);
             this.panel1.Controls.Add(this.txtBuscadorNombre);
@@ -132,27 +134,30 @@
             // 
             this.lblBuscadorApellido.AutoSize = true;
             this.lblBuscadorApellido.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBuscadorApellido.ForeColor = System.Drawing.Color.White;
             this.lblBuscadorApellido.Location = new System.Drawing.Point(246, 17);
             this.lblBuscadorApellido.Name = "lblBuscadorApellido";
-            this.lblBuscadorApellido.Size = new System.Drawing.Size(132, 19);
+            this.lblBuscadorApellido.Size = new System.Drawing.Size(66, 19);
             this.lblBuscadorApellido.TabIndex = 1;
-            this.lblBuscadorApellido.Text = "Buscador Apellido";
+            this.lblBuscadorApellido.Text = "Apellido";
             // 
             // lblBuscadorNombre
             // 
             this.lblBuscadorNombre.AutoSize = true;
             this.lblBuscadorNombre.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBuscadorNombre.ForeColor = System.Drawing.Color.White;
             this.lblBuscadorNombre.Location = new System.Drawing.Point(37, 17);
             this.lblBuscadorNombre.Name = "lblBuscadorNombre";
-            this.lblBuscadorNombre.Size = new System.Drawing.Size(131, 19);
+            this.lblBuscadorNombre.Size = new System.Drawing.Size(65, 19);
             this.lblBuscadorNombre.TabIndex = 0;
-            this.lblBuscadorNombre.Text = "Buscador Nombre";
+            this.lblBuscadorNombre.Text = "Nombre";
             // 
             // lblListaActor
             // 
             this.lblListaActor.AutoSize = true;
             this.lblListaActor.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblListaActor.Location = new System.Drawing.Point(585, 78);
+            this.lblListaActor.ForeColor = System.Drawing.Color.White;
+            this.lblListaActor.Location = new System.Drawing.Point(506, 8);
             this.lblListaActor.Name = "lblListaActor";
             this.lblListaActor.Size = new System.Drawing.Size(187, 28);
             this.lblListaActor.TabIndex = 2;
@@ -162,8 +167,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblListaActor);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRegistrarActualizarActor);
             this.Name = "ListaActor";
@@ -173,7 +178,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgListadoActor)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -178,7 +178,7 @@ namespace TPG3
             Formularios.Pelicula.AltaPelicula altaPelicula = new Formularios.Pelicula.AltaPelicula();
             openChildForm(altaPelicula);
         }
-        public void btnSubAltaTarjeta(Tarjeta tar)
+        public void btnSubAltaTarjeta(Entidades.Tarjeta tar)
         {
             Formularios.Tarjeta.AltaTarjeta altaTarjeta = new Formularios.Tarjeta.AltaTarjeta(tar);
             openChildForm(altaTarjeta);
@@ -188,6 +188,41 @@ namespace TPG3
         {
             Formularios.Tarjeta.ListaTarjeta listaTarjeta = new Formularios.Tarjeta.ListaTarjeta();
             openChildForm(listaTarjeta);
+        }
+
+        private void btnSubOrigen_Click(object sender, EventArgs e)
+        {
+            Formularios.Origen.ListadoOrigen listaorigen = new Formularios.Origen.ListadoOrigen();
+            openChildForm(listaorigen);
+        }
+
+        private void btnSubGenero_Click(object sender, EventArgs e)
+        {
+            Formularios.Genero.ListadoGenero listaGenero = new Formularios.Genero.ListadoGenero();
+            openChildForm(listaGenero);
+        }
+
+        private void btnSubCalificacion_Click(object sender, EventArgs e)
+        {
+            Formularios.Calificacion.ListadoCalificacion listadoCalificacion = new Formularios.Calificacion.ListadoCalificacion();
+            openChildForm(listadoCalificacion);
+        }
+
+        private void btnSubFormato_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSubDistribuidora_Click(object sender, EventArgs e)
+        {
+            Formularios.Distribuidora.ListadoDistribuidora listaDistribuidora = new Formularios.Distribuidora.ListadoDistribuidora();
+            openChildForm(listaDistribuidora);
+        }
+
+        private void btnSubRol_Click(object sender, EventArgs e)
+        {
+            Formularios.Rol.ListadoRol listadoRol = new Formularios.Rol.ListadoRol();
+            openChildForm(listadoRol);
         }
     }
 }

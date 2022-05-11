@@ -63,7 +63,7 @@ namespace TPG3
         {
             if (txtUsuario.Text.Trim().Equals("") || txtContraseña.Text.Trim().Equals(""))
             {
-                MessageBox.Show("Complete todos los campos.");    
+                lblError.Text = "Error el usuario/contraseña ingresado no es válido."; 
             }
             else
             {

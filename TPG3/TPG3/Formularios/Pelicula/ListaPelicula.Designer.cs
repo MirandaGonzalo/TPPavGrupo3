@@ -30,11 +30,6 @@
         {
             this.lblListaPelicula = new System.Windows.Forms.Label();
             this.pnlListadoProducto = new System.Windows.Forms.Panel();
-            this.txtBuscadorTitulo = new System.Windows.Forms.TextBox();
-            this.lblBuscadorTitulo = new System.Windows.Forms.Label();
-            this.btnRegistrarPelícula = new System.Windows.Forms.Button();
-            this.txtBuscadorGenero = new System.Windows.Forms.TextBox();
-            this.lblBuscadorGenero = new System.Windows.Forms.Label();
             this.gdrActualizarPeli = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +43,11 @@
             this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Distribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtBuscadorGenero = new System.Windows.Forms.TextBox();
+            this.lblBuscadorGenero = new System.Windows.Forms.Label();
+            this.txtBuscadorTitulo = new System.Windows.Forms.TextBox();
+            this.lblBuscadorTitulo = new System.Windows.Forms.Label();
+            this.btnRegistrarPelícula = new System.Windows.Forms.Button();
             this.pnlListadoProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrActualizarPeli)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +56,8 @@
             // 
             this.lblListaPelicula.AutoSize = true;
             this.lblListaPelicula.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblListaPelicula.Location = new System.Drawing.Point(564, 65);
+            this.lblListaPelicula.ForeColor = System.Drawing.Color.White;
+            this.lblListaPelicula.Location = new System.Drawing.Point(516, 9);
             this.lblListaPelicula.Name = "lblListaPelicula";
             this.lblListaPelicula.Size = new System.Drawing.Size(203, 28);
             this.lblListaPelicula.TabIndex = 21;
@@ -64,7 +65,9 @@
             // 
             // pnlListadoProducto
             // 
+            this.pnlListadoProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
             this.pnlListadoProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlListadoProducto.Controls.Add(this.lblListaPelicula);
             this.pnlListadoProducto.Controls.Add(this.gdrActualizarPeli);
             this.pnlListadoProducto.Controls.Add(this.txtBuscadorGenero);
             this.pnlListadoProducto.Controls.Add(this.lblBuscadorGenero);
@@ -74,58 +77,6 @@
             this.pnlListadoProducto.Name = "pnlListadoProducto";
             this.pnlListadoProducto.Size = new System.Drawing.Size(734, 332);
             this.pnlListadoProducto.TabIndex = 20;
-            // 
-            // txtBuscadorTitulo
-            // 
-            this.txtBuscadorTitulo.Location = new System.Drawing.Point(18, 53);
-            this.txtBuscadorTitulo.Name = "txtBuscadorTitulo";
-            this.txtBuscadorTitulo.Size = new System.Drawing.Size(184, 23);
-            this.txtBuscadorTitulo.TabIndex = 15;
-            this.txtBuscadorTitulo.TextChanged += new System.EventHandler(this.txtBuscadorTitulo_TextChanged);
-            // 
-            // lblBuscadorTitulo
-            // 
-            this.lblBuscadorTitulo.AutoSize = true;
-            this.lblBuscadorTitulo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBuscadorTitulo.Location = new System.Drawing.Point(18, 18);
-            this.lblBuscadorTitulo.Name = "lblBuscadorTitulo";
-            this.lblBuscadorTitulo.Size = new System.Drawing.Size(147, 19);
-            this.lblBuscadorTitulo.TabIndex = 8;
-            this.lblBuscadorTitulo.Text = "Buscador Tipo Título";
-            // 
-            // btnRegistrarPelícula
-            // 
-            this.btnRegistrarPelícula.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnRegistrarPelícula.FlatAppearance.BorderSize = 0;
-            this.btnRegistrarPelícula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarPelícula.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRegistrarPelícula.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegistrarPelícula.Location = new System.Drawing.Point(33, 22);
-            this.btnRegistrarPelícula.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRegistrarPelícula.Name = "btnRegistrarPelícula";
-            this.btnRegistrarPelícula.Size = new System.Drawing.Size(308, 47);
-            this.btnRegistrarPelícula.TabIndex = 19;
-            this.btnRegistrarPelícula.Text = "Registrar / Actualizar Película";
-            this.btnRegistrarPelícula.UseVisualStyleBackColor = false;
-            this.btnRegistrarPelícula.Click += new System.EventHandler(this.btnRegistrarPelícula_Click);
-            // 
-            // txtBuscadorGenero
-            // 
-            this.txtBuscadorGenero.Location = new System.Drawing.Point(228, 53);
-            this.txtBuscadorGenero.Name = "txtBuscadorGenero";
-            this.txtBuscadorGenero.Size = new System.Drawing.Size(184, 23);
-            this.txtBuscadorGenero.TabIndex = 17;
-            this.txtBuscadorGenero.TextChanged += new System.EventHandler(this.txtBuscadorGenero_TextChanged);
-            // 
-            // lblBuscadorGenero
-            // 
-            this.lblBuscadorGenero.AutoSize = true;
-            this.lblBuscadorGenero.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBuscadorGenero.Location = new System.Drawing.Point(228, 18);
-            this.lblBuscadorGenero.Name = "lblBuscadorGenero";
-            this.lblBuscadorGenero.Size = new System.Drawing.Size(124, 19);
-            this.lblBuscadorGenero.TabIndex = 16;
-            this.lblBuscadorGenero.Text = "Buscador Genero";
             // 
             // gdrActualizarPeli
             // 
@@ -237,12 +188,66 @@
             this.Idioma.Name = "Idioma";
             this.Idioma.ReadOnly = true;
             // 
+            // txtBuscadorGenero
+            // 
+            this.txtBuscadorGenero.Location = new System.Drawing.Point(228, 53);
+            this.txtBuscadorGenero.Name = "txtBuscadorGenero";
+            this.txtBuscadorGenero.Size = new System.Drawing.Size(184, 23);
+            this.txtBuscadorGenero.TabIndex = 17;
+            this.txtBuscadorGenero.TextChanged += new System.EventHandler(this.txtBuscadorGenero_TextChanged);
+            // 
+            // lblBuscadorGenero
+            // 
+            this.lblBuscadorGenero.AutoSize = true;
+            this.lblBuscadorGenero.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBuscadorGenero.ForeColor = System.Drawing.Color.White;
+            this.lblBuscadorGenero.Location = new System.Drawing.Point(228, 18);
+            this.lblBuscadorGenero.Name = "lblBuscadorGenero";
+            this.lblBuscadorGenero.Size = new System.Drawing.Size(58, 19);
+            this.lblBuscadorGenero.TabIndex = 16;
+            this.lblBuscadorGenero.Text = "Genero";
+            // 
+            // txtBuscadorTitulo
+            // 
+            this.txtBuscadorTitulo.Location = new System.Drawing.Point(18, 53);
+            this.txtBuscadorTitulo.Name = "txtBuscadorTitulo";
+            this.txtBuscadorTitulo.Size = new System.Drawing.Size(184, 23);
+            this.txtBuscadorTitulo.TabIndex = 15;
+            this.txtBuscadorTitulo.TextChanged += new System.EventHandler(this.txtBuscadorTitulo_TextChanged);
+            // 
+            // lblBuscadorTitulo
+            // 
+            this.lblBuscadorTitulo.AutoSize = true;
+            this.lblBuscadorTitulo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBuscadorTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblBuscadorTitulo.Location = new System.Drawing.Point(18, 18);
+            this.lblBuscadorTitulo.Name = "lblBuscadorTitulo";
+            this.lblBuscadorTitulo.Size = new System.Drawing.Size(81, 19);
+            this.lblBuscadorTitulo.TabIndex = 8;
+            this.lblBuscadorTitulo.Text = "Tipo Título";
+            // 
+            // btnRegistrarPelícula
+            // 
+            this.btnRegistrarPelícula.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnRegistrarPelícula.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarPelícula.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarPelícula.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRegistrarPelícula.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRegistrarPelícula.Location = new System.Drawing.Point(33, 22);
+            this.btnRegistrarPelícula.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRegistrarPelícula.Name = "btnRegistrarPelícula";
+            this.btnRegistrarPelícula.Size = new System.Drawing.Size(308, 47);
+            this.btnRegistrarPelícula.TabIndex = 19;
+            this.btnRegistrarPelícula.Text = "Registrar / Actualizar Película";
+            this.btnRegistrarPelícula.UseVisualStyleBackColor = false;
+            this.btnRegistrarPelícula.Click += new System.EventHandler(this.btnRegistrarPelícula_Click);
+            // 
             // ListaPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblListaPelicula);
             this.Controls.Add(this.pnlListadoProducto);
             this.Controls.Add(this.btnRegistrarPelícula);
             this.Name = "ListaPelicula";
@@ -252,7 +257,6 @@
             this.pnlListadoProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrActualizarPeli)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

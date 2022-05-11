@@ -11,7 +11,7 @@ namespace TPG3.Entidades
     public class AD_Producto
     {
 
-        public static bool AgregarProductoABD(Productos prod)
+        public static bool AgregarProductoABD(Producto prod)
         {
             bool resultado = false;
             string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";

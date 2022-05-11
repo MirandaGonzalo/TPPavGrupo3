@@ -155,15 +155,39 @@ namespace TPG3
             Formularios.Producto.AltaProducto altaProducto = new Formularios.Producto.AltaProducto();
             openChildForm(altaProducto);
         }
-        private void btnSubCombo_Click(object sender, EventArgs e)
+        public void btnSubCombo_Click(object sender, EventArgs e)
         {
             Formularios.Combo.ListaCombo listaCombo = new Formularios.Combo.ListaCombo();
             openChildForm(listaCombo);
         }
-        public void btnSubComboAltaCombo(object sender, EventArgs e)
+        public void btnSubComboAltaCombo(Entidades.Producto combo)
         {
-            Formularios.Combo.AltaCombo altaCombo = new Formularios.Combo.AltaCombo();
+            //Formularios.Combo.AltaCombo altaCombo = new Formularios.Combo.AltaCombo(combo);
+            //openChildForm(altaCombo);
+            Formularios.Combo.AltaCombo altaCombo = new Formularios.Combo.AltaCombo(combo);
             openChildForm(altaCombo);
+        }
+
+        private void btnSubPelicula_Click(object sender, EventArgs e)
+        {
+            Formularios.Pelicula.ListaPelicula listaPelicula = new Formularios.Pelicula.ListaPelicula();
+            openChildForm(listaPelicula);
+        }
+        public void btnSubPeliculaAltaPelicula(object sender, EventArgs e)
+        {
+            Formularios.Pelicula.AltaPelicula altaPelicula = new Formularios.Pelicula.AltaPelicula();
+            openChildForm(altaPelicula);
+        }
+        public void btnSubAltaTarjeta(Tarjeta tar)
+        {
+            Formularios.Tarjeta.AltaTarjeta altaTarjeta = new Formularios.Tarjeta.AltaTarjeta(tar);
+            openChildForm(altaTarjeta);
+        }
+
+        public void btnSubTarjeta_Click(object sender, EventArgs e)
+        {
+            Formularios.Tarjeta.ListaTarjeta listaTarjeta = new Formularios.Tarjeta.ListaTarjeta();
+            openChildForm(listaTarjeta);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace TPG3.Formularios.Producto
                 
             if (camposCorrectos)
             {
-                Productos p = ObtenerDatosProducto();
+                Entidades.Producto p = ObtenerDatosProducto();
 
 
                 bool resultado = AD_Producto.AgregarProductoABD(p);
@@ -68,9 +68,9 @@ namespace TPG3.Formularios.Producto
             
         }
 
-        private Productos ObtenerDatosProducto()
+        private Entidades.Producto ObtenerDatosProducto()
         {
-            Productos prod = new Productos();
+            Entidades.Producto prod = new Entidades.Producto(-1,"","",-1,0,0,-1);
 
             prod.TipoProducto = (int)cmbTipoProducto1.SelectedValue;
             prod.Nombre = txtNombreProducto.Text.Trim();
@@ -110,7 +110,7 @@ namespace TPG3.Formularios.Producto
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            Productos p = ObtenerDatosProducto();
+            Entidades.Producto p = ObtenerDatosProducto();
             bool resultado = ActualizarProducto(p);
             if (resultado)
             {
@@ -126,7 +126,7 @@ namespace TPG3.Formularios.Producto
 
         }
 
-        private bool ActualizarProducto(Productos p)
+        private bool ActualizarProducto(Entidades.Producto p)
         {
             bool resultado = false;
             string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
@@ -176,14 +176,14 @@ namespace TPG3.Formularios.Producto
             DataGridViewRow filaSeleccionada = gdrActualizarProd.Rows[indice];
 
             int idProducto = (int)filaSeleccionada.Cells["IdProducto"].Value;
-            Productos p = ObtenerProducto(idProducto);
+            Entidades.Producto p = ObtenerProducto(idProducto);
             LimpiarCampos();
             CargarCampos(p);
         }
 
-        private Productos ObtenerProducto(int idProducto)
+        private Entidades.Producto ObtenerProducto(int idProducto)
         {
-            Productos p = new Productos();
+            Entidades.Producto p = new Entidades.Producto(-1, "", "", -1, 0, 0, -1);
             string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
             SqlConnection cn = new SqlConnection(cadenaConexion);
 
@@ -222,7 +222,7 @@ namespace TPG3.Formularios.Producto
 
         }
 
-        private void CargarCampos(Productos p)
+        private void CargarCampos(Entidades.Producto p)
         {
             cmbTipoProducto1.SelectedValue = p.TipoProducto;
             txtNombreProducto.Text = p.Nombre;

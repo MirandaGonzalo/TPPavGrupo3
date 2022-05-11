@@ -49,14 +49,13 @@ namespace TPG3.Formularios.Pelicula
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT *" +
-                                    "FROM Pelicula AS p" +
-                                    "JOIN Formato AS f ON(f.codFormato = p.formato)" +
-                                    "JOIN Calificacion AS c ON(c.codCalificacion = p.calificacion)" +
-                                    "JOIN Genero AS g ON(g.codGenero = p.genero)" +
-                                    "JOIN Origen AS o ON(o.idOrigen = p.origen)" +
-                                    "JOIN Distribuidora AS d ON(d.idDistribuidora = p.distribuidora)";
-
+                string consulta = "SELECT p.codPelicula,p.titulo,p.duracion,o.nombre as 'origenN',c.abreviatura as 'calif', " +
+                "f.descripcion as 'forma', g.descripcion as 'descriG', d.nombreDistribuidora as 'dist', i.descripcion as 'idioma' " +
+                "FROM Pelicula AS p JOIN Formato AS f ON(f.codFormato = p.formato) JOIN Calificacion AS c " +
+                "ON(c.codCalificacion = p.calificacion) JOIN Genero AS g ON(g.codGenero = p.genero) " +
+                "JOIN Origen AS o ON(o.idOrigen = p.origen) JOIN Distribuidora AS d ON(d.idDistribuidora = p.distribuidora) " +
+                "JOIN Idioma AS i ON(i.codIdioma = p.idioma) ";
+                
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = consulta;

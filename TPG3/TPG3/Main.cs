@@ -210,7 +210,8 @@ namespace TPG3
 
         private void btnSubFormato_Click(object sender, EventArgs e)
         {
-
+            Formularios.Formato.listaFormato listaFormato = new Formularios.Formato.listaFormato();
+            openChildForm(listaFormato);
         }
 
         private void btnSubDistribuidora_Click(object sender, EventArgs e)
@@ -223,6 +224,42 @@ namespace TPG3
         {
             Formularios.Rol.ListadoRol listadoRol = new Formularios.Rol.ListadoRol();
             openChildForm(listadoRol);
+        }
+
+        private void btnSubTipoProducto_Click(object sender, EventArgs e)
+        {
+            Formularios.TipoProducto.ListaTipoProducto listaTipoProducto = new Formularios.TipoProducto.ListaTipoProducto();
+            openChildForm(listaTipoProducto);
+        }
+
+        private void btnSubTarifa_Click(object sender, EventArgs e)
+        {
+            Formularios.Tarifa.listaTarifa listaTarifa = new Formularios.Tarifa.listaTarifa();
+            openChildForm(listaTarifa);
+        }
+
+        private void btnSubSala_Click(object sender, EventArgs e)
+        {
+            Formularios.Sala.listadoSala listaSala = new Formularios.Sala.listadoSala();
+            openChildForm(listaSala);
+        }
+
+        private void btnSubProgramacion_Click(object sender, EventArgs e)
+        {
+            Formularios.ProgramacionSemanal.listaProgramacionSemanal listaProgramacion = new Formularios.ProgramacionSemanal.listaProgramacionSemanal();    
+            openChildForm(listaProgramacion);
+        }
+
+        private void btnSubEstado_Click(object sender, EventArgs e)
+        {
+            Formularios.Estado.listaEstado listaEstado = new Formularios.Estado.listaEstado();
+            openChildForm(listaEstado);
+        }
+
+        private void btnFuncion_Click(object sender, EventArgs e)
+        {
+            Formularios.Funcion.ListaFuncion listaFuncion = new Formularios.Funcion.ListaFuncion();
+            openChildForm(listaFuncion);
         }
     }
 }

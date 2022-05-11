@@ -44,7 +44,6 @@
             this.lblSala = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.lblFechaHora = new System.Windows.Forms.Label();
-            this.btnListado = new System.Windows.Forms.Button();
             this.funcionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panelBackAltaFuncion.SuspendLayout();
@@ -53,7 +52,7 @@
             // 
             // panelBackAltaFuncion
             // 
-            this.panelBackAltaFuncion.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelBackAltaFuncion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
             this.panelBackAltaFuncion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBackAltaFuncion.Controls.Add(this.lblError);
             this.panelBackAltaFuncion.Controls.Add(this.cmbFechaFin);
@@ -69,8 +68,7 @@
             this.panelBackAltaFuncion.Controls.Add(this.lblSala);
             this.panelBackAltaFuncion.Controls.Add(this.maskedTextBox1);
             this.panelBackAltaFuncion.Controls.Add(this.lblFechaHora);
-            this.panelBackAltaFuncion.Controls.Add(this.btnListado);
-            this.panelBackAltaFuncion.Location = new System.Drawing.Point(85, 56);
+            this.panelBackAltaFuncion.Location = new System.Drawing.Point(54, 62);
             this.panelBackAltaFuncion.Name = "panelBackAltaFuncion";
             this.panelBackAltaFuncion.Size = new System.Drawing.Size(667, 357);
             this.panelBackAltaFuncion.TabIndex = 15;
@@ -78,13 +76,14 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(331, 158);
+            this.lblError.Location = new System.Drawing.Point(26, 240);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 15);
             this.lblError.TabIndex = 34;
             // 
             // cmbFechaFin
             // 
+            this.cmbFechaFin.Enabled = false;
             this.cmbFechaFin.FormattingEnabled = true;
             this.cmbFechaFin.Location = new System.Drawing.Point(463, 77);
             this.cmbFechaFin.Name = "cmbFechaFin";
@@ -98,6 +97,7 @@
             this.cmbFechaInicio.Name = "cmbFechaInicio";
             this.cmbFechaInicio.Size = new System.Drawing.Size(121, 23);
             this.cmbFechaInicio.TabIndex = 4;
+            this.cmbFechaInicio.SelectedIndexChanged += new System.EventHandler(this.cmbFechaInicio_SelectedIndexChanged);
             // 
             // cmbEstado
             // 
@@ -125,18 +125,24 @@
             // 
             // btnCargarFuncion
             // 
-            this.btnCargarFuncion.Location = new System.Drawing.Point(492, 280);
+            this.btnCargarFuncion.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCargarFuncion.FlatAppearance.BorderSize = 0;
+            this.btnCargarFuncion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarFuncion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCargarFuncion.ForeColor = System.Drawing.Color.White;
+            this.btnCargarFuncion.Location = new System.Drawing.Point(463, 280);
             this.btnCargarFuncion.Name = "btnCargarFuncion";
-            this.btnCargarFuncion.Size = new System.Drawing.Size(92, 37);
+            this.btnCargarFuncion.Size = new System.Drawing.Size(143, 37);
             this.btnCargarFuncion.TabIndex = 6;
             this.btnCargarFuncion.Text = "Cargar";
-            this.btnCargarFuncion.UseVisualStyleBackColor = true;
+            this.btnCargarFuncion.UseVisualStyleBackColor = false;
             this.btnCargarFuncion.Click += new System.EventHandler(this.btnCargarFuncion_Click);
             // 
             // lblFechaInicio
             // 
             this.lblFechaInicio.AutoSize = true;
             this.lblFechaInicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFechaInicio.ForeColor = System.Drawing.Color.White;
             this.lblFechaInicio.Location = new System.Drawing.Point(336, 27);
             this.lblFechaInicio.Name = "lblFechaInicio";
             this.lblFechaInicio.Size = new System.Drawing.Size(105, 21);
@@ -147,6 +153,7 @@
             // 
             this.lblFechaFin.AutoSize = true;
             this.lblFechaFin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFechaFin.ForeColor = System.Drawing.Color.White;
             this.lblFechaFin.Location = new System.Drawing.Point(336, 79);
             this.lblFechaFin.Name = "lblFechaFin";
             this.lblFechaFin.Size = new System.Drawing.Size(85, 21);
@@ -157,6 +164,7 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEstado.ForeColor = System.Drawing.Color.White;
             this.lblEstado.Location = new System.Drawing.Point(26, 189);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(65, 21);
@@ -167,6 +175,7 @@
             // 
             this.lblPelicula.AutoSize = true;
             this.lblPelicula.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPelicula.ForeColor = System.Drawing.Color.White;
             this.lblPelicula.Location = new System.Drawing.Point(26, 133);
             this.lblPelicula.Name = "lblPelicula";
             this.lblPelicula.Size = new System.Drawing.Size(75, 21);
@@ -177,6 +186,7 @@
             // 
             this.lblSala.AutoSize = true;
             this.lblSala.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSala.ForeColor = System.Drawing.Color.White;
             this.lblSala.Location = new System.Drawing.Point(26, 79);
             this.lblSala.Name = "lblSala";
             this.lblSala.Size = new System.Drawing.Size(46, 21);
@@ -196,21 +206,12 @@
             // 
             this.lblFechaHora.AutoSize = true;
             this.lblFechaHora.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFechaHora.ForeColor = System.Drawing.Color.White;
             this.lblFechaHora.Location = new System.Drawing.Point(26, 27);
             this.lblFechaHora.Name = "lblFechaHora";
             this.lblFechaHora.Size = new System.Drawing.Size(112, 21);
             this.lblFechaHora.TabIndex = 13;
             this.lblFechaHora.Text = "Fecha y Hora:";
-            // 
-            // btnListado
-            // 
-            this.btnListado.Location = new System.Drawing.Point(298, 280);
-            this.btnListado.Name = "btnListado";
-            this.btnListado.Size = new System.Drawing.Size(92, 37);
-            this.btnListado.TabIndex = 7;
-            this.btnListado.Text = "Listado";
-            this.btnListado.UseVisualStyleBackColor = true;
-            this.btnListado.Click += new System.EventHandler(this.btnListado_Click);
             // 
             // funcionBindingSource
             // 
@@ -220,8 +221,8 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblTitulo.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblTitulo.Location = new System.Drawing.Point(85, 9);
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(55, 18);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(138, 30);
             this.lblTitulo.TabIndex = 16;
@@ -232,6 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.panelBackAltaFuncion);
@@ -248,7 +250,6 @@
         #endregion
 
         private Panel panelBackAltaFuncion;
-        private Button btnListado;
         private Label lblTitulo;
         private Label lblFechaHora;
         private Label lblSala;

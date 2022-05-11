@@ -369,6 +369,7 @@
             this.btnFuncion.Text = "Función";
             this.btnFuncion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFuncion.UseVisualStyleBackColor = false;
+            this.btnFuncion.Click += new System.EventHandler(this.btnFuncion_Click);
             // 
             // btnSubEstado
             // 
@@ -386,6 +387,7 @@
             this.btnSubEstado.Text = "Estado Función";
             this.btnSubEstado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubEstado.UseVisualStyleBackColor = false;
+            this.btnSubEstado.Click += new System.EventHandler(this.btnSubEstado_Click);
             // 
             // btnSubProgramacion
             // 
@@ -403,11 +405,13 @@
             this.btnSubProgramacion.Text = "Programación Semanal";
             this.btnSubProgramacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubProgramacion.UseVisualStyleBackColor = false;
+            this.btnSubProgramacion.Click += new System.EventHandler(this.btnSubProgramacion_Click);
             // 
             // btnSubAsiento
             // 
-            this.btnSubAsiento.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSubAsiento.BackColor = System.Drawing.Color.Lavender;
             this.btnSubAsiento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSubAsiento.Enabled = false;
             this.btnSubAsiento.FlatAppearance.BorderSize = 0;
             this.btnSubAsiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubAsiento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -437,6 +441,7 @@
             this.btnSubSala.Text = "Sala";
             this.btnSubSala.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubSala.UseVisualStyleBackColor = false;
+            this.btnSubSala.Click += new System.EventHandler(this.btnSubSala_Click);
             // 
             // btnMenuFuncion
             // 
@@ -500,6 +505,7 @@
             this.btnSubTarifa.Text = "Tarifa";
             this.btnSubTarifa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubTarifa.UseVisualStyleBackColor = false;
+            this.btnSubTarifa.Click += new System.EventHandler(this.btnSubTarifa_Click);
             // 
             // btnSubPromocion
             // 
@@ -582,6 +588,7 @@
             this.btnSubTipoProducto.Text = "Tipo Producto";
             this.btnSubTipoProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubTipoProducto.UseVisualStyleBackColor = false;
+            this.btnSubTipoProducto.Click += new System.EventHandler(this.btnSubTipoProducto_Click);
             // 
             // btnSubProducto
             // 

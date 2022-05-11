@@ -379,13 +379,13 @@ namespace TPG3.Formularios.Pelicula
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT *" +
-                                    "FROM Pelicula AS p" +
-                                    "JOIN Formato AS f ON(f.codFormato = p.formato)" +
-                                    "JOIN Calificacion AS c ON(c.codCalificacion = p.calificacion)" +
-                                    "JOIN Genero AS g ON(g.codGenero = p.genero)" +
-                                    "JOIN Origen AS o ON(o.idOrigen = p.origen)" +
-                                    "JOIN Distribuidora AS d ON(d.idDistribuidora = p.distribuidora)";
+                string consulta = "SELECT * " +
+                                    "FROM Pelicula AS p " +
+                                    "JOIN Formato AS f ON(f.codFormato = p.formato) " +
+                                    "JOIN Calificacion AS c ON(c.codCalificacion = p.calificacion) " +
+                                    "JOIN Genero AS g ON(g.codGenero = p.genero) " +
+                                    "JOIN Origen AS o ON(o.idOrigen = p.origen) " +
+                                    "JOIN Distribuidora AS d ON(d.idDistribuidora = p.distribuidora) ";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;
@@ -467,7 +467,9 @@ namespace TPG3.Formularios.Pelicula
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                string consulta = "INSERT INTO Pelicula (titulo, leyenda, duracion, sinopsis, añoEstreno, origen, calificacion, formato, genero, distribuidora, idioma) VALUES (@titulo, @leyenda, @duracion, @sinopsis, @añoEstreno, @origen, @calificacion, @formato, @genero, @distribuidora, @idioma)";
+                string consulta = "INSERT INTO Pelicula (titulo, leyenda, duracion, sinopsis, añoEstreno, "+
+                "origen, calificacion, formato, genero, distribuidora, idioma) VALUES "+
+                "(@titulo, @leyenda, @duracion, @sinopsis, @añoEstreno, @origen, @calificacion, @formato, @genero, @distribuidora, @idioma)";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@titulo", peli.Titulo);
                 cmd.Parameters.AddWithValue("@leyenda", peli.Leyenda);

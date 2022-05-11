@@ -264,8 +264,8 @@ namespace TPG3.Formularios.Funcion
                     cmd.Parameters.AddWithValue("@pelicula", cmbPeli.SelectedValue);
                     cmd.Parameters.AddWithValue("@estado", cmbEstado.SelectedValue);
                     cmd.Parameters.AddWithValue("@fechaInicio", cmbFechaInicio.SelectedValue);
-                   // cmd.Parameters.AddWithValue("@fechaFin", cmbFechaInicio.SelectedValue);
-                   cmd.Parameters.AddWithValue("@fechaFin", DateTime.Parse("28/03/2022")); //revisar.. ver si logramos q se autocomplete
+                    var fechaFin = DateTime.Parse(cmbFechaInicio.SelectedText);
+                    cmd.Parameters.AddWithValue("@fechaFin", fechaFin.AddDays(7)); 
              
                     //cmd.Parameters.AddWithValue("@tarjeta", int.Parse(txtTarjeta.Text));
                     cmd.CommandType = CommandType.Text;
@@ -352,7 +352,11 @@ namespace TPG3.Formularios.Funcion
             //Main.main1.btnFuncion_Click(sender, e);
         }
 
-        
+        private void cmbFechaInicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var fechaFin = DateTime.Parse(cmbFechaInicio.SelectedText);
+            cmbFechaFin.SelectedText = fechaFin.AddDays(7).ToString();
+        }
     }
 }
 

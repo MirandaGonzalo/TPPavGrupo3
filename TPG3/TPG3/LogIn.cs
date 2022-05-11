@@ -81,6 +81,10 @@ namespace TPG3
                         this.Close();
 
                     }
+                    else
+                    {
+                        lblError.Text = "Error el usuario/contraseña no es correcto.";
+                    }
                 }
                 catch (Exception Ex)
                 {

@@ -62,9 +62,6 @@ namespace TPG3.Formularios.Producto
             {
                 MessageBox.Show("Datos Incorrectos, Ingrese nuevamente los Datos");
             }
-
-             
-            
             
         }
 
@@ -111,19 +108,27 @@ namespace TPG3.Formularios.Producto
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             Entidades.Producto p = ObtenerDatosProducto();
-            bool resultado = ActualizarProducto(p);
-            if (resultado)
+            bool camposCorrectos = validarCamposNoVacios();
+
+            if (camposCorrectos)
             {
-                MessageBox.Show("Producto actualizado con éxito");
-                LimpiarCampos();
-                CargarGrilla();
-                CargarComboTipoProducto();
+                bool resultado = ActualizarProducto(p);
+                if (resultado)
+                {
+                    MessageBox.Show("Producto actualizado con éxito");
+                    LimpiarCampos();
+                    CargarGrilla();
+                    CargarComboTipoProducto();
+                }
+                else
+                {
+                    MessageBox.Show("Error al actualizar producto");
+                };
             }
             else
             {
-                MessageBox.Show("Error al actualizar producto");
+                MessageBox.Show("Datos Incorrectos, Ingrese nuevamente los Datos");
             }
-
         }
 
         private bool ActualizarProducto(Entidades.Producto p)
@@ -238,6 +243,13 @@ namespace TPG3.Formularios.Producto
                 lblError.Text = " El campo Nombre Producto no puede estar vacío.";
                 txtNombreProducto.Focus();
                 return false;
+            }
+            int parsedValue;
+            if (!int.TryParse(txtPrecio1.Text, out parsedValue))
+            {
+                lblError.Visible = true;
+                lblError.Text = "El campo Precio solo debe contener números.";
+                txtPrecio1.Focus();
             }
             if (txtPrecio1.Text.Trim().Equals(""))
             {

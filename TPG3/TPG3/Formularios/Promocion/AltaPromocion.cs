@@ -42,6 +42,7 @@ namespace TPG3.Formularios.Promocion
                     mtbValor.Text = editPromo.valor.ToString();
                     
                     lblTitulo.Text = "Modificar Promoción";
+                    btnCargarPromocion.Text = "Modificar";
                     limpiarEspacios();
                 }
                 else

@@ -78,15 +78,17 @@
             this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Distribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblActualizarPelícula = new System.Windows.Forms.Label();
             this.codPelicula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Leyenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sinopsis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlListadoProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrConsultarPeli)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblError
@@ -94,14 +96,14 @@
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(37, 11);
+            this.lblError.Location = new System.Drawing.Point(59, 86);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(43, 19);
+            this.lblError.Size = new System.Drawing.Size(0, 19);
             this.lblError.TabIndex = 19;
-            this.lblError.Text = "Error";
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.cmbDistribuidora);
             this.panel1.Controls.Add(this.lblDistribuidora);
@@ -128,7 +130,7 @@
             this.panel1.Controls.Add(this.btnAgregar);
             this.panel1.Controls.Add(this.lblIdioma);
             this.panel1.Controls.Add(this.cmbIdioma);
-            this.panel1.Location = new System.Drawing.Point(37, 38);
+            this.panel1.Location = new System.Drawing.Point(59, 113);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(733, 321);
             this.panel1.TabIndex = 21;
@@ -145,6 +147,7 @@
             // 
             this.lblDistribuidora.AutoSize = true;
             this.lblDistribuidora.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDistribuidora.ForeColor = System.Drawing.Color.White;
             this.lblDistribuidora.Location = new System.Drawing.Point(360, 167);
             this.lblDistribuidora.Name = "lblDistribuidora";
             this.lblDistribuidora.Size = new System.Drawing.Size(97, 19);
@@ -163,6 +166,7 @@
             // 
             this.lblGenero.AutoSize = true;
             this.lblGenero.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGenero.ForeColor = System.Drawing.Color.White;
             this.lblGenero.Location = new System.Drawing.Point(172, 168);
             this.lblGenero.Name = "lblGenero";
             this.lblGenero.Size = new System.Drawing.Size(58, 19);
@@ -181,6 +185,7 @@
             // 
             this.lblFormato.AutoSize = true;
             this.lblFormato.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblFormato.ForeColor = System.Drawing.Color.White;
             this.lblFormato.Location = new System.Drawing.Point(28, 168);
             this.lblFormato.Name = "lblFormato";
             this.lblFormato.Size = new System.Drawing.Size(66, 19);
@@ -199,6 +204,7 @@
             // 
             this.lblCalificacion.AutoSize = true;
             this.lblCalificacion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCalificacion.ForeColor = System.Drawing.Color.White;
             this.lblCalificacion.Location = new System.Drawing.Point(446, 90);
             this.lblCalificacion.Name = "lblCalificacion";
             this.lblCalificacion.Size = new System.Drawing.Size(86, 19);
@@ -217,6 +223,7 @@
             // 
             this.lblOrigen.AutoSize = true;
             this.lblOrigen.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblOrigen.ForeColor = System.Drawing.Color.White;
             this.lblOrigen.Location = new System.Drawing.Point(172, 90);
             this.lblOrigen.Name = "lblOrigen";
             this.lblOrigen.Size = new System.Drawing.Size(55, 19);
@@ -234,6 +241,7 @@
             // 
             this.lblañoEstreno.AutoSize = true;
             this.lblañoEstreno.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblañoEstreno.ForeColor = System.Drawing.Color.White;
             this.lblañoEstreno.Location = new System.Drawing.Point(28, 90);
             this.lblañoEstreno.Name = "lblañoEstreno";
             this.lblañoEstreno.Size = new System.Drawing.Size(89, 19);
@@ -251,6 +259,7 @@
             // 
             this.lblSinopsis.AutoSize = true;
             this.lblSinopsis.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSinopsis.ForeColor = System.Drawing.Color.White;
             this.lblSinopsis.Location = new System.Drawing.Point(446, 20);
             this.lblSinopsis.Name = "lblSinopsis";
             this.lblSinopsis.Size = new System.Drawing.Size(63, 19);
@@ -268,6 +277,7 @@
             // 
             this.lblDuracion.AutoSize = true;
             this.lblDuracion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDuracion.ForeColor = System.Drawing.Color.White;
             this.lblDuracion.Location = new System.Drawing.Point(307, 20);
             this.lblDuracion.Name = "lblDuracion";
             this.lblDuracion.Size = new System.Drawing.Size(69, 19);
@@ -285,6 +295,7 @@
             // 
             this.lblLeyenda.AutoSize = true;
             this.lblLeyenda.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLeyenda.ForeColor = System.Drawing.Color.White;
             this.lblLeyenda.Location = new System.Drawing.Point(172, 20);
             this.lblLeyenda.Name = "lblLeyenda";
             this.lblLeyenda.Size = new System.Drawing.Size(65, 19);
@@ -302,6 +313,7 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(28, 20);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(47, 19);
@@ -360,6 +372,7 @@
             // 
             this.lblIdioma.AutoSize = true;
             this.lblIdioma.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblIdioma.ForeColor = System.Drawing.Color.White;
             this.lblIdioma.Location = new System.Drawing.Point(570, 167);
             this.lblIdioma.Name = "lblIdioma";
             this.lblIdioma.Size = new System.Drawing.Size(56, 19);
@@ -378,7 +391,8 @@
             // 
             this.lblRegistroPelicula.AutoSize = true;
             this.lblRegistroPelicula.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblRegistroPelicula.Location = new System.Drawing.Point(556, 6);
+            this.lblRegistroPelicula.ForeColor = System.Drawing.Color.White;
+            this.lblRegistroPelicula.Location = new System.Drawing.Point(12, 27);
             this.lblRegistroPelicula.Name = "lblRegistroPelicula";
             this.lblRegistroPelicula.Size = new System.Drawing.Size(214, 28);
             this.lblRegistroPelicula.TabIndex = 18;
@@ -395,7 +409,7 @@
             this.pnlListadoProducto.Controls.Add(this.lblProducto);
             this.pnlListadoProducto.Controls.Add(this.cmbTipoProducto);
             this.pnlListadoProducto.Controls.Add(this.lblTipoProducto);
-            this.pnlListadoProducto.Location = new System.Drawing.Point(37, 59);
+            this.pnlListadoProducto.Location = new System.Drawing.Point(59, 134);
             this.pnlListadoProducto.Name = "pnlListadoProducto";
             this.pnlListadoProducto.Size = new System.Drawing.Size(733, 159);
             this.pnlListadoProducto.TabIndex = 17;
@@ -488,11 +502,11 @@
             this.Genero,
             this.Distribuidora,
             this.Idioma});
-            this.gdrConsultarPeli.Location = new System.Drawing.Point(37, 410);
+            this.gdrConsultarPeli.Location = new System.Drawing.Point(47, 402);
             this.gdrConsultarPeli.Name = "gdrConsultarPeli";
             this.gdrConsultarPeli.ReadOnly = true;
             this.gdrConsultarPeli.RowTemplate.Height = 25;
-            this.gdrConsultarPeli.Size = new System.Drawing.Size(733, 228);
+            this.gdrConsultarPeli.Size = new System.Drawing.Size(741, 228);
             this.gdrConsultarPeli.TabIndex = 22;
             this.gdrConsultarPeli.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdrConsultarProd_CellClick);
             // 
@@ -581,16 +595,6 @@
             this.Idioma.Name = "Idioma";
             this.Idioma.ReadOnly = true;
             // 
-            // lblActualizarPelícula
-            // 
-            this.lblActualizarPelícula.AutoSize = true;
-            this.lblActualizarPelícula.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblActualizarPelícula.Location = new System.Drawing.Point(583, 372);
-            this.lblActualizarPelícula.Name = "lblActualizarPelícula";
-            this.lblActualizarPelícula.Size = new System.Drawing.Size(187, 28);
-            this.lblActualizarPelícula.TabIndex = 23;
-            this.lblActualizarPelícula.Text = "Actualizar Pelicula";
-            // 
             // codPelicula
             // 
             this.codPelicula.DataPropertyName = "codPelicula";
@@ -622,17 +626,38 @@
             this.Sinopsis.HeaderText = "Sinopsis";
             this.Sinopsis.Name = "Sinopsis";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
+            this.panel2.Controls.Add(this.gdrConsultarPeli);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(12, 96);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(831, 656);
+            this.panel2.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(593, 352);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 28);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Actualizar Película";
+            // 
             // AltaPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 644);
-            this.Controls.Add(this.lblActualizarPelícula);
-            this.Controls.Add(this.gdrConsultarPeli);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.ClientSize = new System.Drawing.Size(951, 795);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblRegistroPelicula);
             this.Controls.Add(this.pnlListadoProducto);
+            this.Controls.Add(this.panel2);
             this.Name = "AltaPelicula";
             this.Text = "AltaPelicula";
             this.Load += new System.EventHandler(this.AltaPelicula_Load);
@@ -641,6 +666,8 @@
             this.pnlListadoProducto.ResumeLayout(false);
             this.pnlListadoProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrConsultarPeli)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -686,7 +713,6 @@
         private TextBox txtTitulo;
         private Label lblTitulo;
         private DataGridView gdrConsultarPeli;
-        private Label lblActualizarPelícula;
         private DataGridViewTextBoxColumn codPelicula;
         private DataGridViewTextBoxColumn Titulo;
         private DataGridViewTextBoxColumn Leyenda;
@@ -704,5 +730,7 @@
         private DataGridViewTextBoxColumn Genero;
         private DataGridViewTextBoxColumn Distribuidora;
         private DataGridViewTextBoxColumn Idioma;
+        private Panel panel2;
+        private Label label1;
     }
 }

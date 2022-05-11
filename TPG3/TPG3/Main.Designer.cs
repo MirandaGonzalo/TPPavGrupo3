@@ -462,6 +462,7 @@
             this.btnSubTarifa.Text = "Tarifa";
             this.btnSubTarifa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubTarifa.UseVisualStyleBackColor = true;
+            this.btnSubTarifa.Click += new System.EventHandler(this.btnSubTarifa_Click);
             // 
             // btnSubPromocion
             // 

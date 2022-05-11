@@ -165,6 +165,18 @@ namespace TPG3
             Formularios.Combo.AltaCombo altaCombo = new Formularios.Combo.AltaCombo();
             openChildForm(altaCombo);
         }
+        private void btnSubTarifa_Click(object sender, EventArgs e)
+        {
+            Formularios.Tarifas.ListaTarifa listaTarifa = new Formularios.Tarifas.ListaTarifa();
+            openChildForm(listaTarifa);
+        }
+        public void btnSubTarifaAltaTarifa(object sender, EventArgs e)
+        {
+            Formularios.Tarifas.AltaTarifa altaTarifa = new Formularios.Tarifas.AltaTarifa();
+            openChildForm(altaTarifa);
+        }
+
+
     }
 }
 

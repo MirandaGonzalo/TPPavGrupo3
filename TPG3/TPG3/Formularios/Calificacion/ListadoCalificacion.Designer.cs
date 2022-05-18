@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.grdBuscadorcalificacion = new System.Windows.Forms.DataGridView();
-            this.CodigoCalificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Abreviatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscadorCalificacion = new System.Windows.Forms.TextBox();
             this.lblListadoCalificacion = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Abreviatura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadorcalificacion)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +46,6 @@
             this.grdBuscadorcalificacion.BackgroundColor = System.Drawing.Color.White;
             this.grdBuscadorcalificacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdBuscadorcalificacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CodigoCalificacion,
             this.Descripcion,
             this.Abreviatura});
             this.grdBuscadorcalificacion.GridColor = System.Drawing.SystemColors.Control;
@@ -57,30 +55,6 @@
             this.grdBuscadorcalificacion.RowTemplate.Height = 25;
             this.grdBuscadorcalificacion.Size = new System.Drawing.Size(533, 211);
             this.grdBuscadorcalificacion.TabIndex = 6;
-            // 
-            // CodigoCalificacion
-            // 
-            this.CodigoCalificacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CodigoCalificacion.DataPropertyName = "codCalificacion";
-            this.CodigoCalificacion.HeaderText = "CodigoCalificacion";
-            this.CodigoCalificacion.Name = "CodigoCalificacion";
-            this.CodigoCalificacion.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripcion.DataPropertyName = "descripcion";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // Abreviatura
-            // 
-            this.Abreviatura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Abreviatura.DataPropertyName = "abreviatura";
-            this.Abreviatura.HeaderText = "Abreviatura";
-            this.Abreviatura.Name = "Abreviatura";
-            this.Abreviatura.ReadOnly = true;
             // 
             // txtBuscadorCalificacion
             // 
@@ -123,6 +97,22 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Descripción:";
             // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.DataPropertyName = "descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Abreviatura
+            // 
+            this.Abreviatura.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Abreviatura.DataPropertyName = "abreviatura";
+            this.Abreviatura.HeaderText = "Abreviatura";
+            this.Abreviatura.Name = "Abreviatura";
+            this.Abreviatura.ReadOnly = true;
+            // 
             // ListadoCalificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -150,7 +140,6 @@
         private Label lblListadoCalificacion;
         private Panel panel1;
         private Label label1;
-        private DataGridViewTextBoxColumn CodigoCalificacion;
         private DataGridViewTextBoxColumn Descripcion;
         private DataGridViewTextBoxColumn Abreviatura;
     }

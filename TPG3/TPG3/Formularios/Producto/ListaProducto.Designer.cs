@@ -35,12 +35,13 @@
             this.lblBuscadorProducto = new System.Windows.Forms.Label();
             this.lblBuscadorTipoProducto = new System.Windows.Forms.Label();
             this.gdrConsultarProd = new System.Windows.Forms.DataGridView();
-            this.TipoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAltaProducto = new System.Windows.Forms.Button();
+            this.btnEliminarProd = new System.Windows.Forms.Button();
             this.pnlListadoProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrConsultarProd)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,7 @@
             this.lblListaProducto.AutoSize = true;
             this.lblListaProducto.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblListaProducto.ForeColor = System.Drawing.Color.White;
-            this.lblListaProducto.Location = new System.Drawing.Point(551, 15);
+            this.lblListaProducto.Location = new System.Drawing.Point(583, 15);
             this.lblListaProducto.Name = "lblListaProducto";
             this.lblListaProducto.Size = new System.Drawing.Size(216, 28);
             this.lblListaProducto.TabIndex = 18;
@@ -68,7 +69,7 @@
             this.pnlListadoProducto.Controls.Add(this.gdrConsultarProd);
             this.pnlListadoProducto.Location = new System.Drawing.Point(33, 96);
             this.pnlListadoProducto.Name = "pnlListadoProducto";
-            this.pnlListadoProducto.Size = new System.Drawing.Size(826, 332);
+            this.pnlListadoProducto.Size = new System.Drawing.Size(855, 342);
             this.pnlListadoProducto.TabIndex = 17;
             // 
             // txtBuscadorTipoProd
@@ -115,33 +116,17 @@
             this.gdrConsultarProd.AllowUserToDeleteRows = false;
             this.gdrConsultarProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gdrConsultarProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TipoProducto,
-            this.dataGridViewTextBoxColumn1,
             this.IdProducto,
+            this.dataGridViewTextBoxColumn1,
             this.Descripcion,
+            this.TipoProducto,
             this.Precio});
             this.gdrConsultarProd.Location = new System.Drawing.Point(18, 101);
             this.gdrConsultarProd.Name = "gdrConsultarProd";
             this.gdrConsultarProd.ReadOnly = true;
             this.gdrConsultarProd.RowTemplate.Height = 25;
-            this.gdrConsultarProd.Size = new System.Drawing.Size(749, 214);
+            this.gdrConsultarProd.Size = new System.Drawing.Size(781, 214);
             this.gdrConsultarProd.TabIndex = 1;
-            // 
-            // TipoProducto
-            // 
-            this.TipoProducto.DataPropertyName = "nombreTipoProd";
-            this.TipoProducto.HeaderText = "TipoProducto";
-            this.TipoProducto.Name = "TipoProducto";
-            this.TipoProducto.ReadOnly = true;
-            this.TipoProducto.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "nombre";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 200;
             // 
             // IdProducto
             // 
@@ -151,6 +136,14 @@
             this.IdProducto.ReadOnly = true;
             this.IdProducto.Visible = false;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "nombre";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 200;
+            // 
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "descripcion";
@@ -159,6 +152,14 @@
             this.Descripcion.ReadOnly = true;
             this.Descripcion.Width = 200;
             // 
+            // TipoProducto
+            // 
+            this.TipoProducto.DataPropertyName = "nombreTipoProd";
+            this.TipoProducto.HeaderText = "TipoProducto";
+            this.TipoProducto.Name = "TipoProducto";
+            this.TipoProducto.ReadOnly = true;
+            this.TipoProducto.Width = 200;
+            // 
             // Precio
             // 
             this.Precio.DataPropertyName = "precio";
@@ -166,21 +167,37 @@
             this.Precio.Name = "Precio";
             this.Precio.ReadOnly = true;
             // 
-            // button1
+            // btnAltaProducto
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(33, 22);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(308, 47);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Registrar / Actualizar Producto";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnAltaProducto.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAltaProducto.FlatAppearance.BorderSize = 0;
+            this.btnAltaProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAltaProducto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAltaProducto.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAltaProducto.Location = new System.Drawing.Point(33, 22);
+            this.btnAltaProducto.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAltaProducto.Name = "btnAltaProducto";
+            this.btnAltaProducto.Size = new System.Drawing.Size(308, 47);
+            this.btnAltaProducto.TabIndex = 16;
+            this.btnAltaProducto.Text = "Registrar / Actualizar Producto";
+            this.btnAltaProducto.UseVisualStyleBackColor = false;
+            this.btnAltaProducto.Click += new System.EventHandler(this.btnAltaProducto_Click);
+            // 
+            // btnEliminarProd
+            // 
+            this.btnEliminarProd.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnEliminarProd.FlatAppearance.BorderSize = 0;
+            this.btnEliminarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarProd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEliminarProd.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEliminarProd.Location = new System.Drawing.Point(709, 22);
+            this.btnEliminarProd.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEliminarProd.Name = "btnEliminarProd";
+            this.btnEliminarProd.Size = new System.Drawing.Size(179, 47);
+            this.btnEliminarProd.TabIndex = 18;
+            this.btnEliminarProd.Text = "Eliminar Producto";
+            this.btnEliminarProd.UseVisualStyleBackColor = false;
+            this.btnEliminarProd.Click += new System.EventHandler(this.btnEliminarProd_Click);
             // 
             // ListaProducto
             // 
@@ -188,8 +205,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(995, 546);
+            this.Controls.Add(this.btnEliminarProd);
             this.Controls.Add(this.pnlListadoProducto);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAltaProducto);
             this.Name = "ListaProducto";
             this.Text = "ListaProducto";
             this.Load += new System.EventHandler(this.ListaProducto_Load);
@@ -206,14 +224,15 @@
         private Panel pnlListadoProducto;
         private Label lblBuscadorTipoProducto;
         private DataGridView gdrConsultarProd;
-        private Button button1;
+        private Button btnAltaProducto;
         private TextBox txtBuscadorTipoProd;
         private TextBox txtNombreProducto;
         private Label lblBuscadorProducto;
-        private DataGridViewTextBoxColumn TipoProducto;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn IdProducto;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn Descripcion;
+        private DataGridViewTextBoxColumn TipoProducto;
         private DataGridViewTextBoxColumn Precio;
+        private Button btnEliminarProd;
     }
 }

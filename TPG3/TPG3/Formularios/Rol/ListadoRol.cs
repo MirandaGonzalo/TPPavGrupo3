@@ -43,7 +43,7 @@ namespace TPG3.Formularios.Rol
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * FROM Rol";
+                string consulta = "SELECT nombreRol FROM Rol";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;

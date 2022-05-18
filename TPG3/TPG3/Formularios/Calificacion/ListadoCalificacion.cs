@@ -43,7 +43,7 @@ namespace TPG3.Formularios.Calificacion
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * FROM Calificacion";
+                string consulta = "SELECT descripcion, abreviatura FROM Calificacion";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;

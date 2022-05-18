@@ -31,10 +31,9 @@
             this.lblListadoGenero = new System.Windows.Forms.Label();
             this.txtBuscadorGenero = new System.Windows.Forms.TextBox();
             this.grdBuscadorGenero = new System.Windows.Forms.DataGridView();
-            this.CodigoGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadorGenero)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +65,6 @@
             this.grdBuscadorGenero.BackgroundColor = System.Drawing.Color.White;
             this.grdBuscadorGenero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdBuscadorGenero.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CodigoGenero,
             this.Descripcion});
             this.grdBuscadorGenero.GridColor = System.Drawing.SystemColors.Control;
             this.grdBuscadorGenero.Location = new System.Drawing.Point(158, 187);
@@ -76,22 +74,6 @@
             this.grdBuscadorGenero.Size = new System.Drawing.Size(440, 211);
             this.grdBuscadorGenero.TabIndex = 2;
             this.grdBuscadorGenero.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdBuscadorGenero_CellContentClick);
-            // 
-            // CodigoGenero
-            // 
-            this.CodigoGenero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CodigoGenero.DataPropertyName = "codGenero";
-            this.CodigoGenero.HeaderText = "Código de Genero";
-            this.CodigoGenero.Name = "CodigoGenero";
-            this.CodigoGenero.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripcion.DataPropertyName = "descripcion";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
             // 
             // panel1
             // 
@@ -113,6 +95,14 @@
             this.label1.Size = new System.Drawing.Size(77, 21);
             this.label1.TabIndex = 18;
             this.label1.Text = "Nombre:";
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.DataPropertyName = "descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
             // 
             // ListadoGenero
             // 
@@ -139,9 +129,8 @@
         private Label lblListadoGenero;
         private TextBox txtBuscadorGenero;
         private DataGridView grdBuscadorGenero;
-        private DataGridViewTextBoxColumn CodigoGenero;
-        private DataGridViewTextBoxColumn Descripcion;
         private Panel panel1;
         private Label label1;
+        private DataGridViewTextBoxColumn Descripcion;
     }
 }

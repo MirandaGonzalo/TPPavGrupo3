@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.grdBuscadororigen = new System.Windows.Forms.DataGridView();
-            this.IdOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscadororigen = new System.Windows.Forms.TextBox();
             this.lblListado = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadororigen)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +45,6 @@
             this.grdBuscadororigen.BackgroundColor = System.Drawing.Color.White;
             this.grdBuscadororigen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdBuscadororigen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdOrigen,
             this.Nombre});
             this.grdBuscadororigen.GridColor = System.Drawing.SystemColors.Control;
             this.grdBuscadororigen.Location = new System.Drawing.Point(171, 177);
@@ -55,22 +53,6 @@
             this.grdBuscadororigen.RowTemplate.Height = 25;
             this.grdBuscadororigen.Size = new System.Drawing.Size(440, 211);
             this.grdBuscadororigen.TabIndex = 18;
-            // 
-            // IdOrigen
-            // 
-            this.IdOrigen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdOrigen.DataPropertyName = "idOrigen";
-            this.IdOrigen.HeaderText = "IdOrigen";
-            this.IdOrigen.Name = "IdOrigen";
-            this.IdOrigen.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombre.DataPropertyName = "nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
             // 
             // txtBuscadororigen
             // 
@@ -113,6 +95,14 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Nombre:";
             // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.DataPropertyName = "nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
             // ListadoOrigen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -136,11 +126,10 @@
         #endregion
 
         private DataGridView grdBuscadororigen;
-        private DataGridViewTextBoxColumn IdOrigen;
-        private DataGridViewTextBoxColumn Nombre;
         private TextBox txtBuscadororigen;
         private Label lblListado;
         private Panel panel1;
         private Label label1;
+        private DataGridViewTextBoxColumn Nombre;
     }
 }

@@ -153,7 +153,8 @@ namespace TPG3
         }
         public void btnSubComboAltaProducto(object sender, EventArgs e)
         {
-            Formularios.Producto.AltaProducto altaProducto = new Formularios.Producto.AltaProducto();
+            Entidades.Producto prod = new Entidades.Producto(-1, "", "", -1, 0, 0, 1);
+            Formularios.Producto.AltaProducto altaProducto = new Formularios.Producto.AltaProducto(prod);
             openChildForm(altaProducto);
         }
         public void btnSubCombo_Click(object sender, EventArgs e)

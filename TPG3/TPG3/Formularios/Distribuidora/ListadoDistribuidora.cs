@@ -43,7 +43,7 @@ namespace TPG3.Formularios.Distribuidora
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * FROM Distribuidora";
+                string consulta = "SELECT nombreDistribuidora FROM Distribuidora";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;

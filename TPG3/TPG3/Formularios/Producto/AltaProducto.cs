@@ -14,8 +14,10 @@ namespace TPG3.Formularios.Producto
 {
     public partial class AltaProducto : Form
     {
-        public AltaProducto()
+        private Entidades.Producto producto;
+        public AltaProducto(Entidades.Producto prod)
         {
+            this.producto = prod;
             InitializeComponent();
         }
         private void AltaProducto_Load(object sender, EventArgs e)
@@ -85,7 +87,7 @@ namespace TPG3.Formularios.Producto
                 cmbTipoProducto1.DataSource = AD_Producto.ObtenerTipoProducto();
                 cmbTipoProducto1.DisplayMember = "nombreTipoProd";
                 cmbTipoProducto1.ValueMember = "idTipoProducto";
-                cmbTipoProducto1.SelectedIndex = -1;
+                cmbTipoProducto1.SelectedIndex = 0;
             }
 
             catch (Exception ex)
@@ -166,6 +168,106 @@ namespace TPG3.Formularios.Producto
             }
 
             return resultado;
+        }
+
+        public bool eliminarProductoCombo(Entidades.Producto producto)
+        {
+            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            var consulta = "";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                consulta = "DELETE FROM ComposicionDeCombo WHERE idProductoSimple = @idProducto";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@idProducto", producto.idProducto);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            bool result = eliminarProducto(producto);
+            return result;
+        }
+
+        public bool eliminarProducto(Entidades.Producto producto)
+        {
+            bool resultado = false;
+            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                var consulta = "DELETE FROM Producto WHERE idProducto = @idProducto";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@idProducto", producto.idProducto);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+                resultado = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return resultado;
+        }
+
+        public bool estaEnCombo(Entidades.Producto producto)
+        {            
+            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                var consulta = "SELECT Producto.idProducto from Producto where idProducto = @idProducto " +
+                "and idProducto in (select idProductoSimple from ComposicionDeCombo)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@idProducto", producto.idProducto);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                bool existe = false;
+                if (dr != null && dr.Read())
+                {
+                    existe = true;
+                }
+                return existe;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
         }
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)

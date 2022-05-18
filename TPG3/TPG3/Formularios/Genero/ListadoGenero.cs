@@ -49,7 +49,7 @@ namespace TPG3.Formularios.Genero
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * FROM Genero";
+                string consulta = "SELECT descripcion FROM Genero";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;

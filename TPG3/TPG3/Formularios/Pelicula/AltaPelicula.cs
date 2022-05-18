@@ -362,7 +362,7 @@ namespace TPG3.Formularios.Pelicula
         {
             try
             {
-                gdrConsultarPeli.DataSource = ObtenerTablaPelicula();
+                gdrActualizarPeli.DataSource = ObtenerTablaPelicula();
             }
             catch (Exception ex)
             {
@@ -379,13 +379,12 @@ namespace TPG3.Formularios.Pelicula
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * " +
-                                    "FROM Pelicula AS p " +
-                                    "JOIN Formato AS f ON(f.codFormato = p.formato) " +
-                                    "JOIN Calificacion AS c ON(c.codCalificacion = p.calificacion) " +
-                                    "JOIN Genero AS g ON(g.codGenero = p.genero) " +
-                                    "JOIN Origen AS o ON(o.idOrigen = p.origen) " +
-                                    "JOIN Distribuidora AS d ON(d.idDistribuidora = p.distribuidora) ";
+                string consulta = "SELECT p.codPelicula,p.titulo,p.duracion,o.nombre as 'origenN',c.abreviatura as 'calif', " +
+                "f.descripcion as 'forma', g.descripcion as 'descriG', d.nombreDistribuidora as 'dist', i.descripcion as 'idioma' " +
+                "FROM Pelicula AS p JOIN Formato AS f ON(f.codFormato = p.formato) JOIN Calificacion AS c " +
+                "ON(c.codCalificacion = p.calificacion) JOIN Genero AS g ON(g.codGenero = p.genero) " +
+                "JOIN Origen AS o ON(o.idOrigen = p.origen) JOIN Distribuidora AS d ON(d.idDistribuidora = p.distribuidora) " +
+                "JOIN Idioma AS i ON(i.codIdioma = p.idioma) ";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;
@@ -447,7 +446,7 @@ namespace TPG3.Formularios.Pelicula
             pelicula.Leyenda = txtLeyenda.Text.Trim();
             pelicula.Duracion = txtDuracion.Text.Trim();
             pelicula.Sinopsis = txtSinopsis.Text.Trim();
-            pelicula.AñoEstreno = DateOnly.Parse(txtEstreno.Text);
+            pelicula.AñoEstreno = DateTime.Parse(txtEstreno.Text);
             pelicula.Origen = (int)cmbOrigen.SelectedValue;
             pelicula.Calificacion = (int)cmbCalificacion.SelectedValue;
             pelicula.Formato = (int)cmbFormato.SelectedValue;
@@ -568,17 +567,7 @@ namespace TPG3.Formularios.Pelicula
             return resultado;
         }
 
-        private void gdrConsultarProd_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnActualizar.Enabled = true;
-            int indice = e.RowIndex;
-            DataGridViewRow filaSeleccionada = gdrConsultarPeli.Rows[indice];
-
-            int codPelicula = (int)filaSeleccionada.Cells["codPelicula"].Value;
-            Peliculas p = ObtenerPelicula(codPelicula);
-            LimpiarCampos();
-            CargarCampos(p);
-        }
+        
         private Peliculas ObtenerPelicula(int codPelicula)
         {
             Peliculas p = new Peliculas();
@@ -588,7 +577,16 @@ namespace TPG3.Formularios.Pelicula
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM Pelicula WHERE codPelicula LIKE @codPelicula";
+                string consulta = "SELECT p.codPelicula, p.titulo, p.leyenda , p.duracion, p.sinposis, p.añoEstreno, " +
+                "p.origen,o.nombre as 'descriorigen', p.calificacion, c.abreviatura as 'abreviatura', p.formato, " +
+                "f.descripcion as 'descriF', p.genero, g.descripcion as 'descriG', p.distribuidora, " +
+                "d.nombreDistribuidora as 'nombreD', p.idioma, i.descripcion as 'descriI' " +
+                "FROM Pelicula AS p JOIN Formato AS f ON(f.codFormato = p.formato) JOIN Calificacion AS c " +
+                "ON(c.codCalificacion = p.calificacion) JOIN Genero AS g ON(g.codGenero = p.genero) " +
+                "JOIN Origen AS o ON(o.idOrigen = p.origen) JOIN Distribuidora AS d ON(d.idDistribuidora = p.distribuidora) " +
+                "JOIN Idioma AS i ON(i.codIdioma = p.idioma) " +
+                "WHERE codPelicula LIKE @codPelicula";
+                     
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@codPelicula", codPelicula);
                 cmd.CommandType = CommandType.Text;
@@ -600,17 +598,24 @@ namespace TPG3.Formularios.Pelicula
 
                 if (dr != null && dr.Read())
                 {
+                    p.CodPelicula = int.Parse(dr["codPelicula"].ToString());
                     p.Titulo = dr["titulo"].ToString();
-                    p.Leyenda = dr["leyenda"].ToString();
+                    p.Leyenda = (dr["leyenda"].ToString() == null) ? "" : (dr["leyenda"].ToString());
                     p.Duracion = dr["duracion"].ToString();
-                    p.Sinopsis = dr["sinopsis"].ToString();
-                    p.AñoEstreno = DateOnly.Parse(dr["añoEstreno"].ToString());
+                    p.Sinopsis = dr["sinposis"].ToString();                                        
+                    p.AñoEstreno = DateTime.Parse(dr["añoEstreno"].ToString());
                     p.Origen = int.Parse(dr["origen"].ToString());
+                    p.DescriOrigen = dr["descriorigen"].ToString();
                     p.Calificacion = int.Parse(dr["calificacion"].ToString());
+                    p.DescriCalificacion = dr["abreviatura"].ToString();
                     p.Formato = int.Parse(dr["formato"].ToString());
+                    p.DescriFormato = dr["descriF"].ToString();
                     p.Genero = int.Parse(dr["genero"].ToString());
+                    p.DescriGenero = dr["descriG"].ToString();
                     p.Distribuidora = int.Parse(dr["distribuidora"].ToString());
+                    p.DescriDistribuidora = dr["nombreD"].ToString();
                     p.Idioma = int.Parse(dr["idioma"].ToString());
+                    p.DescriIdioma = dr["descriI"].ToString();
                 }
             }
             catch (Exception)
@@ -627,14 +632,20 @@ namespace TPG3.Formularios.Pelicula
 
         }
 
+        private void origenCombo(int origenActual)
+        {
+            //cmbOrigen.SelectedValue
+        }
+
         private void CargarCampos(Peliculas p)
         {
+            txtCodPelicula.Text = p.CodPelicula.ToString();
             txtTitulo.Text = p.Titulo;
             txtLeyenda.Text = p.Leyenda;
             txtDuracion.Text = p.Duracion;
             txtSinopsis.Text = p.Sinopsis;
             txtEstreno.Text = p.AñoEstreno.ToString();
-            cmbOrigen.SelectedValue = p.Origen;
+            origenCombo(p.Origen);
             cmbCalificacion.SelectedValue = p.Calificacion;
             cmbFormato.SelectedValue = p.Formato;
             cmbGenero.SelectedValue = p.Genero;
@@ -642,34 +653,16 @@ namespace TPG3.Formularios.Pelicula
             cmbIdioma.SelectedValue = p.Idioma;
         }
 
+        private void gdrActualizarPeli_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnActualizar.Enabled = true;
+            int indice = e.RowIndex;
+            DataGridViewRow filaSeleccionada = gdrActualizarPeli.Rows[indice];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            int codPelicula = (int)filaSeleccionada.Cells["codPeliculaItem"].Value;
+            Peliculas p = ObtenerPelicula(codPelicula);
+            LimpiarCampos();
+            CargarCampos(p);
+        }
     }
 }

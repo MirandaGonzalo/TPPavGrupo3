@@ -330,10 +330,11 @@ namespace TPG3.Formularios.Combo
                 {
                     try
                     {
+                        cn.Open();
+                        consulta = "INSERT INTO ComposicionDeCombo (idProductoCombo, idProductoSimple, cantidad) " +
+                            "VALUES (@idProductoCombo, @idProductoSimple, @cantidad)";
                         for (int i = 0; i < dgvMisProductos.Rows.Count; i++)
                         {
-                            consulta = "INSERT INTO ComposicionDeCombo (idProductoCombo, idProductoSimple, cantidad) " +
-                            "VALUES (@idProductoCombo, @idProductoSimple, @cantidad)";
                             int prodSimple = int.Parse(dgvMisProductos.Rows[i].Cells[1].Value.ToString());
                             int cantidad = int.Parse(dgvMisProductos.Rows[i].Cells[2].Value.ToString());
                             cmd.Parameters.Clear();
@@ -342,10 +343,10 @@ namespace TPG3.Formularios.Combo
                             cmd.Parameters.AddWithValue("@cantidad", cantidad);
                             cmd.CommandType = CommandType.Text;
                             cmd.CommandText = consulta;
-                            cn.Open();
                             cmd.Connection = cn;
                             cmd.ExecuteNonQuery();
                         }
+                        cn.Close();
                     }
                     catch (Exception)
                     {
@@ -362,10 +363,12 @@ namespace TPG3.Formularios.Combo
                 {
                     try
                     {
+                        cn.Open();
+                        consulta = "INSERT INTO ComposicionDeCombo (idProductoCombo, idProductoSimple, cantidad) " +
+                            "VALUES (@idProductoCombo, @idProductoSimple, @cantidad)";
                         for (int i = 0; i < dgvNuevosProductos.Rows.Count; i++)
                         {
-                            consulta = "INSERT INTO ComposicionDeCombo (idProductoCombo, idProductoSimple, cantidad) " +
-                            "VALUES (@idProductoCombo, @idProductoSimple, @cantidad)";
+                            
                             int prodSimple = int.Parse(dgvNuevosProductos.Rows[i].Cells[1].Value.ToString());
                             int cantidad = int.Parse(dgvNuevosProductos.Rows[i].Cells[2].Value.ToString());
                             cmd.Parameters.Clear();
@@ -374,7 +377,6 @@ namespace TPG3.Formularios.Combo
                             cmd.Parameters.AddWithValue("@cantidad", cantidad);
                             cmd.CommandType = CommandType.Text;
                             cmd.CommandText = consulta;
-                            cn.Open();
                             cmd.Connection = cn;
                             cmd.ExecuteNonQuery();
                         }

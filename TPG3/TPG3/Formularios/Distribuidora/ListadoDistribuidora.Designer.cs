@@ -33,7 +33,6 @@
             this.lblListado = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.IdDistribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreDistribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadordistribuidora)).BeginInit();
             this.panel1.SuspendLayout();
@@ -46,7 +45,6 @@
             this.grdBuscadordistribuidora.BackgroundColor = System.Drawing.Color.White;
             this.grdBuscadordistribuidora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdBuscadordistribuidora.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdDistribuidora,
             this.NombreDistribuidora});
             this.grdBuscadordistribuidora.GridColor = System.Drawing.SystemColors.Control;
             this.grdBuscadordistribuidora.Location = new System.Drawing.Point(171, 177);
@@ -97,14 +95,6 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Nombre:";
             // 
-            // IdDistribuidora
-            // 
-            this.IdDistribuidora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdDistribuidora.DataPropertyName = "idDistribuidora";
-            this.IdDistribuidora.HeaderText = "IdDistribuidora";
-            this.IdDistribuidora.Name = "IdDistribuidora";
-            this.IdDistribuidora.ReadOnly = true;
-            // 
             // NombreDistribuidora
             // 
             this.NombreDistribuidora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -140,7 +130,6 @@
         private Label lblListado;
         private Panel panel1;
         private Label label1;
-        private DataGridViewTextBoxColumn IdDistribuidora;
         private DataGridViewTextBoxColumn NombreDistribuidora;
     }
 }

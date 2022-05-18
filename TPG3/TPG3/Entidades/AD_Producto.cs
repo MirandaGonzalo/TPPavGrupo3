@@ -54,7 +54,9 @@ namespace TPG3.Entidades
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * FROM Producto JOIN TipoProducto ON Producto.tipoProducto=TipoProducto.idTipoProducto";
+                string consulta = "SELECT Producto.idProducto, Producto.nombre, Producto.descripcion, TipoProducto.nombreTipoProd, Producto.precio "+
+                "FROM Producto JOIN TipoProducto ON Producto.tipoProducto = TipoProducto.idTipoProducto " +
+                "where Producto.tipoProducto <> 1";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;
@@ -83,6 +85,8 @@ namespace TPG3.Entidades
             }
         }
 
+
+
         public static DataTable ObtenerTipoProducto()
         {
             string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
@@ -92,7 +96,7 @@ namespace TPG3.Entidades
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * FROM TipoProducto";
+                string consulta = "SELECT * FROM TipoProducto where TipoProducto.idTipoProducto <> 1";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;
@@ -122,21 +126,5 @@ namespace TPG3.Entidades
         }
 
        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

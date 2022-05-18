@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.grdBuscadorrol = new System.Windows.Forms.DataGridView();
-            this.IdRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscadorRoles = new System.Windows.Forms.TextBox();
             this.lblListado = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.NombreRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadorrol)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +45,6 @@
             this.grdBuscadorrol.BackgroundColor = System.Drawing.Color.White;
             this.grdBuscadorrol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdBuscadorrol.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdRol,
             this.NombreRol});
             this.grdBuscadorrol.GridColor = System.Drawing.SystemColors.Control;
             this.grdBuscadorrol.Location = new System.Drawing.Point(72, 146);
@@ -55,22 +53,6 @@
             this.grdBuscadorrol.RowTemplate.Height = 25;
             this.grdBuscadorrol.Size = new System.Drawing.Size(440, 211);
             this.grdBuscadorrol.TabIndex = 14;
-            // 
-            // IdRol
-            // 
-            this.IdRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IdRol.DataPropertyName = "idRol";
-            this.IdRol.HeaderText = "IdRol";
-            this.IdRol.Name = "IdRol";
-            this.IdRol.ReadOnly = true;
-            // 
-            // NombreRol
-            // 
-            this.NombreRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombreRol.DataPropertyName = "nombreRol";
-            this.NombreRol.HeaderText = "NombreRol";
-            this.NombreRol.Name = "NombreRol";
-            this.NombreRol.ReadOnly = true;
             // 
             // txtBuscadorRoles
             // 
@@ -114,6 +96,14 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Nombre:";
             // 
+            // NombreRol
+            // 
+            this.NombreRol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NombreRol.DataPropertyName = "nombreRol";
+            this.NombreRol.HeaderText = "NombreRol";
+            this.NombreRol.Name = "NombreRol";
+            this.NombreRol.ReadOnly = true;
+            // 
             // ListadoRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -136,11 +126,10 @@
         #endregion
 
         private DataGridView grdBuscadorrol;
-        private DataGridViewTextBoxColumn IdRol;
-        private DataGridViewTextBoxColumn NombreRol;
         private TextBox txtBuscadorRoles;
         private Label lblListado;
         private Panel panel1;
         private Label label2;
+        private DataGridViewTextBoxColumn NombreRol;
     }
 }

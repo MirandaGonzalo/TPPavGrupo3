@@ -56,39 +56,27 @@
             this.lblIdioma = new System.Windows.Forms.Label();
             this.cmbIdioma = new System.Windows.Forms.ComboBox();
             this.lblRegistroPelicula = new System.Windows.Forms.Label();
-            this.pnlListadoProducto = new System.Windows.Forms.Panel();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.RichTextBox();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.txtProducto = new System.Windows.Forms.TextBox();
-            this.lblProducto = new System.Windows.Forms.Label();
-            this.cmbTipoProducto = new System.Windows.Forms.ComboBox();
-            this.lblTipoProducto = new System.Windows.Forms.Label();
-            this.gdrConsultarPeli = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duración = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AñoEstreno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Calificación = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Formato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Distribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codPelicula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Leyenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sinopsis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.gdrActualizarPeli = new System.Windows.Forms.DataGridView();
+            this.codPeliculaItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duración = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Calificación = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Formato = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Distribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtCodPelicula = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            this.pnlListadoProducto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gdrConsultarPeli)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gdrActualizarPeli)).BeginInit();
             this.SuspendLayout();
             // 
             // lblError
@@ -105,6 +93,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(30)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtCodPelicula);
             this.panel1.Controls.Add(this.cmbDistribuidora);
             this.panel1.Controls.Add(this.lblDistribuidora);
             this.panel1.Controls.Add(this.cmbGenero);
@@ -130,9 +119,9 @@
             this.panel1.Controls.Add(this.btnAgregar);
             this.panel1.Controls.Add(this.lblIdioma);
             this.panel1.Controls.Add(this.cmbIdioma);
-            this.panel1.Location = new System.Drawing.Point(59, 113);
+            this.panel1.Location = new System.Drawing.Point(47, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(733, 321);
+            this.panel1.Size = new System.Drawing.Size(767, 321);
             this.panel1.TabIndex = 21;
             // 
             // cmbDistribuidora
@@ -398,203 +387,6 @@
             this.lblRegistroPelicula.TabIndex = 18;
             this.lblRegistroPelicula.Text = "Registro de  Peliculas";
             // 
-            // pnlListadoProducto
-            // 
-            this.pnlListadoProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlListadoProducto.Controls.Add(this.txtPrecio);
-            this.pnlListadoProducto.Controls.Add(this.txtDescripcion);
-            this.pnlListadoProducto.Controls.Add(this.lblDescripcion);
-            this.pnlListadoProducto.Controls.Add(this.lblPrecio);
-            this.pnlListadoProducto.Controls.Add(this.txtProducto);
-            this.pnlListadoProducto.Controls.Add(this.lblProducto);
-            this.pnlListadoProducto.Controls.Add(this.cmbTipoProducto);
-            this.pnlListadoProducto.Controls.Add(this.lblTipoProducto);
-            this.pnlListadoProducto.Location = new System.Drawing.Point(59, 134);
-            this.pnlListadoProducto.Name = "pnlListadoProducto";
-            this.pnlListadoProducto.Size = new System.Drawing.Size(733, 159);
-            this.pnlListadoProducto.TabIndex = 17;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(570, 50);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(111, 23);
-            this.txtPrecio.TabIndex = 15;
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Location = new System.Drawing.Point(153, 95);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(528, 48);
-            this.txtDescripcion.TabIndex = 14;
-            this.txtDescripcion.Text = "";
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDescripcion.Location = new System.Drawing.Point(50, 95);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(87, 19);
-            this.lblDescripcion.TabIndex = 13;
-            this.lblDescripcion.Text = "Descripcion";
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPrecio.Location = new System.Drawing.Point(570, 19);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(52, 19);
-            this.lblPrecio.TabIndex = 12;
-            this.lblPrecio.Text = "Precio";
-            // 
-            // txtProducto
-            // 
-            this.txtProducto.Location = new System.Drawing.Point(307, 50);
-            this.txtProducto.Name = "txtProducto";
-            this.txtProducto.Size = new System.Drawing.Size(225, 23);
-            this.txtProducto.TabIndex = 11;
-            // 
-            // lblProducto
-            // 
-            this.lblProducto.AutoSize = true;
-            this.lblProducto.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblProducto.Location = new System.Drawing.Point(307, 19);
-            this.lblProducto.Name = "lblProducto";
-            this.lblProducto.Size = new System.Drawing.Size(131, 19);
-            this.lblProducto.TabIndex = 10;
-            this.lblProducto.Text = "Nombre Producto";
-            // 
-            // cmbTipoProducto
-            // 
-            this.cmbTipoProducto.FormattingEnabled = true;
-            this.cmbTipoProducto.Location = new System.Drawing.Point(50, 50);
-            this.cmbTipoProducto.Name = "cmbTipoProducto";
-            this.cmbTipoProducto.Size = new System.Drawing.Size(225, 23);
-            this.cmbTipoProducto.TabIndex = 9;
-            // 
-            // lblTipoProducto
-            // 
-            this.lblTipoProducto.AutoSize = true;
-            this.lblTipoProducto.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTipoProducto.Location = new System.Drawing.Point(50, 19);
-            this.lblTipoProducto.Name = "lblTipoProducto";
-            this.lblTipoProducto.Size = new System.Drawing.Size(105, 19);
-            this.lblTipoProducto.TabIndex = 7;
-            this.lblTipoProducto.Text = "Tipo Producto";
-            // 
-            // gdrConsultarPeli
-            // 
-            this.gdrConsultarPeli.AllowUserToAddRows = false;
-            this.gdrConsultarPeli.AllowUserToDeleteRows = false;
-            this.gdrConsultarPeli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gdrConsultarPeli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.Duración,
-            this.dataGridViewTextBoxColumn4,
-            this.AñoEstreno,
-            this.Origen,
-            this.Calificación,
-            this.Formato,
-            this.Genero,
-            this.Distribuidora,
-            this.Idioma});
-            this.gdrConsultarPeli.Location = new System.Drawing.Point(47, 402);
-            this.gdrConsultarPeli.Name = "gdrConsultarPeli";
-            this.gdrConsultarPeli.ReadOnly = true;
-            this.gdrConsultarPeli.RowTemplate.Height = 25;
-            this.gdrConsultarPeli.Size = new System.Drawing.Size(741, 228);
-            this.gdrConsultarPeli.TabIndex = 22;
-            this.gdrConsultarPeli.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdrConsultarProd_CellClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "codPelicula";
-            this.dataGridViewTextBoxColumn1.HeaderText = "codPelicula";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "titulo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "leyenda";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Leyenda";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // Duración
-            // 
-            this.Duración.DataPropertyName = "duracion";
-            this.Duración.HeaderText = "Duración";
-            this.Duración.Name = "Duración";
-            this.Duración.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "sinopsis";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Sinopsis";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // AñoEstreno
-            // 
-            this.AñoEstreno.DataPropertyName = "añoEstreno";
-            this.AñoEstreno.HeaderText = "AñoEstreno";
-            this.AñoEstreno.Name = "AñoEstreno";
-            this.AñoEstreno.ReadOnly = true;
-            // 
-            // Origen
-            // 
-            this.Origen.DataPropertyName = "origen";
-            this.Origen.HeaderText = "Origen";
-            this.Origen.Name = "Origen";
-            this.Origen.ReadOnly = true;
-            // 
-            // Calificación
-            // 
-            this.Calificación.DataPropertyName = "calificacion";
-            this.Calificación.HeaderText = "Calificación";
-            this.Calificación.Name = "Calificación";
-            this.Calificación.ReadOnly = true;
-            // 
-            // Formato
-            // 
-            this.Formato.DataPropertyName = "formato";
-            this.Formato.HeaderText = "Formato";
-            this.Formato.Name = "Formato";
-            this.Formato.ReadOnly = true;
-            // 
-            // Genero
-            // 
-            this.Genero.DataPropertyName = "genero";
-            this.Genero.HeaderText = "Género";
-            this.Genero.Name = "Genero";
-            this.Genero.ReadOnly = true;
-            // 
-            // Distribuidora
-            // 
-            this.Distribuidora.DataPropertyName = "distribuidora";
-            this.Distribuidora.HeaderText = "Distribuidora";
-            this.Distribuidora.Name = "Distribuidora";
-            this.Distribuidora.ReadOnly = true;
-            // 
-            // Idioma
-            // 
-            this.Idioma.DataPropertyName = "idioma";
-            this.Idioma.HeaderText = "Idioma";
-            this.Idioma.Name = "Idioma";
-            this.Idioma.ReadOnly = true;
-            // 
             // codPelicula
             // 
             this.codPelicula.DataPropertyName = "codPelicula";
@@ -629,45 +421,137 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
-            this.panel2.Controls.Add(this.gdrConsultarPeli);
+            this.panel2.Controls.Add(this.gdrActualizarPeli);
+            this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(12, 96);
+            this.panel2.Location = new System.Drawing.Point(12, 86);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(831, 656);
+            this.panel2.Size = new System.Drawing.Size(935, 666);
             this.panel2.TabIndex = 24;
+            // 
+            // gdrActualizarPeli
+            // 
+            this.gdrActualizarPeli.AllowUserToAddRows = false;
+            this.gdrActualizarPeli.AllowUserToDeleteRows = false;
+            this.gdrActualizarPeli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gdrActualizarPeli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codPeliculaItem,
+            this.dataGridViewTextBoxColumn2,
+            this.Duración,
+            this.Origen,
+            this.Calificación,
+            this.Formato,
+            this.Genero,
+            this.Distribuidora,
+            this.Idioma});
+            this.gdrActualizarPeli.Location = new System.Drawing.Point(47, 398);
+            this.gdrActualizarPeli.Name = "gdrActualizarPeli";
+            this.gdrActualizarPeli.ReadOnly = true;
+            this.gdrActualizarPeli.RowTemplate.Height = 25;
+            this.gdrActualizarPeli.Size = new System.Drawing.Size(846, 228);
+            this.gdrActualizarPeli.TabIndex = 26;
+            this.gdrActualizarPeli.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdrActualizarPeli_CellContentClick);
+            // 
+            // codPeliculaItem
+            // 
+            this.codPeliculaItem.DataPropertyName = "codPelicula";
+            this.codPeliculaItem.HeaderText = "codPelicula";
+            this.codPeliculaItem.Name = "codPeliculaItem";
+            this.codPeliculaItem.ReadOnly = true;
+            this.codPeliculaItem.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "titulo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Duración
+            // 
+            this.Duración.DataPropertyName = "duracion";
+            this.Duración.HeaderText = "Duración";
+            this.Duración.Name = "Duración";
+            this.Duración.ReadOnly = true;
+            // 
+            // Origen
+            // 
+            this.Origen.DataPropertyName = "origenN";
+            this.Origen.HeaderText = "Origen";
+            this.Origen.Name = "Origen";
+            this.Origen.ReadOnly = true;
+            // 
+            // Calificación
+            // 
+            this.Calificación.DataPropertyName = "calif";
+            this.Calificación.HeaderText = "Calificación";
+            this.Calificación.Name = "Calificación";
+            this.Calificación.ReadOnly = true;
+            // 
+            // Formato
+            // 
+            this.Formato.DataPropertyName = "forma";
+            this.Formato.HeaderText = "Formato";
+            this.Formato.Name = "Formato";
+            this.Formato.ReadOnly = true;
+            // 
+            // Genero
+            // 
+            this.Genero.DataPropertyName = "descriG";
+            this.Genero.HeaderText = "Género";
+            this.Genero.Name = "Genero";
+            this.Genero.ReadOnly = true;
+            // 
+            // Distribuidora
+            // 
+            this.Distribuidora.DataPropertyName = "dist";
+            this.Distribuidora.HeaderText = "Distribuidora";
+            this.Distribuidora.Name = "Distribuidora";
+            this.Distribuidora.ReadOnly = true;
+            // 
+            // Idioma
+            // 
+            this.Idioma.DataPropertyName = "idioma";
+            this.Idioma.HeaderText = "Idioma";
+            this.Idioma.Name = "Idioma";
+            this.Idioma.ReadOnly = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(593, 352);
+            this.label1.Location = new System.Drawing.Point(706, 354);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 28);
             this.label1.TabIndex = 25;
             this.label1.Text = "Actualizar Película";
+            // 
+            // txtCodPelicula
+            // 
+            this.txtCodPelicula.Location = new System.Drawing.Point(28, 253);
+            this.txtCodPelicula.Name = "txtCodPelicula";
+            this.txtCodPelicula.Size = new System.Drawing.Size(100, 23);
+            this.txtCodPelicula.TabIndex = 34;
+            this.txtCodPelicula.Visible = false;
             // 
             // AltaPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(951, 795);
+            this.ClientSize = new System.Drawing.Size(1000, 795);
             this.Controls.Add(this.lblError);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblRegistroPelicula);
-            this.Controls.Add(this.pnlListadoProducto);
             this.Controls.Add(this.panel2);
             this.Name = "AltaPelicula";
             this.Text = "AltaPelicula";
             this.Load += new System.EventHandler(this.AltaPelicula_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.pnlListadoProducto.ResumeLayout(false);
-            this.pnlListadoProducto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gdrConsultarPeli)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gdrActualizarPeli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,15 +567,6 @@
         private Label lblIdioma;
         private ComboBox cmbIdioma;
         private Label lblRegistroPelicula;
-        private Panel pnlListadoProducto;
-        private TextBox txtPrecio;
-        private RichTextBox txtDescripcion;
-        private Label lblDescripcion;
-        private Label lblPrecio;
-        private TextBox txtProducto;
-        private Label lblProducto;
-        private ComboBox cmbTipoProducto;
-        private Label lblTipoProducto;
         private ComboBox cmbDistribuidora;
         private Label lblDistribuidora;
         private ComboBox cmbGenero;
@@ -712,25 +587,23 @@
         private Label lblLeyenda;
         private TextBox txtTitulo;
         private Label lblTitulo;
-        private DataGridView gdrConsultarPeli;
         private DataGridViewTextBoxColumn codPelicula;
         private DataGridViewTextBoxColumn Titulo;
         private DataGridViewTextBoxColumn Leyenda;
         private DataGridViewTextBoxColumn Duracion;
         private DataGridViewTextBoxColumn Sinopsis;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private Panel panel2;
+        private Label label1;
+        private DataGridView gdrActualizarPeli;
+        private DataGridViewTextBoxColumn codPeliculaItem;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn Duración;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn AñoEstreno;
         private DataGridViewTextBoxColumn Origen;
         private DataGridViewTextBoxColumn Calificación;
         private DataGridViewTextBoxColumn Formato;
         private DataGridViewTextBoxColumn Genero;
         private DataGridViewTextBoxColumn Distribuidora;
         private DataGridViewTextBoxColumn Idioma;
-        private Panel panel2;
-        private Label label1;
+        private TextBox txtCodPelicula;
     }
 }

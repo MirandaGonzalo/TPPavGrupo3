@@ -45,7 +45,7 @@ namespace TPG3.Formularios.Origen
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * FROM Origen";
+                string consulta = "SELECT nombre FROM Origen";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;

@@ -31,10 +31,9 @@
             this.txtBuscadorFormatos = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.grdBuscadorFormato = new System.Windows.Forms.DataGridView();
-            this.formato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.lblListado = new System.Windows.Forms.Label();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdBuscadorFormato)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +64,6 @@
             this.grdBuscadorFormato.BackgroundColor = System.Drawing.Color.White;
             this.grdBuscadorFormato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdBuscadorFormato.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.formato,
             this.Descripcion});
             this.grdBuscadorFormato.GridColor = System.Drawing.SystemColors.Control;
             this.grdBuscadorFormato.Location = new System.Drawing.Point(72, 146);
@@ -74,22 +72,6 @@
             this.grdBuscadorFormato.RowTemplate.Height = 25;
             this.grdBuscadorFormato.Size = new System.Drawing.Size(440, 211);
             this.grdBuscadorFormato.TabIndex = 14;
-            // 
-            // formato
-            // 
-            this.formato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.formato.DataPropertyName = "codFormato";
-            this.formato.HeaderText = "Cod Formato.";
-            this.formato.Name = "formato";
-            this.formato.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripcion.DataPropertyName = "descripcion";
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
             // 
             // label2
             // 
@@ -113,6 +95,14 @@
             this.lblListado.Size = new System.Drawing.Size(203, 28);
             this.lblListado.TabIndex = 12;
             this.lblListado.Text = "Listado de Formatos";
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.DataPropertyName = "descripcion";
+            this.Descripcion.HeaderText = "Descripción";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
             // 
             // listaFormato
             // 
@@ -138,9 +128,8 @@
         private TextBox txtBuscadorFormatos;
         private Panel panel1;
         private DataGridView grdBuscadorFormato;
-        private DataGridViewTextBoxColumn formato;
-        private DataGridViewTextBoxColumn Descripcion;
         private Label label2;
         private Label lblListado;
+        private DataGridViewTextBoxColumn Descripcion;
     }
 }

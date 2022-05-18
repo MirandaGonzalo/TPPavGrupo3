@@ -32,54 +32,11 @@ namespace TPG3.Formularios.Pelicula
         {
             try
             {
-                gdrActualizarPeli.DataSource = ObtenerTablaPelicula();
+                gdrActualizarPeli.DataSource = AltaPelicula.ObtenerTablaPelicula();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al obtener la película");
-            }
-        }
-
-        public static DataTable ObtenerTablaPelicula()
-        {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-
-                string consulta = "SELECT p.codPelicula,p.titulo,p.duracion,o.nombre as 'origenN',c.abreviatura as 'calif', " +
-                "f.descripcion as 'forma', g.descripcion as 'descriG', d.nombreDistribuidora as 'dist', i.descripcion as 'idioma' " +
-                "FROM Pelicula AS p JOIN Formato AS f ON(f.codFormato = p.formato) JOIN Calificacion AS c " +
-                "ON(c.codCalificacion = p.calificacion) JOIN Genero AS g ON(g.codGenero = p.genero) " +
-                "JOIN Origen AS o ON(o.idOrigen = p.origen) JOIN Distribuidora AS d ON(d.idDistribuidora = p.distribuidora) " +
-                "JOIN Idioma AS i ON(i.codIdioma = p.idioma) ";
-                
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-
-                return tabla;
-            }
-
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-
-            finally
-            {
-                cn.Close();
             }
         }
 

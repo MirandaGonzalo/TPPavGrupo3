@@ -45,7 +45,7 @@ namespace TPG3.Formularios.TipoProducto
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * FROM TipoProducto";
+                string consulta = "SELECT nombreTipoProd FROM TipoProducto";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;
@@ -72,6 +72,11 @@ namespace TPG3.Formularios.TipoProducto
             {
                 cn.Close();
             }
+        }
+
+        private void txtBuscadorTipoProd_TextChanged(object sender, EventArgs e)
+        {
+            (grdBuscadorTipoProd.DataSource as DataTable).DefaultView.RowFilter = "Convert(nombreTipoProd, 'System.String') LIKE '" + txtBuscadorTipoProd.Text + "%'";
         }
     }
 }

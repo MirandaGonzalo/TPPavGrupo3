@@ -43,7 +43,7 @@ namespace TPG3.Formularios.Formato
             {
                 SqlCommand cmd = new SqlCommand();
 
-                string consulta = "SELECT * FROM Formato";
+                string consulta = "SELECT descripcion FROM Formato";
 
                 cmd.Parameters.Clear();
                 cmd.CommandType = CommandType.Text;

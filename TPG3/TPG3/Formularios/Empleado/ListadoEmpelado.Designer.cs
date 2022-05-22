@@ -53,19 +53,20 @@
             // 
             this.panelBackAltaPromocion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
             this.panelBackAltaPromocion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBackAltaPromocion.Controls.Add(this.dgvEmpleados);
             this.panelBackAltaPromocion.Controls.Add(this.txtBuscarTipoDoc);
             this.panelBackAltaPromocion.Controls.Add(this.label2);
             this.panelBackAltaPromocion.Controls.Add(this.txtBuscarDni);
             this.panelBackAltaPromocion.Controls.Add(this.label1);
             this.panelBackAltaPromocion.Controls.Add(this.lblTitulo);
-            this.panelBackAltaPromocion.Location = new System.Drawing.Point(30, 133);
+            this.panelBackAltaPromocion.Location = new System.Drawing.Point(30, 128);
             this.panelBackAltaPromocion.Name = "panelBackAltaPromocion";
-            this.panelBackAltaPromocion.Size = new System.Drawing.Size(797, 341);
+            this.panelBackAltaPromocion.Size = new System.Drawing.Size(753, 388);
             this.panelBackAltaPromocion.TabIndex = 25;
             // 
             // txtBuscarTipoDoc
             // 
-            this.txtBuscarTipoDoc.Location = new System.Drawing.Point(234, 44);
+            this.txtBuscarTipoDoc.Location = new System.Drawing.Point(234, 77);
             this.txtBuscarTipoDoc.Name = "txtBuscarTipoDoc";
             this.txtBuscarTipoDoc.Size = new System.Drawing.Size(160, 23);
             this.txtBuscarTipoDoc.TabIndex = 20;
@@ -76,7 +77,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(234, 15);
+            this.label2.Location = new System.Drawing.Point(234, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 21);
             this.label2.TabIndex = 19;
@@ -84,7 +85,7 @@
             // 
             // txtBuscarDni
             // 
-            this.txtBuscarDni.Location = new System.Drawing.Point(40, 44);
+            this.txtBuscarDni.Location = new System.Drawing.Point(22, 77);
             this.txtBuscarDni.Name = "txtBuscarDni";
             this.txtBuscarDni.Size = new System.Drawing.Size(160, 23);
             this.txtBuscarDni.TabIndex = 18;
@@ -95,7 +96,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(40, 15);
+            this.label1.Location = new System.Drawing.Point(22, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 21);
             this.label1.TabIndex = 17;
@@ -106,7 +107,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(519, 8);
+            this.lblTitulo.Location = new System.Drawing.Point(519, 20);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(200, 30);
             this.lblTitulo.TabIndex = 21;
@@ -119,9 +120,9 @@
             this.btnEliminarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEliminarEmpleado.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarEmpleado.Location = new System.Drawing.Point(682, 58);
+            this.btnEliminarEmpleado.Location = new System.Drawing.Point(607, 58);
             this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
-            this.btnEliminarEmpleado.Size = new System.Drawing.Size(145, 52);
+            this.btnEliminarEmpleado.Size = new System.Drawing.Size(176, 52);
             this.btnEliminarEmpleado.TabIndex = 4;
             this.btnEliminarEmpleado.Text = "Eliminar Empleado";
             this.btnEliminarEmpleado.UseVisualStyleBackColor = false;
@@ -134,9 +135,9 @@
             this.btnEditarEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditarEmpleado.ForeColor = System.Drawing.Color.White;
-            this.btnEditarEmpleado.Location = new System.Drawing.Point(179, 58);
+            this.btnEditarEmpleado.Location = new System.Drawing.Point(236, 58);
             this.btnEditarEmpleado.Name = "btnEditarEmpleado";
-            this.btnEditarEmpleado.Size = new System.Drawing.Size(143, 52);
+            this.btnEditarEmpleado.Size = new System.Drawing.Size(176, 52);
             this.btnEditarEmpleado.TabIndex = 3;
             this.btnEditarEmpleado.Text = "Editar Empleado";
             this.btnEditarEmpleado.UseVisualStyleBackColor = false;
@@ -151,7 +152,7 @@
             this.btnCargarEmpleado.ForeColor = System.Drawing.Color.White;
             this.btnCargarEmpleado.Location = new System.Drawing.Point(30, 58);
             this.btnCargarEmpleado.Name = "btnCargarEmpleado";
-            this.btnCargarEmpleado.Size = new System.Drawing.Size(143, 52);
+            this.btnCargarEmpleado.Size = new System.Drawing.Size(176, 52);
             this.btnCargarEmpleado.TabIndex = 1;
             this.btnCargarEmpleado.Text = "Cargar Empleado";
             this.btnCargarEmpleado.UseVisualStyleBackColor = false;
@@ -170,7 +171,7 @@
             this.apellido,
             this.telefono,
             this.email});
-            this.dgvEmpleados.Location = new System.Drawing.Point(53, 217);
+            this.dgvEmpleados.Location = new System.Drawing.Point(22, 119);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.RowTemplate.Height = 25;
             this.dgvEmpleados.Size = new System.Drawing.Size(697, 231);
@@ -224,8 +225,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(897, 506);
-            this.Controls.Add(this.dgvEmpleados);
+            this.ClientSize = new System.Drawing.Size(897, 573);
             this.Controls.Add(this.btnEliminarEmpleado);
             this.Controls.Add(this.btnEditarEmpleado);
             this.Controls.Add(this.btnCargarEmpleado);

@@ -138,6 +138,7 @@
             this.btnSubUsuario.Text = "Usuario";
             this.btnSubUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubUsuario.UseVisualStyleBackColor = false;
+            this.btnSubUsuario.Click += new System.EventHandler(this.btnSubUsuario_Click);
             // 
             // btnSubCliente
             // 

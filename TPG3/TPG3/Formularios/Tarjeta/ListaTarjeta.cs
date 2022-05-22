@@ -32,7 +32,7 @@ namespace TPG3.Formularios.Tarjeta
             {
                 SqlCommand cmd = new SqlCommand();
                 string consulta = "SELECT Tarjeta.codTarjeta as 'Codigo', Tarjeta.nombre as 'Nombre', " +
-                    "Tarjeta.descripcion as 'Descripcion', Tarjeta.banco as 'Banco', Banco.nombreBanco as 'Nombre Banco' " +
+                    "Tarjeta.descripcion as 'Descripcion', Banco.nombreBanco as 'NombreBanco' " +
                     "FROM Tarjeta INNER JOIN Banco ON Tarjeta.Banco = Banco.idBanco";
                 //string consulta = "SELECT codMedioPago, nombre, descripcion, tarjeta FROM MedioPago";
 
@@ -197,6 +197,11 @@ namespace TPG3.Formularios.Tarjeta
                     MessageBox.Show("Ha ocurrido un error.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void txtBuscadorTarjeta_TextChanged(object sender, EventArgs e)
+        {
+            (dgvTarjetas.DataSource as DataTable).DefaultView.RowFilter = "Convert(Nombre, 'System.String') LIKE '" + txtBuscadorTarjeta.Text + "%'";
         }
     }
 }

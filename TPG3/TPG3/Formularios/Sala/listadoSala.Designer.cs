@@ -119,7 +119,7 @@
             // 
             this.es3d.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.es3d.DataPropertyName = "es3d";
-            this.es3d.HeaderText = "Formato";
+            this.es3d.HeaderText = "Es 3D";
             this.es3d.Name = "es3d";
             this.es3d.ReadOnly = true;
             // 
@@ -146,12 +146,12 @@
         #endregion
 
         private DataGridView grdSala;
-        private DataGridViewTextBoxColumn numero;
-        private DataGridViewTextBoxColumn capacidad;
-        private DataGridViewTextBoxColumn es3d;
         private TextBox txtBuscadorSala;
         private Panel panel1;
         private Label label1;
         private Label lblListado;
+        private DataGridViewTextBoxColumn numero;
+        private DataGridViewTextBoxColumn capacidad;
+        private DataGridViewTextBoxColumn es3d;
     }
 }

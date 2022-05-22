@@ -39,7 +39,8 @@ namespace TPG3.Formularios.Sala
 
             string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
             SqlConnection cn = new SqlConnection(cadenaConexion);
-
+            //Entidades.Sala sala = new Entidades.Sala(-1,-1,-1,false,"");
+            var salas = new List<Entidades.Sala>();
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -58,7 +59,20 @@ namespace TPG3.Formularios.Sala
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(tabla);
 
+                //if (dr != null && dr.Read())
+                //{
+                //    Entidades.Sala sala = new Entidades.Sala()
+                //    {
+                //        codigo = int.Parse(dr["codigo"].ToString()),
+                //        numero = int.Parse(dr["numero"].ToString()),
+                //        capacidadButacas = int.Parse(dr["capacidadButacas"].ToString()),
+                //        formato = (dr["es3d"].ToString() == "0") ? "2D" : "3D"
+                //    };
+                //    salas.Add(sala);
+                //}
+
                 return tabla;
+
             }
 
             catch (Exception ex)

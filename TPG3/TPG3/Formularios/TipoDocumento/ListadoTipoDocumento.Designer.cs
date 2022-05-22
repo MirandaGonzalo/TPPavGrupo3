@@ -32,7 +32,8 @@
             this.dgvPromocion = new System.Windows.Forms.DataGridView();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblListado = new System.Windows.Forms.Label();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBackAltaPromocion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPromocion)).BeginInit();
             this.SuspendLayout();
@@ -41,12 +42,13 @@
             // 
             this.panelBackAltaPromocion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
             this.panelBackAltaPromocion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBackAltaPromocion.Controls.Add(this.lblListado);
             this.panelBackAltaPromocion.Controls.Add(this.dgvPromocion);
             this.panelBackAltaPromocion.Controls.Add(this.txtBuscar);
             this.panelBackAltaPromocion.Controls.Add(this.label1);
-            this.panelBackAltaPromocion.Location = new System.Drawing.Point(33, 74);
+            this.panelBackAltaPromocion.Location = new System.Drawing.Point(33, 55);
             this.panelBackAltaPromocion.Name = "panelBackAltaPromocion";
-            this.panelBackAltaPromocion.Size = new System.Drawing.Size(378, 364);
+            this.panelBackAltaPromocion.Size = new System.Drawing.Size(409, 509);
             this.panelBackAltaPromocion.TabIndex = 26;
             // 
             // dgvPromocion
@@ -54,7 +56,9 @@
             this.dgvPromocion.AllowUserToAddRows = false;
             this.dgvPromocion.BackgroundColor = System.Drawing.Color.White;
             this.dgvPromocion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPromocion.Location = new System.Drawing.Point(45, 77);
+            this.dgvPromocion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre});
+            this.dgvPromocion.Location = new System.Drawing.Point(45, 151);
             this.dgvPromocion.Name = "dgvPromocion";
             this.dgvPromocion.RowTemplate.Height = 25;
             this.dgvPromocion.Size = new System.Drawing.Size(292, 273);
@@ -62,7 +66,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(45, 48);
+            this.txtBuscar.Location = new System.Drawing.Point(45, 99);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(160, 23);
             this.txtBuscar.TabIndex = 18;
@@ -74,30 +78,37 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(45, 13);
+            this.label1.Location = new System.Drawing.Point(45, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 21);
             this.label1.TabIndex = 17;
             this.label1.Text = "Nombre:";
             // 
-            // lblTitulo
+            // lblListado
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Black", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(33, 19);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(310, 28);
-            this.lblTitulo.TabIndex = 21;
-            this.lblTitulo.Text = "Lista de Tipos de Documentos";
+            this.lblListado.AutoSize = true;
+            this.lblListado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
+            this.lblListado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblListado.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblListado.Location = new System.Drawing.Point(45, 17);
+            this.lblListado.Name = "lblListado";
+            this.lblListado.Size = new System.Drawing.Size(320, 28);
+            this.lblListado.TabIndex = 23;
+            this.lblListado.Text = "Listado de Tipos de Documentos";
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.DataPropertyName = "nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
             // 
             // ListadoTipoDocumento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(437, 450);
-            this.Controls.Add(this.lblTitulo);
+            this.ClientSize = new System.Drawing.Size(650, 719);
             this.Controls.Add(this.panelBackAltaPromocion);
             this.Name = "ListadoTipoDocumento";
             this.Text = "ListadoTipoDocumento";
@@ -106,7 +117,6 @@
             this.panelBackAltaPromocion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPromocion)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -116,6 +126,7 @@
         private TextBox txtBuscar;
         private Label label1;
         private DataGridView dgvPromocion;
-        private Label lblTitulo;
+        private Label lblListado;
+        private DataGridViewTextBoxColumn Nombre;
     }
 }

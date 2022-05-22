@@ -30,6 +30,7 @@
         {
             this.lblError = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCodPelicula = new System.Windows.Forms.TextBox();
             this.cmbDistribuidora = new System.Windows.Forms.ComboBox();
             this.lblDistribuidora = new System.Windows.Forms.Label();
             this.cmbGenero = new System.Windows.Forms.ComboBox();
@@ -65,7 +66,9 @@
             this.gdrActualizarPeli = new System.Windows.Forms.DataGridView();
             this.codPeliculaItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duración = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Calificación = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Formato = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +76,6 @@
             this.Distribuidora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCodPelicula = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrActualizarPeli)).BeginInit();
@@ -123,6 +125,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(767, 321);
             this.panel1.TabIndex = 21;
+            // 
+            // txtCodPelicula
+            // 
+            this.txtCodPelicula.Location = new System.Drawing.Point(28, 253);
+            this.txtCodPelicula.Name = "txtCodPelicula";
+            this.txtCodPelicula.Size = new System.Drawing.Size(100, 23);
+            this.txtCodPelicula.TabIndex = 34;
+            this.txtCodPelicula.Visible = false;
             // 
             // cmbDistribuidora
             // 
@@ -437,7 +447,9 @@
             this.gdrActualizarPeli.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codPeliculaItem,
             this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn1,
             this.Duración,
+            this.dataGridViewTextBoxColumn3,
             this.Origen,
             this.Calificación,
             this.Formato,
@@ -450,7 +462,7 @@
             this.gdrActualizarPeli.RowTemplate.Height = 25;
             this.gdrActualizarPeli.Size = new System.Drawing.Size(846, 228);
             this.gdrActualizarPeli.TabIndex = 26;
-            this.gdrActualizarPeli.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdrActualizarPeli_CellContentClick);
+            this.gdrActualizarPeli.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdrActualizarPeli_CellClick);
             // 
             // codPeliculaItem
             // 
@@ -462,10 +474,17 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "titulo";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ptitulo";
             this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "pleyenda";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Leyenda";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Duración
             // 
@@ -474,44 +493,51 @@
             this.Duración.Name = "Duración";
             this.Duración.ReadOnly = true;
             // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "sinopsis";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Sinopsis";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
             // Origen
             // 
-            this.Origen.DataPropertyName = "origenN";
+            this.Origen.DataPropertyName = "nombre";
             this.Origen.HeaderText = "Origen";
             this.Origen.Name = "Origen";
             this.Origen.ReadOnly = true;
             // 
             // Calificación
             // 
-            this.Calificación.DataPropertyName = "calif";
+            this.Calificación.DataPropertyName = "abreviatura";
             this.Calificación.HeaderText = "Calificación";
             this.Calificación.Name = "Calificación";
             this.Calificación.ReadOnly = true;
             // 
             // Formato
             // 
-            this.Formato.DataPropertyName = "forma";
+            this.Formato.DataPropertyName = "fdescripcion";
             this.Formato.HeaderText = "Formato";
             this.Formato.Name = "Formato";
             this.Formato.ReadOnly = true;
             // 
             // Genero
             // 
-            this.Genero.DataPropertyName = "descriG";
+            this.Genero.DataPropertyName = "gdescripcion";
             this.Genero.HeaderText = "Género";
             this.Genero.Name = "Genero";
             this.Genero.ReadOnly = true;
             // 
             // Distribuidora
             // 
-            this.Distribuidora.DataPropertyName = "dist";
+            this.Distribuidora.DataPropertyName = "nombreDistribuidora";
             this.Distribuidora.HeaderText = "Distribuidora";
             this.Distribuidora.Name = "Distribuidora";
             this.Distribuidora.ReadOnly = true;
             // 
             // Idioma
             // 
-            this.Idioma.DataPropertyName = "idioma";
+            this.Idioma.DataPropertyName = "idescripcion";
             this.Idioma.HeaderText = "Idioma";
             this.Idioma.Name = "Idioma";
             this.Idioma.ReadOnly = true;
@@ -526,14 +552,6 @@
             this.label1.Size = new System.Drawing.Size(187, 28);
             this.label1.TabIndex = 25;
             this.label1.Text = "Actualizar Película";
-            // 
-            // txtCodPelicula
-            // 
-            this.txtCodPelicula.Location = new System.Drawing.Point(28, 253);
-            this.txtCodPelicula.Name = "txtCodPelicula";
-            this.txtCodPelicula.Size = new System.Drawing.Size(100, 23);
-            this.txtCodPelicula.TabIndex = 34;
-            this.txtCodPelicula.Visible = false;
             // 
             // AltaPelicula
             // 
@@ -595,15 +613,17 @@
         private Panel panel2;
         private Label label1;
         private DataGridView gdrActualizarPeli;
+        private TextBox txtCodPelicula;
         private DataGridViewTextBoxColumn codPeliculaItem;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn Duración;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn Origen;
         private DataGridViewTextBoxColumn Calificación;
         private DataGridViewTextBoxColumn Formato;
         private DataGridViewTextBoxColumn Genero;
         private DataGridViewTextBoxColumn Distribuidora;
         private DataGridViewTextBoxColumn Idioma;
-        private TextBox txtCodPelicula;
     }
 }

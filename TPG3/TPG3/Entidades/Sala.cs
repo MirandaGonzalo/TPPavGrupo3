@@ -12,12 +12,16 @@ namespace TPG3.Entidades
         public int numero { get; set; }
         public int capacidadButacas { get; set; }
         public bool es3d { get; set; }
-        public Sala(int codigo, int numero, int capacidadButacas, bool es3d)
+
+        public string formato { get; set; }
+
+        public Sala()
         {
             this.codigo = codigo;
             this.numero = numero;
             this.capacidadButacas = capacidadButacas;
             this.es3d = es3d;
+            this.formato = formato;
         }
     }
 }

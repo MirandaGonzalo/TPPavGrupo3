@@ -276,10 +276,22 @@ namespace TPG3
             openChildForm(listaBanco);
         }
 
-        private void btnSubCliente_Click(object sender, EventArgs e)
+        public void btnSubCliente_Click(object sender, EventArgs e)
         {
-            Formularios.Cliente.listaCliente listaCliente = new Formularios.Cliente.listaCliente();
+            Formularios.Cliente.ListadoCliente listaCliente = new Formularios.Cliente.ListadoCliente();
             openChildForm(listaCliente);
+        }
+
+        public void btnSubTicketAltaCliente(Entidades.Cliente cliente)
+        {
+            Formularios.Cliente.AltaCliente altaCliente = new Formularios.Cliente.AltaCliente(cliente);
+            openChildForm(altaCliente);
+        }
+
+        private void btnSubUsuario_Click(object sender, EventArgs e)
+        {
+            Formularios.Usuario.listadoUsuario listaUsuario = new Formularios.Usuario.listadoUsuario();
+            openChildForm(listaUsuario);
         }
     }
 }

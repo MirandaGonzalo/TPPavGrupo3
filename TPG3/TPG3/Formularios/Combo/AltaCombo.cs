@@ -95,7 +95,7 @@ namespace TPG3.Formularios.Combo
             {
                 SqlCommand cmd = new SqlCommand();
                 string consulta = "select prod.nombre,prod.idProducto,  prod.precio from Producto prod " +
-                "where (prod.idProducto NOT IN (select prod2.idProducto from Producto prod2 INNER JOIN ComposicionDeCombo cd  "+
+                "where prod.TipoProducto <> 1 and (prod.idProducto NOT IN (select prod2.idProducto from Producto prod2 INNER JOIN ComposicionDeCombo cd  " +
                 "on prod2.idProducto = cd.idProductoSimple and cd.idProductoCombo = @idCombo)";
                 cmd.Parameters.Clear();
                 if (quita)
@@ -482,6 +482,7 @@ namespace TPG3.Formularios.Combo
             string nombreCombo = (dgvProductosDispo.Rows[currentRow].Cells[0].Value.ToString());
             int idProducto = int.Parse(dgvProductosDispo.Rows[currentRow].Cells[1].Value.ToString());
             float precio = float.Parse(dgvProductosDispo.Rows[currentRow].Cells[2].Value.ToString());
+            if (viejosProductos.Contains(idProducto)) viejosProductos.Remove(idProducto);
             nuevosProductos.Add(idProducto);
             dgvNuevosProductos.Rows.Add(nombreCombo, idProducto, 1, precio);
             mostrarProductosDisponibles(combo, true);            
@@ -491,9 +492,7 @@ namespace TPG3.Formularios.Combo
         {
             var currentRow = dgvMisProductos.CurrentCell.RowIndex;
             DataGridViewRow selectedRow = dgvMisProductos.Rows[currentRow];
-            string nombreProducto = (dgvMisProductos.Rows[currentRow].Cells[0].Value.ToString());
             int idProducto = int.Parse(dgvMisProductos.Rows[currentRow].Cells[1].Value.ToString());
-            float precio = float.Parse(dgvMisProductos.Rows[currentRow].Cells[2].Value.ToString());
 
             viejosProductos.Add(idProducto);
             mostrarComponentesCombo(combo, true);

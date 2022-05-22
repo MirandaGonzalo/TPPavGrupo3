@@ -42,15 +42,37 @@ namespace TPG3.Formularios.Pelicula
 
         private void txtBuscadorTitulo_TextChanged(object sender, EventArgs e)
         {
-            (gdrActualizarPeli.DataSource as DataTable).DefaultView.RowFilter = "Convert(titulo, 'System.String') LIKE '" + txtBuscadorTitulo.Text + "%' and Convert(genero, 'System.String') LIKE '" + txtBuscadorGenero.Text + "%'";
+            (gdrActualizarPeli.DataSource as DataTable).DefaultView.RowFilter = "Convert(ptitulo, 'System.String') LIKE '" + txtBuscadorTitulo.Text + "%' and Convert(gdescripcion, 'System.String') LIKE '" + txtBuscadorGenero.Text + "%'";
 
         }
 
         private void txtBuscadorGenero_TextChanged(object sender, EventArgs e)
         {
-            (gdrActualizarPeli.DataSource as DataTable).DefaultView.RowFilter = "Convert(titulo, 'System.String') LIKE '" + txtBuscadorTitulo.Text + "%' and Convert(genero, 'System.String') LIKE '" + txtBuscadorGenero.Text + "%'";
+            (gdrActualizarPeli.DataSource as DataTable).DefaultView.RowFilter = "Convert(ptitulo, 'System.String') LIKE '" + txtBuscadorTitulo.Text + "%' and Convert(gdescripcion, 'System.String') LIKE '" + txtBuscadorGenero.Text + "%'";
         }
 
-
+        private void btnEliminarPelicula_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Desea eliminar esta Película ??",
+                                     "Confirmación!!",
+                                     MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                var currentRow = gdrActualizarPeli.CurrentCell.RowIndex;
+                DataGridViewRow selectedRow = gdrActualizarPeli.Rows[currentRow];
+                int codPelicula = int.Parse(gdrActualizarPeli.Rows[currentRow].Cells[0].Value.ToString());
+                AltaPelicula altaPeli = new AltaPelicula();
+                var result = altaPeli.EliminarPeliculaABD(codPelicula);
+                if (result)
+                {
+                    MessageBox.Show("Pelicula eliminada con éxito!");
+                    CargarGrilla();
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

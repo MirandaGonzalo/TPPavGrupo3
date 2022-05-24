@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Funcion
 {
@@ -32,10 +28,8 @@ namespace TPG3.Formularios.Funcion
                 if (editFuncion.TipoEdicion == 2)
                 {
                     maskedTextBox1.Text = editFuncion.fechaHora.ToString();
-                    
+                    lblTitulo.Text = "Modificar Función";
                 }
-                
-
                 cargarComboSala();
                 cargarComboPelicula();
                 cargarComboEstado();
@@ -102,8 +96,6 @@ namespace TPG3.Formularios.Funcion
                         MessageBox.Show("Función actualizada con éxito!");
                     }
                     lblError.Text = "";
-                    btnListado_Click(sender, e);
-
                 }
                 else
                 {
@@ -113,109 +105,43 @@ namespace TPG3.Formularios.Funcion
         }
         private void cargarComboFechaInicio()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            //string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM ProgramacionSemanal";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-                cmbFechaInicio.DataSource = tabla;
+            try { 
+                cmbFechaInicio.DataSource = AD_ProgramacionSemanal.ObtenerTablaProgSem();
                 cmbFechaInicio.DisplayMember = "fechaInicio";
                 cmbFechaInicio.ValueMember = "fechaInicio";
-
             }
             catch (Exception)
             {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
+                MessageBox.Show("Error al obtener las fechas.");
             }
         }
 
         private void cargarComboEstado()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            //string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
-            SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM Estado";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-                cmbEstado.DataSource = tabla;
+                cmbEstado.DataSource = AD_Estado.ObtenerTablaEstado();
                 cmbEstado.DisplayMember = "Nombre";
                 cmbEstado.ValueMember = "nombre";
 
             }
             catch (Exception)
             {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
+                MessageBox.Show("Error al obtener los estados.");
             }
         }
 
         private void cargarComboPelicula()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            //string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
-            SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM Pelicula";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-                cmbPeli.DataSource = tabla;
+                cmbPeli.DataSource = AD_Funcion.ObtenerTablaFuncion();
                 cmbPeli.DisplayMember = "Titulo";
                 cmbPeli.ValueMember = "codPelicula";
-
             }
             catch (Exception)
             {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
+                MessageBox.Show("Error al obtener los estados.");
             }
         }
 
@@ -267,7 +193,6 @@ namespace TPG3.Formularios.Funcion
                     var fechaFin = DateTime.Parse(cmbFechaInicio.SelectedText);
                     cmd.Parameters.AddWithValue("@fechaFin", fechaFin.AddDays(7)); 
              
-                    //cmd.Parameters.AddWithValue("@tarjeta", int.Parse(txtTarjeta.Text));
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = consulta;
                     cn.Open();
@@ -306,64 +231,28 @@ namespace TPG3.Formularios.Funcion
                     cn.Close();
                 }
                 return true;
-
             }
         }
 
         private void cargarComboSala()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            //string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
-            SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM Sala";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-                cmbSala.DataSource = tabla;
+                cmbSala.DataSource = AD_Sala.ObtenerTablaSala();
                 cmbSala.DisplayMember = "Numero";
                 cmbSala.ValueMember = "codigo";
-
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Error al obtener los combos.");
             }
-            finally
-            {
-                cn.Close();
-            }
-        }
-
-        
-        private void btnListado_Click(object sender, EventArgs e)
-        {
-            //Main.main1.btnFuncion_Click(sender, e);
         }
 
         private void cmbFechaInicio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var fechaFin = DateTime.Parse(cmbFechaInicio.SelectedText);
-            cmbFechaFin.SelectedText = fechaFin.AddDays(7).ToString();
+            
         }
     }
 }
 
-
-
-    //private void AltaFuncion_Load(object sender, EventArgs e)
-    //{
-
-    //}
 

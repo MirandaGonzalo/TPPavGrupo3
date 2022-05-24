@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using TPG3.AccesoADatos;
+
 
 namespace TPG3.Formularios.Actores
 {
@@ -39,51 +35,15 @@ namespace TPG3.Formularios.Actores
         {
             try
             {
-                dtgListadoActor.DataSource = ObtenerTablaActor();
+                dtgListadoActor.DataSource = AD_Actor.ObtenerTablaActor();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error al obtener productos");
             }
         }
 
-        public static DataTable ObtenerTablaActor()
-        {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-
-                string consulta = "SELECT * FROM Actor";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-
-                return tabla;
-            }
-
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-
-            finally
-            {
-                cn.Close();
-            }
-        }
+        
 
         private void txtBuscadorNombre_TextChanged(object sender, EventArgs e)
         {
@@ -107,8 +67,7 @@ namespace TPG3.Formularios.Actores
                 DataGridViewRow selectedRow = dtgListadoActor.Rows[currentRow];
                 int codActor = int.Parse(dtgListadoActor.Rows[currentRow].Cells[0].Value.ToString());
                 Entidades.Actor actor = new Entidades.Actor(codActor, "", ""); 
-                AltaActor altaAct = new AltaActor(actor);
-                var result = altaAct.eliminarActor(actor);
+                var result = AD_Actor.EliminarActor(actor);
                 if (result)
                 {
                     MessageBox.Show("Actor eliminado con éxito!");

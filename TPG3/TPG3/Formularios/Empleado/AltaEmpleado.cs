@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Empleado
 {
@@ -20,13 +21,11 @@ namespace TPG3.Formularios.Empleado
             InitializeComponent();
             cargarFormulario(emp);
         }
-
         private void limpiarEspacios()
         {
             mtbDni.Text = mtbDni.Text.Replace("_","");
             mtbTelefono.Text = mtbTelefono.Text.Replace("_", "");            
         }
-
         private void cargarFormulario(Entidades.Empleado editEmpleado)
         {            
             if (editEmpleado.TipoEdicion > 1)
@@ -87,37 +86,15 @@ namespace TPG3.Formularios.Empleado
 
         private void cargarComboTiposDocumentos()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            //string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
-            SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM TipoDocumento";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-                cbTipoDoc.DataSource = tabla;
+                cbTipoDoc.DataSource = AD_TipoDocumento.ObtenerTablaTiposDocumentos();
                 cbTipoDoc.DisplayMember = "Nombre";
                 cbTipoDoc.ValueMember = "idTipoDocumento";
-
             }
             catch (Exception)
             {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
+                MessageBox.Show("Error al obtener los tipos de documentos.");
             }
         }
     
@@ -146,70 +123,41 @@ namespace TPG3.Formularios.Empleado
 
         public bool cargarEmpleado(Entidades.Empleado empleado)
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            SqlCommand cmd = new SqlCommand();
-            string consulta = "";
             if (empleado.TipoEdicion > 1)
             {
-                //Crear
-                if (empleado.TipoEdicion == 3)
-                {
-                    consulta = "INSERT INTO Empleado (dni, tipoDocumento, nombre, apellido, email, telefono)" +
-                               "VALUES (@dni,@tipoDocumento,@nombre, @apellido, @email, @telefono)";
-                }
-                //Modificar
-                else
-                {
-                    consulta = "UPDATE Empleado SET nombre=@nombre, apellido=@apellido, " +
-                               "email=@email, telefono=@telefono where dni = @dni and tipoDocumento=@tipoDocumento ";
-                }
                 try
                 {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@apellido", txtApellido.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@telefono", mtbTelefono.Text);
-                    cmd.Parameters.AddWithValue("@dni", mtbDni.Text);
-                    if (empleado.TipoEdicion == 2)cmd.Parameters.AddWithValue("@tipoDocumento", empleado.tipoDocumento);
-                    if (empleado.TipoEdicion == 3) cmd.Parameters.AddWithValue("@tipoDocumento", cbTipoDoc.SelectedValue);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
+                    empleado.nombre = txtNombre.Text;
+                    empleado.apellido = txtApellido.Text;
+                    empleado.email = txtEmail.Text;
+                    empleado.telefono = mtbTelefono.Text;
+                    empleado.dni = int.Parse(mtbDni.Text);
+                    //Crear
+                    if (empleado.TipoEdicion == 3)
+                    {
+                        empleado.tipoDocumento = (int)cbTipoDoc.SelectedValue;
+                        AD_Empleado.CargarEmpleado(empleado);
+                    }
+                    //Modificar
+                    else
+                    {
+                        AD_Empleado.ActualizarEmpleado(empleado);
+                    }
                 }
                 catch (Exception)
                 {
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
+                    MessageBox.Show("Error.");
                 }
             }
             else
             {
                 try
                 {
-                    consulta = "DELETE FROM Empleado WHERE dni = @dni and tipoDocumento = @tipoDocumento";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@dni", empleado.dni);
-                    cmd.Parameters.AddWithValue("@tipoDocumento", empleado.tipoDocumento);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
+                    AD_Empleado.EliminarEmpleado(empleado);
                 }
                 catch (Exception)
                 {
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
+                    MessageBox.Show("Error al eliminar el empleado.");
                 }
             }
             return true;
@@ -219,8 +167,6 @@ namespace TPG3.Formularios.Empleado
         {
             Main.main1.btnSubEmpleado_Click(sender, e);
         }
-
     }
-
 }
 

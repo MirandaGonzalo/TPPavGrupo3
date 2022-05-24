@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TPG3.Entidades;
+﻿using System.Data;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Tarjeta
 {
@@ -26,35 +17,13 @@ namespace TPG3.Formularios.Tarjeta
 
         private void cargarTabla()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT Tarjeta.codTarjeta as 'Codigo', Tarjeta.nombre as 'Nombre', " +
-                    "Tarjeta.descripcion as 'Descripcion', Banco.nombreBanco as 'NombreBanco' " +
-                    "FROM Tarjeta INNER JOIN Banco ON Tarjeta.Banco = Banco.idBanco";
-                //string consulta = "SELECT codMedioPago, nombre, descripcion, tarjeta FROM MedioPago";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(tabla);
-                dgvTarjetas.DataSource = tabla;
+                dgvTarjetas.DataSource = AD_Tarjeta.ObtenerTablaTarjeta();
             }
             catch (Exception)
             {
-                throw;
-            }
-            finally
-            {
-                cn.Close();
+                MessageBox.Show("Error al obtener las tarjetas.");
             }
         }
 
@@ -167,10 +136,10 @@ namespace TPG3.Formularios.Tarjeta
             int codigoTarjeta = int.Parse(dgvTarjetas.Rows[currentRow].Cells[0].Value.ToString());
             string nombre = dgvTarjetas.Rows[currentRow].Cells[1].Value.ToString();
             string descripcion = dgvTarjetas.Rows[currentRow].Cells[2].Value.ToString();
-            int banco = int.Parse(dgvTarjetas.Rows[currentRow].Cells[3].Value.ToString());
-            string nombreBanco = dgvTarjetas.Rows[currentRow].Cells[4].Value.ToString();
+            //int banco = int.Parse(dgvTarjetas.Rows[currentRow].Cells[3].Value.ToString());
+            string nombreBanco = dgvTarjetas.Rows[currentRow].Cells[3].Value.ToString();
 
-            Entidades.Tarjeta tarje = new Entidades.Tarjeta (codigoTarjeta, nombre, descripcion, banco, nombreBanco, 2);
+            Entidades.Tarjeta tarje = new Entidades.Tarjeta (codigoTarjeta, nombre, descripcion, -1, nombreBanco, 2);
             Main.main1.btnSubAltaTarjeta(tarje);
         }
 

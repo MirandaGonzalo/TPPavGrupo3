@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TPG3.Entidades;
+using System.Data;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Funcion
 {
@@ -26,38 +21,16 @@ namespace TPG3.Formularios.Funcion
 
         private void cargarGrilla()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT Funcion.fechaHora as 'Fecha y Hora', Funcion.sala as 'Sala', Funcion.pelicula as 'Pelicula', " +
-                    "Pelicula.titulo as 'Titulo', Funcion.estado as 'Estado', Funcion.fechaInicio as 'Fecha Inicio', " +
-                    "Funcion.fechaFin as 'Fecha Fin', ProgramacionSemanal.nroSemana as 'Nro Semana' FROM((Funcion " +
-                    "INNER JOIN Pelicula ON Funcion.pelicula = Pelicula.codPelicula) " +
-                    "INNER JOIN ProgramacionSemanal ON Funcion.fechaInicio = ProgramacionSemanal.fechaInicio)";
-                
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tablaFuncion = new DataTable();
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(tablaFuncion);
-                dgvFuncion.DataSource = tablaFuncion;
+                dgvFuncion.DataSource = AD_Funcion.ObtenerTablaFuncion();
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("Error al obtener los estados.");
             }
-            finally
-            {
-                cn.Close();
-            }
+
+            
         }
 
         private void lblTitulo_Click(object sender, EventArgs e)
@@ -73,7 +46,7 @@ namespace TPG3.Formularios.Funcion
         private void btnCargarFuncion_Click(object sender, EventArgs e)
         {
             Entidades.Funcion funcion = new Entidades.Funcion(DateTime.Today, 0, 0, "", DateTime.Today, DateTime.Today, 3);
-            //Main.main1.btnSubFuncionAltaFuncion(funcion);
+            Main.main1.btnSubFuncionAltaFuncion(funcion);
         }
 
         private void btnEditarFuncion_Click(object sender, EventArgs e)
@@ -89,7 +62,7 @@ namespace TPG3.Formularios.Funcion
             DateTime fechaFin = DateTime.Parse(dgvFuncion.Rows[currentRow].Cells[0].Value.ToString());
 
             Entidades.Funcion funcion = new Entidades.Funcion(fechaHora, sala, pelicula, estado, fechaInicio, fechaFin, 2);
-            //Main.main1.btnSubFuncionAltaFuncion(funcion);
+            Main.main1.btnSubFuncionAltaFuncion(funcion);
 
         }
 

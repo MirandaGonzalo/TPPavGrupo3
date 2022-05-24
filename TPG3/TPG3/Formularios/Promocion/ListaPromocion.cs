@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Promocion
 {
@@ -24,34 +18,13 @@ namespace TPG3.Formularios.Promocion
 
         private void cargarGrilla()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM Promocion";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-                dgvPromocion.DataSource = tabla;
-                
+                dgvPromocion.DataSource = AD_Promocion.ObtenerPromocion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
+                MessageBox.Show("Error al obtener las promociones.");
             }
         }
 
@@ -91,8 +64,8 @@ namespace TPG3.Formularios.Promocion
                 DataGridViewRow selectedRow = dgvPromocion.Rows[currentRow];
                 string nombre = Convert.ToString(selectedRow.Cells["Nombre"].Value);
                 Entidades.Promocion promo = new Entidades.Promocion(nombre, "", 0, DateTime.Today, DateTime.Today, 1);
-                AltaPromocion altaPromo = new AltaPromocion(promo);
-                var result = altaPromo.cargarPromocion(promo);
+                
+                var result = AD_Promocion.cargarPromocion(promo);
                 if (result)
                 {
                     MessageBox.Show("Promoción eliminada con éxito!");

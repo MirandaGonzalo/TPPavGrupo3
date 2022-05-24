@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPG3.AccesoADatos;
 using TPG3.Entidades;
 
 namespace TPG3.Formularios.Genero
@@ -33,51 +34,13 @@ namespace TPG3.Formularios.Genero
         {
             try
             {
-                grdBuscadorGenero.DataSource = ObtenerTablaGenero();
+                grdBuscadorGenero.DataSource = AD_Genero.ObtenerTablaGenero();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al obtener género");
+                MessageBox.Show("Error al obtener el listado géneros.");
             }
         }
-        public static DataTable ObtenerTablaGenero()
-        {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-
-                string consulta = "SELECT descripcion FROM Genero";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-
-                return tabla;
-            }
-
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-
-            finally
-            {
-                cn.Close();
-            }
-        }
-
         private void txtBuscadorGenero_TextChanged(object sender, EventArgs e)
         {
             (grdBuscadorGenero.DataSource as DataTable).DefaultView.RowFilter = "Convert(descripcion, 'System.String') LIKE '" + txtBuscadorGenero.Text + "%'";

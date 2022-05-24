@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Tarjeta
 {
@@ -36,7 +37,7 @@ namespace TPG3.Formularios.Tarjeta
                         //cbTipoDoc.Items.Add(item);
                         //cbTipoDoc.SelectedIndex = 0;
 
-                        lblTitulo.Text = "Modificar Medio de Pago";
+                        lblTitulo.Text = "Modificar Tarjeta";
                     }
                     cargarComboBanco(editTarjeta);
                 }
@@ -113,71 +114,39 @@ namespace TPG3.Formularios.Tarjeta
 
         public bool cargarTarjeta(Entidades.Tarjeta tarjeta)
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            SqlCommand cmd = new SqlCommand();
-            string consulta = "";
             if (tarjeta.TipoEdicion > 1)
             {
                 try
                 {
+                    tarjeta.nombre = txtNombre.Text;
+                    tarjeta.descripcion = txtDescripcion.Text;
+                    tarjeta.banco = (int)cmbBanco.SelectedValue;
                     if (tarjeta.TipoEdicion == 3)
                     {
-                        consulta = "INSERT INTO Tarjeta (nombre,descripcion,banco)" +
-                                      "VALUES (@nombre, @descripcion, @banco)";
+                        AD_Tarjeta.CargarTarjeta(tarjeta);
                     }
                     else
                     {
-                        consulta = "UPDATE Tarjeta set nombre=@nombre, descripcion=@descripcion, " +
-                            "banco=@banco where codTarjeta=@codTarjeta";
+                        AD_Tarjeta.ActualizarTarjeta(tarjeta);
                     };
-
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
-                    cmd.Parameters.AddWithValue("@banco", cmbBanco.SelectedValue);
-                    if (tarjeta.TipoEdicion == 2) cmd.Parameters.AddWithValue("@codTarjeta", tarjeta.codTarjeta);
-                    //cmd.Parameters.AddWithValue("@tarjeta", int.Parse(txtTarjeta.Text));
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
                 }
                 catch (Exception)
                 {
-                    return false;
+                    MessageBox.Show("Error.");
                 }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
             }
             else
             {
                 try
                 {
-                    consulta = "DELETE FROM Tarjeta where codTarjeta=@codTarjeta ";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@codTarjeta", tarjeta.codTarjeta);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
+                    AD_Tarjeta.EliminarTarjeta(tarjeta);
                 }
                 catch (Exception)
                 {
-                    return false;
+                    MessageBox.Show("Error al eliminar la tarjeta.");
                 }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
-
             }
+            return true;
         }
 
         private bool validarCampos()
@@ -196,7 +165,4 @@ namespace TPG3.Formularios.Tarjeta
             Main.main1.btnSubTarjeta_Click(sender, e);
         }
     }
-
-
-
 }

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Promocion
 {
@@ -60,7 +51,12 @@ namespace TPG3.Formularios.Promocion
             bool valido = validarCampos();
             if (valido)
             {
-                bool result = cargarPromocion(promo);
+                promo.nombre = txtNombre.Text;
+                promo.descripcion = txtDescripcion.Text;
+                promo.valor = float.Parse(mtbValor.Text.Trim());
+                promo.fechaInicio = DateTime.Parse(mtbInicio.Text);
+                promo.fechaFin = DateTime.Parse(mtbFin.Text);
+                bool result = AD_Promocion.cargarPromocion(promo);
                 if (result)
                 {   
                     if (promo.TipoEdicion == 3)
@@ -179,74 +175,6 @@ namespace TPG3.Formularios.Promocion
                 lblError.Text = "La Fecha Inicio debe ser menor que la Fecha Fin.";
                 mtbInicio.Focus();
                 return false;
-            }
-            return true;
-        }
-
-        public bool cargarPromocion(Entidades.Promocion promo)
-        {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            SqlCommand cmd = new SqlCommand();
-            string consulta = "";
-            if (promo.TipoEdicion > 1)
-            {
-                //Crear
-                if (promo.TipoEdicion == 3)
-                {
-                    consulta = "INSERT INTO Promocion (nombre,descripcion,valor, fechaInicio, fechaFin)" +
-                               "VALUES (@nombre, @descripcion, @valor, @fechaInicio, @fechaFin)";
-                }
-                //Modificar
-                else
-                {
-                    consulta = "UPDATE Promocion SET descripcion=@descripcion, valor=@valor, " +
-                               "fechaInicio=@fechaInicio, fechaFin=@fechaFin where nombre = @nombre ";
-                }
-                try
-                {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
-                    cmd.Parameters.AddWithValue("@valor", float.Parse(mtbValor.Text.Trim()));
-                    cmd.Parameters.AddWithValue("@fechaInicio", DateTime.Parse(mtbInicio.Text));
-                    cmd.Parameters.AddWithValue("@fechaFin", DateTime.Parse(mtbFin.Text));
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
-                }                
-            }
-            else
-            {
-                try
-                {
-                    consulta = "DELETE FROM Promocion WHERE nombre = @nombre";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@nombre", promo.nombre);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
-                }
             }
             return true;
         }

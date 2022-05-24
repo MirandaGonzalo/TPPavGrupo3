@@ -49,7 +49,7 @@ namespace TPG3.Formularios.Combo
 
         private void mostrarComponentesCombo(Entidades.Producto combo, bool quita)
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
             SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
@@ -89,7 +89,7 @@ namespace TPG3.Formularios.Combo
 
         private void mostrarProductosDisponibles(Entidades.Producto combo, bool quita)
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
             SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
@@ -232,7 +232,7 @@ namespace TPG3.Formularios.Combo
 
         public bool cargarCombo(Entidades.Producto producto)
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
             SqlConnection cn = new SqlConnection(cadenaConexion);
             SqlCommand cmd = new SqlCommand();
             string consulta = "";

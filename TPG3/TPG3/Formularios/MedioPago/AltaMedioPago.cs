@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.MedioPago
 {
@@ -82,71 +78,39 @@ namespace TPG3.Formularios.MedioPago
 
         public bool cargarMP(Entidades.MedioPago medioPago)
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            SqlCommand cmd = new SqlCommand();
-            string consulta = "";
             if (medioPago.TipoEdicion > 1)
             {
                 try
                 {
+                    medioPago.nombre = txtNombre.Text;
+                    medioPago.descripcion = txtDescripcion.Text;
+                    medioPago.tarjeta = (int)cmbTarjeta.SelectedValue;
                     if (medioPago.TipoEdicion == 3)
                     {
-                        consulta = "INSERT INTO MedioPago (nombre,descripcion,tarjeta)" +
-                                      "VALUES (@nombre, @descripcion, @tarjeta)";
+                        AD_MedioPago.RegistrarMedioPago(medioPago);
                     }
                     else
                     {
-                        consulta = "UPDATE MedioPago set nombre=@nombre, descripcion=@descripcion, " +
-                            "tarjeta=@tarjeta where codMedioPago=@codMedioPago";
+                        AD_MedioPago.ActualizarMedioPago(medioPago);
                     };
-
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
-                    cmd.Parameters.AddWithValue("@tarjeta", cmbTarjeta.SelectedValue);
-                    if (medioPago.TipoEdicion == 2) cmd.Parameters.AddWithValue("@codMedioPago", medioPago.codMedioPago);
-                    //cmd.Parameters.AddWithValue("@tarjeta", int.Parse(txtTarjeta.Text));
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
                 }
                 catch (Exception)
                 {
-                    return false;
+                    MessageBox.Show("Error!");
                 }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
             }
             else
             {
                 try
                 {
-                    consulta = "DELETE FROM MedioPago where codMedioPago=@codMedioPago ";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@codMedioPago", medioPago.codMedioPago);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
+                    AD_MedioPago.EliminarMedioPago(medioPago);
                 }
                 catch (Exception)
                 {
-                    return false;
+                    MessageBox.Show("Error al eliminar el medio de pago!");
                 }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
-                
             }
+            return true;
         }
 
         private void AltaMedioPago_Load(object sender, EventArgs e)

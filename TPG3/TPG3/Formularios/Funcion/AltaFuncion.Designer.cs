@@ -85,7 +85,7 @@
             // 
             this.cmbFechaFin.Enabled = false;
             this.cmbFechaFin.FormattingEnabled = true;
-            this.cmbFechaFin.Location = new System.Drawing.Point(463, 77);
+            this.cmbFechaFin.Location = new System.Drawing.Point(485, 77);
             this.cmbFechaFin.Name = "cmbFechaFin";
             this.cmbFechaFin.Size = new System.Drawing.Size(121, 23);
             this.cmbFechaFin.TabIndex = 5;
@@ -93,7 +93,7 @@
             // cmbFechaInicio
             // 
             this.cmbFechaInicio.FormattingEnabled = true;
-            this.cmbFechaInicio.Location = new System.Drawing.Point(463, 25);
+            this.cmbFechaInicio.Location = new System.Drawing.Point(485, 25);
             this.cmbFechaInicio.Name = "cmbFechaInicio";
             this.cmbFechaInicio.Size = new System.Drawing.Size(121, 23);
             this.cmbFechaInicio.TabIndex = 4;
@@ -104,7 +104,7 @@
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Location = new System.Drawing.Point(155, 187);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(121, 23);
+            this.cmbEstado.Size = new System.Drawing.Size(160, 23);
             this.cmbEstado.TabIndex = 3;
             // 
             // cmbPeli
@@ -112,7 +112,7 @@
             this.cmbPeli.FormattingEnabled = true;
             this.cmbPeli.Location = new System.Drawing.Point(155, 131);
             this.cmbPeli.Name = "cmbPeli";
-            this.cmbPeli.Size = new System.Drawing.Size(121, 23);
+            this.cmbPeli.Size = new System.Drawing.Size(160, 23);
             this.cmbPeli.TabIndex = 2;
             // 
             // cmbSala
@@ -120,7 +120,7 @@
             this.cmbSala.FormattingEnabled = true;
             this.cmbSala.Location = new System.Drawing.Point(155, 77);
             this.cmbSala.Name = "cmbSala";
-            this.cmbSala.Size = new System.Drawing.Size(121, 23);
+            this.cmbSala.Size = new System.Drawing.Size(160, 23);
             this.cmbSala.TabIndex = 1;
             // 
             // btnCargarFuncion
@@ -143,7 +143,7 @@
             this.lblFechaInicio.AutoSize = true;
             this.lblFechaInicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblFechaInicio.ForeColor = System.Drawing.Color.White;
-            this.lblFechaInicio.Location = new System.Drawing.Point(336, 27);
+            this.lblFechaInicio.Location = new System.Drawing.Point(358, 27);
             this.lblFechaInicio.Name = "lblFechaInicio";
             this.lblFechaInicio.Size = new System.Drawing.Size(105, 21);
             this.lblFechaInicio.TabIndex = 23;
@@ -154,7 +154,7 @@
             this.lblFechaFin.AutoSize = true;
             this.lblFechaFin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblFechaFin.ForeColor = System.Drawing.Color.White;
-            this.lblFechaFin.Location = new System.Drawing.Point(336, 79);
+            this.lblFechaFin.Location = new System.Drawing.Point(358, 79);
             this.lblFechaFin.Name = "lblFechaFin";
             this.lblFechaFin.Size = new System.Drawing.Size(85, 21);
             this.lblFechaFin.TabIndex = 22;
@@ -198,8 +198,9 @@
             this.maskedTextBox1.Location = new System.Drawing.Point(155, 25);
             this.maskedTextBox1.Mask = "00/00/0000 00:00";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(131, 23);
+            this.maskedTextBox1.Size = new System.Drawing.Size(160, 23);
             this.maskedTextBox1.TabIndex = 0;
+            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
             // lblFechaHora
@@ -220,7 +221,7 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(55, 18);
             this.lblTitulo.Name = "lblTitulo";

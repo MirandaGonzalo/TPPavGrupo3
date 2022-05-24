@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using TPG3.AccesoADatos;
 using TPG3.Entidades;
 
 namespace TPG3.Formularios.Actores
@@ -37,52 +33,15 @@ namespace TPG3.Formularios.Actores
         {
             try
             {
-                dtgActualizarActor.DataSource = ObtenerTablaActor();
+                dtgActualizarActor.DataSource = AD_Actor.ObtenerTablaActor();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al obtener productos");
+                MessageBox.Show("Error al obtener listado de actores.");
             }
         }
 
-        public static DataTable ObtenerTablaActor()
-        {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-
-                string consulta = "SELECT * FROM Actor";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-
-                return tabla;
-            }
-
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-
-            finally
-            {
-                cn.Close();
-            }
-        }
-
+       
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             bool camposCorrectos = validarCamposNoVacios();
@@ -91,7 +50,7 @@ namespace TPG3.Formularios.Actores
             {
                 Actor r = ObtenerDatosActor();
 
-                bool resultado = AgregarActorABD(r);
+                bool resultado = AD_Actor.AgregarActorABD(r);
 
                 if (resultado)
                 {
@@ -121,42 +80,10 @@ namespace TPG3.Formularios.Actores
             return actor;
         }
 
-        public static bool AgregarActorABD(Actor actor)
-        {
-            bool resultado = false;
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "INSERT INTO Actor (nombre, apellido) VALUES (@nombre, @apellido)";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@nombre", actor.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", actor.Apellido);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-                cmd.ExecuteNonQuery();
-                resultado = true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                cn.Close();
-            }
-
-            return resultado;
-        }
-
         private void btnActualizarActor_Click(object sender, EventArgs e)
         {
             Actor r = ObtenerDatosActor();
-            bool resultado = ActualizarActor(r);
+            bool resultado = AD_Actor.ActualizarActor(r);
             if (resultado)
             {
                 MessageBox.Show("Actor actualizado con éxito");
@@ -169,75 +96,7 @@ namespace TPG3.Formularios.Actores
             }
         }
 
-        private bool ActualizarActor(Actor r)
-        {
-            bool resultado = false;
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                
-                string consulta = "UPDATE Actor SET nombre = @nombre, apellido = @apellido WHERE codActor = @codActor";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@nombre", r.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", r.Apellido);
-                cmd.Parameters.AddWithValue("@codActor", r.CodActor);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
-                cmd.ExecuteNonQuery();
-                resultado = true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
-            }
-
-            return resultado;
-        }
-
-        public bool eliminarActor(Actor r)
-        {
-            bool resultado = false;
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-
-                string consulta = "delete Actor where codActor = @codActor";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@codActor", r.CodActor);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
-                cmd.ExecuteNonQuery();
-                resultado = true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
-            }
-
-            return resultado;
-        }
+        
 
         private void dtgActualizarActor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -249,53 +108,12 @@ namespace TPG3.Formularios.Actores
 
                 int codActor = (int)filaSeleccionada.Cells[0].Value;
                 txtCodActor.Text = codActor.ToString();
-                Actor r = ObtenerActor(codActor);
+                Actor r = AD_Actor.ObtenerActor(codActor);
                 LimpiarCampos();
                 CargarCampos(r);
             };
            
         }
-
-        private Actor ObtenerActor(int codActor)
-        {
-            Actor r = new Actor();
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM Actor WHERE codActor LIKE @codActor";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@codActor", codActor);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr != null && dr.Read())
-                {
-                    r.Nombre = dr["nombre"].ToString();
-                    r.Apellido = dr["apellido"].ToString();
-                    r.CodActor = codActor;
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
-            }
-
-            return r;
-
-        }
-
         private void CargarCampos(Actor r)
         {
             txtNombre.Text = r.Nombre;

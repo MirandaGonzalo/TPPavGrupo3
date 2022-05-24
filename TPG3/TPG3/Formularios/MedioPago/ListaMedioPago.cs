@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.MedioPago
 {
@@ -35,36 +27,15 @@ namespace TPG3.Formularios.MedioPago
 
         private void cargarTabla()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT MedioPago.codMedioPago as 'Codigo', MedioPago.nombre as 'Nombre', "+
-                    "MedioPago.descripcion as 'Descripcion', MedioPago.tarjeta as 'Tarjeta', Tarjeta.nombre as 'Nombre Tarjeta' "+
-                    "FROM MedioPago INNER JOIN Tarjeta ON MedioPago.Tarjeta = Tarjeta.codTarjeta";
-                //string consulta = "SELECT codMedioPago, nombre, descripcion, tarjeta FROM MedioPago";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tablaMP = new DataTable();
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(tablaMP);
-                dgvMedioPago.DataSource = tablaMP;
+                dgvMedioPago.DataSource = AD_MedioPago.ObtenerTablaMediosPagos();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show("Error al obtener medios de pago.");
             }
-            finally
-            {
-                cn.Close();
-            }
+            
         }
 
         private void btnCargarMP_Click(object sender, EventArgs e)

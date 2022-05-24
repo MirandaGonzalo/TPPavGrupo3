@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
+using TPG3.AccesoADatos;
+
 
 namespace TPG3.Formularios.Pelicula
 {
@@ -32,7 +25,7 @@ namespace TPG3.Formularios.Pelicula
         {
             try
             {
-                gdrActualizarPeli.DataSource = AltaPelicula.ObtenerTablaPelicula();
+                gdrActualizarPeli.DataSource = AD_Pelicula.ObtenerTablaPelicula();
             }
             catch (Exception ex)
             {
@@ -61,8 +54,7 @@ namespace TPG3.Formularios.Pelicula
                 var currentRow = gdrActualizarPeli.CurrentCell.RowIndex;
                 DataGridViewRow selectedRow = gdrActualizarPeli.Rows[currentRow];
                 int codPelicula = int.Parse(gdrActualizarPeli.Rows[currentRow].Cells[0].Value.ToString());
-                AltaPelicula altaPeli = new AltaPelicula();
-                var result = altaPeli.EliminarPeliculaABD(codPelicula);
+                var result = AD_Pelicula.EliminarPeliculaABD(codPelicula);
                 if (result)
                 {
                     MessageBox.Show("Pelicula eliminada con éxito!");

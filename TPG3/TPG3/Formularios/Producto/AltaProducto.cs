@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TPG3.Entidades;
+﻿using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Producto
 {
@@ -29,7 +19,6 @@ namespace TPG3.Formularios.Producto
             lblError.Visible = false;
         }
 
-        
         private void LimpiarCampos()
         {
             txtPrecio1.Text = "";
@@ -44,8 +33,6 @@ namespace TPG3.Formularios.Producto
             if (camposCorrectos)
             {
                 Entidades.Producto p = ObtenerDatosProducto();
-
-
                 bool resultado = AD_Producto.AgregarProductoABD(p);
 
                 if (resultado)
@@ -84,13 +71,13 @@ namespace TPG3.Formularios.Producto
         {
             try
             {
-                cmbTipoProducto1.DataSource = AD_Producto.ObtenerTipoProducto();
+                cmbTipoProducto1.DataSource = AD_TipoProducto.ObtenerTipoProducto();
                 cmbTipoProducto1.DisplayMember = "nombreTipoProd";
                 cmbTipoProducto1.ValueMember = "idTipoProducto";
                 cmbTipoProducto1.SelectedIndex = 0;
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error al cargar combo tipo producto");
             }
@@ -101,7 +88,7 @@ namespace TPG3.Formularios.Producto
             {
                 gdrActualizarProd.DataSource = AD_Producto.ObtenerTablaProducto();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error al obtener productos");
             }
@@ -114,7 +101,7 @@ namespace TPG3.Formularios.Producto
 
             if (camposCorrectos)
             {
-                bool resultado = ActualizarProducto(p);
+                bool resultado = AD_Producto.ActualizarProducto(p);
                 if (resultado)
                 {
                     MessageBox.Show("Producto actualizado con éxito");
@@ -133,143 +120,6 @@ namespace TPG3.Formularios.Producto
             }
         }
 
-        private bool ActualizarProducto(Entidades.Producto p)
-        {
-            bool resultado = false;
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-
-                string consulta = "UPDATE Producto SET nombre = @nombre, descripcion = @descripcion, tipoProducto = @tipoProducto, precio = @precio WHERE nombre LIKE @nombre";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@nombre", p.Nombre);
-                cmd.Parameters.AddWithValue("@descripcion", p.Descripcion);
-                cmd.Parameters.AddWithValue("@tipoProducto", p.TipoProducto);
-                cmd.Parameters.AddWithValue("@precio", p.Precio);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
-                cmd.ExecuteNonQuery();
-                resultado = true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
-            }
-
-            return resultado;
-        }
-
-        public bool eliminarProductoCombo(Entidades.Producto producto)
-        {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            var consulta = "";
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-
-                consulta = "DELETE FROM ComposicionDeCombo WHERE idProductoSimple = @idProducto";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@idProducto", producto.idProducto);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                cn.Close();
-            }
-            bool result = eliminarProducto(producto);
-            return result;
-        }
-
-        public bool eliminarProducto(Entidades.Producto producto)
-        {
-            bool resultado = false;
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-
-                var consulta = "DELETE FROM Producto WHERE idProducto = @idProducto";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@idProducto", producto.idProducto);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-                cmd.ExecuteNonQuery();
-                resultado = true;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
-            }
-
-            return resultado;
-        }
-
-        public bool estaEnCombo(Entidades.Producto producto)
-        {            
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-
-                var consulta = "SELECT Producto.idProducto from Producto where idProducto = @idProducto " +
-                "and idProducto in (select idProductoSimple from ComposicionDeCombo)";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@idProducto", producto.idProducto);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                bool existe = false;
-                if (dr != null && dr.Read())
-                {
-                    existe = true;
-                }
-                return existe;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
-
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -283,52 +133,10 @@ namespace TPG3.Formularios.Producto
             DataGridViewRow filaSeleccionada = gdrActualizarProd.Rows[indice];
 
             int idProducto = (int)filaSeleccionada.Cells["IdProducto"].Value;
-            Entidades.Producto p = ObtenerProducto(idProducto);
+            Entidades.Producto p = AD_Producto.ObtenerProducto(idProducto);
             LimpiarCampos();
             CargarCampos(p);
         }
-
-        private Entidades.Producto ObtenerProducto(int idProducto)
-        {
-            Entidades.Producto p = new Entidades.Producto(-1, "", "", -1, 0, 0, -1);
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM Producto WHERE idProducto LIKE @idProducto";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@idProducto", idProducto);
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-
-                cn.Open();
-                cmd.Connection = cn;
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr != null && dr.Read())
-                {
-                    p.Nombre = dr["nombre"].ToString();
-                    p.Descripcion = dr["descripcion"].ToString();
-                    p.Precio = float.Parse(dr["precio"].ToString());
-                    p.TipoProducto = int.Parse(dr["tipoProducto"].ToString());
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
-            }
-
-            return p;
-
-        }
-
         private void CargarCampos(Entidades.Producto p)
         {
             cmbTipoProducto1.SelectedValue = p.TipoProducto;
@@ -369,8 +177,5 @@ namespace TPG3.Formularios.Producto
             }
             return true;
         }
-
-
-
     }
 }

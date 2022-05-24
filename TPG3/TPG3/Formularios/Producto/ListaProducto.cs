@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using TPG3.Entidades;
+﻿using System.Data;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Producto
 {
@@ -34,7 +26,7 @@ namespace TPG3.Formularios.Producto
             {
                 gdrConsultarProd.DataSource = AD_Producto.ObtenerTablaProducto();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error al obtener productos");
             }
@@ -59,8 +51,7 @@ namespace TPG3.Formularios.Producto
             int idProducto = int.Parse(gdrConsultarProd.Rows[currentRow].Cells[0].Value.ToString());
 
             Entidades.Producto producto = new Entidades.Producto(idProducto, "", "", 1, 0, 0, 1);
-            AltaProducto altProd = new AltaProducto(producto);
-            bool estaEnCombo = altProd.estaEnCombo(producto);
+            bool estaEnCombo = AD_ComposicionCombo.estaEnCombo(producto);
             bool result;
             if (estaEnCombo)
             {
@@ -69,7 +60,7 @@ namespace TPG3.Formularios.Producto
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    result = altProd.eliminarProductoCombo(producto);
+                    result = AD_ComposicionCombo.eliminarProductoCombo(producto);
                     if (result)
                     {
                         MessageBox.Show("Producto eliminado con éxito!");
@@ -88,8 +79,7 @@ namespace TPG3.Formularios.Producto
                                      MessageBoxButtons.YesNo);
                 if (confirmResult2 == DialogResult.Yes)
                 {
-
-                    result = altProd.eliminarProducto(producto);
+                    result = AD_Producto.eliminarProducto(producto);
                     if (result)
                     {
                         MessageBox.Show("Producto eliminado con éxito!");
@@ -101,8 +91,6 @@ namespace TPG3.Formularios.Producto
                     }
                 }
             }
-
-            
         }
 
         private void btnAltaProducto_Click(object sender, EventArgs e)

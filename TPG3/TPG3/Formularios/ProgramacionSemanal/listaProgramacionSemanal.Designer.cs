@@ -88,7 +88,7 @@
             this.txtBuscadorProg.Name = "txtBuscadorProg";
             this.txtBuscadorProg.Size = new System.Drawing.Size(192, 23);
             this.txtBuscadorProg.TabIndex = 26;
-//            this.txtBuscadorProg.TextChanged += new System.EventHandler(this.txtBuscadorSala_TextChanged);
+            this.txtBuscadorProg.TextChanged += new System.EventHandler(this.txtBuscadorProg_TextChanged);
             // 
             // panel1
             // 
@@ -107,9 +107,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(72, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 21);
+            this.label1.Size = new System.Drawing.Size(73, 21);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Semana";
+            this.label1.Text = "Número";
             // 
             // lblListado
             // 

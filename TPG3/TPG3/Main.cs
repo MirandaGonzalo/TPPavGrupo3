@@ -76,6 +76,11 @@ namespace TPG3
         {
             showSubMenu(panelSubMenuFuncion);
         }
+        public void btnSubFuncionAltaFuncion(Entidades.Funcion funcion)
+        {
+            Formularios.Funcion.AltaFuncion altaFuncion = new Formularios.Funcion.AltaFuncion(funcion);
+            openChildForm(altaFuncion);
+        }
 
         private void btnMenuTicket_Click(object sender, EventArgs e)
         {

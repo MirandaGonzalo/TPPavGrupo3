@@ -32,5 +32,32 @@ namespace TPG3.AccesoADatos
                 cn.Close();
             }
         }
+
+        public static void EliminarUsuario(int dni, int tipoDocumento)
+        {
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "EliminarUsuario";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@dni", dni);
+                cmd.Parameters.AddWithValue("@tipoDocumento", tipoDocumento);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }

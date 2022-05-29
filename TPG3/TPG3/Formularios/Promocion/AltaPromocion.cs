@@ -31,17 +31,36 @@ namespace TPG3.Formularios.Promocion
                     txtNombre.Enabled = false;
                     txtDescripcion.Text = editPromo.descripcion;
                     mtbValor.Text = editPromo.valor.ToString();
-                    
+                    mtbInicio.Text = completarFecha(editPromo.fechaInicio);
+                    mtbFin.Text = completarFecha(editPromo.fechaFin);
                     lblTitulo.Text = "Modificar Promoción";
                     btnCargarPromocion.Text = "Modificar";
                     limpiarEspacios();
                 }
                 else
                 {
-                    mtbInicio.Text = "11/05/2022";
-                    mtbFin.Text = "11/05/2022";
+                    DateTime inicio = DateTime.Today;
+                    DateTime fin = inicio.AddDays(7);
+                    mtbInicio.Text = completarFecha(inicio);
+                    mtbFin.Text = completarFecha(fin);
                 }
             }
+        }
+
+        private string completarFecha(DateTime fechaInicial)
+        {
+            string fecha = fechaInicial.ToString();
+            int charLocation = fecha.IndexOf("/", StringComparison.Ordinal);
+            string resto = "";
+            string dia = fecha.Substring(0, charLocation);
+            if (dia.Count() == 1) dia = "0" + dia;
+            resto = fecha.Substring(charLocation + 1);
+            int charLocation2 = resto.IndexOf("/", StringComparison.Ordinal);
+            string mes = resto.Substring(0, charLocation2);
+            if (mes.Count() == 1) mes = "0" + mes;
+            string año = resto.Substring(charLocation2 + 1);
+            string fechaFinal = dia + "/" + mes + "/" + año;
+            return fechaFinal;
         }
 
         private void btnCargarPromocion_Click(object sender, EventArgs e)
@@ -69,7 +88,6 @@ namespace TPG3.Formularios.Promocion
                     }
                     lblError.Text = "";
                     btnListado_Click(sender, e);                    
-
                 }
                 else
                 {

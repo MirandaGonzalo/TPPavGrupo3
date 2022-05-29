@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data;
 using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Funcion
@@ -45,7 +44,7 @@ namespace TPG3.Formularios.Funcion
 
         private void btnCargarFuncion_Click(object sender, EventArgs e)
         {
-            Entidades.Funcion funcion = new Entidades.Funcion(DateTime.Today, 0, 0, "", DateTime.Today, DateTime.Today, 3);
+            Entidades.Funcion funcion = new Entidades.Funcion(DateTime.Today, 0, 0,"", "", DateTime.Today, DateTime.Today, 3);
             Main.main1.btnSubFuncionAltaFuncion(funcion);
         }
 
@@ -55,15 +54,14 @@ namespace TPG3.Formularios.Funcion
             var currentRow = dgvFuncion.CurrentCell.RowIndex;
             DataGridViewRow selectedRow = dgvFuncion.Rows[currentRow];
             DateTime fechaHora = DateTime.Parse(dgvFuncion.Rows[currentRow].Cells[0].Value.ToString());
-            int sala = int.Parse(dgvFuncion.Rows[currentRow].Cells[1].Value.ToString());
-            int pelicula = int.Parse(dgvFuncion.Rows[currentRow].Cells[2].Value.ToString());
-            string estado = dgvFuncion.Rows[currentRow].Cells[3].Value.ToString();
-            DateTime fechaInicio = DateTime.Parse(dgvFuncion.Rows[currentRow].Cells[0].Value.ToString());
-            DateTime fechaFin = DateTime.Parse(dgvFuncion.Rows[currentRow].Cells[0].Value.ToString());
-
-            Entidades.Funcion funcion = new Entidades.Funcion(fechaHora, sala, pelicula, estado, fechaInicio, fechaFin, 2);
+            int pelicula = int.Parse(dgvFuncion.Rows[currentRow].Cells[1].Value.ToString());
+            string nombrePelicula = dgvFuncion.Rows[currentRow].Cells[2].Value.ToString();
+            int sala = int.Parse(dgvFuncion.Rows[currentRow].Cells[3].Value.ToString());
+            string estado = dgvFuncion.Rows[currentRow].Cells[4].Value.ToString();
+            DateTime fechaInicio = DateTime.Parse(dgvFuncion.Rows[currentRow].Cells[5].Value.ToString());
+            DateTime fechaFin = DateTime.Parse(dgvFuncion.Rows[currentRow].Cells[6].Value.ToString());
+            Entidades.Funcion funcion = new Entidades.Funcion(fechaHora, sala, pelicula, nombrePelicula, estado, fechaInicio, fechaFin, 2);
             Main.main1.btnSubFuncionAltaFuncion(funcion);
-
         }
 
         private void btnEliminarFuncion_Click(object sender, EventArgs e)
@@ -76,7 +74,7 @@ namespace TPG3.Formularios.Funcion
                 var currentRow = dgvFuncion.CurrentCell.RowIndex;
                 DataGridViewRow selectedRow = dgvFuncion.Rows[currentRow];
                 DateTime fechaHora = DateTime.Parse(dgvFuncion.Rows[currentRow].Cells[0].Value.ToString());
-                Entidades.Funcion func = new Entidades.Funcion(fechaHora, 0, 0, "", DateTime.Today, DateTime.Today, 1);
+                Entidades.Funcion func = new Entidades.Funcion(fechaHora, 0, 0,"", "", DateTime.Today, DateTime.Today, 1);
                 AltaFuncion altaFuncion = new AltaFuncion(func);
                 var result = altaFuncion.cargarFunc(func);
                 if (result)

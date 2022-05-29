@@ -54,7 +54,7 @@ namespace TPG3.Formularios.Pelicula
             try
             {
                 cmbCalificacion.DataSource = AD_Calificacion.ObtenerTablaCalificacion();
-                cmbCalificacion.DisplayMember = "descripcion";
+                cmbCalificacion.DisplayMember = "abreviatura";
                 cmbCalificacion.ValueMember = "codCalificacion";
                 cmbCalificacion.SelectedIndex = 0;
             }
@@ -132,26 +132,64 @@ namespace TPG3.Formularios.Pelicula
             }
         }
 
+        private bool validarCampos()
+        {
+            if (txtTitulo.Text.Trim().Equals(""))
+            {
+                txtTitulo.Focus();
+                lblError2.Text = "El campo título no puede estar vacío.";
+                return false;
+            }
+            if (txtLeyenda.Text.Trim().Equals(""))
+            {
+                txtLeyenda.Focus();
+                lblError2.Text = "El campo leyenda no puede estar vacío.";
+                return false;
+            }
+            if (txtDuracion.Text.Trim().Equals(""))
+            {
+                txtDuracion.Focus();
+                lblError2.Text = "El campo duración no puede estar vacío.";
+                return false;
+            }
+            if (txtSinopsis.Text.Trim().Equals(""))
+            {
+                txtSinopsis.Focus();
+                lblError2.Text = "El campo sinopsis no puede estar vacío.";
+                return false;
+            }
+            return true;
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Peliculas p = ObtenerDatosPelicula();
-            bool resultado = AD_Pelicula.AgregarPeliculaABD(p);
-            if (resultado)
+            bool valido = validarCampos();
+            if (valido)
             {
-                MessageBox.Show("Película agregada con éxito");
-                LimpiarCampos();
-                CargarComboOrigen();
-                CargarComboCalificacion();
-                CargarComboFormato();
-                CargarComboGenero();
-                CargarComboDistribuidora();
-                CargarComboIdioma();
-                CargarGrilla();
+                Peliculas p = ObtenerDatosPelicula();
+                bool resultado = AD_Pelicula.AgregarPeliculaABD(p);
+                if (resultado)
+                {
+                    MessageBox.Show("Película agregada con éxito");
+                    LimpiarCampos();
+                    CargarComboOrigen();
+                    CargarComboCalificacion();
+                    CargarComboFormato();
+                    CargarComboGenero();
+                    CargarComboDistribuidora();
+                    CargarComboIdioma();
+                    CargarGrilla();
+                }
+                else
+                {
+                    MessageBox.Show("Error al cargar la película!");
+                }
             }
             else
             {
-                MessageBox.Show("Error al cargar la película");
+                MessageBox.Show("Error al cargar la película!");
             }
+            
         }
         private Peliculas ObtenerDatosPelicula()
         {
@@ -199,12 +237,13 @@ namespace TPG3.Formularios.Pelicula
             txtDuracion.Text = p.Duracion;
             txtSinopsis.Text = p.Sinopsis;
             txtEstreno.Text = p.AñoEstreno.ToString();
-            cmbOrigen.SelectedValue = p.Origen;
-            cmbCalificacion.SelectedValue = p.Calificacion;
-            cmbFormato.SelectedValue = p.Formato;
-            cmbGenero.SelectedValue = p.Genero;
-            cmbDistribuidora.SelectedValue = p.Distribuidora;
-            cmbIdioma.SelectedValue = p.Idioma;
+            cmbOrigen.SelectedIndex = cmbOrigen.FindString(AD_Origen.ObtenerNombreOrigen(p.Origen));
+            cmbCalificacion.SelectedIndex = cmbCalificacion.FindString(AD_Calificacion.ObtenerNombreCalificacion(p.Calificacion));
+            cmbFormato.SelectedIndex = cmbFormato.FindString(AD_Formato.ObtenerNombreFormato(p.Formato));
+            cmbGenero.SelectedIndex = cmbGenero.FindString(AD_Genero.ObtenerNombreGenero(p.Genero));
+            cmbDistribuidora.SelectedIndex = cmbDistribuidora.FindString(AD_Distribuidora.ObtenerNombreDistribuidora(p.Distribuidora));
+            cmbGenero.SelectedIndex = cmbGenero.FindString(AD_Genero.ObtenerNombreGenero(p.Genero));
+            cmbIdioma.SelectedIndex = cmbIdioma.FindString(AD_Idioma.ObtenerNombreIdioma(p.Genero));
         }
 
         private void gdrActualizarPeli_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -49,7 +49,7 @@
             this.lblAltaTarjeta.AutoSize = true;
             this.lblAltaTarjeta.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblAltaTarjeta.ForeColor = System.Drawing.Color.White;
-            this.lblAltaTarjeta.Location = new System.Drawing.Point(479, 31);
+            this.lblAltaTarjeta.Location = new System.Drawing.Point(479, 19);
             this.lblAltaTarjeta.Name = "lblAltaTarjeta";
             this.lblAltaTarjeta.Size = new System.Drawing.Size(199, 28);
             this.lblAltaTarjeta.TabIndex = 0;
@@ -81,7 +81,7 @@
             this.Nombre,
             this.Descripcion,
             this.Banco});
-            this.dgvTarjetas.Location = new System.Drawing.Point(19, 172);
+            this.dgvTarjetas.Location = new System.Drawing.Point(19, 140);
             this.dgvTarjetas.Name = "dgvTarjetas";
             this.dgvTarjetas.ReadOnly = true;
             this.dgvTarjetas.RowTemplate.Height = 25;
@@ -159,7 +159,7 @@
             this.panel1.Controls.Add(this.lblAltaTarjeta);
             this.panel1.Location = new System.Drawing.Point(23, 111);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(717, 529);
+            this.panel1.Size = new System.Drawing.Size(717, 486);
             this.panel1.TabIndex = 30;
             // 
             // label1
@@ -167,7 +167,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(19, 77);
+            this.label1.Location = new System.Drawing.Point(19, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 21);
             this.label1.TabIndex = 18;
@@ -175,7 +175,7 @@
             // 
             // txtBuscadorTarjeta
             // 
-            this.txtBuscadorTarjeta.Location = new System.Drawing.Point(19, 118);
+            this.txtBuscadorTarjeta.Location = new System.Drawing.Point(19, 95);
             this.txtBuscadorTarjeta.Name = "txtBuscadorTarjeta";
             this.txtBuscadorTarjeta.Size = new System.Drawing.Size(192, 23);
             this.txtBuscadorTarjeta.TabIndex = 19;

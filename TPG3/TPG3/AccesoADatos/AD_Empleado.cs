@@ -109,6 +109,7 @@ namespace TPG3.AccesoADatos
                 cmd.CommandText = consulta;
                 cn.Open();
                 cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception)
             {

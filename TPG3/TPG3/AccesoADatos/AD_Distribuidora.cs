@@ -68,5 +68,38 @@ namespace TPG3.AccesoADatos
                 cn.Close();
             }
         }
+        public static string ObtenerNombreDistribuidora(int idDistribuidora)
+        {
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            string nombre = "";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "GetNombreDistribuidora";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@idDistribuidora", idDistribuidora);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null && dr.Read())
+                {
+                    nombre = (dr["nombreDistribuidora"].ToString());
+
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return nombre;
+        }
     }
 }

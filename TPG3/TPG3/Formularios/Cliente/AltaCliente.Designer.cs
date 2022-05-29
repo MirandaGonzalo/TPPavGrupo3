@@ -35,7 +35,7 @@
             this.lblError = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.btnCargarPromocion = new System.Windows.Forms.Button();
+            this.btnCargarCliente = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.mtbTelefono = new System.Windows.Forms.MaskedTextBox();
@@ -70,7 +70,7 @@
             this.panelBackAltaPromocion.Controls.Add(this.lblError);
             this.panelBackAltaPromocion.Controls.Add(this.txtApellido);
             this.panelBackAltaPromocion.Controls.Add(this.txtNombre);
-            this.panelBackAltaPromocion.Controls.Add(this.btnCargarPromocion);
+            this.panelBackAltaPromocion.Controls.Add(this.btnCargarCliente);
             this.panelBackAltaPromocion.Controls.Add(this.txtEmail);
             this.panelBackAltaPromocion.Controls.Add(this.label2);
             this.panelBackAltaPromocion.Controls.Add(this.mtbTelefono);
@@ -131,19 +131,19 @@
             this.txtNombre.Size = new System.Drawing.Size(155, 23);
             this.txtNombre.TabIndex = 27;
             // 
-            // btnCargarPromocion
+            // btnCargarCliente
             // 
-            this.btnCargarPromocion.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnCargarPromocion.FlatAppearance.BorderSize = 0;
-            this.btnCargarPromocion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCargarPromocion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCargarPromocion.Location = new System.Drawing.Point(453, 271);
-            this.btnCargarPromocion.Name = "btnCargarPromocion";
-            this.btnCargarPromocion.Size = new System.Drawing.Size(92, 37);
-            this.btnCargarPromocion.TabIndex = 24;
-            this.btnCargarPromocion.Text = "Cargar";
-            this.btnCargarPromocion.UseVisualStyleBackColor = false;
-            this.btnCargarPromocion.Click += new System.EventHandler(this.btnCargarPromocion_Click);
+            this.btnCargarCliente.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCargarCliente.FlatAppearance.BorderSize = 0;
+            this.btnCargarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarCliente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCargarCliente.Location = new System.Drawing.Point(434, 271);
+            this.btnCargarCliente.Name = "btnCargarCliente";
+            this.btnCargarCliente.Size = new System.Drawing.Size(111, 37);
+            this.btnCargarCliente.TabIndex = 24;
+            this.btnCargarCliente.Text = "Cargar";
+            this.btnCargarCliente.UseVisualStyleBackColor = false;
+            this.btnCargarCliente.Click += new System.EventHandler(this.btnCargarPromocion_Click);
             // 
             // txtEmail
             // 
@@ -272,7 +272,7 @@
         private Label lblError;
         private TextBox txtApellido;
         private TextBox txtNombre;
-        private Button btnCargarPromocion;
+        private Button btnCargarCliente;
         private TextBox txtEmail;
         private Label label2;
         private MaskedTextBox mtbTelefono;

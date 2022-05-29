@@ -23,7 +23,7 @@ namespace TPG3.Formularios.Banco
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener género");
+                MessageBox.Show("Error al obtener bancos.");
             }
         }
         private void txtBuscadorGenero_TextChanged(object sender, EventArgs e)

@@ -147,17 +147,28 @@ namespace TPG3.Formularios.Empleado
                 catch (Exception)
                 {
                     MessageBox.Show("Error.");
+                    return false;
                 }
             }
             else
             {
                 try
                 {
-                    AD_Empleado.EliminarEmpleado(empleado);
+                    AD_Usuario.EliminarUsuario(empleado.dni, empleado.tipoDocumento);
+                    try
+                    {
+                        AD_Empleado.EliminarEmpleado(empleado);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error al eliminar el empleado.");
+                        return false;
+                    }
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Error al eliminar el empleado.");
+                    MessageBox.Show("Error al eliminar el usuario del empleado.");
+                    return false;
                 }
             }
             return true;

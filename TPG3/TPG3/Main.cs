@@ -263,7 +263,7 @@ namespace TPG3
             openChildForm(listaEstado);
         }
 
-        private void btnFuncion_Click(object sender, EventArgs e)
+        public void btnFuncion_Click(object sender, EventArgs e)
         {
             Formularios.Funcion.ListaFuncion listaFuncion = new Formularios.Funcion.ListaFuncion();
             openChildForm(listaFuncion);

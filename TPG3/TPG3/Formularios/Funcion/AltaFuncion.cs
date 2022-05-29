@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using TPG3.AccesoADatos;
+﻿using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Funcion
 {
@@ -21,62 +16,56 @@ namespace TPG3.Formularios.Funcion
         {
             maskedTextBox1.Text = maskedTextBox1.Text.Replace("_", "");
         }
+
+        private string completarFecha(DateTime fechaInicial)
+        {
+            string fecha = fechaInicial.ToString();
+            int charLocation = fecha.IndexOf("/", StringComparison.Ordinal);            
+            string resto = "";
+            string dia = fecha.Substring(0, charLocation);
+            if (dia.Count() == 1) dia = "0" + dia;
+            resto = fecha.Substring(charLocation+1);
+            int charLocation2 = resto.IndexOf("/", StringComparison.Ordinal);            
+            string mes = resto.Substring(0, charLocation2);
+            if (mes.Count() == 1) mes = "0" + mes;            
+            string año = resto.Substring(charLocation2+1);
+            string fechaFinal = dia + "/" + mes + "/" + año;
+            return fechaFinal;           
+        }
+
         private void cargarFormulario(Entidades.Funcion editFuncion)
         {
             if (editFuncion.TipoEdicion > 1)
             {
-                if (editFuncion.TipoEdicion == 2)
-                {
-                    maskedTextBox1.Text = editFuncion.fechaHora.ToString();
-                    lblTitulo.Text = "Modificar Función";
-                }
                 cargarComboSala();
                 cargarComboPelicula();
                 cargarComboEstado();
                 cargarComboFechaInicio();
-                //cuando la fechaInicio es la primera del cmb, simepre me dice q 'ha ocurrido un error'
-                //cargarComboFechaFin();
-
+                cargarComboFechaFin();
+                if (editFuncion.TipoEdicion == 2)
+                {
+                    var fechaHoraOld = editFuncion.fechaHora.ToString();
+                    maskedTextBox1.Text = completarFecha(editFuncion.fechaHora);
+                    lblTitulo.Text = "Modificar Función";
+                    btnCargarFuncion.Text = "Actualizar";
+                    cmbPeli.SelectedIndex = cmbPeli.FindString(editFuncion.nombrePelicula);
+                    cmbPeli.SelectedValue = editFuncion.pelicula;
+                    cmbEstado.SelectedIndex = cmbEstado.FindString(editFuncion.estado);
+                    cmbSala.SelectedIndex = cmbSala.FindString(editFuncion.sala.ToString());
+                    int charLocation = editFuncion.fechaInicio.ToString().IndexOf(" ", StringComparison.Ordinal);
+                    string fechaInicio = editFuncion.fechaInicio.ToString().Substring(0, charLocation);
+                    charLocation = editFuncion.fechaFin.ToString().IndexOf(" ", StringComparison.Ordinal);
+                    string fechaFin = editFuncion.fechaFin.ToString().Substring(0, charLocation);
+                    cmbFechaInicio.SelectedIndex = cmbFechaInicio.FindString(fechaInicio);
+                    cmbFechaFin.SelectedIndex = cmbFechaFin.FindString(fechaFin);
+                }
+                else
+                {
+                    DateTime inicio = DateTime.Now;
+                    maskedTextBox1.Text = completarFecha(inicio);                    
+                }
             }
-            
         }
-
-        //private void cargarComboFechaFin()
-        //{
-        //    string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-        //    //string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
-        //    SqlConnection cn = new SqlConnection(cadenaConexion);
-        //    try
-        //    {
-        //        SqlCommand cmd = new SqlCommand();
-        //        string consulta = "SELECT * FROM ProgramacionSemanal";
-
-        //        cmd.Parameters.Clear();
-        //        cmd.CommandType = CommandType.Text;
-        //        cmd.CommandText = consulta;
-        //        cn.Open();
-        //        cmd.Connection = cn;
-
-        //        DataTable tabla = new DataTable();
-
-        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //        da.Fill(tabla);
-        //        cmbFechaFin.DataSource = tabla;
-        //        cmbFechaFin.DisplayMember = "fechaFin";
-        //        cmbFechaFin.ValueMember = "fechaFin";
-
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        cn.Close();
-        //    }
-        //}
-
         private void btnCargarFuncion_Click(object sender, EventArgs e)
         {
             //validamos los datos
@@ -96,6 +85,7 @@ namespace TPG3.Formularios.Funcion
                         MessageBox.Show("Función actualizada con éxito!");
                     }
                     lblError.Text = "";
+                    volverMenuFuncion(sender, e);
                 }
                 else
                 {
@@ -109,10 +99,26 @@ namespace TPG3.Formularios.Funcion
                 cmbFechaInicio.DataSource = AD_ProgramacionSemanal.ObtenerTablaProgSem();
                 cmbFechaInicio.DisplayMember = "fechaInicio";
                 cmbFechaInicio.ValueMember = "fechaInicio";
+                cmbFechaFin.SelectedIndex = 0;
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al obtener las fechas.");
+                ;
+            }
+        }
+
+        private void cargarComboFechaFin()
+        {
+            try
+            {
+                cmbFechaFin.DataSource = AD_ProgramacionSemanal.ObtenerTablaProgSem();
+                cmbFechaFin.DisplayMember = "fechaFin";
+                cmbFechaFin.ValueMember = "fechaFin";
+                cmbFechaFin.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al obtener las fechas de fin.");
             }
         }
 
@@ -135,13 +141,29 @@ namespace TPG3.Formularios.Funcion
         {
             try
             {
-                cmbPeli.DataSource = AD_Funcion.ObtenerTablaFuncion();
-                cmbPeli.DisplayMember = "Titulo";
+                cmbPeli.DataSource = AD_Pelicula.ObtenerTablaPelicula();
+                cmbPeli.DisplayMember = "ptitulo";
                 cmbPeli.ValueMember = "codPelicula";
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al obtener los estados.");
+                MessageBox.Show("Error al obtener las películas.");
+            }
+        }
+
+        private bool validarFormatoDate(String fecha)
+        {
+            string inputString = fecha;
+            DateTime dDateInicio;
+
+            if (DateTime.TryParse(inputString, out dDateInicio))
+            {
+                String.Format("{0:dd/MM/yyyy hh:mm}", dDateInicio);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -153,85 +175,91 @@ namespace TPG3.Formularios.Funcion
                 maskedTextBox1.Focus();
                 return false;
             }
+            int count = 0;
+            foreach (char c in maskedTextBox1.Text)
+            {
+                count++;
+            }
+            if (count < 16)
+            {
+                lblError.Text = "La Fecha no está completa (dd/mm/yyyy hh:mm).";
+                maskedTextBox1.Focus();
+                return false;
+            }
+            if (!validarFormatoDate(maskedTextBox1.Text))
+            {
+                lblError.Text = "La Fecha no está en el formato correcto (dd/mm/yyyy hh:mm).";
+                maskedTextBox1.Focus();
+                return false;
+            }
+            var date = new DateTime(1800, 1, 1);
+            DateTime fechaInicio = DateTime.ParseExact(maskedTextBox1.Text.Trim(), "dd/MM/yyyy HH:mm", null);
+            if (fechaInicio <= date)
+            {
+                lblError.Text = "La Fecha no es válida.";
+                maskedTextBox1.Focus();
+                return false;
+            }
             return true;
         }
         public bool cargarFunc(Entidades.Funcion func)
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            SqlCommand cmd = new SqlCommand();
-            string consulta = "";
             if (func.TipoEdicion > 1)
             {
                 try
                 {
+                    func.sala = (int)cmbSala.SelectedValue;
+                    func.pelicula = (int)cmbPeli.SelectedValue;
+                    func.estado = cmbEstado.SelectedValue.ToString();
+                    func.fechaInicio = (DateTime)cmbFechaInicio.SelectedValue;
+                    func.fechaFin = (DateTime)cmbFechaFin.SelectedValue;
+                    var fecha = maskedTextBox1.Text;
                     if (func.TipoEdicion == 3)
                     {
-                        consulta = "INSERT INTO Funcion (fechaHora, sala, pelicula, estado, fechaInicio, fechaFin) " +
-                                      "VALUES (@fechaHora, @sala, @pelicula, @estado, @fechaInicio, @fechaFin) ";
+                        try
+                        {
+                            func.fechaHora = DateTime.Parse(fecha);
+                            AD_Funcion.InsertarFuncion(func);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Error al insertar la función!");
+                            return false;
+                        }
                     }
                     else
                     {
-                        consulta = "UPDATE Funcion set sala=@sala, pelicula=@pelicula, estado=@estado, " +
-                            "fechaInicio=@fechaInicio, fechaFin=@fechaFin where fechaHora=@FechaHora ";
+                        try
+                        {
+                            var fechaNueva = DateTime.Parse(fecha);
+                            AD_Funcion.ActualizarFuncion(func, fechaNueva);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Error al modificar la función!");
+                            return false;
+                        }
                     };
-
-                    cmd.Parameters.Clear();
-                    if (func.TipoEdicion == 2)
-                    {
-                        cmd.Parameters.AddWithValue("@fechaHora", func.fechaHora);
-                    }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@fechaHora", maskedTextBox1.Text);
-                    }
-                   
-                    cmd.Parameters.AddWithValue("@sala", cmbSala.SelectedValue);
-                    cmd.Parameters.AddWithValue("@pelicula", cmbPeli.SelectedValue);
-                    cmd.Parameters.AddWithValue("@estado", cmbEstado.SelectedValue);
-                    cmd.Parameters.AddWithValue("@fechaInicio", cmbFechaInicio.SelectedValue);
-                    var fechaFin = DateTime.Parse(cmbFechaInicio.SelectedText);
-                    cmd.Parameters.AddWithValue("@fechaFin", fechaFin.AddDays(7)); 
-             
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
                 }
                 catch (Exception)
                 {
+                    MessageBox.Show("Error!");
                     return false;
                 }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
             }
             else
             {
                 try
                 {
-                    consulta = "DELETE FROM Funcion where fechaHora=@fechaHora ";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@fechaHora", func.fechaHora);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
+                    AD_Funcion.EliminarFuncion(func);
                 }
                 catch (Exception)
                 {
+                    MessageBox.Show("Error al eliminar la función.");
                     return false;
                 }
-                finally
-                {
-                    cn.Close();
-                }
-                return true;
             }
+            return true;
         }
 
         private void cargarComboSala()
@@ -250,7 +278,13 @@ namespace TPG3.Formularios.Funcion
 
         private void cmbFechaInicio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            int index = cmbFechaInicio.SelectedIndex;
+            cmbFechaFin.SelectedIndex = index;
+        }
+
+        private void volverMenuFuncion(object sender, EventArgs e)
+        {
+            Main.main1.btnFuncion_Click(sender, e);
         }
     }
 }

@@ -34,6 +34,14 @@
             this.btnEditarFuncion = new System.Windows.Forms.Button();
             this.dgvFuncion = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.fechaHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pelicula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.semana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncion)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -98,8 +106,18 @@
             // 
             // dgvFuncion
             // 
+            this.dgvFuncion.AllowUserToAddRows = false;
             this.dgvFuncion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFuncion.Location = new System.Drawing.Point(17, 133);
+            this.dgvFuncion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fechaHora,
+            this.pelicula,
+            this.Titulo,
+            this.Sala,
+            this.estado,
+            this.FechaInicio,
+            this.fechaFin,
+            this.semana});
+            this.dgvFuncion.Location = new System.Drawing.Point(18, 106);
             this.dgvFuncion.Name = "dgvFuncion";
             this.dgvFuncion.RowTemplate.Height = 25;
             this.dgvFuncion.Size = new System.Drawing.Size(732, 199);
@@ -114,6 +132,62 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(787, 361);
             this.panel1.TabIndex = 14;
+            // 
+            // fechaHora
+            // 
+            this.fechaHora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fechaHora.DataPropertyName = "fechaHora";
+            this.fechaHora.HeaderText = "Fecha y Hora";
+            this.fechaHora.Name = "fechaHora";
+            // 
+            // pelicula
+            // 
+            this.pelicula.DataPropertyName = "pelicula";
+            this.pelicula.HeaderText = "Pelicula";
+            this.pelicula.Name = "pelicula";
+            this.pelicula.Visible = false;
+            // 
+            // Titulo
+            // 
+            this.Titulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Titulo.DataPropertyName = "titulo";
+            this.Titulo.HeaderText = "Película ";
+            this.Titulo.Name = "Titulo";
+            // 
+            // Sala
+            // 
+            this.Sala.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Sala.DataPropertyName = "sala";
+            this.Sala.HeaderText = "Sala";
+            this.Sala.Name = "Sala";
+            // 
+            // estado
+            // 
+            this.estado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.estado.DataPropertyName = "estado";
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            // 
+            // FechaInicio
+            // 
+            this.FechaInicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FechaInicio.DataPropertyName = "fechaInicio";
+            this.FechaInicio.HeaderText = "Fecha Inicio";
+            this.FechaInicio.Name = "FechaInicio";
+            // 
+            // fechaFin
+            // 
+            this.fechaFin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.fechaFin.DataPropertyName = "fechaFin";
+            this.fechaFin.HeaderText = "Fecha Fin";
+            this.fechaFin.Name = "fechaFin";
+            // 
+            // semana
+            // 
+            this.semana.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.semana.DataPropertyName = "nroSemana";
+            this.semana.HeaderText = "Nro. Semana";
+            this.semana.Name = "semana";
             // 
             // ListaFuncion
             // 
@@ -144,5 +218,13 @@
         private Button btnEditarFuncion;
         private DataGridView dgvFuncion;
         private Panel panel1;
+        private DataGridViewTextBoxColumn fechaHora;
+        private DataGridViewTextBoxColumn pelicula;
+        private DataGridViewTextBoxColumn Titulo;
+        private DataGridViewTextBoxColumn Sala;
+        private DataGridViewTextBoxColumn estado;
+        private DataGridViewTextBoxColumn FechaInicio;
+        private DataGridViewTextBoxColumn fechaFin;
+        private DataGridViewTextBoxColumn semana;
     }
 }

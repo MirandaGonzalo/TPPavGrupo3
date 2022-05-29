@@ -32,5 +32,39 @@ namespace TPG3.AccesoADatos
                 cn.Close();
             }
         }
+
+        public static string ObtenerNombreCalificacion(int codCalificacion)
+        {
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            string nombre = "";
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "GetNombreCalificacion";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@codCalificacion", codCalificacion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null && dr.Read())
+                {
+                    nombre = (dr["abreviatura"].ToString());
+
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return nombre;
+        }
     }
 }

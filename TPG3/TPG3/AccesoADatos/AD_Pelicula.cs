@@ -46,7 +46,6 @@ namespace TPG3.AccesoADatos
                 cmd.Parameters.AddWithValue("@codPelicula", codPelicula);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = consulta;
-
                 cn.Open();
                 cmd.Connection = cn;
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -54,17 +53,17 @@ namespace TPG3.AccesoADatos
                 if (dr != null && dr.Read())
                 {
                     p.CodPelicula = int.Parse(dr["codPelicula"].ToString());
-                    p.Titulo = dr["ptitulo"].ToString();
-                    p.Leyenda = dr["pleyenda"].ToString();
+                    p.Titulo = dr["titulo"].ToString();
+                    p.Leyenda = dr["leyenda"].ToString();
                     p.Duracion = dr["duracion"].ToString();
-                    p.Sinopsis = dr["sinopsis"].ToString();
-                    p.AñoEstreno = int.Parse(dr["añoEstreno"].ToString());
+                    p.Sinopsis = dr["sinposis"].ToString();
                     p.Origen = int.Parse(dr["origen"].ToString());
                     p.Calificacion = int.Parse(dr["calificacion"].ToString());
                     p.Formato = int.Parse(dr["formato"].ToString());
                     p.Genero = int.Parse(dr["genero"].ToString());
                     p.Distribuidora = int.Parse(dr["distribuidora"].ToString());
                     p.Idioma = int.Parse(dr["idioma"].ToString());
+                    p.AñoEstreno = int.Parse(dr["añoEstreno"].ToString());
                 }
             }
             catch (Exception)

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Cliente
 {
@@ -25,6 +26,23 @@ namespace TPG3.Formularios.Cliente
             mtbDni.Text = mtbDni.Text.Replace("_", "");
             mtbTelefono.Text = mtbTelefono.Text.Replace("_", "");
         }
+
+        private string completarFecha(DateTime fechaInicial)
+        {
+            string fecha = fechaInicial.ToString();
+            int charLocation = fecha.IndexOf("/", StringComparison.Ordinal);
+            string resto = "";
+            string dia = fecha.Substring(0, charLocation);
+            if (dia.Count() == 1) dia = "0" + dia;
+            resto = fecha.Substring(charLocation + 1);
+            int charLocation2 = resto.IndexOf("/", StringComparison.Ordinal);
+            string mes = resto.Substring(0, charLocation2);
+            if (mes.Count() == 1) mes = "0" + mes;
+            string año = resto.Substring(charLocation2 + 1);
+            string fechaFinal = dia + "/" + mes + "/" + año;
+            return fechaFinal;
+        }
+
         private void cargarFormulario(Entidades.Cliente editCliente)
         {
             if (editCliente.TipoEdicion > 1)
@@ -42,10 +60,11 @@ namespace TPG3.Formularios.Cliente
                     cbTipoDoc.SelectedValue = editCliente.tipoDocumento;
                     txtNombre.Text = editCliente.nombre;
                     txtApellido.Text = editCliente.apellido;
-                    mtbNacimiento.Text = editCliente.fechaNacimiento.ToString();
+                    mtbNacimiento.Text = completarFecha(editCliente.fechaNacimiento);
                     mtbTelefono.Text = editCliente.telefono.Trim();
                     txtEmail.Text = editCliente.email;
-                    lblTitulo.Text = "Modificar Cliente";
+                    lblTitulo.Text = "Actualizar Cliente";
+                    btnCargarCliente.Text = "Actualizar";
                     limpiarEspacios();
                 }
                 else
@@ -85,37 +104,31 @@ namespace TPG3.Formularios.Cliente
         }
         private void cargarComboTiposDescuentos()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            //string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaDB"];
-            SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = "SELECT * FROM TipoDocumento";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-                cbTipoDoc.DataSource = tabla;
+                cbTipoDoc.DataSource = AD_TipoDocumento.ObtenerTablaTiposDocumentos();
                 cbTipoDoc.DisplayMember = "Nombre";
                 cbTipoDoc.ValueMember = "idTipoDocumento";
-
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Error al obtener los tipos de documentos.");
             }
-            finally
+        }
+
+        private bool validarFormatoDate(String fecha)
+        {
+            string inputString = fecha;
+            DateTime dDateInicio;
+
+            if (DateTime.TryParse(inputString, out dDateInicio))
             {
-                cn.Close();
+                String.Format("{0:dd/MM/yyyy}", dDateInicio);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -139,77 +152,86 @@ namespace TPG3.Formularios.Cliente
                 txtApellido.Focus();
                 return false;
             }
+            int count = 0;
+            foreach (char c in mtbNacimiento.Text)
+            {
+                count++;
+            }
+            if (count < 10)
+            {
+                lblError.Text = "La Fecha no está completa (dd/mm/yyyy).";
+                mtbNacimiento.Focus();
+                return false;
+            }
+            if (!validarFormatoDate(mtbNacimiento.Text))
+            {
+                lblError.Text = "La Fecha de Nacimiento no está en el formato correcto (dd/mm/yyyy).";
+                mtbNacimiento.Focus();
+                return false;
+            }
+            var date = new DateTime(1800, 1, 1);
+            DateTime fechaInicio = DateTime.ParseExact(mtbNacimiento.Text.Trim(), "dd/MM/yyyy", null);
+            if (fechaInicio <= date)
+            {
+                lblError.Text = "La Fecha de Nacimiento no es válida.";
+                mtbNacimiento.Focus();
+                return false;
+            }
             return true;
         }
 
         public bool cargarCliente(Entidades.Cliente cliente)
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            SqlCommand cmd = new SqlCommand();
-            string consulta = "";
             if (cliente.TipoEdicion > 1)
             {
+                cliente.dni = int.Parse(mtbDni.Text);
+                cliente.nombre = txtNombre.Text.Trim();
+                cliente.apellido = txtApellido.Text.Trim();
+                cliente.email = txtEmail.Text.Trim();
+                var fechaN = mtbNacimiento.Text;
+                cliente.fechaNacimiento = DateTime.Parse(fechaN);
+                cliente.telefono = mtbTelefono.Text.Trim();
                 //Crear
                 if (cliente.TipoEdicion == 3)
                 {
-                    consulta = "INSERT INTO Cliente (dni, tipoDocumento, nombre, apellido, fechaNacimiento, email, telefono)" +
-                               "VALUES (@dni,@tipoDocumento,@nombre, @apellido, @fechaNacimiento, @email, @telefono)";
+                    
+                    try
+                    {
+                        cliente.tipoDocumento = (int)cbTipoDoc.SelectedValue;
+                        AD_Cliente.AgregarCliente(cliente);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error al insertar el cliente.");
+                        return false;
+                    }
+                    
                 }
                 //Modificar
                 else
                 {
-                    consulta = "UPDATE Cliente SET nombre=@nombre, apellido=@apellido, fechaNacimiento=@fechaNacimiento, " +
-                               "email=@email, telefono=@telefono where dni = @dni and tipoDocumento=@tipoDocumento ";
-                }
-                try
-                {
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@apellido", txtApellido.Text);
-                    cmd.Parameters.AddWithValue("@fechaNacimiento", mtbNacimiento.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@telefono", mtbTelefono.Text);
-                    cmd.Parameters.AddWithValue("@dni", mtbDni.Text);
-                    if (cliente.TipoEdicion == 2) cmd.Parameters.AddWithValue("@tipoDocumento", cliente.tipoDocumento);
-                    if (cliente.TipoEdicion == 3) cmd.Parameters.AddWithValue("@tipoDocumento", cbTipoDoc.SelectedValue);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-                finally
-                {
-                    cn.Close();
+                    try
+                    {
+                        AD_Cliente.ActualizarCliente(cliente);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error al actualizar el cliente.");
+                        return false;
+                    }
                 }
             }
             else
             {
                 try
                 {
-                    consulta = "DELETE FROM Cliente WHERE dni = @dni and tipoDocumento = @tipoDocumento";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@dni", cliente.dni);
-                    cmd.Parameters.AddWithValue("@tipoDocumento", cliente.tipoDocumento);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = consulta;
-                    cn.Open();
-                    cmd.Connection = cn;
-                    cmd.ExecuteNonQuery();
+                    AD_Cliente.EliminarCliente(cliente);
                 }
                 catch (Exception)
                 {
                     return false;
                 }
-                finally
-                {
-                    cn.Close();
-                }
+                
             }
             return true;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using TPG3.AccesoADatos;
 
 namespace TPG3.Formularios.Cliente
 {
@@ -20,34 +20,12 @@ namespace TPG3.Formularios.Cliente
 
         private void cargarGrilla()
         {
-            string cadenaConexion = "Data Source=200.69.137.167,11333;Initial Catalog=BD3K7G03_2022;Persist Security Info=True;User ID=BD3K7G03_2022;Password=PSW03_98074";
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                string query = "SELECT c.tipoDocumento,t.nombre as 'tipoDoc', dni,c.nombre, c.apellido,c.fechaNacimiento, " +
-                "c.email,c.telefono FROM Cliente c " +
-                "INNER JOIN TipoDocumento AS t ON(c.tipoDocumento = t.idTipoDocumento) ";
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = query;
-                cn.Open();
-                cmd.Connection = cn;
-
-                DataTable tabla = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-                dgvClientes.DataSource = tabla;
+            try { 
+                dgvClientes.DataSource = AD_Cliente.ObtenerTablaCliente();
             }
             catch (Exception)
             {
                 throw;
-            }
-            finally
-            {
-                cn.Close();
             }
         }
 

@@ -37,6 +37,39 @@ namespace TPG3.AccesoADatos
             }
         }
 
+        public static DataTable ObtenerTablaFuncionesDisponibles(int codPelicula)
+        {
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "GetFuncionesDisponibles";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@codPelicula", codPelicula);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+
+                DataTable tablaFuncion = new DataTable();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(tablaFuncion);
+                return tablaFuncion;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        
+
         public static void EliminarFuncion(Funcion funcion)
         {
             string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];

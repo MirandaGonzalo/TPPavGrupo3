@@ -37,5 +37,36 @@ namespace TPG3.AccesoADatos
                 cn.Close();
             }
         }
+
+        public static DataTable GetInfoCombos()
+        {
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "GetInfoCombos";
+
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                DataTable tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+                return tabla;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
     }
 }
+

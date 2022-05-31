@@ -461,7 +461,7 @@
             this.gdrActualizarPeli.Name = "gdrActualizarPeli";
             this.gdrActualizarPeli.ReadOnly = true;
             this.gdrActualizarPeli.RowTemplate.Height = 25;
-            this.gdrActualizarPeli.Size = new System.Drawing.Size(767, 228);
+            this.gdrActualizarPeli.Size = new System.Drawing.Size(767, 162);
             this.gdrActualizarPeli.TabIndex = 26;
             this.gdrActualizarPeli.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gdrActualizarPeli_CellClick);
             // 

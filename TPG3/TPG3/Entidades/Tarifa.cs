@@ -20,5 +20,7 @@ namespace TPG3.Entidades
             this.valor = valor;
             this.codFormato = codFormato;
         }
+
+        public Tarifa () { }
     }
 }

@@ -28,5 +28,7 @@ namespace TPG3.Entidades
             this.fechaFin = fechaFin;
             this.TipoEdicion = TipoEdicion;
         }
+
+        public Funcion () { }
     }
 }

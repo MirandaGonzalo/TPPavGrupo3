@@ -1,4 +1,6 @@
 using System;
+using TPG3.Entidades;
+using TPG3.CapaLogicaNegocio;
 
 namespace TPG3
 {
@@ -6,11 +8,13 @@ namespace TPG3
     {
         private static Form currentForm = null; 
         internal static Main main1;
-        public Main()
+        public Usuario usuario;
+        public Main(Usuario user)
         {
             InitializeComponent();
             hideSubMenu();
             main1 = this;
+            usuario = user;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -297,6 +301,40 @@ namespace TPG3
         {
             Formularios.Usuario.listadoUsuario listaUsuario = new Formularios.Usuario.listadoUsuario();
             openChildForm(listaUsuario);
+        }
+
+        public void formPagoCombo(List<EditItemCombo> items)
+        {
+            PagoCombo pagoCombo = new PagoCombo(items);
+            openChildForm(pagoCombo);
+        }
+        public void btnVolverSeleccionPelicula(object sender, EventArgs e)
+        {
+            PeliculaService seleccionPelicula = new PeliculaService();
+            openChildForm(seleccionPelicula);
+        }
+        
+        private void btnSubTicket_Click(object sender, EventArgs e)
+        {
+            Combo ventaCombo = new Combo();
+            openChildForm(ventaCombo);
+        }
+
+        private void btnSubEntrada_Click(object sender, EventArgs e)
+        {
+            PeliculaService peliService = new PeliculaService();
+            openChildForm(peliService);
+        }
+
+        public void formTarifa(DateTime fechaHora,int sala, int codFormato)
+        {
+            TarifaService tarifaService = new TarifaService(fechaHora,sala, codFormato);
+            openChildForm(tarifaService);
+        }
+        public void formSeleccionarAsientos(DateTime fechaHora, int sala, int cantSolicitada)
+        {
+            SeleccionAsientoFuncion selecAsiento = new SeleccionAsientoFuncion(fechaHora, sala, cantSolicitada);
+            openChildForm(selecAsiento);
         }
     }
 }

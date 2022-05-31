@@ -4,19 +4,21 @@ using TPG3.Entidades;
 
 namespace TPG3.AccesoADatos
 {
-    public class AD_ComposicionCombo
+    public class AD_Ticket
     {
-        public static bool eliminarProductoCombo(Producto producto)
+        public static void RegistrarTicket(Ticket ticket)
         {
             string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
             SqlConnection cn = new SqlConnection(cadenaConexion);
             try
             {
                 SqlCommand cmd = new SqlCommand();
-
-                string consulta = "EliminarProductoCombo";
+                string consulta = "InsertTicket";
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@idProducto", producto.idProducto);
+                cmd.Parameters.AddWithValue("@fechaHora", ticket.fechaHoraVenta);
+                cmd.Parameters.AddWithValue("@medioPago", ticket.medioPago);
+                cmd.Parameters.AddWithValue("@dniEmpleado", ticket.dniEmpelado);
+                cmd.Parameters.AddWithValue("@tipoDocEmpleado", ticket.tipoDocEmpleado);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = consulta;
                 cn.Open();
@@ -25,41 +27,6 @@ namespace TPG3.AccesoADatos
             }
             catch (Exception)
             {
-                return false;
-            }
-            finally
-            {
-                cn.Close();
-            }
-            bool result = AD_Producto.eliminarProducto(producto);
-            return result;
-        }
-
-        public static bool estaEnCombo(Producto producto)
-        {
-            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                var consulta = "EstaEnCombo";
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@idProducto", producto.idProducto);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-                SqlDataReader dr = cmd.ExecuteReader();
-                bool existe = false;
-                if (dr != null && dr.Read())
-                {
-                    existe = true;
-                }
-                return existe;
-            }
-            catch (Exception)
-            {
-
                 throw;
             }
             finally
@@ -67,6 +34,41 @@ namespace TPG3.AccesoADatos
                 cn.Close();
             }
         }
+        public static int GetNumeroTicket(Ticket ticket)
+        {            
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            int nroTicket = -1;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "GetNumeroTicket";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@fechaHora", ticket.fechaHoraVenta);
+                cmd.Parameters.AddWithValue("@medioPago", ticket.medioPago);
+                cmd.Parameters.AddWithValue("@dniEmpleado", ticket.dniEmpelado);
+                cmd.Parameters.AddWithValue("@tipoDocEmpleado", ticket.tipoDocEmpleado);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                SqlDataReader dr = cmd.ExecuteReader();
 
+                if (dr != null && dr.Read())
+                {
+                    nroTicket = int.Parse(dr["nroTicket"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return nroTicket;
+        }
     }
 }
+

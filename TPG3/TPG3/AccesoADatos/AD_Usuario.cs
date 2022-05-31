@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using TPG3.Entidades;
 
 namespace TPG3.AccesoADatos
 {
@@ -58,6 +59,44 @@ namespace TPG3.AccesoADatos
             {
                 cn.Close();
             }
+        }
+
+        public static Usuario validarUsuario(string nombre, string password)
+        {
+            Usuario u = new Usuario(-1,"",-1,-1,DateTime.Now,"");
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "ValidarUsuario";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@nombreUsuario", nombre);
+                cmd.Parameters.AddWithValue("@contraseña", password);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null && dr.Read())
+                {
+                    u.idUsuario = int.Parse(dr["idUsuario"].ToString());
+                    u.nombreUsuario = dr["nombreUsuario"].ToString();
+                    u.dni = int.Parse(dr["dni"].ToString());
+                    u.tipoDocumento = int.Parse(dr["tipoDocumento"].ToString());
+                    u.fechaAlta = DateTime.Parse(dr["fechaAlta"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return u;
         }
     }
 }

@@ -11,14 +11,20 @@ namespace TPG3.CapaLogicaNegocio
         private int sala;
         private int codFormato;
         List<int> listaTarifasSel;
+        List<int> cantidadXTarifa;
+        public int asientosDisp;
         public TarifaService(DateTime fechaH, int salaS, int formato)
         {
             listaTarifasSel = new List<int>();
+            cantidadXTarifa = new List<int>();
             listaTarifasSel.Add(-1);
             this.fechaHora = fechaH;
             this.sala = salaS;
             this.codFormato = formato;
+            var asOc = AD_AsientoXSala.GetAsientos(fechaHora, sala);
+            this.asientosDisp = 34 - asOc.Count;
             InitializeComponent();
+            lblAsientosDis.Text = "Asientos Disponibles: " + asientosDisp.ToString();
         }
 
         private void TarifaService_Load(object sender, EventArgs e)
@@ -128,7 +134,14 @@ namespace TPG3.CapaLogicaNegocio
             }
             var precioFinal = int.Parse(lblPrecioFinal.Text);
             float precioConPromocion = precioFinal - total;
-            lblPrecioFinalDescuento.Text = precioConPromocion.ToString();
+            if (precioConPromocion < 0)
+            {
+                lblPrecioFinalDescuento.Text = "0";
+            }
+            else
+            {
+                lblPrecioFinalDescuento.Text = precioConPromocion.ToString();
+            }
         }
 
         private void gdrSeleccionTarifa_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -171,7 +184,7 @@ namespace TPG3.CapaLogicaNegocio
             gridSeleccionPromo.Rows.RemoveAt(eliminar);
         }
 
-        private int cantidadEntadas()
+        private int cantidadEntradas()
         {
             int cantidad = 0;
             for (int rows = 0; rows < grdTarifasSel.Rows.Count; rows++)
@@ -201,6 +214,22 @@ namespace TPG3.CapaLogicaNegocio
             gridPromoSel.Rows.Clear();
             CargarGrillaPromo();
         }
+        private List<int> obtenerCantidadXTarifa()
+        {
+            List<int> listaCantTarifas = new List<int>();
+            int cantidad = -1;
+            int id = -1;
+            for (int rows = 0; rows < grdTarifasSel.Rows.Count; rows++)
+            {
+                id = int.Parse(grdTarifasSel.Rows[rows].Cells[0].Value.ToString());
+                cantidad = int.Parse(grdTarifasSel.Rows[rows].Cells[4].Value.ToString());
+                for (int j = 0; j < cantidad; j++)
+                {
+                    listaCantTarifas.Add(id);
+                }
+            }
+            return listaCantTarifas;
+        }
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
@@ -216,8 +245,16 @@ namespace TPG3.CapaLogicaNegocio
                 }
                 else
                 {
-                    //despues busco que valores pasar
-                    Main.main1.formSeleccionarAsientos(fechaHora, sala, cantidadEntadas());
+                    string promocion = (gridPromoSel.Rows[0].Cells[0].Value.ToString());
+                    int cantEntradas = cantidadEntradas();
+                    if (cantEntradas > asientosDisp)
+                    {
+                        MessageBox.Show("La cantidad de asientos ingresada no es válida.");
+                    }
+                    else
+                    {
+                        Main.main1.formSeleccionarAsientos(fechaHora, sala, obtenerCantidadXTarifa(), cantidadEntradas(), promocion, codFormato);
+                    }
                 }
             }
         }

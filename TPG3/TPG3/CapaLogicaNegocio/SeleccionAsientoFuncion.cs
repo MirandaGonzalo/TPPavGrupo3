@@ -7,18 +7,24 @@ namespace TPG3.CapaLogicaNegocio
     public partial class SeleccionAsientoFuncion : Form
     {
         private List<string> asientosOcupados = new List<string>();
-        private List<string> asientosOcupadosNuevos = new List<string>();
-        public DateTime fechaHora;
+        private List<string> asientosOcupadosNuevos = new List<string>();        
+        private List<int> listaCantidadXTarifaSeleccionadas = new List<int>();
+        public DateTime fechaHoraFuncion;
         public int sala;
         public int cantidadEntradasSolicitadas;
         public int cantidadEntradasPosibles = 34;
-        public SeleccionAsientoFuncion(DateTime fechaHoraS, int salaS, int cantS)
+        public int codFormato;
+        public string promocion;
+        public SeleccionAsientoFuncion(DateTime fechaHoraS, int salaS,List<int> listaCantxTarifa,int cantS, string promo, int formato)
         {
-            this.fechaHora = fechaHoraS;
-            this.sala = salaS;
+            this.fechaHoraFuncion = fechaHoraS;
+            this.sala = salaS;            
+            this.listaCantidadXTarifaSeleccionadas = listaCantxTarifa;
             this.cantidadEntradasSolicitadas = cantS;
+            this.promocion = promo;
+            this.codFormato = formato;
             InitializeComponent();
-            this.asientosOcupados = AD_AsientoXSala.GetAsientos(fechaHora, sala);
+            this.asientosOcupados = AD_AsientoXSala.GetAsientos(fechaHoraFuncion, sala);
             if (asientosOcupados == null)
             {
                 asientosOcupados.Add("-1");
@@ -77,6 +83,40 @@ namespace TPG3.CapaLogicaNegocio
                 else
                 {
                     MessageBox.Show("Ya se encuentran todos los asientos solicitados ocupados.");
+                }
+            }
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            if (asientosOcupadosNuevos.Count < cantidadEntradasSolicitadas)
+            {
+                MessageBox.Show("No se ocuparon todos los asientos solicitiados.", "Atención!!");
+            }
+            else
+            {
+                var confirmResult = MessageBox.Show("Desea reservar estos asientos ??",
+                                     "Atención!!",
+                                     MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    //fechaHoraVenta
+                    //fechaHoraFuncion
+                    //sala
+                    //asientos
+                    //tarifa
+                    //promocion
+
+                    var result = AD_Entrada.RegistrarEntrada(fechaHoraFuncion, sala, asientosOcupadosNuevos, listaCantidadXTarifaSeleccionadas, promocion, Main.main1.usuario);
+                    if (result)
+                    {
+                        MessageBox.Show("Reserva realizada con éxito.");
+                        Main.main1.btnEstadoFuncion(fechaHoraFuncion, sala, codFormato);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al reservar los asientos!");
+                    }
                 }
             }
         }
@@ -285,22 +325,5 @@ namespace TPG3.CapaLogicaNegocio
             ocuparAsiento(btn);
         }
 
-        private void btnConfirmar_Click(object sender, EventArgs e)
-        {
-            if (asientosOcupadosNuevos.Count < cantidadEntradasSolicitadas)
-            {
-                MessageBox.Show("No se ocuparon todos los asientos solicitiados.","Atención!!");
-            }
-            else
-            {
-                var confirmResult = MessageBox.Show("Desea reservar estos asientos ??",
-                                     "Atención!!",
-                                     MessageBoxButtons.YesNo);
-                if (confirmResult == DialogResult.Yes)
-                {
-                    
-                }
-            }
-        }
     }
 }

@@ -4,9 +4,6 @@
     <Compile Update="CapaLogicaNegocio\Combo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CapaLogicaNegocio\FuncionService.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="CapaLogicaNegocio\PagoCombo.cs">
       <SubType>Form</SubType>
     </Compile>

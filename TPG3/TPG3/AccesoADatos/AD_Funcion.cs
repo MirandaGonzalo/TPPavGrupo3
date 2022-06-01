@@ -158,5 +158,38 @@ namespace TPG3.AccesoADatos
                 cn.Close();
             }
         }
+        public static int GetFormatoPelicula(int codPelicula)
+        {
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            int formato = -1;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "GetFormatoPelicula";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@codPelicula", codPelicula);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null && dr.Read())
+                {
+                    formato = int.Parse(dr["formato"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return formato;
+        }
     }
 }
+

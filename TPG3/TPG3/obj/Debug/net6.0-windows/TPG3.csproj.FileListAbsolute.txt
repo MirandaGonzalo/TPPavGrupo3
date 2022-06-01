@@ -12,7 +12,6 @@ D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\runtimes\unix\lib\
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.csproj.AssemblyReference.cache
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.CapaLogicaNegocio.Combo.resources
-D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.CapaLogicaNegocio.FuncionService.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.CapaLogicaNegocio.PagoCombo.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.CapaLogicaNegocio.PeliculaService.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.CapaLogicaNegocio.SeleccionAsientoFuncion.resources
@@ -65,3 +64,4 @@ D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\refint\TPG3.dll
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.pdb
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.genruntimeconfig.cache
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\ref\TPG3.dll
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Funcion.EstadoFuncion.resources

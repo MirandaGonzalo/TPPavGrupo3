@@ -66,55 +66,20 @@ namespace TPG3.CapaLogicaNegocio
                 {
                     var fechaHora = DateTime.Now;
                     var medioPago = int.Parse(dgvMedioPagoSel.Rows[0].Cells[0].Value.ToString());
-                    Ticket tick = new Ticket(-1, fechaHora, medioPago, Main.main1.usuario.dni, Main.main1.usuario.tipoDocumento);
-                    int nroTicket = 0;
-                    try
+                    int ultimoNroTicket = AD_Ticket.GetUltimoNumeroTicket();
+                    Ticket tick = new Ticket(ultimoNroTicket+1, fechaHora, medioPago, Main.main1.usuario.dni, Main.main1.usuario.tipoDocumento);
+                    var result = AD_Ticket.RegistrarTicket(tick, listaCombos);
+                    if (result)
                     {
-                        AD_Ticket.RegistrarTicket(tick);
+                        MessageBox.Show("Ticket creado con éxito.");
                     }
-                    catch (Exception)
+                    else
                     {
-                        MessageBox.Show("Error al crear el ticket.");
-                        ;
+                        MessageBox.Show("Error al generar el ticket.");
                     }
-                    try
-                    {
-                        nroTicket = AD_Ticket.GetNumeroTicket(tick);
-                        if (nroTicket == -1)
-                        {
-                            MessageBox.Show("Error al crear el ticket.");
-                            ;
-                        }
-                        else
-                        {
-                            DetalleTicketCombo detalle = new DetalleTicketCombo(-1, nroTicket, -1, -1);                            
-                            int nroCombo = -1;
-                            int cantidad = -1;
-                            for (int i = 0; i < listaCombos.Count; i++)
-                            {
-                                nroCombo = listaCombos[i].idProducto;
-                                cantidad = listaCombos[i].cantidad;
-                                detalle.orden = i + 1;
-                                detalle.nroCombo = nroCombo;
-                                detalle.cantidad = cantidad;
-                                try
-                                {
-                                    AD_DetalleTicketCombo.AgregarDetalleTicketCombo(detalle);
-                                }
-                                catch (Exception)
-                                {
-                                    MessageBox.Show("Error al ingresar el item.");
-                                    ;
-                                }
-                            }
-                        }
-                    }
-                    catch (Exception)
-                    {
+                    
 
-                        throw;
-                    }
-                }
+                }                    
                 Main.main1.formPagoCombo(listaCombos);
             }
         }

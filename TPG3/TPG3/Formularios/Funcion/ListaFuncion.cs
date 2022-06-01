@@ -88,5 +88,16 @@ namespace TPG3.Formularios.Funcion
                 }
             }
         }
+
+        private void btnAsientos_Click(object sender, EventArgs e)
+        {
+            var currentRow = dgvFuncion.CurrentCell.RowIndex;
+            DataGridViewRow selectedRow = dgvFuncion.Rows[currentRow];
+            DateTime fechaHora = DateTime.Parse(dgvFuncion.Rows[currentRow].Cells[0].Value.ToString());
+            int pelicula = int.Parse(dgvFuncion.Rows[currentRow].Cells[1].Value.ToString());
+            int sala = int.Parse(dgvFuncion.Rows[currentRow].Cells[3].Value.ToString());
+            int formato = AD_Funcion.GetFormatoPelicula(pelicula);
+            Main.main1.btnEstadoFuncion(fechaHora, sala, formato);
+        }
     }
 }

@@ -35,7 +35,6 @@ namespace TPG3.Formularios.Combo
                 txtNombreCombo.Text = combo.nombre;
                 txtDescripcionCombo.Text = combo.descripcion;
                 txtPrecioCombo.Text = combo.precio.ToString();
-                txtCantidadCombo.Text = combo.cantidadItems.ToString();
                 txtIdProducto.Text = combo.idProducto.ToString();
                 btnAgregarCombo.Visible = false;
             }
@@ -142,8 +141,7 @@ namespace TPG3.Formularios.Combo
         {
             txtNombreCombo.Text = "";
             txtPrecioCombo.Text = "";
-            txtDescripcionCombo.Text = "";
-            txtCantidadCombo.Text = "";
+            txtDescripcionCombo.Text = "";            
         }
 
         private int cantidadProductos()

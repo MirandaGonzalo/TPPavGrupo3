@@ -33,7 +33,6 @@
             this.btnEliminarFuncion = new System.Windows.Forms.Button();
             this.btnEditarFuncion = new System.Windows.Forms.Button();
             this.dgvFuncion = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.fechaHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pelicula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +41,8 @@
             this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.semana = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAsientos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncion)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -124,15 +125,6 @@
             this.dgvFuncion.TabIndex = 3;
             this.dgvFuncion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncion_CellContentClick);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
-            this.panel1.Controls.Add(this.dgvFuncion);
-            this.panel1.Location = new System.Drawing.Point(34, 62);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 361);
-            this.panel1.TabIndex = 14;
-            // 
             // fechaHora
             // 
             this.fechaHora.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -189,6 +181,31 @@
             this.semana.HeaderText = "Nro. Semana";
             this.semana.Name = "semana";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
+            this.panel1.Controls.Add(this.btnAsientos);
+            this.panel1.Controls.Add(this.dgvFuncion);
+            this.panel1.Location = new System.Drawing.Point(34, 62);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(787, 361);
+            this.panel1.TabIndex = 14;
+            // 
+            // btnAsientos
+            // 
+            this.btnAsientos.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAsientos.FlatAppearance.BorderSize = 0;
+            this.btnAsientos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsientos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAsientos.ForeColor = System.Drawing.Color.White;
+            this.btnAsientos.Location = new System.Drawing.Point(337, 20);
+            this.btnAsientos.Name = "btnAsientos";
+            this.btnAsientos.Size = new System.Drawing.Size(168, 47);
+            this.btnAsientos.TabIndex = 15;
+            this.btnAsientos.Text = "Asientos Funcion";
+            this.btnAsientos.UseVisualStyleBackColor = false;
+            this.btnAsientos.Click += new System.EventHandler(this.btnAsientos_Click);
+            // 
             // ListaFuncion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -226,5 +243,6 @@
         private DataGridViewTextBoxColumn FechaInicio;
         private DataGridViewTextBoxColumn fechaFin;
         private DataGridViewTextBoxColumn semana;
+        private Button btnAsientos;
     }
 }

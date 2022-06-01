@@ -86,6 +86,12 @@ namespace TPG3
             openChildForm(altaFuncion);
         }
 
+        public void btnEstadoFuncion(DateTime fechaHora, int sala, int formato)
+        {
+            Formularios.Funcion.EstadoFuncion estadoFuncion = new Formularios.Funcion.EstadoFuncion(fechaHora, sala, formato);
+            openChildForm(estadoFuncion);
+        }
+
         private void btnMenuTicket_Click(object sender, EventArgs e)
         {
             showSubMenu(panelSubMenuTicket);
@@ -331,9 +337,9 @@ namespace TPG3
             TarifaService tarifaService = new TarifaService(fechaHora,sala, codFormato);
             openChildForm(tarifaService);
         }
-        public void formSeleccionarAsientos(DateTime fechaHora, int sala, int cantSolicitada)
+        public void formSeleccionarAsientos(DateTime fechaHora, int sala,List<int> listaCantXTarifa, int cantSolicitada, string promocion, int codFormato)
         {
-            SeleccionAsientoFuncion selecAsiento = new SeleccionAsientoFuncion(fechaHora, sala, cantSolicitada);
+            SeleccionAsientoFuncion selecAsiento = new SeleccionAsientoFuncion(fechaHora, sala,listaCantXTarifa, cantSolicitada, promocion, codFormato);
             openChildForm(selecAsiento);
         }
     }

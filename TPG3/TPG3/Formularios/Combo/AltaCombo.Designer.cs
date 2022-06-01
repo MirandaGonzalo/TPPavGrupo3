@@ -44,7 +44,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrecioCombo = new System.Windows.Forms.TextBox();
-            this.txtCantidadCombo = new System.Windows.Forms.TextBox();
             this.dgvMisProductos = new System.Windows.Forms.DataGridView();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +51,6 @@
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNombreCombo = new System.Windows.Forms.TextBox();
-            this.lblCantidad = new System.Windows.Forms.Label();
             this.btnProductoViejo = new System.Windows.Forms.Button();
             this.lblProdCombo = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -81,10 +79,8 @@
             this.pnlListadoProducto.Controls.Add(this.dgvNuevosProductos);
             this.pnlListadoProducto.Controls.Add(this.dgvProductosDispo);
             this.pnlListadoProducto.Controls.Add(this.txtPrecioCombo);
-            this.pnlListadoProducto.Controls.Add(this.txtCantidadCombo);
             this.pnlListadoProducto.Controls.Add(this.dgvMisProductos);
             this.pnlListadoProducto.Controls.Add(this.txtNombreCombo);
-            this.pnlListadoProducto.Controls.Add(this.lblCantidad);
             this.pnlListadoProducto.Controls.Add(this.btnProductoViejo);
             this.pnlListadoProducto.Controls.Add(this.lblProdCombo);
             this.pnlListadoProducto.Controls.Add(this.btnAgregar);
@@ -103,7 +99,7 @@
             // 
             // txtIdProducto
             // 
-            this.txtIdProducto.Location = new System.Drawing.Point(205, 115);
+            this.txtIdProducto.Location = new System.Drawing.Point(474, 33);
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(100, 23);
             this.txtIdProducto.TabIndex = 44;
@@ -126,7 +122,7 @@
             this.btnProductoNuevo.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnProductoNuevo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnProductoNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnProductoNuevo.Image")));
-            this.btnProductoNuevo.Location = new System.Drawing.Point(1033, 251);
+            this.btnProductoNuevo.Location = new System.Drawing.Point(1033, 238);
             this.btnProductoNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.btnProductoNuevo.Name = "btnProductoNuevo";
             this.btnProductoNuevo.Size = new System.Drawing.Size(54, 49);
@@ -139,7 +135,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(641, 181);
+            this.label2.Location = new System.Drawing.Point(641, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(263, 25);
             this.label2.TabIndex = 41;
@@ -154,7 +150,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
-            this.dgvNuevosProductos.Location = new System.Drawing.Point(641, 229);
+            this.dgvNuevosProductos.Location = new System.Drawing.Point(641, 196);
             this.dgvNuevosProductos.Name = "dgvNuevosProductos";
             this.dgvNuevosProductos.RowTemplate.Height = 25;
             this.dgvNuevosProductos.Size = new System.Drawing.Size(349, 150);
@@ -192,7 +188,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn4});
-            this.dgvProductosDispo.Location = new System.Drawing.Point(28, 437);
+            this.dgvProductosDispo.Location = new System.Drawing.Point(28, 401);
             this.dgvProductosDispo.Name = "dgvProductosDispo";
             this.dgvProductosDispo.RowTemplate.Height = 25;
             this.dgvProductosDispo.Size = new System.Drawing.Size(327, 150);
@@ -221,17 +217,10 @@
             // 
             // txtPrecioCombo
             // 
-            this.txtPrecioCombo.Location = new System.Drawing.Point(205, 50);
+            this.txtPrecioCombo.Location = new System.Drawing.Point(327, 33);
             this.txtPrecioCombo.Name = "txtPrecioCombo";
             this.txtPrecioCombo.Size = new System.Drawing.Size(118, 23);
             this.txtPrecioCombo.TabIndex = 38;
-            // 
-            // txtCantidadCombo
-            // 
-            this.txtCantidadCombo.Location = new System.Drawing.Point(28, 115);
-            this.txtCantidadCombo.Name = "txtCantidadCombo";
-            this.txtCantidadCombo.Size = new System.Drawing.Size(118, 23);
-            this.txtCantidadCombo.TabIndex = 37;
             // 
             // dgvMisProductos
             // 
@@ -243,7 +232,7 @@
             this.cantidad,
             this.precio,
             this.total});
-            this.dgvMisProductos.Location = new System.Drawing.Point(28, 229);
+            this.dgvMisProductos.Location = new System.Drawing.Point(28, 196);
             this.dgvMisProductos.Name = "dgvMisProductos";
             this.dgvMisProductos.RowTemplate.Height = 25;
             this.dgvMisProductos.Size = new System.Drawing.Size(441, 150);
@@ -282,21 +271,10 @@
             // 
             // txtNombreCombo
             // 
-            this.txtNombreCombo.Location = new System.Drawing.Point(28, 50);
+            this.txtNombreCombo.Location = new System.Drawing.Point(104, 29);
             this.txtNombreCombo.Name = "txtNombreCombo";
             this.txtNombreCombo.Size = new System.Drawing.Size(118, 23);
             this.txtNombreCombo.TabIndex = 35;
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCantidad.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad.Location = new System.Drawing.Point(28, 76);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(69, 19);
-            this.lblCantidad.TabIndex = 32;
-            this.lblCantidad.Text = "Cantidad";
             // 
             // btnProductoViejo
             // 
@@ -306,7 +284,7 @@
             this.btnProductoViejo.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnProductoViejo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnProductoViejo.Image = ((System.Drawing.Image)(resources.GetObject("btnProductoViejo.Image")));
-            this.btnProductoViejo.Location = new System.Drawing.Point(507, 251);
+            this.btnProductoViejo.Location = new System.Drawing.Point(507, 238);
             this.btnProductoViejo.Margin = new System.Windows.Forms.Padding(0);
             this.btnProductoViejo.Name = "btnProductoViejo";
             this.btnProductoViejo.Size = new System.Drawing.Size(54, 49);
@@ -319,7 +297,7 @@
             this.lblProdCombo.AutoSize = true;
             this.lblProdCombo.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblProdCombo.ForeColor = System.Drawing.Color.White;
-            this.lblProdCombo.Location = new System.Drawing.Point(28, 181);
+            this.lblProdCombo.Location = new System.Drawing.Point(28, 152);
             this.lblProdCombo.Name = "lblProdCombo";
             this.lblProdCombo.Size = new System.Drawing.Size(194, 25);
             this.lblProdCombo.TabIndex = 28;
@@ -333,7 +311,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAgregar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
-            this.btnAgregar.Location = new System.Drawing.Point(415, 437);
+            this.btnAgregar.Location = new System.Drawing.Point(391, 443);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(0);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(54, 49);
@@ -346,7 +324,7 @@
             this.lblListadoProductos.AutoSize = true;
             this.lblListadoProductos.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblListadoProductos.ForeColor = System.Drawing.Color.White;
-            this.lblListadoProductos.Location = new System.Drawing.Point(28, 394);
+            this.lblListadoProductos.Location = new System.Drawing.Point(28, 363);
             this.lblListadoProductos.Name = "lblListadoProductos";
             this.lblListadoProductos.Size = new System.Drawing.Size(164, 25);
             this.lblListadoProductos.TabIndex = 15;
@@ -359,7 +337,7 @@
             this.btnLimpiarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarCampos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLimpiarCampos.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(398, 130);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(937, 128);
             this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(0);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(150, 28);
@@ -375,7 +353,7 @@
             this.btnActualizarCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarCombo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnActualizarCombo.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnActualizarCombo.Location = new System.Drawing.Point(725, 130);
+            this.btnActualizarCombo.Location = new System.Drawing.Point(994, 33);
             this.btnActualizarCombo.Margin = new System.Windows.Forms.Padding(0);
             this.btnActualizarCombo.Name = "btnActualizarCombo";
             this.btnActualizarCombo.Size = new System.Drawing.Size(93, 28);
@@ -391,7 +369,7 @@
             this.btnAgregarCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarCombo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAgregarCombo.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAgregarCombo.Location = new System.Drawing.Point(589, 130);
+            this.btnAgregarCombo.Location = new System.Drawing.Point(994, 79);
             this.btnAgregarCombo.Margin = new System.Windows.Forms.Padding(0);
             this.btnAgregarCombo.Name = "btnAgregarCombo";
             this.btnAgregarCombo.Size = new System.Drawing.Size(93, 28);
@@ -402,7 +380,7 @@
             // 
             // txtDescripcionCombo
             // 
-            this.txtDescripcionCombo.Location = new System.Drawing.Point(367, 50);
+            this.txtDescripcionCombo.Location = new System.Drawing.Point(111, 84);
             this.txtDescripcionCombo.Name = "txtDescripcionCombo";
             this.txtDescripcionCombo.Size = new System.Drawing.Size(300, 45);
             this.txtDescripcionCombo.TabIndex = 18;
@@ -413,7 +391,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(382, 19);
+            this.label1.Location = new System.Drawing.Point(18, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 19);
             this.label1.TabIndex = 25;
@@ -424,7 +402,7 @@
             this.lblPrecioCombo.AutoSize = true;
             this.lblPrecioCombo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPrecioCombo.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioCombo.Location = new System.Drawing.Point(228, 19);
+            this.lblPrecioCombo.Location = new System.Drawing.Point(253, 33);
             this.lblPrecioCombo.Name = "lblPrecioCombo";
             this.lblPrecioCombo.Size = new System.Drawing.Size(52, 19);
             this.lblPrecioCombo.TabIndex = 24;
@@ -435,11 +413,11 @@
             this.lblNombreCombo.AutoSize = true;
             this.lblNombreCombo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNombreCombo.ForeColor = System.Drawing.Color.White;
-            this.lblNombreCombo.Location = new System.Drawing.Point(28, 19);
+            this.lblNombreCombo.Location = new System.Drawing.Point(18, 33);
             this.lblNombreCombo.Name = "lblNombreCombo";
-            this.lblNombreCombo.Size = new System.Drawing.Size(118, 19);
+            this.lblNombreCombo.Size = new System.Drawing.Size(73, 19);
             this.lblNombreCombo.TabIndex = 23;
-            this.lblNombreCombo.Text = "Nombre Combo";
+            this.lblNombreCombo.Text = "Nombre :";
             // 
             // lblRegistrarCombo
             // 
@@ -488,7 +466,6 @@
         private Label lblPrecioCombo;
         private Label lblNombreCombo;
         private Label lblRegistrarCombo;
-        private Label lblCantidad;
         private TextBox txtNombreCombo;
         private DataGridView dgvMisProductos;
         private DataGridViewTextBoxColumn nombre;
@@ -497,7 +474,6 @@
         private DataGridViewTextBoxColumn precio;
         private DataGridViewTextBoxColumn total;
         private TextBox txtPrecioCombo;
-        private TextBox txtCantidadCombo;
         private DataGridView dgvProductosDispo;
         private Label label2;
         private DataGridView dgvNuevosProductos;

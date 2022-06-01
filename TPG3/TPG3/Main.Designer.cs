@@ -417,7 +417,7 @@
             // 
             // btnSubAsiento
             // 
-            this.btnSubAsiento.BackColor = System.Drawing.Color.Lavender;
+            this.btnSubAsiento.BackColor = System.Drawing.Color.SteelBlue;
             this.btnSubAsiento.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSubAsiento.Enabled = false;
             this.btnSubAsiento.FlatAppearance.BorderSize = 0;

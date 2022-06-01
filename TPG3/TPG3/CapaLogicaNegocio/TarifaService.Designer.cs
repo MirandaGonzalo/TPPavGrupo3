@@ -59,6 +59,7 @@
             this.lblPrecioFinal = new System.Windows.Forms.Label();
             this.lblPrecioFinalDescuento = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblAsientosDis = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdrSeleccionTarifa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSeleccionPromo)).BeginInit();
@@ -141,7 +142,7 @@
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnVolver.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnVolver.Location = new System.Drawing.Point(12, 674);
+            this.btnVolver.Location = new System.Drawing.Point(12, 684);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(0);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(107, 36);
@@ -157,7 +158,7 @@
             this.btnContinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinuar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnContinuar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnContinuar.Location = new System.Drawing.Point(749, 674);
+            this.btnContinuar.Location = new System.Drawing.Point(749, 684);
             this.btnContinuar.Margin = new System.Windows.Forms.Padding(0);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(107, 36);
@@ -345,7 +346,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(24, 606);
+            this.label2.Location = new System.Drawing.Point(12, 606);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 28);
             this.label2.TabIndex = 1;
@@ -356,7 +357,7 @@
             this.lblPrecioFinal.AutoSize = true;
             this.lblPrecioFinal.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPrecioFinal.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPrecioFinal.Location = new System.Drawing.Point(167, 606);
+            this.lblPrecioFinal.Location = new System.Drawing.Point(162, 606);
             this.lblPrecioFinal.Name = "lblPrecioFinal";
             this.lblPrecioFinal.Size = new System.Drawing.Size(24, 28);
             this.lblPrecioFinal.TabIndex = 51;
@@ -367,7 +368,7 @@
             this.lblPrecioFinalDescuento.AutoSize = true;
             this.lblPrecioFinalDescuento.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPrecioFinalDescuento.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblPrecioFinalDescuento.Location = new System.Drawing.Point(535, 606);
+            this.lblPrecioFinalDescuento.Location = new System.Drawing.Point(523, 606);
             this.lblPrecioFinalDescuento.Name = "lblPrecioFinalDescuento";
             this.lblPrecioFinalDescuento.Size = new System.Drawing.Size(24, 28);
             this.lblPrecioFinalDescuento.TabIndex = 53;
@@ -378,11 +379,22 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(231, 606);
+            this.label4.Location = new System.Drawing.Point(221, 606);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(275, 28);
             this.label4.TabIndex = 52;
             this.label4.Text = "Precio Final con Promoción:";
+            // 
+            // lblAsientosDis
+            // 
+            this.lblAsientosDis.AutoSize = true;
+            this.lblAsientosDis.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAsientosDis.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblAsientosDis.Location = new System.Drawing.Point(12, 644);
+            this.lblAsientosDis.Name = "lblAsientosDis";
+            this.lblAsientosDis.Size = new System.Drawing.Size(23, 28);
+            this.lblAsientosDis.TabIndex = 54;
+            this.lblAsientosDis.Text = "a";
             // 
             // TarifaService
             // 
@@ -390,6 +402,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(904, 744);
+            this.Controls.Add(this.lblAsientosDis);
             this.Controls.Add(this.lblPrecioFinalDescuento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblPrecioFinal);
@@ -454,5 +467,6 @@
         private DataGridViewTextBoxColumn Descripcion;
         private DataGridViewTextBoxColumn Formato;
         private DataGridViewTextBoxColumn Valor;
+        private Label lblAsientosDis;
     }
 }

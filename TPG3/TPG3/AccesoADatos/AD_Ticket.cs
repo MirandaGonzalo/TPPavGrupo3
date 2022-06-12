@@ -6,6 +6,39 @@ namespace TPG3.AccesoADatos
 {
     public class AD_Ticket
     {
+
+        public static DataTable ObtenerTicketsEntradas()
+        {
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "GetTicketsFromEntradas";
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                DataTable tabla = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(tabla);
+                return tabla;
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
         public static int GetUltimoNumeroTicket()
         {
             string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];

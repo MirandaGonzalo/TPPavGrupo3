@@ -337,10 +337,22 @@ namespace TPG3
             TarifaService tarifaService = new TarifaService(fechaHora,sala, codFormato);
             openChildForm(tarifaService);
         }
-        public void formSeleccionarAsientos(DateTime fechaHora, int sala,List<int> listaCantXTarifa, int cantSolicitada, string promocion, int codFormato)
+        public void formSeleccionarAsientos(DateTime fechaHora, int sala,List<int> listaCantXTarifa, int cantSolicitada, string promocion, int codFormato, int medioPago)
         {
-            SeleccionAsientoFuncion selecAsiento = new SeleccionAsientoFuncion(fechaHora, sala,listaCantXTarifa, cantSolicitada, promocion, codFormato);
+            SeleccionAsientoFuncion selecAsiento = new SeleccionAsientoFuncion(fechaHora, sala,listaCantXTarifa, cantSolicitada, promocion, codFormato, medioPago);
             openChildForm(selecAsiento);
+        }
+
+        public void btnEntradasVendidas_Click(object sender, EventArgs e)
+        {
+            Formularios.EntradasVendidas.ListaEntradas listaEntrada = new Formularios.EntradasVendidas.ListaEntradas();
+            openChildForm(listaEntrada);
+        }
+
+        public void btnDetalleVentaEntradas(int nroTicket)
+        {
+            Formularios.EntradasVendidas.DetalleVentaEntradas listaDetalle = new Formularios.EntradasVendidas.DetalleVentaEntradas(nroTicket);
+            openChildForm(listaDetalle);
         }
     }
 }

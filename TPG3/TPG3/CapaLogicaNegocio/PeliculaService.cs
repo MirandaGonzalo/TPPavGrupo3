@@ -10,6 +10,7 @@ namespace TPG3.CapaLogicaNegocio
         public PeliculaService()
         {
             InitializeComponent();
+            this.AutoScroll = true;
         }
 
         private void PeliculaService_Load(object sender, EventArgs e)
@@ -47,10 +48,6 @@ namespace TPG3.CapaLogicaNegocio
                 MessageBox.Show("Error al obtener las funciones.");
             }
         }
-
-
-
-
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {

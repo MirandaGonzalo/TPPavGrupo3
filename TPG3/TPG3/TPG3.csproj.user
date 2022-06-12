@@ -49,6 +49,12 @@
     <Compile Update="Formularios\Empleado\ListadoEmpelado.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\EntradasVendidas\DetalleVentaEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularios\EntradasVendidas\ListaEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularios\Estado\listaEstado.cs">
       <SubType>Form</SubType>
     </Compile>

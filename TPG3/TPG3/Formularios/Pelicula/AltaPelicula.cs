@@ -8,6 +8,7 @@ namespace TPG3.Formularios.Pelicula
         public AltaPelicula()
         {
             InitializeComponent();
+            this.AutoScroll = true;
         }
         private void AltaPelicula_Load(object sender, EventArgs e)
         {

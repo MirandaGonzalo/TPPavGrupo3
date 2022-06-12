@@ -15,7 +15,8 @@ namespace TPG3.CapaLogicaNegocio
         public int cantidadEntradasPosibles = 34;
         public int codFormato;
         public string promocion;
-        public SeleccionAsientoFuncion(DateTime fechaHoraS, int salaS,List<int> listaCantxTarifa,int cantS, string promo, int formato)
+        public int medioPago;
+        public SeleccionAsientoFuncion(DateTime fechaHoraS, int salaS,List<int> listaCantxTarifa,int cantS, string promo, int formato, int medio)
         {
             this.fechaHoraFuncion = fechaHoraS;
             this.sala = salaS;            
@@ -23,6 +24,7 @@ namespace TPG3.CapaLogicaNegocio
             this.cantidadEntradasSolicitadas = cantS;
             this.promocion = promo;
             this.codFormato = formato;
+            this.medioPago = medio;
             InitializeComponent();
             this.asientosOcupados = AD_AsientoXSala.GetAsientos(fechaHoraFuncion, sala);
             if (asientosOcupados == null)
@@ -100,14 +102,9 @@ namespace TPG3.CapaLogicaNegocio
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    //fechaHoraVenta
-                    //fechaHoraFuncion
-                    //sala
-                    //asientos
-                    //tarifa
-                    //promocion
-
-                    var result = AD_Entrada.RegistrarEntrada(fechaHoraFuncion, sala, asientosOcupadosNuevos, listaCantidadXTarifaSeleccionadas, promocion, Main.main1.usuario);
+                    int ultimoNroTicket = AD_Ticket.GetUltimoNumeroTicket();
+                    int ultimoNroEntrada = AD_Entrada.GetUltimoNumeroEntrada();
+                    var result = AD_Entrada.RegistrarEntrada(fechaHoraFuncion, sala, asientosOcupadosNuevos, listaCantidadXTarifaSeleccionadas, promocion, Main.main1.usuario,medioPago,ultimoNroTicket+1, ultimoNroEntrada+1);
                     if (result)
                     {
                         MessageBox.Show("Reserva realizada con éxito.");

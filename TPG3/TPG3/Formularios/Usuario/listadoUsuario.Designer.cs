@@ -51,7 +51,7 @@
             this.panelBackAltaPromocion.Controls.Add(this.label1);
             this.panelBackAltaPromocion.Location = new System.Drawing.Point(44, 36);
             this.panelBackAltaPromocion.Name = "panelBackAltaPromocion";
-            this.panelBackAltaPromocion.Size = new System.Drawing.Size(604, 509);
+            this.panelBackAltaPromocion.Size = new System.Drawing.Size(604, 422);
             this.panelBackAltaPromocion.TabIndex = 27;
             // 
             // lblListado
@@ -79,7 +79,7 @@
             this.dgvUsuarios.Location = new System.Drawing.Point(45, 151);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowTemplate.Height = 25;
-            this.dgvUsuarios.Size = new System.Drawing.Size(494, 273);
+            this.dgvUsuarios.Size = new System.Drawing.Size(494, 240);
             this.dgvUsuarios.TabIndex = 22;
             // 
             // Nombre

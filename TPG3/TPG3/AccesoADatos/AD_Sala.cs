@@ -32,5 +32,39 @@ namespace TPG3.AccesoADatos
                 cn.Close();
             }
         }
+
+        public static string ObtenerSalaFromTicket(int nroTicket)
+        {
+            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
+            SqlConnection cn = new SqlConnection(cadenaConexion);
+            int sala = 0;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                string consulta = "GetSalaFromTicket";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@nroTicket", nroTicket);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr != null && dr.Read())
+                {
+                    sala = int.Parse(dr["sala"].ToString());
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return sala.ToString();
+        }
+
     }
 }

@@ -75,6 +75,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelBot = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.btnEntradasVendidas = new System.Windows.Forms.Button();
             this.panelMenuLateral.SuspendLayout();
             this.panelSubMenuUsuario.SuspendLayout();
             this.panelSubMenuMedioPago.SuspendLayout();
@@ -107,7 +108,7 @@
             this.panelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuLateral.Location = new System.Drawing.Point(0, 0);
             this.panelMenuLateral.Name = "panelMenuLateral";
-            this.panelMenuLateral.Size = new System.Drawing.Size(250, 961);
+            this.panelMenuLateral.Size = new System.Drawing.Size(250, 749);
             this.panelMenuLateral.TabIndex = 0;
             // 
             // panelSubMenuUsuario
@@ -117,7 +118,7 @@
             this.panelSubMenuUsuario.Controls.Add(this.btnSubCliente);
             this.panelSubMenuUsuario.Controls.Add(this.btnSubTipoDocumento);
             this.panelSubMenuUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuUsuario.Location = new System.Drawing.Point(0, 1565);
+            this.panelSubMenuUsuario.Location = new System.Drawing.Point(0, 1610);
             this.panelSubMenuUsuario.Name = "panelSubMenuUsuario";
             this.panelSubMenuUsuario.Size = new System.Drawing.Size(233, 137);
             this.panelSubMenuUsuario.TabIndex = 15;
@@ -184,7 +185,7 @@
             this.btnMenuUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMenuUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMenuUsuario.Location = new System.Drawing.Point(0, 1520);
+            this.btnMenuUsuario.Location = new System.Drawing.Point(0, 1565);
             this.btnMenuUsuario.Name = "btnMenuUsuario";
             this.btnMenuUsuario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuUsuario.Size = new System.Drawing.Size(233, 45);
@@ -203,7 +204,7 @@
             this.panelSubMenuMedioPago.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuMedioPago.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.panelSubMenuMedioPago.ForeColor = System.Drawing.Color.White;
-            this.panelSubMenuMedioPago.Location = new System.Drawing.Point(0, 1383);
+            this.panelSubMenuMedioPago.Location = new System.Drawing.Point(0, 1428);
             this.panelSubMenuMedioPago.Name = "panelSubMenuMedioPago";
             this.panelSubMenuMedioPago.Size = new System.Drawing.Size(233, 137);
             this.panelSubMenuMedioPago.TabIndex = 13;
@@ -270,7 +271,7 @@
             this.btnMenuMedioPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuMedioPago.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMenuMedioPago.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMenuMedioPago.Location = new System.Drawing.Point(0, 1338);
+            this.btnMenuMedioPago.Location = new System.Drawing.Point(0, 1383);
             this.btnMenuMedioPago.Name = "btnMenuMedioPago";
             this.btnMenuMedioPago.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuMedioPago.Size = new System.Drawing.Size(233, 45);
@@ -288,7 +289,7 @@
             this.panelSubMenuTicket.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuTicket.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.panelSubMenuTicket.ForeColor = System.Drawing.Color.White;
-            this.panelSubMenuTicket.Location = new System.Drawing.Point(0, 1246);
+            this.panelSubMenuTicket.Location = new System.Drawing.Point(0, 1291);
             this.panelSubMenuTicket.Name = "panelSubMenuTicket";
             this.panelSubMenuTicket.Size = new System.Drawing.Size(233, 92);
             this.panelSubMenuTicket.TabIndex = 11;
@@ -337,7 +338,7 @@
             this.btnMenuTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuTicket.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMenuTicket.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMenuTicket.Location = new System.Drawing.Point(0, 1201);
+            this.btnMenuTicket.Location = new System.Drawing.Point(0, 1246);
             this.btnMenuTicket.Name = "btnMenuTicket";
             this.btnMenuTicket.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuTicket.Size = new System.Drawing.Size(233, 45);
@@ -356,7 +357,7 @@
             this.panelSubMenuFuncion.Controls.Add(this.btnSubAsiento);
             this.panelSubMenuFuncion.Controls.Add(this.btnSubSala);
             this.panelSubMenuFuncion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuFuncion.Location = new System.Drawing.Point(0, 974);
+            this.panelSubMenuFuncion.Location = new System.Drawing.Point(0, 1019);
             this.panelSubMenuFuncion.Name = "panelSubMenuFuncion";
             this.panelSubMenuFuncion.Size = new System.Drawing.Size(233, 227);
             this.panelSubMenuFuncion.TabIndex = 9;
@@ -459,7 +460,7 @@
             this.btnMenuFuncion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuFuncion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMenuFuncion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMenuFuncion.Location = new System.Drawing.Point(0, 929);
+            this.btnMenuFuncion.Location = new System.Drawing.Point(0, 974);
             this.btnMenuFuncion.Name = "btnMenuFuncion";
             this.btnMenuFuncion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuFuncion.Size = new System.Drawing.Size(233, 45);
@@ -472,13 +473,14 @@
             // panelSubMenuEntrada
             // 
             this.panelSubMenuEntrada.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelSubMenuEntrada.Controls.Add(this.btnEntradasVendidas);
             this.panelSubMenuEntrada.Controls.Add(this.btnSubEntrada);
             this.panelSubMenuEntrada.Controls.Add(this.btnSubTarifa);
             this.panelSubMenuEntrada.Controls.Add(this.btnSubPromocion);
             this.panelSubMenuEntrada.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuEntrada.Location = new System.Drawing.Point(0, 792);
             this.panelSubMenuEntrada.Name = "panelSubMenuEntrada";
-            this.panelSubMenuEntrada.Size = new System.Drawing.Size(233, 137);
+            this.panelSubMenuEntrada.Size = new System.Drawing.Size(233, 182);
             this.panelSubMenuEntrada.TabIndex = 7;
             // 
             // btnSubEntrada
@@ -492,7 +494,7 @@
             this.btnSubEntrada.Location = new System.Drawing.Point(0, 90);
             this.btnSubEntrada.Name = "btnSubEntrada";
             this.btnSubEntrada.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnSubEntrada.Size = new System.Drawing.Size(233, 39);
+            this.btnSubEntrada.Size = new System.Drawing.Size(233, 45);
             this.btnSubEntrada.TabIndex = 2;
             this.btnSubEntrada.Text = "Entrada";
             this.btnSubEntrada.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -832,32 +834,52 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(250, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1278, 66);
+            this.panelTop.Size = new System.Drawing.Size(1120, 66);
             this.panelTop.TabIndex = 2;
             // 
             // panelBot
             // 
             this.panelBot.BackColor = System.Drawing.SystemColors.HotTrack;
             this.panelBot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBot.Location = new System.Drawing.Point(250, 895);
+            this.panelBot.Location = new System.Drawing.Point(250, 683);
             this.panelBot.Name = "panelBot";
-            this.panelBot.Size = new System.Drawing.Size(1278, 66);
+            this.panelBot.Size = new System.Drawing.Size(1120, 66);
             this.panelBot.TabIndex = 3;
             // 
             // panelChildForm
             // 
+            this.panelChildForm.AutoScroll = true;
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(14)))));
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(250, 66);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1278, 829);
+            this.panelChildForm.Size = new System.Drawing.Size(1120, 617);
             this.panelChildForm.TabIndex = 4;
+            // 
+            // btnEntradasVendidas
+            // 
+            this.btnEntradasVendidas.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnEntradasVendidas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEntradasVendidas.FlatAppearance.BorderSize = 0;
+            this.btnEntradasVendidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntradasVendidas.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEntradasVendidas.ForeColor = System.Drawing.Color.White;
+            this.btnEntradasVendidas.Location = new System.Drawing.Point(0, 135);
+            this.btnEntradasVendidas.Name = "btnEntradasVendidas";
+            this.btnEntradasVendidas.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnEntradasVendidas.Size = new System.Drawing.Size(233, 45);
+            this.btnEntradasVendidas.TabIndex = 3;
+            this.btnEntradasVendidas.Text = "Entradas Vendidas";
+            this.btnEntradasVendidas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEntradasVendidas.UseVisualStyleBackColor = false;
+            this.btnEntradasVendidas.Click += new System.EventHandler(this.btnEntradasVendidas_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1528, 961);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelBot);
             this.Controls.Add(this.panelTop);
@@ -927,5 +949,6 @@
         private Button btnSubTipoDocumento;
         private Button btnMenuUsuario;
         private Panel panelChildForm;
+        private Button btnEntradasVendidas;
     }
 }

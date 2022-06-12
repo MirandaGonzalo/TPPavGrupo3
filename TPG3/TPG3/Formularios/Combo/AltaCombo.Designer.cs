@@ -122,7 +122,7 @@
             this.btnProductoNuevo.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnProductoNuevo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnProductoNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnProductoNuevo.Image")));
-            this.btnProductoNuevo.Location = new System.Drawing.Point(1033, 238);
+            this.btnProductoNuevo.Location = new System.Drawing.Point(918, 238);
             this.btnProductoNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.btnProductoNuevo.Name = "btnProductoNuevo";
             this.btnProductoNuevo.Size = new System.Drawing.Size(54, 49);
@@ -135,7 +135,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(641, 152);
+            this.label2.Location = new System.Drawing.Point(559, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(263, 25);
             this.label2.TabIndex = 41;
@@ -150,7 +150,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
-            this.dgvNuevosProductos.Location = new System.Drawing.Point(641, 196);
+            this.dgvNuevosProductos.Location = new System.Drawing.Point(559, 196);
             this.dgvNuevosProductos.Name = "dgvNuevosProductos";
             this.dgvNuevosProductos.RowTemplate.Height = 25;
             this.dgvNuevosProductos.Size = new System.Drawing.Size(349, 150);
@@ -284,7 +284,7 @@
             this.btnProductoViejo.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnProductoViejo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnProductoViejo.Image = ((System.Drawing.Image)(resources.GetObject("btnProductoViejo.Image")));
-            this.btnProductoViejo.Location = new System.Drawing.Point(507, 238);
+            this.btnProductoViejo.Location = new System.Drawing.Point(486, 238);
             this.btnProductoViejo.Margin = new System.Windows.Forms.Padding(0);
             this.btnProductoViejo.Name = "btnProductoViejo";
             this.btnProductoViejo.Size = new System.Drawing.Size(54, 49);
@@ -337,7 +337,7 @@
             this.btnLimpiarCampos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarCampos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLimpiarCampos.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(937, 128);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(765, 101);
             this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(0);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(150, 28);
@@ -353,7 +353,7 @@
             this.btnActualizarCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizarCombo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnActualizarCombo.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnActualizarCombo.Location = new System.Drawing.Point(994, 33);
+            this.btnActualizarCombo.Location = new System.Drawing.Point(559, 101);
             this.btnActualizarCombo.Margin = new System.Windows.Forms.Padding(0);
             this.btnActualizarCombo.Name = "btnActualizarCombo";
             this.btnActualizarCombo.Size = new System.Drawing.Size(93, 28);
@@ -369,7 +369,7 @@
             this.btnAgregarCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarCombo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAgregarCombo.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAgregarCombo.Location = new System.Drawing.Point(994, 79);
+            this.btnAgregarCombo.Location = new System.Drawing.Point(662, 101);
             this.btnAgregarCombo.Margin = new System.Windows.Forms.Padding(0);
             this.btnAgregarCombo.Name = "btnAgregarCombo";
             this.btnAgregarCombo.Size = new System.Drawing.Size(93, 28);
@@ -435,7 +435,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(1287, 793);
+            this.ClientSize = new System.Drawing.Size(1287, 749);
             this.Controls.Add(this.pnlListadoProducto);
             this.Controls.Add(this.lblRegistrarCombo);
             this.Name = "AltaCombo";

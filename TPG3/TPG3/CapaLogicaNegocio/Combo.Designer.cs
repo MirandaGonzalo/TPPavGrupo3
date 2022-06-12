@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Combo));
             this.panelFondoCombo = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.lblPrecioTotal = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblCantComb = new System.Windows.Forms.Label();
@@ -59,7 +58,6 @@
             this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFondoCombo.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCombo)).BeginInit();
             this.panelFrenteCombo.SuspendLayout();
@@ -70,8 +68,6 @@
             // panelFondoCombo
             // 
             this.panelFondoCombo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.panelFondoCombo.Controls.Add(this.panel2);
-            this.panelFondoCombo.Controls.Add(this.btnCargarCombo);
             this.panelFondoCombo.Controls.Add(this.panel1);
             this.panelFondoCombo.Controls.Add(this.label1);
             this.panelFondoCombo.Controls.Add(this.panelFrenteCombo);
@@ -81,24 +77,12 @@
             this.panelFondoCombo.Size = new System.Drawing.Size(1071, 729);
             this.panelFondoCombo.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
-            this.panel2.Controls.Add(this.lblPrecioTotal);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.lblCantComb);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(53, 555);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(932, 50);
-            this.panel2.TabIndex = 26;
-            // 
             // lblPrecioTotal
             // 
             this.lblPrecioTotal.AutoSize = true;
             this.lblPrecioTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPrecioTotal.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioTotal.Location = new System.Drawing.Point(378, 15);
+            this.lblPrecioTotal.Location = new System.Drawing.Point(378, 205);
             this.lblPrecioTotal.Name = "lblPrecioTotal";
             this.lblPrecioTotal.Size = new System.Drawing.Size(19, 21);
             this.lblPrecioTotal.TabIndex = 3;
@@ -110,7 +94,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(247, 15);
+            this.label7.Location = new System.Drawing.Point(247, 205);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 21);
             this.label7.TabIndex = 2;
@@ -121,7 +105,7 @@
             this.lblCantComb.AutoSize = true;
             this.lblCantComb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCantComb.ForeColor = System.Drawing.Color.White;
-            this.lblCantComb.Location = new System.Drawing.Point(193, 15);
+            this.lblCantComb.Location = new System.Drawing.Point(193, 205);
             this.lblCantComb.Name = "lblCantComb";
             this.lblCantComb.Size = new System.Drawing.Size(19, 21);
             this.lblCantComb.TabIndex = 1;
@@ -133,7 +117,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(23, 15);
+            this.label5.Location = new System.Drawing.Point(23, 205);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(149, 21);
             this.label5.TabIndex = 0;
@@ -146,7 +130,7 @@
             this.btnCargarCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCargarCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCargarCombo.ForeColor = System.Drawing.Color.White;
-            this.btnCargarCombo.Location = new System.Drawing.Point(874, 627);
+            this.btnCargarCombo.Location = new System.Drawing.Point(721, 200);
             this.btnCargarCombo.Name = "btnCargarCombo";
             this.btnCargarCombo.Size = new System.Drawing.Size(111, 37);
             this.btnCargarCombo.TabIndex = 25;
@@ -157,11 +141,16 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
+            this.panel1.Controls.Add(this.btnCargarCombo);
+            this.panel1.Controls.Add(this.lblPrecioTotal);
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dgvDetalleCombo);
-            this.panel1.Location = new System.Drawing.Point(53, 295);
+            this.panel1.Controls.Add(this.lblCantComb);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Location = new System.Drawing.Point(53, 240);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(932, 237);
+            this.panel1.Size = new System.Drawing.Size(932, 249);
             this.panel1.TabIndex = 2;
             // 
             // label4
@@ -169,7 +158,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(23, 25);
+            this.label4.Location = new System.Drawing.Point(23, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(147, 21);
             this.label4.TabIndex = 3;
@@ -184,7 +173,7 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn5,
             this.total});
-            this.dgvDetalleCombo.Location = new System.Drawing.Point(23, 61);
+            this.dgvDetalleCombo.Location = new System.Drawing.Point(23, 39);
             this.dgvDetalleCombo.Name = "dgvDetalleCombo";
             this.dgvDetalleCombo.RowTemplate.Height = 25;
             this.dgvDetalleCombo.Size = new System.Drawing.Size(809, 150);
@@ -238,9 +227,9 @@
             this.panelFrenteCombo.Controls.Add(this.label2);
             this.panelFrenteCombo.Controls.Add(this.dgvListaCombosSel);
             this.panelFrenteCombo.Controls.Add(this.dgvListaCombos);
-            this.panelFrenteCombo.Location = new System.Drawing.Point(53, 46);
+            this.panelFrenteCombo.Location = new System.Drawing.Point(53, 33);
             this.panelFrenteCombo.Name = "panelFrenteCombo";
-            this.panelFrenteCombo.Size = new System.Drawing.Size(932, 243);
+            this.panelFrenteCombo.Size = new System.Drawing.Size(932, 201);
             this.panelFrenteCombo.TabIndex = 0;
             // 
             // btnProductoNuevo
@@ -251,7 +240,7 @@
             this.btnProductoNuevo.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnProductoNuevo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnProductoNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnProductoNuevo.Image")));
-            this.btnProductoNuevo.Location = new System.Drawing.Point(865, 128);
+            this.btnProductoNuevo.Location = new System.Drawing.Point(864, 80);
             this.btnProductoNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.btnProductoNuevo.Name = "btnProductoNuevo";
             this.btnProductoNuevo.Size = new System.Drawing.Size(43, 44);
@@ -267,7 +256,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAgregar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
-            this.btnAgregar.Location = new System.Drawing.Point(378, 128);
+            this.btnAgregar.Location = new System.Drawing.Point(369, 80);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(0);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(42, 44);
@@ -280,7 +269,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(462, 31);
+            this.label3.Location = new System.Drawing.Point(462, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(185, 21);
             this.label3.TabIndex = 3;
@@ -291,7 +280,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(23, 31);
+            this.label2.Location = new System.Drawing.Point(23, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 21);
             this.label2.TabIndex = 2;
@@ -306,7 +295,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.cantidad});
-            this.dgvListaCombosSel.Location = new System.Drawing.Point(462, 80);
+            this.dgvListaCombosSel.Location = new System.Drawing.Point(462, 36);
             this.dgvListaCombosSel.Name = "dgvListaCombosSel";
             this.dgvListaCombosSel.RowTemplate.Height = 25;
             this.dgvListaCombosSel.Size = new System.Drawing.Size(370, 150);
@@ -349,7 +338,7 @@
             this.nombre,
             this.idProducto,
             this.precio});
-            this.dgvListaCombos.Location = new System.Drawing.Point(23, 80);
+            this.dgvListaCombos.Location = new System.Drawing.Point(23, 36);
             this.dgvListaCombos.Name = "dgvListaCombos";
             this.dgvListaCombos.RowTemplate.Height = 25;
             this.dgvListaCombos.Size = new System.Drawing.Size(319, 150);
@@ -388,8 +377,6 @@
             this.Load += new System.EventHandler(this.Combo_Load);
             this.panelFondoCombo.ResumeLayout(false);
             this.panelFondoCombo.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCombo)).EndInit();
@@ -427,7 +414,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn cantidad;
-        private Panel panel2;
         private Label lblPrecioTotal;
         private Label label7;
         private Label lblCantComb;

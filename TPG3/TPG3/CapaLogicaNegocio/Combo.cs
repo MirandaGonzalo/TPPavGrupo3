@@ -14,6 +14,7 @@ namespace TPG3.CapaLogicaNegocio
             combosSel = new List<int>();
             combosSel.Add(-1);
             InitializeComponent();
+            this.AutoScroll = true;
         }
 
         private void Combo_Load(object sender, EventArgs e)

@@ -25,6 +25,7 @@ namespace TPG3.Formularios.Combo
             nuevosProductos = new List<int>();
             nuevosProductos.Add(-1);
             InitializeComponent();
+            this.AutoScroll = true;
             completarFormulario(combo);            
         }
 

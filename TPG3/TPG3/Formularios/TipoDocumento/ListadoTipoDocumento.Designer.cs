@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panelBackAltaPromocion = new System.Windows.Forms.Panel();
+            this.lblListado = new System.Windows.Forms.Label();
             this.dgvPromocion = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblListado = new System.Windows.Forms.Label();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBackAltaPromocion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPromocion)).BeginInit();
             this.SuspendLayout();
@@ -48,8 +48,20 @@
             this.panelBackAltaPromocion.Controls.Add(this.label1);
             this.panelBackAltaPromocion.Location = new System.Drawing.Point(33, 55);
             this.panelBackAltaPromocion.Name = "panelBackAltaPromocion";
-            this.panelBackAltaPromocion.Size = new System.Drawing.Size(409, 509);
+            this.panelBackAltaPromocion.Size = new System.Drawing.Size(409, 332);
             this.panelBackAltaPromocion.TabIndex = 26;
+            // 
+            // lblListado
+            // 
+            this.lblListado.AutoSize = true;
+            this.lblListado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
+            this.lblListado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblListado.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblListado.Location = new System.Drawing.Point(45, 17);
+            this.lblListado.Name = "lblListado";
+            this.lblListado.Size = new System.Drawing.Size(320, 28);
+            this.lblListado.TabIndex = 23;
+            this.lblListado.Text = "Listado de Tipos de Documentos";
             // 
             // dgvPromocion
             // 
@@ -61,8 +73,15 @@
             this.dgvPromocion.Location = new System.Drawing.Point(45, 151);
             this.dgvPromocion.Name = "dgvPromocion";
             this.dgvPromocion.RowTemplate.Height = 25;
-            this.dgvPromocion.Size = new System.Drawing.Size(292, 273);
+            this.dgvPromocion.Size = new System.Drawing.Size(292, 141);
             this.dgvPromocion.TabIndex = 22;
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.DataPropertyName = "nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
             // 
             // txtBuscar
             // 
@@ -83,25 +102,6 @@
             this.label1.Size = new System.Drawing.Size(77, 21);
             this.label1.TabIndex = 17;
             this.label1.Text = "Nombre:";
-            // 
-            // lblListado
-            // 
-            this.lblListado.AutoSize = true;
-            this.lblListado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
-            this.lblListado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblListado.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblListado.Location = new System.Drawing.Point(45, 17);
-            this.lblListado.Name = "lblListado";
-            this.lblListado.Size = new System.Drawing.Size(320, 28);
-            this.lblListado.TabIndex = 23;
-            this.lblListado.Text = "Listado de Tipos de Documentos";
-            // 
-            // Nombre
-            // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombre.DataPropertyName = "nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
             // 
             // ListadoTipoDocumento
             // 

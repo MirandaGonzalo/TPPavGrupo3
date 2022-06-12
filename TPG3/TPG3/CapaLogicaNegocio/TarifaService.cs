@@ -25,13 +25,28 @@ namespace TPG3.CapaLogicaNegocio
             this.asientosDisp = 34 - asOc.Count;
             InitializeComponent();
             lblAsientosDis.Text = "Asientos Disponibles: " + asientosDisp.ToString();
+            this.AutoScroll = true;
         }
 
         private void TarifaService_Load(object sender, EventArgs e)
         {
             CargarGrillaTarifa();
             CargarGrillaPromo();
+            cargarMediosDePago();
         }
+
+        private void cargarMediosDePago()
+        {
+            try
+            {
+                dgvMedioPago.DataSource = AD_MedioPago.ObtenerTablaMediosPagos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener medios de pago.");
+            }
+        }
+
         private void CargarGrillaTarifa()
         {
             try
@@ -239,24 +254,69 @@ namespace TPG3.CapaLogicaNegocio
             }
             else
             {
-                if (gridPromoSel.Rows.Count == 0)
-                {
-                    MessageBox.Show("Debe seleccionar una promoción.");
+                if (dgvMedioPagoSel.Rows.Count == 0){
+                    MessageBox.Show("Debe seleccionar un medio de pago.");
                 }
                 else
                 {
-                    string promocion = (gridPromoSel.Rows[0].Cells[0].Value.ToString());
-                    int cantEntradas = cantidadEntradas();
-                    if (cantEntradas > asientosDisp)
+                    if (gridPromoSel.Rows.Count == 0)
                     {
-                        MessageBox.Show("La cantidad de asientos ingresada no es válida.");
+                        MessageBox.Show("Debe seleccionar una promoción.");
                     }
                     else
                     {
-                        Main.main1.formSeleccionarAsientos(fechaHora, sala, obtenerCantidadXTarifa(), cantidadEntradas(), promocion, codFormato);
+                        string promocion = (gridPromoSel.Rows[0].Cells[0].Value.ToString());
+                        int cantEntradas = cantidadEntradas();
+                        if (cantEntradas > asientosDisp)
+                        {
+                            MessageBox.Show("La cantidad de asientos ingresada no es válida.");
+                        }
+                        else
+                        {
+                            var medioPago = int.Parse(dgvMedioPagoSel.Rows[0].Cells[0].Value.ToString());
+                            Main.main1.formSeleccionarAsientos(fechaHora, sala, obtenerCantidadXTarifa(), cantidadEntradas(), promocion, codFormato, medioPago);
+                        }
                     }
                 }
+                
             }
+        }
+
+        private void eliminarFilaMedioPago(int codigo)
+        {
+            int fila = -1;
+            int eliminar = -1;
+            for (int rows = 0; rows < dgvMedioPago.Rows.Count; rows++)
+            {
+                fila = int.Parse(dgvMedioPago.Rows[rows].Cells[0].Value.ToString());
+                if (fila == codigo)
+                {
+                    eliminar = rows;
+                    break;
+                }
+            }
+            dgvMedioPago.Rows.RemoveAt(eliminar);
+        }
+
+        private void dgvMedioPago_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var currentRow = dgvMedioPago.CurrentCell.RowIndex;
+            DataGridViewRow selectedRow = dgvMedioPago.Rows[currentRow];
+            int codigo = int.Parse(dgvMedioPago.Rows[currentRow].Cells[0].Value.ToString());
+            string nombre = dgvMedioPago.Rows[currentRow].Cells[1].Value.ToString();
+            string descripcion = (dgvMedioPago.Rows[currentRow].Cells[2].Value.ToString());
+            int tarjeta = int.Parse(dgvMedioPago.Rows[currentRow].Cells[3].Value.ToString());
+            string nombreTarjeta = dgvMedioPago.Rows[currentRow].Cells[4].Value.ToString();
+            dgvMedioPagoSel.Rows.Clear();
+            dgvMedioPagoSel.Rows.Add(codigo, nombre, descripcion, tarjeta, nombreTarjeta);
+            cargarMediosDePago();
+            eliminarFilaMedioPago(codigo);
+        }
+
+        private void dgvMedioPagoSel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvMedioPagoSel.Rows.Clear();
+            cargarMediosDePago();
         }
     }
 }

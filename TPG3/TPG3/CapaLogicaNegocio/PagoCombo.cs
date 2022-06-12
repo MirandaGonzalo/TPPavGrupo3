@@ -12,6 +12,7 @@ namespace TPG3.CapaLogicaNegocio
         {
             this.listaCombos = combos;
             InitializeComponent();
+            this.AutoScroll = true;
         }
 
         private void PagoCombo_Load(object sender, EventArgs e)

@@ -8,6 +8,7 @@ namespace TPG3.Formularios.Tarjeta
         public ListaTarjeta()
         {
             InitializeComponent();
+            this.AutoScroll = true;
         }
 
         private void ListaTarjeta_Load(object sender, EventArgs e)

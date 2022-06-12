@@ -78,7 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(51, 35);
+            this.label1.Location = new System.Drawing.Point(51, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(138, 21);
             this.label1.TabIndex = 1;
@@ -98,9 +98,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dgvMedioPagoSel);
             this.panel1.Controls.Add(this.dgvMedioPago);
-            this.panel1.Location = new System.Drawing.Point(51, 82);
+            this.panel1.Location = new System.Drawing.Point(51, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1109, 464);
+            this.panel1.Size = new System.Drawing.Size(993, 413);
             this.panel1.TabIndex = 0;
             // 
             // txtNombre
@@ -129,7 +129,7 @@
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(978, 401);
+            this.btnConfirmar.Location = new System.Drawing.Point(838, 329);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(111, 37);
             this.btnConfirmar.TabIndex = 26;
@@ -142,7 +142,7 @@
             this.lblPrecioFinal.AutoSize = true;
             this.lblPrecioFinal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPrecioFinal.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioFinal.Location = new System.Drawing.Point(143, 417);
+            this.lblPrecioFinal.Location = new System.Drawing.Point(686, 337);
             this.lblPrecioFinal.Name = "lblPrecioFinal";
             this.lblPrecioFinal.Size = new System.Drawing.Size(19, 21);
             this.lblPrecioFinal.TabIndex = 7;
@@ -153,7 +153,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(25, 417);
+            this.label5.Location = new System.Drawing.Point(564, 337);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 21);
             this.label5.TabIndex = 6;
@@ -168,10 +168,10 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.total});
-            this.dgvDetalleCombo.Location = new System.Drawing.Point(25, 251);
+            this.dgvDetalleCombo.Location = new System.Drawing.Point(25, 254);
             this.dgvDetalleCombo.Name = "dgvDetalleCombo";
             this.dgvDetalleCombo.RowTemplate.Height = 25;
-            this.dgvDetalleCombo.Size = new System.Drawing.Size(809, 150);
+            this.dgvDetalleCombo.Size = new System.Drawing.Size(505, 108);
             this.dgvDetalleCombo.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn5
@@ -207,7 +207,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(25, 213);
+            this.label4.Location = new System.Drawing.Point(25, 216);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 21);
             this.label4.TabIndex = 4;
@@ -218,7 +218,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(584, 9);
+            this.label3.Location = new System.Drawing.Point(564, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(229, 21);
             this.label3.TabIndex = 3;
@@ -244,10 +244,10 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dgvMedioPagoSel.Location = new System.Drawing.Point(584, 78);
+            this.dgvMedioPagoSel.Location = new System.Drawing.Point(564, 78);
             this.dgvMedioPagoSel.Name = "dgvMedioPagoSel";
             this.dgvMedioPagoSel.RowTemplate.Height = 25;
-            this.dgvMedioPagoSel.Size = new System.Drawing.Size(505, 66);
+            this.dgvMedioPagoSel.Size = new System.Drawing.Size(385, 54);
             this.dgvMedioPagoSel.TabIndex = 1;
             this.dgvMedioPagoSel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedioPagoSel_CellContentClick);
             // 

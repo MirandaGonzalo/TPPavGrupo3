@@ -9,20 +9,24 @@ namespace TPG3.CapaLogicaNegocio
         private List<string> asientosOcupados = new List<string>();
         private List<string> asientosOcupadosNuevos = new List<string>();        
         private List<int> listaCantidadXTarifaSeleccionadas = new List<int>();
+        private List<float> listaPrecioXTarifaSeleccionadas = new List<float>();
         public DateTime fechaHoraFuncion;
         public int sala;
         public int cantidadEntradasSolicitadas;
         public int cantidadEntradasPosibles = 34;
         public int codFormato;
-        public string promocion;
+        public string npromo;
+        public float descPromo;
         public int medioPago;
-        public SeleccionAsientoFuncion(DateTime fechaHoraS, int salaS,List<int> listaCantxTarifa,int cantS, string promo, int formato, int medio)
+        public SeleccionAsientoFuncion(DateTime fechaHoraS, int salaS,List<int> listaCantxTarifa,List<float> listaPrecio,int cantS, string npromo, float promocion, int formato, int medio)
         {
             this.fechaHoraFuncion = fechaHoraS;
             this.sala = salaS;            
             this.listaCantidadXTarifaSeleccionadas = listaCantxTarifa;
+            this.listaPrecioXTarifaSeleccionadas = listaPrecio;
             this.cantidadEntradasSolicitadas = cantS;
-            this.promocion = promo;
+            this.npromo = npromo;
+            this.descPromo = promocion;
             this.codFormato = formato;
             this.medioPago = medio;
             InitializeComponent();
@@ -55,7 +59,7 @@ namespace TPG3.CapaLogicaNegocio
                     if (asientosOcupados.Contains(nombre))
                     {
                         ListOfButtons.ElementAt(i).Enabled = false;
-                        ListOfButtons.ElementAt(i).BackColor = Color.Red;
+                        ListOfButtons.ElementAt(i).BackColor = Color.Red;                        
                     }
                     else
                     {
@@ -104,7 +108,9 @@ namespace TPG3.CapaLogicaNegocio
                 {
                     int ultimoNroTicket = AD_Ticket.GetUltimoNumeroTicket();
                     int ultimoNroEntrada = AD_Entrada.GetUltimoNumeroEntrada();
-                    var result = AD_Entrada.RegistrarEntrada(fechaHoraFuncion, sala, asientosOcupadosNuevos, listaCantidadXTarifaSeleccionadas, promocion, Main.main1.usuario,medioPago,ultimoNroTicket+1, ultimoNroEntrada+1);
+                    var fechaHoraVenta = DateTime.Now;                    
+                    Ticket ticket = new Ticket(ultimoNroTicket + 1, fechaHoraVenta, medioPago, Main.main1.usuario.dni, Main.main1.usuario.tipoDocumento, npromo, descPromo);
+                    var result = AD_Entrada.RegistrarEntrada(ticket, fechaHoraFuncion, sala, asientosOcupadosNuevos, listaCantidadXTarifaSeleccionadas, listaPrecioXTarifaSeleccionadas, ultimoNroEntrada+1);
                     if (result)
                     {
                         MessageBox.Show("Reserva realizada con éxito.");

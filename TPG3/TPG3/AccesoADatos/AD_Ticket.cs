@@ -59,6 +59,10 @@ namespace TPG3.AccesoADatos
                 {
                     nroTicket = int.Parse(dr["nroTicket"].ToString());
                 }
+                else
+                {
+                    nroTicket = 0;
+                }
             }
             catch (Exception)
             {
@@ -84,6 +88,8 @@ namespace TPG3.AccesoADatos
                 cmd.Parameters.AddWithValue("@medioPago", ticket.medioPago);
                 cmd.Parameters.AddWithValue("@dniEmpleado", ticket.dniEmpelado);
                 cmd.Parameters.AddWithValue("@tipoDocEmpleado", ticket.tipoDocEmpleado);
+                cmd.Parameters.AddWithValue("@npromocion", ticket.npromocion);
+                cmd.Parameters.AddWithValue("@promocion", ticket.promocion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = consulta;
                 cn.Open();

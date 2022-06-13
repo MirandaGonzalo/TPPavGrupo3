@@ -7,6 +7,7 @@ namespace TPG3.CapaLogicaNegocio
 {
     public partial class PagoCombo : Form
     {
+        float precioFinal;
         private List<EditItemCombo> listaCombos;
         public PagoCombo(List<EditItemCombo> combos)
         {
@@ -19,7 +20,10 @@ namespace TPG3.CapaLogicaNegocio
         {
             cargarCombos();
             cargarMediosDePago();
-            precioTotalCombos();
+            this.precioFinal = precioTotalCombos();
+            lblPrecioFinal.Text = "$" +  precioFinal.ToString();
+            lblPrecioDescuento.Text = "$" + precioFinal.ToString();
+            CargarGrillaPromo();
         }
 
         private void cargarCombos()
@@ -31,14 +35,26 @@ namespace TPG3.CapaLogicaNegocio
             
         }
 
-        private void precioTotalCombos()
+        private void CargarGrillaPromo()
+        {
+            try
+            {
+                gridSeleccionPromo.DataSource = AD_Promocion.GetDetallePromocion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el listado de promociones.");
+            }
+        }
+
+        private float precioTotalCombos()
         {
             float total = 0;
             for (int rows = 0; rows < dgvDetalleCombo.Rows.Count; rows++)
             {
                 total += int.Parse(dgvDetalleCombo.Rows[rows].Cells[3].Value.ToString());
             }
-            lblPrecioFinal.Text = total.ToString();
+            return total;
         }
 
         private void cargarMediosDePago()
@@ -61,14 +77,26 @@ namespace TPG3.CapaLogicaNegocio
             }
             else
             {
-                var confirmResult = MessageBox.Show("Desea realizar esta venta ??",
-                "Confirmación!!", MessageBoxButtons.YesNo);
+                string msg = "Desea realizar esta venta ?";
+                string npromocion = "Sin promoción";
+                float promocion = 0;
+                var cantR = gridPromoSel.Rows.Count;
+                if (cantR == 0)
+                {
+                    msg = "Desea realizar esta venta sin Promoción ??";
+                }
+                else
+                {
+                    npromocion = gridPromoSel.Rows[0].Cells[0].Value.ToString();
+                    promocion = float.Parse(gridPromoSel.Rows[0].Cells[2].Value.ToString());
+                }
+                var confirmResult = MessageBox.Show(msg,"Confirmación!!", MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
                     var fechaHora = DateTime.Now;
                     var medioPago = int.Parse(dgvMedioPagoSel.Rows[0].Cells[0].Value.ToString());
                     int ultimoNroTicket = AD_Ticket.GetUltimoNumeroTicket();
-                    Ticket tick = new Ticket(ultimoNroTicket+1, fechaHora, medioPago, Main.main1.usuario.dni, Main.main1.usuario.tipoDocumento);
+                    Ticket tick = new Ticket(ultimoNroTicket + 1, fechaHora, medioPago, Main.main1.usuario.dni, Main.main1.usuario.tipoDocumento, npromocion, promocion);
                     var result = AD_Ticket.RegistrarTicket(tick, listaCombos);
                     if (result)
                     {
@@ -78,8 +106,6 @@ namespace TPG3.CapaLogicaNegocio
                     {
                         MessageBox.Show("Error al generar el ticket.");
                     }
-                    
-
                 }                    
                 Main.main1.formPagoCombo(listaCombos);
             }
@@ -125,6 +151,44 @@ namespace TPG3.CapaLogicaNegocio
         {
             dgvMedioPagoSel.Rows.Clear();
             cargarMediosDePago();
+        }
+
+        private void eliminarFilaPromo(string nombre)
+        {
+            string nombrePromo = "";
+            int eliminar = -1;
+            for (int rows = 0; rows < gridSeleccionPromo.Rows.Count; rows++)
+            {
+                nombrePromo = gridSeleccionPromo.Rows[rows].Cells[0].Value.ToString();
+                if (nombrePromo == nombre)
+                {
+                    eliminar = rows;
+                    break;
+                }
+            }
+            gridSeleccionPromo.Rows.RemoveAt(eliminar);
+        }
+
+
+        private void gridSeleccionPromo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var currentRow = gridSeleccionPromo.CurrentCell.RowIndex;
+            DataGridViewRow selectedRow = gridSeleccionPromo.Rows[currentRow];
+            string nombre = (gridSeleccionPromo.Rows[currentRow].Cells[0].Value.ToString());
+            string descripcion = (gridSeleccionPromo.Rows[currentRow].Cells[1].Value.ToString());
+            float valor = float.Parse(gridSeleccionPromo.Rows[currentRow].Cells[2].Value.ToString());
+            gridPromoSel.Rows.Clear();
+            gridPromoSel.Rows.Add(nombre, descripcion, valor);
+            CargarGrillaPromo();
+            eliminarFilaPromo(nombre);
+            var precioConDescuento = precioFinal - valor;
+            lblPrecioDescuento.Text = "$" + precioConDescuento.ToString();
+        }
+
+        private void gridPromoSel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gridPromoSel.Rows.Clear();
+            CargarGrillaPromo();
         }
     }
 }

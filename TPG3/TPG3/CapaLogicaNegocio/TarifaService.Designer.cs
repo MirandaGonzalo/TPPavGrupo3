@@ -219,6 +219,7 @@
             this.label6.Size = new System.Drawing.Size(238, 28);
             this.label6.TabIndex = 0;
             this.label6.Text = "Selección de Promoción";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // grdTarifasSel
             // 

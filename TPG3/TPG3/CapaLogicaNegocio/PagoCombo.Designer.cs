@@ -31,6 +31,17 @@
             this.panelFondo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblPrecioDescuento = new System.Windows.Forms.Label();
+            this.lblDescuento = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.gridPromoSel = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridSeleccionPromo = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
@@ -57,6 +68,8 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFondo.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPromoSel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSeleccionPromo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCombo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioPagoSel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioPago)).BeginInit();
@@ -70,7 +83,7 @@
             this.panelFondo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFondo.Location = new System.Drawing.Point(0, 0);
             this.panelFondo.Name = "panelFondo";
-            this.panelFondo.Size = new System.Drawing.Size(1288, 672);
+            this.panelFondo.Size = new System.Drawing.Size(1288, 806);
             this.panelFondo.TabIndex = 0;
             // 
             // label1
@@ -87,6 +100,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(28)))));
+            this.panel1.Controls.Add(this.lblPrecioDescuento);
+            this.panel1.Controls.Add(this.lblDescuento);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.gridPromoSel);
+            this.panel1.Controls.Add(this.gridSeleccionPromo);
             this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.btnConfirmar);
@@ -100,12 +118,127 @@
             this.panel1.Controls.Add(this.dgvMedioPago);
             this.panel1.Location = new System.Drawing.Point(51, 54);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(993, 413);
+            this.panel1.Size = new System.Drawing.Size(993, 618);
             this.panel1.TabIndex = 0;
+            // 
+            // lblPrecioDescuento
+            // 
+            this.lblPrecioDescuento.AutoSize = true;
+            this.lblPrecioDescuento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPrecioDescuento.ForeColor = System.Drawing.Color.White;
+            this.lblPrecioDescuento.Location = new System.Drawing.Point(476, 562);
+            this.lblPrecioDescuento.Name = "lblPrecioDescuento";
+            this.lblPrecioDescuento.Size = new System.Drawing.Size(19, 21);
+            this.lblPrecioDescuento.TabIndex = 55;
+            this.lblPrecioDescuento.Text = "0";
+            // 
+            // lblDescuento
+            // 
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDescuento.ForeColor = System.Drawing.Color.White;
+            this.lblDescuento.Location = new System.Drawing.Point(282, 562);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(179, 21);
+            this.lblDescuento.TabIndex = 54;
+            this.lblDescuento.Text = "Precio con Descuento:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label7.Location = new System.Drawing.Point(25, 384);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(238, 28);
+            this.label7.TabIndex = 51;
+            this.label7.Text = "Selección de Promoción";
+            // 
+            // gridPromoSel
+            // 
+            this.gridPromoSel.AllowUserToAddRows = false;
+            this.gridPromoSel.AllowUserToDeleteRows = false;
+            this.gridPromoSel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPromoSel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            this.gridPromoSel.Location = new System.Drawing.Point(492, 415);
+            this.gridPromoSel.Name = "gridPromoSel";
+            this.gridPromoSel.ReadOnly = true;
+            this.gridPromoSel.RowTemplate.Height = 25;
+            this.gridPromoSel.Size = new System.Drawing.Size(457, 112);
+            this.gridPromoSel.TabIndex = 53;
+            this.gridPromoSel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPromoSel_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "nombre";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "descripcion";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Descripcion";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "valor";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // gridSeleccionPromo
+            // 
+            this.gridSeleccionPromo.AllowUserToAddRows = false;
+            this.gridSeleccionPromo.AllowUserToDeleteRows = false;
+            this.gridSeleccionPromo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridSeleccionPromo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14});
+            this.gridSeleccionPromo.Location = new System.Drawing.Point(25, 415);
+            this.gridSeleccionPromo.Name = "gridSeleccionPromo";
+            this.gridSeleccionPromo.ReadOnly = true;
+            this.gridSeleccionPromo.RowTemplate.Height = 25;
+            this.gridSeleccionPromo.Size = new System.Drawing.Size(451, 112);
+            this.gridSeleccionPromo.TabIndex = 52;
+            this.gridSeleccionPromo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridSeleccionPromo_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "nombre";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "descripcion";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Descripcion";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "valor";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(118, 41);
+            this.txtNombre.Location = new System.Drawing.Point(118, 49);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(163, 23);
             this.txtNombre.TabIndex = 28;
@@ -116,7 +249,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(25, 43);
+            this.label6.Location = new System.Drawing.Point(25, 51);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 21);
             this.label6.TabIndex = 27;
@@ -129,7 +262,7 @@
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(838, 329);
+            this.btnConfirmar.Location = new System.Drawing.Point(838, 554);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(111, 37);
             this.btnConfirmar.TabIndex = 26;
@@ -142,7 +275,7 @@
             this.lblPrecioFinal.AutoSize = true;
             this.lblPrecioFinal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPrecioFinal.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioFinal.Location = new System.Drawing.Point(686, 337);
+            this.lblPrecioFinal.Location = new System.Drawing.Point(143, 562);
             this.lblPrecioFinal.Name = "lblPrecioFinal";
             this.lblPrecioFinal.Size = new System.Drawing.Size(19, 21);
             this.lblPrecioFinal.TabIndex = 7;
@@ -153,7 +286,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(564, 337);
+            this.label5.Location = new System.Drawing.Point(25, 562);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 21);
             this.label5.TabIndex = 6;
@@ -168,7 +301,7 @@
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.total});
-            this.dgvDetalleCombo.Location = new System.Drawing.Point(25, 254);
+            this.dgvDetalleCombo.Location = new System.Drawing.Point(25, 262);
             this.dgvDetalleCombo.Name = "dgvDetalleCombo";
             this.dgvDetalleCombo.RowTemplate.Height = 25;
             this.dgvDetalleCombo.Size = new System.Drawing.Size(505, 108);
@@ -205,11 +338,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(25, 216);
+            this.label4.Location = new System.Drawing.Point(25, 224);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 21);
+            this.label4.Size = new System.Drawing.Size(87, 28);
             this.label4.TabIndex = 4;
             this.label4.Text = "Combos";
             // 
@@ -218,7 +351,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(564, 41);
+            this.label3.Location = new System.Drawing.Point(564, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(229, 21);
             this.label3.TabIndex = 3;
@@ -227,11 +360,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(25, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 21);
+            this.label2.Size = new System.Drawing.Size(251, 28);
             this.label2.TabIndex = 2;
             this.label2.Text = "Lista de Medios de Pagos";
             // 
@@ -244,10 +377,10 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dgvMedioPagoSel.Location = new System.Drawing.Point(564, 78);
+            this.dgvMedioPagoSel.Location = new System.Drawing.Point(564, 86);
             this.dgvMedioPagoSel.Name = "dgvMedioPagoSel";
             this.dgvMedioPagoSel.RowTemplate.Height = 25;
-            this.dgvMedioPagoSel.Size = new System.Drawing.Size(385, 54);
+            this.dgvMedioPagoSel.Size = new System.Drawing.Size(385, 64);
             this.dgvMedioPagoSel.TabIndex = 1;
             this.dgvMedioPagoSel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMedioPagoSel_CellContentClick);
             // 
@@ -289,7 +422,7 @@
             this.descripcion,
             this.Tarjeta,
             this.dataGridViewTextBoxColumn8});
-            this.dgvMedioPago.Location = new System.Drawing.Point(25, 78);
+            this.dgvMedioPago.Location = new System.Drawing.Point(25, 86);
             this.dgvMedioPago.Name = "dgvMedioPago";
             this.dgvMedioPago.RowTemplate.Height = 25;
             this.dgvMedioPago.Size = new System.Drawing.Size(505, 123);
@@ -337,7 +470,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1288, 672);
+            this.ClientSize = new System.Drawing.Size(1288, 806);
             this.Controls.Add(this.panelFondo);
             this.Name = "PagoCombo";
             this.Text = "PagoCombo";
@@ -346,6 +479,8 @@
             this.panelFondo.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPromoSel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSeleccionPromo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCombo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioPagoSel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedioPago)).EndInit();
@@ -382,5 +517,16 @@
         private TextBox txtNombre;
         private Label label6;
         private Label label5;
+        private Label label7;
+        private DataGridView gridPromoSel;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridView gridSeleccionPromo;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private Label lblPrecioDescuento;
+        private Label lblDescuento;
     }
 }

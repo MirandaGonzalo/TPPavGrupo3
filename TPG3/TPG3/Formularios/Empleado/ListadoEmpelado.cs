@@ -50,7 +50,6 @@ namespace TPG3.Formularios.Empleado
         private void btnEditarEmpleado_Click(object sender, EventArgs e)
         {
             var currentRow = dgvEmpleados.CurrentCell.RowIndex;
-            DataGridViewRow selectedRow = dgvEmpleados.Rows[currentRow];
             string nombreTipoDocumento = (dgvEmpleados.Rows[currentRow].Cells[0].Value.ToString());
             int dni = int.Parse(dgvEmpleados.Rows[currentRow].Cells[1].Value.ToString());
             int idTipoDocumento = int.Parse(dgvEmpleados.Rows[currentRow].Cells[2].Value.ToString());

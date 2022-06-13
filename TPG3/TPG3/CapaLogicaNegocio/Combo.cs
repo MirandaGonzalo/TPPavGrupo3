@@ -65,37 +65,6 @@ namespace TPG3.CapaLogicaNegocio
             }
         }
 
-        private void mostrarCombosSeleccionados()
-        {
-            string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
-            SqlConnection cn = new SqlConnection(cadenaConexion);
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                string consulta = (String.Format("select nombre, idProducto, precio, 1 as 'cantidad' from Producto " +
-                "where idProducto IN ({0}) ", String.Join(",", combosSel)));
-
-                cmd.Parameters.Clear();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = consulta;
-                cn.Open();
-                cmd.Connection = cn;
-                DataTable tabla = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(tabla);
-                dgvListaCombosSel.DataSource = tabla;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
-
         private void mostrarComponentesCombo(int idCombo)
         {
             string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
@@ -162,6 +131,7 @@ namespace TPG3.CapaLogicaNegocio
             DataGridViewRow selectedRow = dgvListaCombos.Rows[currentRow];
             int idCombo = int.Parse(dgvListaCombos.Rows[currentRow].Cells[1].Value.ToString());
             mostrarComponentesCombo(idCombo);
+            precioTotalCombos();
         }
 
         private void dgvListaCombosSel_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -169,14 +139,9 @@ namespace TPG3.CapaLogicaNegocio
             var currentRow = dgvListaCombosSel.CurrentCell.RowIndex;
             DataGridViewRow selectedRow = dgvListaCombosSel.Rows[currentRow];
             int idCombo = int.Parse(dgvListaCombosSel.Rows[currentRow].Cells[1].Value.ToString());
-            mostrarComponentesCombo(idCombo);            
+            mostrarComponentesCombo(idCombo);
+            precioTotalCombos();
         }
-
-        //private void dgvListaCombosSel_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    cantidadCombos();
-        //    precioTotalCombos();
-        //}
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {

@@ -136,3 +136,4 @@ C:\Users\Usuario\Documents\PAV1\TP\entrega 1-6\TPG3\TPG3\obj\Debug\net6.0-window
 C:\Users\Usuario\Documents\PAV1\TP\entrega 1-6\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.EntradasVendidas.DetalleVentaEntradas.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.EntradasVendidas.DetalleVentaEntradas.resources
 D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.EntradasVendidas.ListaEntradas.resources
+D:\GitProjects\TPPavGrupo3\TPG3\TPG3\obj\Debug\net6.0-windows\TPG3.Formularios.Reportes.Reportes.resources

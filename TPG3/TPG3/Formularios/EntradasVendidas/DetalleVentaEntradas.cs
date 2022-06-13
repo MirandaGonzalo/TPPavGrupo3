@@ -1,31 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System.Data;
 using TPG3.AccesoADatos;
+using TPG3.Entidades;
+
 namespace TPG3.Formularios.EntradasVendidas
 {
     public partial class DetalleVentaEntradas : Form
     {
-        int nroTicket;
-        public DetalleVentaEntradas(int ticket)
+        Ticket ticket = new Ticket();
+        ReporteTicket reporte = new ReporteTicket();
+        public DetalleVentaEntradas(Ticket ticket, ReporteTicket reporte)
         {
-            this.nroTicket = ticket;
+            this.ticket = ticket;
+            this.reporte = reporte;
             InitializeComponent();
         }
 
         private void DetalleVentaEntradas_Load(object sender, EventArgs e)
         {
             cargarGrilla();
-            lblSala.Text = AD_Sala.ObtenerSalaFromTicket(nroTicket);
+            cargarDatosTicket();
+        }
+
+        private void cargarDatosTicket()
+        {
+            lblSala.Text = AD_Sala.ObtenerSalaFromTicket(ticket.nroTicket);
+            lblEmpleado.Text = reporte.empleado;
+            lblDescuento.Text = ticket.promocion.ToString();
+            lblFechaVenta.Text = ticket.fechaHoraVenta.ToString();
+            lblMedio.Text = reporte.medioPago.ToString();
+            var totalSinDescuento = obtenerPrecioSinDescuento();
+            lblPrecioSinDescuento.Text = totalSinDescuento.ToString();
+            lblPrecioFinal.Text = (totalSinDescuento - ticket.promocion).ToString();
+        }
+
+        private float obtenerPrecioSinDescuento()
+        {
+            float total = 0;
+            for (int i = 0; i < dgvEntradas.Rows.Count; i++)
+            {
+                total += float.Parse(dgvEntradas.Rows[i].Cells[4].Value.ToString());
+            }
+
+            return total;
         }
 
         private void cargarGrilla()
         {
             try
             {
-                dataGridView1.DataSource = AD_Entrada.ObtenerEntradasTicket(nroTicket);
+                dgvEntradas.DataSource = AD_Entrada.ObtenerEntradasTicket(ticket.nroTicket);
             }
             catch (Exception)
             {

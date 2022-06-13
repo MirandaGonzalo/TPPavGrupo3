@@ -337,9 +337,9 @@ namespace TPG3
             TarifaService tarifaService = new TarifaService(fechaHora,sala, codFormato);
             openChildForm(tarifaService);
         }
-        public void formSeleccionarAsientos(DateTime fechaHora, int sala,List<int> listaCantXTarifa, int cantSolicitada, string promocion, int codFormato, int medioPago)
+        public void formSeleccionarAsientos(DateTime fechaHora, int sala,List<int> listaCantXTarifa,List<float> listaPrecioXTarifa,int cantSolicitada, string promocion, float descPromo, int codFormato, int medioPago)
         {
-            SeleccionAsientoFuncion selecAsiento = new SeleccionAsientoFuncion(fechaHora, sala,listaCantXTarifa, cantSolicitada, promocion, codFormato, medioPago);
+            SeleccionAsientoFuncion selecAsiento = new SeleccionAsientoFuncion(fechaHora, sala,listaCantXTarifa, listaPrecioXTarifa, cantSolicitada, promocion,descPromo, codFormato, medioPago);
             openChildForm(selecAsiento);
         }
 
@@ -349,10 +349,16 @@ namespace TPG3
             openChildForm(listaEntrada);
         }
 
-        public void btnDetalleVentaEntradas(int nroTicket)
+        public void btnDetalleVentaEntradas(Ticket ticket, ReporteTicket reporte)
         {
-            Formularios.EntradasVendidas.DetalleVentaEntradas listaDetalle = new Formularios.EntradasVendidas.DetalleVentaEntradas(nroTicket);
+            Formularios.EntradasVendidas.DetalleVentaEntradas listaDetalle = new Formularios.EntradasVendidas.DetalleVentaEntradas(ticket, reporte);
             openChildForm(listaDetalle);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Formularios.Reportes.Reportes listaReportes = new Formularios.Reportes.Reportes();
+            openChildForm(listaReportes);
         }
     }
 }

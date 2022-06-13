@@ -10,13 +10,11 @@ namespace TPG3.CapaLogicaNegocio
         private DateTime fechaHora;
         private int sala;
         private int codFormato;
-        List<int> listaTarifasSel;
-        List<int> cantidadXTarifa;
+        List<int> listaTarifasSel;        
         public int asientosDisp;
         public TarifaService(DateTime fechaH, int salaS, int formato)
         {
-            listaTarifasSel = new List<int>();
-            cantidadXTarifa = new List<int>();
+            listaTarifasSel = new List<int>();            
             listaTarifasSel.Add(-1);
             this.fechaHora = fechaH;
             this.sala = salaS;
@@ -64,7 +62,7 @@ namespace TPG3.CapaLogicaNegocio
             {
                 gridSeleccionPromo.DataSource = AD_Promocion.GetDetallePromocion();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error al obtener el listado de promociones.");
             }
@@ -75,7 +73,6 @@ namespace TPG3.CapaLogicaNegocio
             int indice = e.RowIndex;
             DataGridViewRow filaSeleccionada = gdrSeleccionTarifa.Rows[indice];
 
-            int idTarifa = (int)filaSeleccionada.Cells["IdTarifa"].Value;
         }
 
 
@@ -246,6 +243,23 @@ namespace TPG3.CapaLogicaNegocio
             return listaCantTarifas;
         }
 
+        private List<float> obtenerPrecioXTarifa()
+        {
+            List<float> listaPrecio = new List<float>();
+            int cantidad = -1;
+            float precio = -1;
+            for (int rows = 0; rows < grdTarifasSel.Rows.Count; rows++)
+            {
+                precio = float.Parse(grdTarifasSel.Rows[rows].Cells[3].Value.ToString());
+                cantidad = int.Parse(grdTarifasSel.Rows[rows].Cells[4].Value.ToString());
+                for (int j = 0; j < cantidad; j++)
+                {
+                    listaPrecio.Add(precio);
+                }
+            }
+            return listaPrecio;
+        }
+
         private void btnContinuar_Click(object sender, EventArgs e)
         {
             if (grdTarifasSel.Rows.Count == 0)
@@ -266,6 +280,7 @@ namespace TPG3.CapaLogicaNegocio
                     else
                     {
                         string promocion = (gridPromoSel.Rows[0].Cells[0].Value.ToString());
+                        float descPromo = float.Parse(gridPromoSel.Rows[0].Cells[2].Value.ToString());
                         int cantEntradas = cantidadEntradas();
                         if (cantEntradas > asientosDisp)
                         {
@@ -274,7 +289,7 @@ namespace TPG3.CapaLogicaNegocio
                         else
                         {
                             var medioPago = int.Parse(dgvMedioPagoSel.Rows[0].Cells[0].Value.ToString());
-                            Main.main1.formSeleccionarAsientos(fechaHora, sala, obtenerCantidadXTarifa(), cantidadEntradas(), promocion, codFormato, medioPago);
+                            Main.main1.formSeleccionarAsientos(fechaHora, sala, obtenerCantidadXTarifa(),obtenerPrecioXTarifa() ,cantidadEntradas(), promocion, descPromo, codFormato, medioPago);
                         }
                     }
                 }
@@ -317,6 +332,11 @@ namespace TPG3.CapaLogicaNegocio
         {
             dgvMedioPagoSel.Rows.Clear();
             cargarMediosDePago();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

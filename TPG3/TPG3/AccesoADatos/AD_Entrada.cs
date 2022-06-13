@@ -27,6 +27,10 @@ namespace TPG3.AccesoADatos
                 {
                     nroEntrada = int.Parse(dr["nroEntrada"].ToString());
                 }
+                else
+                {
+                    nroEntrada = 0;
+                }
             }
             catch (Exception)
             {
@@ -39,7 +43,7 @@ namespace TPG3.AccesoADatos
             return nroEntrada;
         }
 
-        public static bool RegistrarEntrada(DateTime fechaHoraFuncion,int sala,List<string> asientosOcupadosNuevos,List<int> listaIdTarifasSeleccionadas, string promocion, Usuario usuario, int medioPago, int ticket, int entrada)
+        public static bool RegistrarEntrada(Ticket ticket, DateTime fechaHoraFuncion,int sala,List<string> asientosOcupadosNuevos,List<int> listaIdTarifasSeleccionadas,List<float> listaPrecioXTarifaSeleccionadas, int nroEntrada)
         {
             string cadenaConexion = System.Configuration.ConfigurationSettings.AppSettings["CadenaDB"];
             SqlTransaction objTransaccion = null;
@@ -49,10 +53,12 @@ namespace TPG3.AccesoADatos
                 SqlCommand cmd = new SqlCommand();
                 string consulta = "InsertTicket";
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@fechaHora", DateTime.Now);
-                cmd.Parameters.AddWithValue("@medioPago", medioPago);
-                cmd.Parameters.AddWithValue("@dniEmpleado", usuario.dni);
-                cmd.Parameters.AddWithValue("@tipoDocEmpleado", usuario.tipoDocumento);
+                cmd.Parameters.AddWithValue("@fechaHora", ticket.fechaHoraVenta);
+                cmd.Parameters.AddWithValue("@medioPago", ticket.medioPago);
+                cmd.Parameters.AddWithValue("@dniEmpleado", ticket.dniEmpelado);
+                cmd.Parameters.AddWithValue("@tipoDocEmpleado", ticket.tipoDocEmpleado);
+                cmd.Parameters.AddWithValue("@npromocion", ticket.npromocion);
+                cmd.Parameters.AddWithValue("@promocion", ticket.promocion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = consulta;
                 cn.Open();
@@ -65,15 +71,15 @@ namespace TPG3.AccesoADatos
                 {    
                     string consultaInsertEntrada = "InsertEntrada";
                     cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@fechaHoraVenta", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@fechaHoraVenta", ticket.fechaHoraVenta);
                     cmd.Parameters.AddWithValue("@fechaHoraFuncion", fechaHoraFuncion);
                     cmd.Parameters.AddWithValue("@sala", sala);
                     cmd.Parameters.AddWithValue("@letraColumna", asientosOcupadosNuevos[i].Substring(0,1));
                     cmd.Parameters.AddWithValue("@numeroFila", int.Parse(asientosOcupadosNuevos[i].Substring(1, asientosOcupadosNuevos[i].Length-1)));
                     cmd.Parameters.AddWithValue("@tarifa", listaIdTarifasSeleccionadas[i]);
-                    cmd.Parameters.AddWithValue("@promocion", promocion);
-                    cmd.Parameters.AddWithValue("@dniEmpleado", usuario.dni);
-                    cmd.Parameters.AddWithValue("@tipoDocEmpleado", usuario.tipoDocumento);
+                    cmd.Parameters.AddWithValue("@dniEmpleado", ticket.dniEmpelado);
+                    cmd.Parameters.AddWithValue("@tipoDocEmpleado", ticket.tipoDocEmpleado);
+                    cmd.Parameters.AddWithValue("@precioUnitario", listaPrecioXTarifaSeleccionadas[i]);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = consultaInsertEntrada;
                     cmd.ExecuteNonQuery();
@@ -81,8 +87,8 @@ namespace TPG3.AccesoADatos
                     string consultaInsertDetalleTicketEntrada = "InsertDetalleTicketEntrada";
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@orden", i + 1);
-                    cmd.Parameters.AddWithValue("@nroTicket", ticket);
-                    cmd.Parameters.AddWithValue("@nroEntrada", entrada + i);
+                    cmd.Parameters.AddWithValue("@nroTicket", ticket.nroTicket);
+                    cmd.Parameters.AddWithValue("@nroEntrada", nroEntrada + i);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = consultaInsertDetalleTicketEntrada;
                     cmd.ExecuteNonQuery();

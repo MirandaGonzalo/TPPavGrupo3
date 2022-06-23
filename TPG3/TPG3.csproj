@@ -1,0 +1,1204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B5AF358-9BE5-4AEF-BE9F-84C13E41F259}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ProbandoMigrar</RootNamespace>
+    <AssemblyName>ProbandoMigrar</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoADatos\AD_Actor.cs" />
+    <Compile Include="AccesoADatos\AD_AsientoXSala.cs" />
+    <Compile Include="AccesoADatos\AD_Banco.cs" />
+    <Compile Include="AccesoADatos\AD_Calificacion.cs" />
+    <Compile Include="AccesoADatos\AD_Cliente.cs" />
+    <Compile Include="AccesoADatos\AD_Combo.cs" />
+    <Compile Include="AccesoADatos\AD_ComposicionCombo.cs" />
+    <Compile Include="AccesoADatos\AD_DetalleTicketCombo.cs" />
+    <Compile Include="AccesoADatos\AD_Distribuidora.cs" />
+    <Compile Include="AccesoADatos\AD_Empleado.cs" />
+    <Compile Include="AccesoADatos\AD_Entrada.cs" />
+    <Compile Include="AccesoADatos\AD_Estado.cs" />
+    <Compile Include="AccesoADatos\AD_Formato.cs" />
+    <Compile Include="AccesoADatos\AD_Funcion.cs" />
+    <Compile Include="AccesoADatos\AD_Genero.cs" />
+    <Compile Include="AccesoADatos\AD_Idioma.cs" />
+    <Compile Include="AccesoADatos\AD_MedioPago.cs" />
+    <Compile Include="AccesoADatos\AD_Origen.cs" />
+    <Compile Include="AccesoADatos\AD_Pelicula.cs" />
+    <Compile Include="AccesoADatos\AD_PrecioDescuento.cs" />
+    <Compile Include="AccesoADatos\AD_Producto.cs" />
+    <Compile Include="AccesoADatos\AD_ProgramacionSemanal.cs" />
+    <Compile Include="AccesoADatos\AD_Promocion.cs" />
+    <Compile Include="AccesoADatos\AD_Rol.cs" />
+    <Compile Include="AccesoADatos\AD_Sala.cs" />
+    <Compile Include="AccesoADatos\AD_Tarifa.cs" />
+    <Compile Include="AccesoADatos\AD_Tarjeta.cs" />
+    <Compile Include="AccesoADatos\AD_Ticket.cs" />
+    <Compile Include="AccesoADatos\AD_TipoDocumento.cs" />
+    <Compile Include="AccesoADatos\AD_TipoProducto.cs" />
+    <Compile Include="AccesoADatos\AD_Usuario.cs" />
+    <Compile Include="CapaLogicaDeNegocio\Combo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaLogicaDeNegocio\Combo.designer.cs">
+      <DependentUpon>Combo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaLogicaDeNegocio\PagoCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaLogicaDeNegocio\PagoCombo.designer.cs">
+      <DependentUpon>PagoCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaLogicaDeNegocio\PeliculaService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaLogicaDeNegocio\PeliculaService.designer.cs">
+      <DependentUpon>PeliculaService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaLogicaDeNegocio\SeleccionAsientoFuncion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaLogicaDeNegocio\SeleccionAsientoFuncion.designer.cs">
+      <DependentUpon>SeleccionAsientoFuncion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaLogicaDeNegocio\TarifaService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaLogicaDeNegocio\TarifaService.designer.cs">
+      <DependentUpon>TarifaService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\ComboBoxItem.cs" />
+    <Compile Include="DataSetBanco.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBanco.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetCalificacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCalificacion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetDistribuidora.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetDistribuidora.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetEmpleado.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEmpleado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetFormato.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFormato.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetGenero.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetGenero.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataSetIdioma.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataSetIdioma.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetListadoPeliculas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetListadoPeliculas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetListadoSala.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetListadoSala.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetListaTarjetas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetListaTarjetas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetOrigen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetOrigen.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetProductos3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProductos3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetTipoProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTipoProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\Actor.cs" />
+    <Compile Include="Entidades\AD_Producto.cs" />
+    <Compile Include="Entidades\Banco.cs" />
+    <Compile Include="Entidades\Calificacion.cs" />
+    <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Combo.cs" />
+    <Compile Include="Entidades\DetalleTicketCombo.cs" />
+    <Compile Include="Entidades\Distribuidora.cs" />
+    <Compile Include="Entidades\EditItemCombo.cs" />
+    <Compile Include="Entidades\Empleado.cs" />
+    <Compile Include="Entidades\Entrada.cs" />
+    <Compile Include="Entidades\Estado.cs" />
+    <Compile Include="Entidades\Formato.cs" />
+    <Compile Include="Entidades\Funcion.cs" />
+    <Compile Include="Entidades\Genero.cs" />
+    <Compile Include="Entidades\MedioPago.cs" />
+    <Compile Include="Entidades\Origen.cs" />
+    <Compile Include="Entidades\Pelicula.cs" />
+    <Compile Include="Entidades\Producto.cs" />
+    <Compile Include="Entidades\ProgramacionSemanal.cs" />
+    <Compile Include="Entidades\Promocion.cs" />
+    <Compile Include="Entidades\ReporteTicket.cs" />
+    <Compile Include="Entidades\Rol.cs" />
+    <Compile Include="Entidades\Sala.cs" />
+    <Compile Include="Entidades\Tarifa.cs" />
+    <Compile Include="Entidades\Tarjeta.cs" />
+    <Compile Include="Entidades\Ticket.cs" />
+    <Compile Include="Entidades\TipoDocumento.cs" />
+    <Compile Include="Entidades\TipoProducto.cs" />
+    <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Estadisticas\Combo\EstadisticaCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Combo\EstadisticaCombo.Designer.cs">
+      <DependentUpon>EstadisticaCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Descuentos\DataSetEstadisticaDescuento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEstadisticaDescuento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Descuentos\EstadisticaDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Descuentos\EstadisticaDescuento.Designer.cs">
+      <DependentUpon>EstadisticaDescuento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Empleado\EstadisticaEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Empleado\EstadisticaEmpleado.Designer.cs">
+      <DependentUpon>EstadisticaEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Formato\EstadisticaFormato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Formato\EstadisticaFormato.Designer.cs">
+      <DependentUpon>EstadisticaFormato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Funcion\DataSet1ReporteFuncionxsd.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1ReporteFuncionxsd.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Funcion\EstadisticaFuncion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Funcion\EstadisticaFuncion.Designer.cs">
+      <DependentUpon>EstadisticaFuncion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Pelicula\DataSetEstadisticaPelicula.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEstadisticaPelicula.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Pelicula\EstadisticaPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Pelicula\EstadisticaPelicula.Designer.cs">
+      <DependentUpon>EstadisticaPelicula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\PrecioDescuento\DataSetEstadisticaPrecioDescuento.cs">
+      <DependentUpon>DataSetEstadisticaPrecioDescuento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\PrecioDescuento\DataSetEstadisticaPrecioDescuento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEstadisticaPrecioDescuento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\PrecioDescuento\EstadisticaPrecioDescuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\PrecioDescuento\EstadisticaPrecioDescuento.Designer.cs">
+      <DependentUpon>EstadisticaPrecioDescuento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\ProductosXTipo\DataSetEstadisticaProductoTipo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEstadisticaProductoTipo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\ProductosXTipo\EstadisticaProductoXTipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\ProductosXTipo\EstadisticaProductoXTipo.Designer.cs">
+      <DependentUpon>EstadisticaProductoXTipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Promocion\EstadisticaPromocion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Promocion\EstadisticaPromocion.Designer.cs">
+      <DependentUpon>EstadisticaPromocion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\TicketEntrada\EstadisticaTicketEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\TicketEntrada\EstadisticaTicketEntrada.Designer.cs">
+      <DependentUpon>EstadisticaTicketEntrada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Actor\AltaActor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Actor\AltaActor.Designer.cs">
+      <DependentUpon>AltaActor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Actor\ListaActor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Actor\ListaActor.Designer.cs">
+      <DependentUpon>ListaActor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Banco\listaBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Banco\listaBanco.Designer.cs">
+      <DependentUpon>listaBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Calificacion\ListadoCalificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Calificacion\ListadoCalificacion.Designer.cs">
+      <DependentUpon>ListadoCalificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cliente\AltaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cliente\AltaCliente.Designer.cs">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cliente\ListadoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cliente\ListadoCliente.Designer.cs">
+      <DependentUpon>ListadoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Combo\AltaCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Combo\AltaCombo.Designer.cs">
+      <DependentUpon>AltaCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Combo\ListaCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Combo\ListaCombo.Designer.cs">
+      <DependentUpon>ListaCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Distribuidora\ListadoDistribuidora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Distribuidora\ListadoDistribuidora.Designer.cs">
+      <DependentUpon>ListadoDistribuidora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Empleado\AltaEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Empleado\AltaEmpleado.Designer.cs">
+      <DependentUpon>AltaEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Empleado\ListadoEmpelado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Empleado\ListadoEmpelado.Designer.cs">
+      <DependentUpon>ListadoEmpelado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\EntradasVendidas\DetalleVentaEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\EntradasVendidas\DetalleVentaEntradas.Designer.cs">
+      <DependentUpon>DetalleVentaEntradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\EntradasVendidas\ListaEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\EntradasVendidas\ListaEntradas.Designer.cs">
+      <DependentUpon>ListaEntradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Estadisticas\Estadisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Estadisticas\Estadisticas.Designer.cs">
+      <DependentUpon>Estadisticas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Estado\listaEstado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Estado\listaEstado.Designer.cs">
+      <DependentUpon>listaEstado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Formato\listaFormato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Formato\listaFormato.Designer.cs">
+      <DependentUpon>listaFormato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Funcion\AltaFuncion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Funcion\AltaFuncion.Designer.cs">
+      <DependentUpon>AltaFuncion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Funcion\EstadoFuncion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Funcion\EstadoFuncion.Designer.cs">
+      <DependentUpon>EstadoFuncion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Funcion\ListaFuncion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Funcion\ListaFuncion.Designer.cs">
+      <DependentUpon>ListaFuncion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Genero\ListadoGenero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Genero\ListadoGenero.Designer.cs">
+      <DependentUpon>ListadoGenero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\MedioPago\AltaMedioPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\MedioPago\AltaMedioPago.Designer.cs">
+      <DependentUpon>AltaMedioPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\MedioPago\ListaMedioPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\MedioPago\ListaMedioPago.Designer.cs">
+      <DependentUpon>ListaMedioPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Origen\ListadoOrigen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Origen\ListadoOrigen.Designer.cs">
+      <DependentUpon>ListadoOrigen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Pelicula\AltaPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Pelicula\AltaPelicula.Designer.cs">
+      <DependentUpon>AltaPelicula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Pelicula\ListaPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Pelicula\ListaPelicula.Designer.cs">
+      <DependentUpon>ListaPelicula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Producto\AltaProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Producto\AltaProducto.Designer.cs">
+      <DependentUpon>AltaProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Producto\ListaProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Producto\ListaProducto.Designer.cs">
+      <DependentUpon>ListaProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ProgramacionSemanal\listaProgramacionSemanal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ProgramacionSemanal\listaProgramacionSemanal.Designer.cs">
+      <DependentUpon>listaProgramacionSemanal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Promocion\AltaPromocion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Promocion\AltaPromocion.Designer.cs">
+      <DependentUpon>AltaPromocion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Promocion\ListaPromocion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Promocion\ListaPromocion.Designer.cs">
+      <DependentUpon>ListaPromocion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Reportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Reportes.Designer.cs">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Rol\ListadoRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Rol\ListadoRol.Designer.cs">
+      <DependentUpon>ListadoRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sala\listadoSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sala\listadoSala.Designer.cs">
+      <DependentUpon>listadoSala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tarifa\listaTarifa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tarifa\listaTarifa.Designer.cs">
+      <DependentUpon>listaTarifa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tarjeta\AltaTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tarjeta\AltaTarjeta.Designer.cs">
+      <DependentUpon>AltaTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Tarjeta\ListaTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Tarjeta\ListaTarjeta.Designer.cs">
+      <DependentUpon>ListaTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\TipoDocumento\ListadoTipoDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\TipoDocumento\ListadoTipoDocumento.Designer.cs">
+      <DependentUpon>ListadoTipoDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\TipoProducto\ListaTipoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\TipoProducto\ListaTipoProducto.Designer.cs">
+      <DependentUpon>ListaTipoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Usuario\listadoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Usuario\listadoUsuario.Designer.cs">
+      <DependentUpon>listadoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\Cliente\DataSetCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCliente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Cliente\ReporteListadoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Cliente\ReporteListadoCliente.Designer.cs">
+      <DependentUpon>ReporteListadoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Combo\DataSetCombo.cs">
+      <DependentUpon>DataSetCombo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Combo\DataSetCombo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCombo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Combo\ReporteCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Combo\ReporteCombo.Designer.cs">
+      <DependentUpon>ReporteCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Empleado\ReporteEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Empleado\ReporteEmpleado.Designer.cs">
+      <DependentUpon>ReporteEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Entrada\DataSetEntrada.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEntrada.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Entrada\ReporteEntrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Entrada\ReporteEntrada.Designer.cs">
+      <DependentUpon>ReporteEntrada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Funcion\DataSetFuncion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFuncion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Funcion\ReporteFuncion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Funcion\ReporteFuncion.Designer.cs">
+      <DependentUpon>ReporteFuncion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Pelicula\DataSetPeliculas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPeliculas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Pelicula\ReportePelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Pelicula\ReportePelicula.Designer.cs">
+      <DependentUpon>ReportePelicula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Producto\DataSetProducto.Designer.cs" />
+    <Compile Include="Reportes\Producto\ReporteProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Producto\ReporteProducto.Designer.cs">
+      <DependentUpon>ReporteProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Promociones\DataSetPromocion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPromocion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Promociones\ReportePromo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Promociones\ReportePromo.Designer.cs">
+      <DependentUpon>ReportePromo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Tarifa\DataSetTarifa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTarifa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Tarifa\ReporteTarifa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Tarifa\ReporteTarifa.Designer.cs">
+      <DependentUpon>ReporteTarifa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="CapaLogicaDeNegocio\Combo.resx">
+      <DependentUpon>Combo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaLogicaDeNegocio\PagoCombo.resx">
+      <DependentUpon>PagoCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaLogicaDeNegocio\PeliculaService.resx">
+      <DependentUpon>PeliculaService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaLogicaDeNegocio\SeleccionAsientoFuncion.resx">
+      <DependentUpon>SeleccionAsientoFuncion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaLogicaDeNegocio\TarifaService.resx">
+      <DependentUpon>TarifaService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Combo\EstadisticaCombo.rdlc" />
+    <EmbeddedResource Include="Estadisticas\Combo\EstadisticaCombo.resx">
+      <DependentUpon>EstadisticaCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Descuentos\EstadisticaDescuento.rdlc" />
+    <EmbeddedResource Include="Estadisticas\Descuentos\EstadisticaDescuento.resx">
+      <DependentUpon>EstadisticaDescuento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Empleado\EstadisticaEmpleado.rdlc" />
+    <EmbeddedResource Include="Estadisticas\Empleado\EstadisticaEmpleado.resx">
+      <DependentUpon>EstadisticaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Formato\EstadisticaFormato.resx">
+      <DependentUpon>EstadisticaFormato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Formato\EstadisticaFormato.rdlc" />
+    <EmbeddedResource Include="Estadisticas\Funcion\EstadisticaFuncion.rdlc" />
+    <EmbeddedResource Include="Estadisticas\Funcion\EstadisticaFuncion.resx">
+      <DependentUpon>EstadisticaFuncion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Pelicula\EstadisticaPelicula.resx">
+      <DependentUpon>EstadisticaPelicula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Pelicula\ReporteEstadisticaPelicula.rdlc" />
+    <EmbeddedResource Include="Estadisticas\PrecioDescuento\EstadisticaPrecioDescuento.resx">
+      <DependentUpon>EstadisticaPrecioDescuento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\PrecioDescuento\EstadisticaPrecioDescuento.rdlc" />
+    <EmbeddedResource Include="Estadisticas\ProductosXTipo\EstadisticaProductoTipo.rdlc" />
+    <EmbeddedResource Include="Estadisticas\ProductosXTipo\EstadisticaProductoXTipo.resx">
+      <DependentUpon>EstadisticaProductoXTipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Promocion\EstadisticaPromocion.resx">
+      <DependentUpon>EstadisticaPromocion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas\Promocion\EstadisticaPromocions.rdlc" />
+    <EmbeddedResource Include="Estadisticas\TicketEntrada\EstadisticaTicketEntrada.rdlc" />
+    <EmbeddedResource Include="Estadisticas\TicketEntrada\EstadisticaTicketEntrada.resx">
+      <DependentUpon>EstadisticaTicketEntrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Actor\AltaActor.resx">
+      <DependentUpon>AltaActor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Actor\ListaActor.resx">
+      <DependentUpon>ListaActor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Banco\listaBanco.resx">
+      <DependentUpon>listaBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Calificacion\ListadoCalificacion.resx">
+      <DependentUpon>ListadoCalificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cliente\AltaCliente.resx">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cliente\ListadoCliente.resx">
+      <DependentUpon>ListadoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Combo\AltaCombo.resx">
+      <DependentUpon>AltaCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Combo\ListaCombo.resx">
+      <DependentUpon>ListaCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Distribuidora\ListadoDistribuidora.resx">
+      <DependentUpon>ListadoDistribuidora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Empleado\AltaEmpleado.resx">
+      <DependentUpon>AltaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Empleado\ListadoEmpelado.resx">
+      <DependentUpon>ListadoEmpelado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\EntradasVendidas\DetalleVentaEntradas.resx">
+      <DependentUpon>DetalleVentaEntradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\EntradasVendidas\ListaEntradas.resx">
+      <DependentUpon>ListaEntradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Estadisticas\Estadisticas.resx">
+      <DependentUpon>Estadisticas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Estado\listaEstado.resx">
+      <DependentUpon>listaEstado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Formato\listaFormato.resx">
+      <DependentUpon>listaFormato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Funcion\AltaFuncion.resx">
+      <DependentUpon>AltaFuncion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Funcion\EstadoFuncion.resx">
+      <DependentUpon>EstadoFuncion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Funcion\ListaFuncion.resx">
+      <DependentUpon>ListaFuncion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Genero\ListadoGenero.resx">
+      <DependentUpon>ListadoGenero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\MedioPago\AltaMedioPago.resx">
+      <DependentUpon>AltaMedioPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\MedioPago\ListaMedioPago.resx">
+      <DependentUpon>ListaMedioPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Origen\ListadoOrigen.resx">
+      <DependentUpon>ListadoOrigen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pelicula\AltaPelicula.resx">
+      <DependentUpon>AltaPelicula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pelicula\ListaPelicula.resx">
+      <DependentUpon>ListaPelicula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Producto\AltaProducto.resx">
+      <DependentUpon>AltaProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Producto\ListaProducto.resx">
+      <DependentUpon>ListaProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ProgramacionSemanal\listaProgramacionSemanal.resx">
+      <DependentUpon>listaProgramacionSemanal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Promocion\AltaPromocion.resx">
+      <DependentUpon>AltaPromocion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Promocion\ListaPromocion.resx">
+      <DependentUpon>ListaPromocion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\Reportes.resx">
+      <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Rol\ListadoRol.resx">
+      <DependentUpon>ListadoRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sala\listadoSala.resx">
+      <DependentUpon>listadoSala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tarifa\listaTarifa.resx">
+      <DependentUpon>listaTarifa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tarjeta\AltaTarjeta.resx">
+      <DependentUpon>AltaTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Tarjeta\ListaTarjeta.resx">
+      <DependentUpon>ListaTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\TipoDocumento\ListadoTipoDocumento.resx">
+      <DependentUpon>ListadoTipoDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\TipoProducto\ListaTipoProducto.resx">
+      <DependentUpon>ListaTipoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Usuario\listadoUsuario.resx">
+      <DependentUpon>listadoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reportes\Cliente\ReporteCliente.rdlc" />
+    <EmbeddedResource Include="Reportes\Cliente\ReporteListadoCliente.resx">
+      <DependentUpon>ReporteListadoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Combo\ReporteCombo.rdlc" />
+    <EmbeddedResource Include="Reportes\Combo\ReporteCombo.resx">
+      <DependentUpon>ReporteCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Empleado\ReporteEmpleado.rdlc" />
+    <EmbeddedResource Include="Reportes\Empleado\ReporteEmpleado.resx">
+      <DependentUpon>ReporteEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Entrada\ReporteEntrada.rdlc" />
+    <EmbeddedResource Include="Reportes\Entrada\ReporteEntrada.resx">
+      <DependentUpon>ReporteEntrada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Funcion\ReporteFuncion.rdlc" />
+    <EmbeddedResource Include="Reportes\Funcion\ReporteFuncion.resx">
+      <DependentUpon>ReporteFuncion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Pelicula\ReportePelicula.rdlc" />
+    <EmbeddedResource Include="Reportes\Pelicula\ReportePelicula.resx">
+      <DependentUpon>ReportePelicula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Producto\ReporteProducto.rdlc" />
+    <EmbeddedResource Include="Reportes\Producto\ReporteProducto.resx">
+      <DependentUpon>ReporteProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Promociones\ReportePromo.resx">
+      <DependentUpon>ReportePromo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Promociones\ReportePromocion.rdlc" />
+    <EmbeddedResource Include="Reportes\Tarifa\ReporteInforme.rdlc" />
+    <EmbeddedResource Include="Reportes\Tarifa\ReporteTarifa.resx">
+      <DependentUpon>ReporteTarifa.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSetBanco.xsc">
+      <DependentUpon>DataSetBanco.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetBanco.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBanco.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetBanco.xss">
+      <DependentUpon>DataSetBanco.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCalificacion.xsc">
+      <DependentUpon>DataSetCalificacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCalificacion.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCalificacion.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetCalificacion.xss">
+      <DependentUpon>DataSetCalificacion.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetDistribuidora.xsc">
+      <DependentUpon>DataSetDistribuidora.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetDistribuidora.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetDistribuidora.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetDistribuidora.xss">
+      <DependentUpon>DataSetDistribuidora.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetEmpleado.xsc">
+      <DependentUpon>DataSetEmpleado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetEmpleado.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEmpleado.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetEmpleado.xss">
+      <DependentUpon>DataSetEmpleado.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFormato.xsc">
+      <DependentUpon>DataSetFormato.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFormato.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFormato.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetFormato.xss">
+      <DependentUpon>DataSetFormato.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetGenero.xsc">
+      <DependentUpon>DataSetGenero.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetGenero.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetGenero.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetGenero.xss">
+      <DependentUpon>DataSetGenero.xsd</DependentUpon>
+    </None>
+    <None Include="dataSetIdioma.xsc">
+      <DependentUpon>dataSetIdioma.xsd</DependentUpon>
+    </None>
+    <None Include="dataSetIdioma.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataSetIdioma.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dataSetIdioma.xss">
+      <DependentUpon>dataSetIdioma.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetListadoPeliculas.xsc">
+      <DependentUpon>DataSetListadoPeliculas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetListadoPeliculas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetListadoPeliculas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetListadoPeliculas.xss">
+      <DependentUpon>DataSetListadoPeliculas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetListadoSala.xsc">
+      <DependentUpon>DataSetListadoSala.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetListadoSala.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetListadoSala.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetListadoSala.xss">
+      <DependentUpon>DataSetListadoSala.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetListaTarjetas.xsc">
+      <DependentUpon>DataSetListaTarjetas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetListaTarjetas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetListaTarjetas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetListaTarjetas.xss">
+      <DependentUpon>DataSetListaTarjetas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetOrigen.xsc">
+      <DependentUpon>DataSetOrigen.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetOrigen.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetOrigen.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetOrigen.xss">
+      <DependentUpon>DataSetOrigen.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProducto.xsc">
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProducto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProducto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetProducto.xss">
+      <DependentUpon>DataSetProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProductos3.xsc">
+      <DependentUpon>DataSetProductos3.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProductos3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProductos3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetProductos3.xss">
+      <DependentUpon>DataSetProductos3.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTipoProducto.xsc">
+      <DependentUpon>DataSetTipoProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTipoProducto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTipoProducto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetTipoProducto.xss">
+      <DependentUpon>DataSetTipoProducto.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\Descuentos\DataSetEstadisticaDescuento.xsc">
+      <DependentUpon>DataSetEstadisticaDescuento.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\Descuentos\DataSetEstadisticaDescuento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEstadisticaDescuento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Estadisticas\Descuentos\DataSetEstadisticaDescuento.xss">
+      <DependentUpon>DataSetEstadisticaDescuento.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\Funcion\DataSet1ReporteFuncionxsd.xsc">
+      <DependentUpon>DataSet1ReporteFuncionxsd.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\Funcion\DataSet1ReporteFuncionxsd.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1ReporteFuncionxsd.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Estadisticas\Funcion\DataSet1ReporteFuncionxsd.xss">
+      <DependentUpon>DataSet1ReporteFuncionxsd.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\Pelicula\DataSetEstadisticaPelicula.xsc">
+      <DependentUpon>DataSetEstadisticaPelicula.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\Pelicula\DataSetEstadisticaPelicula.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEstadisticaPelicula.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Estadisticas\Pelicula\DataSetEstadisticaPelicula.xss">
+      <DependentUpon>DataSetEstadisticaPelicula.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\PrecioDescuento\DataSetEstadisticaPrecioDescuento.xsc">
+      <DependentUpon>DataSetEstadisticaPrecioDescuento.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\PrecioDescuento\DataSetEstadisticaPrecioDescuento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEstadisticaPrecioDescuento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Estadisticas\PrecioDescuento\DataSetEstadisticaPrecioDescuento.xss">
+      <DependentUpon>DataSetEstadisticaPrecioDescuento.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\ProductosXTipo\DataSetEstadisticaProductoTipo.xsc">
+      <DependentUpon>DataSetEstadisticaProductoTipo.xsd</DependentUpon>
+    </None>
+    <None Include="Estadisticas\ProductosXTipo\DataSetEstadisticaProductoTipo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEstadisticaProductoTipo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Estadisticas\ProductosXTipo\DataSetEstadisticaProductoTipo.xss">
+      <DependentUpon>DataSetEstadisticaProductoTipo.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Reportes\Cliente\DataSetCliente.xsc">
+      <DependentUpon>DataSetCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Cliente\DataSetCliente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCliente.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Cliente\DataSetCliente.xss">
+      <DependentUpon>DataSetCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Combo\DataSetCombo.xsc">
+      <DependentUpon>DataSetCombo.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Combo\DataSetCombo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCombo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Combo\DataSetCombo.xss">
+      <DependentUpon>DataSetCombo.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Entrada\DataSetEntrada.xsc">
+      <DependentUpon>DataSetEntrada.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Entrada\DataSetEntrada.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEntrada.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Entrada\DataSetEntrada.xss">
+      <DependentUpon>DataSetEntrada.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Funcion\DataSetFuncion.xsc">
+      <DependentUpon>DataSetFuncion.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Funcion\DataSetFuncion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFuncion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Funcion\DataSetFuncion.xss">
+      <DependentUpon>DataSetFuncion.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Pelicula\DataSetPeliculas.xsc">
+      <DependentUpon>DataSetPeliculas.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Pelicula\DataSetPeliculas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPeliculas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Pelicula\DataSetPeliculas.xss">
+      <DependentUpon>DataSetPeliculas.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Promociones\DataSetPromocion.xsc">
+      <DependentUpon>DataSetPromocion.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Promociones\DataSetPromocion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPromocion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Promociones\DataSetPromocion.xss">
+      <DependentUpon>DataSetPromocion.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Tarifa\DataSetTarifa.xsc">
+      <DependentUpon>DataSetTarifa.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Tarifa\DataSetTarifa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTarifa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Tarifa\DataSetTarifa.xss">
+      <DependentUpon>DataSetTarifa.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\Tarjeta\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetEntrada" targetNamespace="http://tempuri.org/DataSetEntrada.xsd" xmlns:mstns="http://tempuri.org/DataSetEntrada.xsd" xmlns="http://tempuri.org/DataSetEntrada.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetEntrada" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetEntrada" msprop:Generator_DataSetName="DataSetEntrada">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Entrada" msprop:Generator_RowEvHandlerName="EntradaRowChangeEventHandler" msprop:Generator_RowDeletedName="EntradaRowDeleted" msprop:Generator_RowDeletingName="EntradaRowDeleting" msprop:Generator_RowEvArgName="EntradaRowChangeEvent" msprop:Generator_TablePropName="Entrada" msprop:Generator_RowChangedName="EntradaRowChanged" msprop:Generator_RowChangingName="EntradaRowChanging" msprop:Generator_TableClassName="EntradaDataTable" msprop:Generator_RowClassName="EntradaRow" msprop:Generator_TableVarName="tableEntrada" msprop:Generator_UserTableName="Entrada">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fechaHoraVenta" msprop:Generator_ColumnPropNameInRow="fechaHoraVenta" msprop:Generator_ColumnPropNameInTable="fechaHoraVentaColumn" msprop:Generator_ColumnVarNameInTable="columnfechaHoraVenta" msprop:Generator_UserColumnName="fechaHoraVenta" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaHoraFuncion" msprop:Generator_ColumnPropNameInRow="fechaHoraFuncion" msprop:Generator_ColumnPropNameInTable="fechaHoraFuncionColumn" msprop:Generator_ColumnVarNameInTable="columnfechaHoraFuncion" msprop:Generator_UserColumnName="fechaHoraFuncion" type="xs:string" minOccurs="0" />
+              <xs:element name="sala" msprop:Generator_ColumnPropNameInRow="sala" msprop:Generator_ColumnPropNameInTable="salaColumn" msprop:Generator_ColumnVarNameInTable="columnsala" msprop:Generator_UserColumnName="sala" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="precio_unitario" msprop:Generator_ColumnPropNameInRow="precio_unitario" msprop:Generator_ColumnPropNameInTable="precio_unitarioColumn" msprop:Generator_ColumnVarNameInTable="columnprecio_unitario" msprop:Generator_UserColumnName="precio_unitario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

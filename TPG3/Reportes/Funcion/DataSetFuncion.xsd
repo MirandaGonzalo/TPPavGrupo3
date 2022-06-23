@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetFuncion" targetNamespace="http://tempuri.org/DataSetFuncion.xsd" xmlns:mstns="http://tempuri.org/DataSetFuncion.xsd" xmlns="http://tempuri.org/DataSetFuncion.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetFuncion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSetFuncion" msprop:Generator_DataSetName="DataSetFuncion">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Funcion" msprop:Generator_RowEvHandlerName="FuncionRowChangeEventHandler" msprop:Generator_RowDeletedName="FuncionRowDeleted" msprop:Generator_RowDeletingName="FuncionRowDeleting" msprop:Generator_RowEvArgName="FuncionRowChangeEvent" msprop:Generator_TablePropName="Funcion" msprop:Generator_RowChangedName="FuncionRowChanged" msprop:Generator_RowChangingName="FuncionRowChanging" msprop:Generator_TableClassName="FuncionDataTable" msprop:Generator_RowClassName="FuncionRow" msprop:Generator_TableVarName="tableFuncion" msprop:Generator_UserTableName="Funcion">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fechaHora" msprop:Generator_ColumnPropNameInRow="fechaHora" msprop:Generator_ColumnPropNameInTable="fechaHoraColumn" msprop:Generator_ColumnVarNameInTable="columnfechaHora" msprop:Generator_UserColumnName="fechaHora" type="xs:string" minOccurs="0" />
+              <xs:element name="titulo" msprop:Generator_ColumnPropNameInRow="titulo" msprop:Generator_ColumnPropNameInTable="tituloColumn" msprop:Generator_ColumnVarNameInTable="columntitulo" msprop:Generator_UserColumnName="titulo" type="xs:string" minOccurs="0" />
+              <xs:element name="sala" msprop:Generator_ColumnPropNameInRow="sala" msprop:Generator_ColumnPropNameInTable="salaColumn" msprop:Generator_ColumnVarNameInTable="columnsala" msprop:Generator_UserColumnName="sala" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaInicio" msprop:Generator_ColumnPropNameInRow="fechaInicio" msprop:Generator_ColumnPropNameInTable="fechaInicioColumn" msprop:Generator_ColumnVarNameInTable="columnfechaInicio" msprop:Generator_UserColumnName="fechaInicio" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaFin" msprop:Generator_ColumnPropNameInRow="fechaFin" msprop:Generator_ColumnPropNameInTable="fechaFinColumn" msprop:Generator_ColumnVarNameInTable="columnfechaFin" msprop:Generator_UserColumnName="fechaFin" type="xs:string" minOccurs="0" />
+              <xs:element name="nroSemana" msprop:Generator_ColumnPropNameInRow="nroSemana" msprop:Generator_ColumnPropNameInTable="nroSemanaColumn" msprop:Generator_ColumnVarNameInTable="columnnroSemana" msprop:Generator_UserColumnName="nroSemana" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
